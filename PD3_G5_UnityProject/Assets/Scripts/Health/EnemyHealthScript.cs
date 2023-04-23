@@ -2,21 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthEnemySystem : MonoBehaviour
+public class EnemyHealthScript : MonoBehaviour
 {
     [SerializeField] float InitialHealth;
     float currentHealth;
-    // Start is called before the first frame update
 
     private void Awake()
     {
         currentHealth = InitialHealth;
     }
 
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

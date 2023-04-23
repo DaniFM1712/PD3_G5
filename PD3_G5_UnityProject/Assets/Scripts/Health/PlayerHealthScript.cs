@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 
-public class HealthPlayerSystem : MonoBehaviour
+public class PlayerHealthScript : MonoBehaviour
 {
     [SerializeField] float initialHealth;
     [SerializeField] float maxHealth;

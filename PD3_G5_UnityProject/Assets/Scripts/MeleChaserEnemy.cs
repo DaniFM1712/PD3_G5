@@ -43,7 +43,7 @@ public class MeleChaserEnemy : MonoBehaviour
     private void Awake()
     {
         enemy = GetComponent<NavMeshAgent>();
-        lastCheckedHealth = GetComponent<HealthEnemySystem>().getCurrentHealth();
+        lastCheckedHealth = GetComponent<EnemyHealthScript>().getCurrentHealth();
         currentState = State.IDLE;
     }
 
@@ -138,7 +138,7 @@ public class MeleChaserEnemy : MonoBehaviour
 
     private void attack()
     {
-        player.GetComponent<HealthPlayerSystem>().modifyHealth(damage);
+        player.GetComponent<PlayerHealthScript>().modifyHealth(damage);
     }
 
     void updateAttack()
@@ -165,7 +165,7 @@ public class MeleChaserEnemy : MonoBehaviour
 
     void updateHit()
     {
-        lastCheckedHealth = GetComponent<HealthEnemySystem>().getCurrentHealth();
+        lastCheckedHealth = GetComponent<EnemyHealthScript>().getCurrentHealth();
         enemy.isStopped = true;
     }
 
@@ -190,9 +190,9 @@ public class MeleChaserEnemy : MonoBehaviour
 
     private void isHit()
     {
-        if (lastCheckedHealth > GetComponent<HealthEnemySystem>().getCurrentHealth())
+        if (lastCheckedHealth > GetComponent<EnemyHealthScript>().getCurrentHealth())
         {
-            if (GetComponent<HealthEnemySystem>().getCurrentHealth() <= 0)
+            if (GetComponent<EnemyHealthScript>().getCurrentHealth() <= 0)
             {
                 currentState = State.DIE;
             }

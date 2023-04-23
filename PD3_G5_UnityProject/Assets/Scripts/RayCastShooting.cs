@@ -72,7 +72,7 @@ public class RayCastShooting : MonoBehaviour
                 //ya no instanciamos porque lo hace la clase ObjectPool
 
                 
-                if (hitInfo.collider.gameObject.TryGetComponent<HealthEnemySystem>(out HealthEnemySystem health))
+                if (hitInfo.collider.gameObject.TryGetComponent<EnemyHealthScript>(out EnemyHealthScript health))
                 {
                     health.takeDamage(damage);
                 }                

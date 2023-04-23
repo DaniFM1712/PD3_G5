@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthUI : MonoBehaviour
+public class HealthUIScript : MonoBehaviour
 {
     [SerializeField] Image healthAmount;
     private float maxHealth;
