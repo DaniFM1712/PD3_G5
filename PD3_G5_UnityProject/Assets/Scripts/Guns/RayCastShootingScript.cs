@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RayCastShooting : MonoBehaviour
+public class RayCastShootingScript : MonoBehaviour
 {
     [SerializeField] Camera cam;
     [SerializeField] float maxShootDist;
