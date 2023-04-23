@@ -29,9 +29,21 @@ public class HealthEnemySystem : MonoBehaviour
         InitialHealth += healthIncresed;
     }
 
-    void takeDamage(float damage)
+    public void takeDamage(float damage)
     {
         currentHealth -= damage;
+        if(currentHealth <= 0)
+        {
+            currentHealth = 0;
+            die();
+        }
+    }
+
+    private void die()
+    {
+        //ANIMATION
+        //SOUND
+        Destroy(gameObject);
     }
 
 

@@ -71,16 +71,11 @@ public class RayCastShooting : MonoBehaviour
                 //Instantiate(decalImage, hitInfo.point +hitInfo.normal* zOffset, Quaternion.LookRotation(hitInfo.normal));
                 //ya no instanciamos porque lo hace la clase ObjectPool
 
-                /*
-                if (hitInfo.collider.gameObject.TryGetComponent<HitColider>(out HitColider health))
+                
+                if (hitInfo.collider.gameObject.TryGetComponent<HealthEnemySystem>(out HealthEnemySystem health))
                 {
-                    health.TakeDamage(damage);
-                }
-                if (hitInfo.collider.gameObject.TryGetComponent<TargetController>(out TargetController target))
-                {
-                    target.addPoints();
-                }
-                */
+                    health.takeDamage(damage);
+                }                
             }
             //Instantiate(decalParticles, weaponDummy.position, weaponDummy.rotation);
             //ESTO ES PARA PONER PARTICULAS EN EL CAÑÓN DEL ARMA

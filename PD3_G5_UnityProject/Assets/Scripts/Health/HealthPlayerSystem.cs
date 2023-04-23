@@ -16,6 +16,8 @@ public class HealthPlayerSystem : MonoBehaviour
     private void Awake()
     {
         currentHealth = initialHealth;
+        updateMaxHealth.Invoke(maxHealth);
+        updateHealth.Invoke(currentHealth);
     }
 
     // Start is called before the first frame update
@@ -37,22 +39,21 @@ public class HealthPlayerSystem : MonoBehaviour
     public void modifyHealth(float modifier)
     {
         currentHealth += modifier;
-
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
-        if (currentHealth <= 0.0f)
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        updateHealth.Invoke(currentHealth);
+        if (currentHealth == 0.0f)
         {
             die();
         }
+
+
     }
 
 
     public void die()
     {
-        //Descomentar després    Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene(3);
     }
 
 
@@ -61,5 +62,9 @@ public class HealthPlayerSystem : MonoBehaviour
         return currentHealth;
     }
 
-        
+    public void modifyMaxHealth(float hpMaxPoints)
+    {
+        maxHealth += hpMaxPoints;
+        updateMaxHealth.Invoke(maxHealth);
+    }
 }

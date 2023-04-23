@@ -8,6 +8,7 @@ public class MeleChaserEnemy : MonoBehaviour
 {
 
     NavMeshAgent enemy;
+    
     [SerializeField] LayerMask obstacleMask;
     Vector3 distanceToPlayer;
     [SerializeField] UnityEvent<GameObject> objectIsDead;
@@ -42,7 +43,7 @@ public class MeleChaserEnemy : MonoBehaviour
     private void Awake()
     {
         enemy = GetComponent<NavMeshAgent>();
-        lastCheckedHealth = GetComponent<HealthPlayerSystem>().getCurrentHealth();
+        lastCheckedHealth = GetComponent<HealthEnemySystem>().getCurrentHealth();
         currentState = State.IDLE;
     }
 
@@ -81,7 +82,10 @@ public class MeleChaserEnemy : MonoBehaviour
 
     void ChangeFromIdle()
     {
-        if (seesPlayer() && !PlayerInRange())
+        Debug.Log("SP"+seesPlayer());
+        Debug.Log("PIR"+!PlayerInRange());
+        //seesPlayer() &&
+        if ( !PlayerInRange())
         {
             currentState = State.CHASE;
         }
@@ -126,19 +130,33 @@ public class MeleChaserEnemy : MonoBehaviour
         if (PlayerInRange())
         {
             currentState = State.ATTACK;
+            attack();
+            StartCoroutine(CooldownAttack());
         }
         isHit();
     }
 
+    private void attack()
+    {
+        player.GetComponent<HealthPlayerSystem>().modifyHealth(damage);
+    }
 
     void updateAttack()
     {
-         
+
+    }
+
+    IEnumerator CooldownAttack()
+    {
+        enemy.isStopped = true;
+        yield return new WaitForSeconds(3.0f);
+        enemy.isStopped = false;
     }
 
     void ChangeFromAttack()
     {
-        if (seesPlayer() && !PlayerInRange())
+        //seesPlayer() &&
+        if (!enemy.isStopped && !PlayerInRange())
         {
             currentState = State.CHASE;
         }
@@ -165,7 +183,7 @@ public class MeleChaserEnemy : MonoBehaviour
 
     void updateDie()
     {
-        objectIsDead.Invoke(gameObject);
+        //objectIsDead.Invoke(gameObject);
     }
 
     

@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
 
         levelPath = new Queue<int>(levelIndex);
         levelPath.Dequeue();
-        levelPath.Enqueue(1);
+        //levelPath.Enqueue(0); Nivel final que añadimos, bossLvl
     }
 
 
@@ -51,5 +51,17 @@ public class LevelManager : MonoBehaviour
         }
         foreach (int k in alpha) { Debug.Log(k.ToString()); }
     }
+
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 
 }
