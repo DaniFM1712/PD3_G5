@@ -19,22 +19,22 @@ public class EnemyHealthScript : MonoBehaviour
 
     }
 
-    void addInitialHealth(float healthIncresed)
+    void AddInitialHealth(float healthIncresed)
     {
         InitialHealth += healthIncresed;
     }
 
-    public void takeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
             currentHealth = 0;
-            die();
+            Die();
         }
     }
 
-    private void die()
+    private void Die()
     {
         //ANIMATION
         //SOUND
@@ -42,7 +42,7 @@ public class EnemyHealthScript : MonoBehaviour
     }
 
 
-    public float getCurrentHealth()
+    public float GetCurrentHealth()
     {
         return currentHealth;
     }

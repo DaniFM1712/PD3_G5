@@ -74,7 +74,7 @@ public class RayCastShootingScript : MonoBehaviour
                 
                 if (hitInfo.collider.gameObject.TryGetComponent<EnemyHealthScript>(out EnemyHealthScript health))
                 {
-                    health.takeDamage(damage);
+                    health.TakeDamage(damage);
                 }                
             }
             //Instantiate(decalParticles, weaponDummy.position, weaponDummy.rotation);
