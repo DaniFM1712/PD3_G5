@@ -6,13 +6,13 @@ using static UnityEditor.PlayerSettings;
 
 public class chestManagerScript : MonoBehaviour
 {
-    GameObject[] chestList;
+    [SerializeField] List<GameObject> chestList;
+
+
 
     public void randomizeChests(int currentLevel)
     {
-        chestList = GameObject.FindGameObjectsWithTag("Chest");
 
-        Debug.Log(chestList[0]);
         foreach (GameObject k in chestList)
         {
             bool appearsPercent = Random.Range(0, 100) > 20;
@@ -43,4 +43,14 @@ public class chestManagerScript : MonoBehaviour
             }
         }
     }
+    public void destroyObject()
+    {
+        foreach (GameObject k in chestList) {
+            if (k.GetComponentInChildren<chestScript>().opened) {
+                Destroy(k);
+            }
+        }
+    }
+
+
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class chestScript : MonoBehaviour
 {
     [SerializeField] GameObject Canvas;
+    public bool opened= false;
     private bool canTake = false;
     // Start is called before the first frame update
     void Start()
@@ -19,14 +20,11 @@ public class chestScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                opened = true;
                 Canvas.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0;
 
-            }
-            else
-            {
-                Canvas.SetActive(false);
             }
         }
         
@@ -49,8 +47,5 @@ public class chestScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void destroyObject()
-    {
-        Destroy(transform.parent.gameObject);
-    }
+    
 }
