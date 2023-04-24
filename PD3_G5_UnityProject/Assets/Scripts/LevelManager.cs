@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour
     static Queue <int> levelPath ;
     static List <int> allLevels = new List<int> {1,2,1,2};
     static List<int> levelIndex;
+    static int currentLevel = 0;
+    chestManagerScript chestManager;
     //[SerializeField] UnityEvent<float, float> callScene;
 
     private void Awake()
@@ -21,6 +23,8 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        chestManager = GameObject.Find("chestController").GetComponent<chestManagerScript>();
+
         levelIndex = new List<int>(allLevels);
         Shuffle(levelIndex);
         
@@ -36,7 +40,9 @@ public class LevelManager : MonoBehaviour
 
 
     public void LoadLevel(){
+        currentLevel++;
         SceneManager.LoadScene(levelPath.Dequeue());
+        chestManager.randomizeChests(currentLevel);
     }
 
 

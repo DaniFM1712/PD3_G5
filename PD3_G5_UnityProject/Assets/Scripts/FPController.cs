@@ -49,6 +49,8 @@ public class FPController : MonoBehaviour
     [SerializeField] bool onGround;
     bool onCeiling;
 
+    [SerializeField] GameObject weaponParent;
+
     private void Awake()
     {
         Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked) ? CursorLockMode.None : CursorLockMode.Locked;
@@ -158,4 +160,16 @@ public class FPController : MonoBehaviour
     {
         return new Vector3(Mathf.Sin((yaw + 90.0f) * Mathf.Deg2Rad), 0.0f, Mathf.Cos((yaw + 90.0f) * Mathf.Deg2Rad));
     }
+
+
+    public void addSpeed(float speed)
+    {
+        walkSpeed += speed;
+    }
+
+    public void addDamage(float damage)
+    {
+        weaponParent.transform.GetChild(0).GetComponent<ProjectileShootingScript>().changeDamage(damage);
+    }
+
 }
