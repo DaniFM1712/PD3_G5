@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -164,10 +165,11 @@ public class FPController : MonoBehaviour
 
     public void addSpeed(float speed)
     {
+        Debug.Log("subimos speed:" +speed);
         walkSpeed += speed;
     }
 
-    public void addDamage(float damage)
+    public void changeDamage(float damage)
     {
         weaponParent.transform.GetChild(0).GetComponent<ProjectileShootingScript>().changeDamage(damage);
     }

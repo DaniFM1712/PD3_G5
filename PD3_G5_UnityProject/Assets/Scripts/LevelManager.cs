@@ -23,8 +23,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        chestManager = GameObject.Find("chestController").GetComponent<chestManagerScript>();
-
+        chestManager = GameObject.Find("ChestController").GetComponent<chestManagerScript>();
         levelIndex = new List<int>(allLevels);
         Shuffle(levelIndex);
         
@@ -55,7 +54,7 @@ public class LevelManager : MonoBehaviour
             alpha[i] = alpha[randomIndex];
             alpha[randomIndex] = temp;
         }
-        foreach (int k in alpha) { Debug.Log(k.ToString()); }
+        
     }
 
 

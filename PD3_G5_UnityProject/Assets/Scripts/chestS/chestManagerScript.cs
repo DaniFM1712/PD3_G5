@@ -1,25 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class chestManagerScript : MonoBehaviour
 {
-    [SerializeField] List<GameObject> chestList;
-    
-  
-
+    GameObject[] chestList;
 
     public void randomizeChests(int currentLevel)
     {
+        chestList = GameObject.FindGameObjectsWithTag("Chest");
+
+        Debug.Log(chestList[0]);
         foreach (GameObject k in chestList)
         {
-            bool appearsPercent = Random.Range(0, 100) > 50;
+            bool appearsPercent = Random.Range(0, 100) > 20;
+            Debug.Log(appearsPercent);
+
             if (appearsPercent)
             {
                 gameObject.SetActive(true);
                 int rewardPercent = Random.Range(0, 100);
-                // Check with design team!
-                if (rewardPercent >= 0 && rewardPercent < 40 - (currentLevel * 5))
+                // Check with design team
+                /*
+                 * if (rewardPercent >= 0 && rewardPercent < 40 - (currentLevel * 5))
                 {
 
                 }
@@ -34,22 +39,8 @@ public class chestManagerScript : MonoBehaviour
                 else
                 {
 
-                }
-            }
-            else
-            {
-                k.SetActive(false);
+                }*/
             }
         }
-    }
-
-   
-
-    enum rewardLevels
-    {
-        Common,
-        Rare,
-        Epic,
-        Legendary
     }
 }

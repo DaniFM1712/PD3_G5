@@ -17,14 +17,16 @@ public class chestScript : MonoBehaviour
     {
         if (canTake)
         {
-            Debug.Log("PODEMOS COGER");
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Destroy(transform.parent.gameObject);
+                Canvas.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0;
-                Canvas.SetActive(true);
 
+            }
+            else
+            {
+                Canvas.SetActive(false);
             }
         }
         
@@ -40,8 +42,15 @@ public class chestScript : MonoBehaviour
         canTake = false;
     }
 
-    public void destroyCanvas()
+    private void OnDestroy()
     {
-        Destroy(Canvas);
+        Canvas.SetActive(false);
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void destroyObject()
+    {
+        Destroy(transform.parent.gameObject);
     }
 }
