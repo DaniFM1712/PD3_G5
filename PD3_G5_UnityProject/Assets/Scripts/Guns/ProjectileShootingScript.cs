@@ -33,12 +33,14 @@ public class ProjectileShootingScript : MonoBehaviour
     bool shooting, readyToShoot, reloading;
     Queue<GameObject> bulletPool;
 
-    private void Awake()
+    // Start is called before the first frame update
+    private void Start()
     {
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
         bulletPool = new Queue<GameObject>();
-        for(int i = 0; i < magazineSize + 20; i++)
+        for (int i = 0; i < magazineSize + 20; i++)
         {
-            GameObject bullet = Instantiate(bulletPrefab, new Vector3 (0f,0f,0f), Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
             bullet.SetActive(false);
             bulletPool.Enqueue(bullet);
         }
@@ -46,12 +48,6 @@ public class ProjectileShootingScript : MonoBehaviour
         bulletsLeft = magazineSize;
         readyToShoot = true;
         shooting = false;
-    }
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -94,6 +90,7 @@ public class ProjectileShootingScript : MonoBehaviour
         //if (Physics.Raycast(r, out hitInfo, maxShootDist, shootingMask))
         
         if (Physics.Raycast(r, out hitInfo))
+            //Crec que a vegades les bales surten rares pq això detecta una bala ja disparada.
             hitPoint = hitInfo.point;
 
         else
