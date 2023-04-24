@@ -235,4 +235,10 @@ public class ProjectileShootingScript : MonoBehaviour
         bulletsLeft = magazineSize;
         reloading = false;
     }
+
+    public void changeDamage(float newBulletDamage)
+    {
+        bulletDamage = newBulletDamage;
+    }
+
 }
