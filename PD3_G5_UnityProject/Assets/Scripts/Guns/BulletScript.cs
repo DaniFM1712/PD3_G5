@@ -32,9 +32,11 @@ public class BulletScript : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Terrain"))
         {
 
-            if (other.gameObject.TryGetComponent<EnemyHealthScript>(out EnemyHealthScript health))
+            if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
             {
-                health.TakeDamage(damage);
+                Debug.Log("TAKE DAMAGE BULLET");
+
+                enemyPart.TakeDamage(damage);
             }
             ReturnToOrigin();
         }   

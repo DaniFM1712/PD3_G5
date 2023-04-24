@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3357865048969623129}
   - component: {fileID: 3688068328114149651}
   - component: {fileID: 3688068328114149654}
-  - component: {fileID: 2654659574071811245}
   - component: {fileID: 3688068328114149649}
   m_Layer: 0
   m_Name: PlayerPrefab
@@ -134,33 +133,6 @@ MonoBehaviour:
   weaponAnimation: {fileID: 0}
   reloadKey: 114
   timeToShoot: 0
---- !u!114 &2654659574071811245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3688068328114149645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df13a41e8ab5e2c42a546bb7400ce25a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 3682631923943361041, guid: c75e3bda732298b4cb6cf3728c3d8b24,
-    type: 3}
-  shootForce: 300
-  upwardForce: 0
-  timeBetweenShooting: 0.1
-  spread: 2
-  reloadTime: 1.5
-  timeBetweenShots: 0
-  bulletDamage: 20
-  magazineSize: 50
-  bulletsPerTap: 5
-  allowButtonHold: 1
-  cam: {fileID: 3688068329298052680}
-  attackPoint: {fileID: 3688068327907604870}
-  allowInvoke: 1
 --- !u!65 &3688068328114149649
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -464,7 +436,7 @@ PrefabInstance:
     - target: {fileID: 7352254665611245801, guid: e6ef93be3a191454c90ee5f427aa3fd6,
         type: 3}
       propertyPath: m_Name
-      value: WeaponModel
+      value: MachinegunPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 7352254665611245802, guid: e6ef93be3a191454c90ee5f427aa3fd6,
         type: 3}
