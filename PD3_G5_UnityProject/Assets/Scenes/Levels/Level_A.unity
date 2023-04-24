@@ -912,6 +912,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1489775814}
     m_Modifications:
+    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: specialSpread
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: specialShootForce
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: specialUpwardForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: specialBulletPrefab
+      value: 
+      objectReference: {fileID: 3682631923943361041, guid: 456834752b0b19b4eb669375375c6915,
+        type: 3}
+    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: specialBulletsPerTap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7352254665611245801, guid: de1b484802dac7e49827798adf8352ee,
         type: 3}
       propertyPath: m_Name
@@ -1316,7 +1342,7 @@ PrefabInstance:
     - target: {fileID: 1515236647032608032, guid: 046d7a28574a4f244abd432b97ef9116,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.78
+      value: -10.81
       objectReference: {fileID: 0}
     - target: {fileID: 1515236647032608032, guid: 046d7a28574a4f244abd432b97ef9116,
         type: 3}

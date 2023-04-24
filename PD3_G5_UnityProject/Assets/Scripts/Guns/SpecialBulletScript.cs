@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class SpecialBulletScript : MonoBehaviour
 {
+    [SerializeField] GameObject specialEffectPrefab;
     [SerializeField] float lifeTime = 5f;
     float damage;
     float timeToDestroy;
@@ -36,6 +37,8 @@ public class BulletScript : MonoBehaviour
             {
                 enemyPart.TakeDamage(damage);
             }
+
+            GameObject specialEffect = Instantiate(specialEffectPrefab, other.ClosestPoint(transform.position), Quaternion.identity);
             ReturnToOrigin();
         }   
     }

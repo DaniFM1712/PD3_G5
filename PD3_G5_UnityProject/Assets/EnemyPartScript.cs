@@ -7,6 +7,7 @@ public class EnemyPartScript : MonoBehaviour
 {
     [SerializeField] float damageMultiplyer = 1f;
     [SerializeField] UnityEvent<float> receiveDamage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +22,6 @@ public class EnemyPartScript : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
-        Debug.Log("TAKE DAMAGE BODY PART");
         receiveDamage.Invoke(damage * damageMultiplyer);
     }
 }
