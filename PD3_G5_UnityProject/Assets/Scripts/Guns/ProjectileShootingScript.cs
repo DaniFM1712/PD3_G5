@@ -109,6 +109,7 @@ public class ProjectileShootingScript : MonoBehaviour
         if (readyToShoot && shootingSpecial && !reloading && !shooting)
         {
             bulletsShot = 0;
+            //START COOLDOWN SS
             ShootSpecial();
         }
     }

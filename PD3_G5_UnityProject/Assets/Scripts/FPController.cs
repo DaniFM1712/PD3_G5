@@ -54,7 +54,7 @@ public class FPController : MonoBehaviour
 
     private void Awake()
     {
-        Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked) ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.lockState =  CursorLockMode.Locked;
         yaw = transform.rotation.eulerAngles.y;
         pitch = transform.rotation.eulerAngles.x;
 

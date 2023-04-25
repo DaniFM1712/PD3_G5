@@ -2,25 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class chestManagerScript : MonoBehaviour
 {
     [SerializeField] List<GameObject> chestList;
 
-
-
-    public void randomizeChests(int currentLevel)
+    private void Start()
     {
+        randomizeChests();
+    }
 
+
+    public void randomizeChests()
+    {
+        int currentLevel = LevelManager.levelManagerInstance.getCurrentIndex();
+        Debug.Log("SDAS");
         foreach (GameObject k in chestList)
         {
-            bool appearsPercent = Random.Range(0, 100) > 20;
+            bool appearsPercent = Random.Range(0, 100) > 50;
             Debug.Log(appearsPercent);
 
             if (appearsPercent)
             {
-                gameObject.SetActive(true);
+                k.SetActive(true);
                 int rewardPercent = Random.Range(0, 100);
                 // Check with design team
                 /*
@@ -40,7 +44,8 @@ public class chestManagerScript : MonoBehaviour
                 {
 
                 }*/
-            }
+            }  else
+                k.SetActive(false);
         }
     }
     public void destroyObject()

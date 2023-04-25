@@ -8,42 +8,51 @@ using Random = UnityEngine.Random;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] int PATH_LENGHT = 1;
+    [SerializeField] int PATH_LENGHT;
     static Queue <int> levelPath ;
     static List <int> allLevels = new List<int> {1,2,1,2};
     static List<int> levelIndex;
     static int currentLevel = 0;
-    chestManagerScript chestManager;
+    public static LevelManager levelManagerInstance { get; private set; }
     //[SerializeField] UnityEvent<float, float> callScene;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if(levelManagerInstance == null){
+            levelManagerInstance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
     }
     // Start is called before the first frame update
     void Start()
     {
-        chestManager = GameObject.Find("ChestController").GetComponent<chestManagerScript>();
+        generateRandomPath();
+    }
+
+
+    public void LoadLevel() {
+        if (levelPath.Count > 0)
+        {
+            currentLevel++;
+            SceneManager.LoadScene(levelPath.Dequeue());
+        }
+    }
+
+    public void generateRandomPath()
+    {
         levelIndex = new List<int>(allLevels);
         Shuffle(levelIndex);
-        
-
-        for (int i=0;i< allLevels.Count-PATH_LENGHT;i++){
-            levelIndex.RemoveAt(0);   
+        for (int i = 0; i < allLevels.Count - PATH_LENGHT; i++)
+        {
+            levelIndex.RemoveAt(0);
         }
 
         levelPath = new Queue<int>(levelIndex);
-        levelPath.Dequeue();
+        //levelPath.Dequeue();
         //levelPath.Enqueue(0); Nivel final que añadimos, bossLvl
     }
-
-
-    public void LoadLevel(){
-        currentLevel++;
-        SceneManager.LoadScene(levelPath.Dequeue());
-        chestManager.randomizeChests(currentLevel);
-    }
-
 
     public void Shuffle(List<int> alpha)
     {
@@ -65,8 +74,15 @@ public class LevelManager : MonoBehaviour
 
     public void RestartGame()
     {
+        generateRandomPath();
+        CoinCounterScript.coinCounterInstance.resetNCCounter();
         SceneManager.LoadScene(0);
     }
 
+    public int getCurrentIndex() {
+        return currentLevel;
+    }
+
+    
 
 }

@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e9bfa281b74a2e7429c45a25799318df, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,8 +113,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3682631923943361041, guid: c7eeff507f5ad6a48b8af0cfb36f1d4a,
     type: 3}
+  specialBulletPrefab: {fileID: 0}
   shootForce: 300
   upwardForce: 0
+  specialShootForce: 0
+  specialUpwardForce: 0
   timeBetweenShooting: 1
   spread: 3
   reloadTime: 1.5
@@ -123,6 +126,12 @@ MonoBehaviour:
   magazineSize: 30
   bulletsPerTap: 5
   allowButtonHold: 0
+  specialTimeBetweenShooting: 0
+  specialSpread: 0
+  specialReloadTime: 0
+  specialTimeBetweenShots: 0
+  specialBulletDamage: 0
+  specialBulletsPerTap: 0
   cam: {fileID: 0}
   attackPoint: {fileID: 7352254666028250572}
   allowInvoke: 1
