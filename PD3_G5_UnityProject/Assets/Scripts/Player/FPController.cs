@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FPController : MonoBehaviour
 {
@@ -53,6 +54,23 @@ public class FPController : MonoBehaviour
 
     [SerializeField] GameObject weaponParent;
 
+    [Header("Dash Properties")]
+    [SerializeField] UnityEvent<float> startDashCooldown;
+    [SerializeField] float speed = 10.0f;
+    [SerializeField] float dashLength = 0.15f;
+    [SerializeField] float dashSpeed = 1000.0f;
+    [SerializeField] float dashResetTime = 1.0f;
+
+    [Header("Dash Conditions")]
+    private Vector3 dashMove;
+    private float dashing = 0f;
+    private float dashingTime = 0f;
+    private bool canDash = true;
+    private bool dashingNow = false;
+    private bool dashReset = true;
+    private bool dashAllowed = false;
+    private Vector3 moved = new Vector3(0, 0, 0);
+
     private void Awake()
     {
         Cursor.lockState =  CursorLockMode.Locked;
@@ -77,7 +95,9 @@ public class FPController : MonoBehaviour
 
     void Update()
     {
+        moved = updateMoveStats();
         inputUpdate();
+        checkDash();
         updateLockKeyState();
     }
 
@@ -155,6 +175,67 @@ public class FPController : MonoBehaviour
         if (Input.GetKeyDown(jumpKey) && onGround)
         {
             verticalSpeed = jumpSpeed;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) == true && dashAllowed)
+        {
+            dashMove = moved;
+            canDash = false;
+            dashReset = false;
+            dashingNow = true;
+            //startDashCooldown.Invoke(dashResetTime);
+        }
+    }
+    Vector3 updateMoveStats()
+    {
+        float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
+        moved = transform.right * moveX + transform.forward * moveZ;
+
+        if (moved.magnitude > 1)
+        {
+            moved = moved.normalized;
+        }
+        return moved;
+    }
+
+    void checkDash()
+    {
+        dashAllowed = dashing < dashLength && dashingTime < dashResetTime &&
+            dashReset && canDash && onGround;
+
+
+        if (dashingNow && dashing < dashLength)
+        {
+            characterController.Move(dashMove * dashSpeed * Time.deltaTime);
+            dashing += Time.deltaTime;
+        }
+
+        dashingNow = (dashing >= dashLength) ? false : dashingNow;
+
+        if (dashing >= dashLength)
+        {
+            startDashCooldown.Invoke(dashResetTime);
+        }
+
+
+        if (!dashingNow)
+        {
+            characterController.Move(moved * speed * Time.deltaTime);
+        }
+
+        dashingTime += (dashReset == false) ? Time.deltaTime : 0;
+
+        if (onGround && !canDash && dashing >= dashLength)
+        {
+            canDash = true;
+            dashing = 0f;
+        }
+
+        if (dashingTime >= dashResetTime && !dashReset)
+        {
+            dashReset = true;
+            dashingTime = 0f;
         }
     }
 

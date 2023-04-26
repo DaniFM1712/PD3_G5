@@ -28,7 +28,7 @@ public class ExplosionScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Terrain"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("1.1 - EXPLOSION TRIGGER");
             if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))

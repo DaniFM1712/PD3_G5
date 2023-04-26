@@ -113,11 +113,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3682631923943361041, guid: c7eeff507f5ad6a48b8af0cfb36f1d4a,
     type: 3}
-  specialBulletPrefab: {fileID: 0}
+  specialBulletPrefab: {fileID: 3682631923943361041, guid: 456834752b0b19b4eb669375375c6915,
+    type: 3}
   shootForce: 300
   upwardForce: 0
-  specialShootForce: 0
-  specialUpwardForce: 0
+  specialShootForce: 45
+  specialUpwardForce: 5
   timeBetweenShooting: 1
   spread: 3
   reloadTime: 1.5
@@ -126,12 +127,27 @@ MonoBehaviour:
   magazineSize: 30
   bulletsPerTap: 5
   allowButtonHold: 0
-  specialTimeBetweenShooting: 0
-  specialSpread: 0
+  startAbilityCooldown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CooldownScript, Assembly-CSharp
+        m_MethodName: StartAbilityCooldown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  specialTimeBetweenShooting: 10
+  specialSpread: 1
   specialReloadTime: 0
   specialTimeBetweenShots: 0
   specialBulletDamage: 0
-  specialBulletsPerTap: 0
+  specialBulletsPerTap: 1
   cam: {fileID: 0}
   attackPoint: {fileID: 7352254666028250572}
   allowInvoke: 1

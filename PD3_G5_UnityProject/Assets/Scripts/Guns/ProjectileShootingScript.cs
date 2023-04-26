@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ProjectileShootingScript : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class ProjectileShootingScript : MonoBehaviour
     [SerializeField] bool allowButtonHold;
 
     [Header("Special Stats")]
+    [SerializeField] UnityEvent<float> startAbilityCooldown;
     [SerializeField] float specialTimeBetweenShooting;
     [SerializeField] float specialSpread;
     [SerializeField] float specialReloadTime;
@@ -111,6 +113,7 @@ public class ProjectileShootingScript : MonoBehaviour
             bulletsShot = 0;
             //START COOLDOWN SS
             ShootSpecial();
+            startAbilityCooldown.Invoke(specialTimeBetweenShooting);
         }
     }
 

@@ -68,8 +68,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be7e842660bfbe84eb53e3b175018423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 100
-  maxHealth: 100
   updateHealth:
     m_PersistentCalls:
       m_Calls: []
@@ -110,6 +108,10 @@ MonoBehaviour:
   jumpTime: 0.5
   onGround: 0
   weaponParent: {fileID: 0}
+  speed: 10
+  dashLength: 0.15
+  dashSpeed: 100
+  dashResetTime: 1
 --- !u!114 &3688068328114149654
 MonoBehaviour:
   m_ObjectHideFlags: 0
