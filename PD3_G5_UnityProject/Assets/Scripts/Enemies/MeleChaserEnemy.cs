@@ -17,7 +17,7 @@ public class MeleChaserEnemy : MonoBehaviour
 
     enum State { IDLE, CHASE, ATTACK, HIT , DIE }
     [SerializeField] State currentState;
-    [SerializeField] GameObject player;
+    private GameObject player;
 
     [Header("IDLE")]
     State lastState;
@@ -45,6 +45,10 @@ public class MeleChaserEnemy : MonoBehaviour
         enemy = GetComponent<NavMeshAgent>();
         lastCheckedHealth = GetComponent<EnemyHealthScript>().GetCurrentHealth();
         currentState = State.IDLE;
+    }
+    private void Start()
+    {
+        player = GameObject.Find("Player");
     }
 
     void Update()
@@ -82,8 +86,6 @@ public class MeleChaserEnemy : MonoBehaviour
 
     void ChangeFromIdle()
     {
-        Debug.Log("SP"+seesPlayer());
-        Debug.Log("PIR"+!PlayerInRange());
         //seesPlayer() &&
         if ( !PlayerInRange())
         {

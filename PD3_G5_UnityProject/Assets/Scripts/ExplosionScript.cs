@@ -28,6 +28,10 @@ public class ExplosionScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        if(other.gameObject.CompareTag("Player"))
+            Debug.Log("1-PLAYER IN TRIGGER");
+
         if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("1.1 - EXPLOSION TRIGGER");
@@ -41,6 +45,8 @@ public class ExplosionScript : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.CompareTag("Player"))
+            Debug.Log("2-PLAYER IN TRIGGER");
         Debug.Log("2.1 - EXPLOSION TRIGGER");
         if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
         {
@@ -51,6 +57,8 @@ public class ExplosionScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.gameObject.CompareTag("Player"))
+            Debug.Log("3-PLAYER IN TRIGGER");
         Debug.Log("3.1 - EXPLOSION TRIGGER");
         if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
         {
