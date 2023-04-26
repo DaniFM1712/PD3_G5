@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class chestScript : MonoBehaviour
@@ -8,10 +9,12 @@ public class chestScript : MonoBehaviour
     private PlayerStatsScript playerStats;
     public bool opened= false;
     private bool canTake = false;
+    private GameObject player;
 
     private void Start()
     {
         playerStats = PlayerStatsScript.playerStatsInstance;
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -49,13 +52,13 @@ public class chestScript : MonoBehaviour
     public void ModifyCurrentMaxHealth(float amount)
     {
         Debug.Log("CHEST ITEM");
-        playerStats.currentMaxHealth += amount;
+        player.GetComponent<PlayerHealthScript>().ModifyMaxHealth(amount);
         //Destroy(transform.parent.gameObject);
     }
 
     public void ModifyCurrentHealth(float amount)
     {
-        playerStats.currentHealth += amount;
+        player.GetComponent<PlayerHealthScript>().ModifyHealth(amount);
         Destroy(transform.parent.gameObject);
     }
 

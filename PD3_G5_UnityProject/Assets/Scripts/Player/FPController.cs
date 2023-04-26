@@ -53,7 +53,9 @@ public class FPController : MonoBehaviour
     [SerializeField] bool onGround;
     bool onCeiling;
 
+    [Header("Weapons")]
     [SerializeField] GameObject weaponParent;
+    [SerializeField] List<GameObject> weapons;
 
     [Header("Dash Properties")]
     [SerializeField] UnityEvent<float> startDashCooldown;
@@ -88,6 +90,7 @@ public class FPController : MonoBehaviour
     {
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
         playerStats = PlayerStatsScript.playerStatsInstance;
+        ChangeWeapon();
     }
 
     private void FixedUpdate()
@@ -239,6 +242,23 @@ public class FPController : MonoBehaviour
         {
             dashReset = true;
             dashingTime = 0f;
+        }
+    }
+
+    public void ChangeWeapon() 
+    {
+        foreach (GameObject weapon in weapons)
+        {
+            weapon.SetActive(false);
+        }
+
+        if(playerStats.currentSelectedWeapon == 1)
+        {
+            weapons[0].SetActive(true);
+        }
+        if (playerStats.currentSelectedWeapon == 2)
+        {
+            weapons[1].SetActive(true);
         }
     }
 

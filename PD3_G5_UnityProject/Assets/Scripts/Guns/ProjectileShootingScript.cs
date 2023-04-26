@@ -40,10 +40,11 @@ public class ProjectileShootingScript : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] bool allowInvoke;
+    [SerializeField] bool allowInvokeSpecial;
 
     int bulletsLeft, bulletsShot;
 
-    bool shooting, readyToShoot, reloading, shootingSpecial;
+    bool shooting, readyToShoot, readyToShootSpecial, reloading, shootingSpecial;
     Queue<GameObject> bulletPool;
     Queue<GameObject> specialBulletPool;
 
@@ -75,6 +76,7 @@ public class ProjectileShootingScript : MonoBehaviour
 
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        readyToShootSpecial = true;
         shooting = false;
         shootingSpecial = false;
     }
@@ -108,7 +110,7 @@ public class ProjectileShootingScript : MonoBehaviour
                 Reload();
         }
 
-        if (readyToShoot && shootingSpecial && !reloading && !shooting)
+        if (readyToShootSpecial && shootingSpecial && !reloading && !shooting)
         {
             bulletsShot = 0;
             //START COOLDOWN SS
@@ -149,7 +151,7 @@ public class ProjectileShootingScript : MonoBehaviour
         currentBullet.SetActive(true);
         currentBullet.transform.position = bulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
-        currentBullet.GetComponent<BulletScript>().SetDamage(bulletDamage);
+        currentBullet.GetComponent<BulletScript>().SetDamage(bulletDamage+PlayerStatsScript.playerStatsInstance.currentDamageBonus);
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * upwardForce, ForceMode.Impulse);
@@ -172,7 +174,7 @@ public class ProjectileShootingScript : MonoBehaviour
 
     private void ShootSpecial()
     {
-        readyToShoot = false;
+        readyToShootSpecial = false;
 
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
         RaycastHit hitInfo;
@@ -211,14 +213,14 @@ public class ProjectileShootingScript : MonoBehaviour
 
         bulletsShot++;
 
-        if (allowInvoke)
+        if (allowInvokeSpecial)
         {
-            Invoke("ResetShot", specialTimeBetweenShooting);
-            allowInvoke = false;
+            Invoke("ResetSpecialShot", specialTimeBetweenShooting);
+            allowInvokeSpecial = false;
         }
         if (bulletsShot < specialBulletsPerTap)
         {
-            Invoke("Shoot", specialTimeBetweenShots);
+            Invoke("ShootSpecial", specialTimeBetweenShots);
         }
     }
 
@@ -226,6 +228,12 @@ public class ProjectileShootingScript : MonoBehaviour
     {
         readyToShoot = true;
         allowInvoke = true;
+    }
+    
+    private void ResetSpecialShot()
+    {
+        readyToShootSpecial = true;
+        allowInvokeSpecial = true;
     }
 
     private void Reload()

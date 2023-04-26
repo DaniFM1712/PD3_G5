@@ -76,6 +76,7 @@ public class LevelManager : MonoBehaviour
     {
         generateRandomPath();
         CoinCounterScript.coinCounterInstance.resetNCCounter();
+        PlayerStatsScript.playerStatsInstance.ResetStats();
         SceneManager.LoadScene(0);
     }
 

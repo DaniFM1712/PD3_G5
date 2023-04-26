@@ -26,8 +26,10 @@ public class PlayerStatsScript : MonoBehaviour
     public float currentShield { get; set; }
     public float currentDamageBonus { get; set; }
     public float currentSpeedBonus { get; set; }
-    
-    
+    public int currentSelectedWeapon { get; set; }
+    public int currentNormalCoin { get; set; }
+    public int currentSpecialCoin { get; set; }
+
 
 
     private void Awake()
@@ -57,10 +59,26 @@ public class PlayerStatsScript : MonoBehaviour
         currentShield = currentMaxShield;
         currentDamageBonus = baseDamageBonus;
         currentSpeedBonus = baseSpeedBonus;
+        currentSelectedWeapon = 0;
+        currentNormalCoin = 0;  
+        currentSpecialCoin = 0; 
     }
 
     private void Start()
     {
 
+    }
+
+
+    public void ResetStats()
+    {
+        currentMaxHealth = baseMaxHealth;
+        currentMaxShield = baseMaxShield;
+        currentHealth = currentMaxHealth;
+        currentShield = currentMaxShield;
+        currentDamageBonus = baseDamageBonus;
+        currentSpeedBonus = baseSpeedBonus;
+        currentSelectedWeapon = 0;
+        currentNormalCoin = 0;
     }
 }
