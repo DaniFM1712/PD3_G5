@@ -8,21 +8,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealthScript : MonoBehaviour
 {
-    [SerializeField] float initialHealth;
-    [SerializeField] float maxHealth;
+    private PlayerStatsScript playerStats;
     [SerializeField] UnityEvent<float> updateHealth;
     [SerializeField] UnityEvent<float> updateMaxHealth;
-    float currentHealth;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        maxHealth = PlayerStatsScript.playerStatsInstance.maxHealth;
-        //PQ FA FALTA INITIAL HEALTH?
-        currentHealth = initialHealth;
-        updateMaxHealth.Invoke(maxHealth);
-        updateHealth.Invoke(currentHealth);
+        playerStats = PlayerStatsScript.playerStatsInstance;
+        updateMaxHealth.Invoke(playerStats.currentMaxHealth);
+        updateHealth.Invoke(playerStats.currentHealth);
     }
 
     // Update is called once per frame
@@ -30,44 +25,36 @@ public class PlayerHealthScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            modifyHealth(-20.0f);
+            ModifyHealth(-20.0f);
         }
     }
 
-    public void modifyHealth(float modifier)
+    public void ModifyHealth(float modifier)
     {
-        currentHealth += modifier;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        updateHealth.Invoke(currentHealth);
-        PlayerStatsScript.playerStatsInstance.currentHealth = currentHealth;
-        if (currentHealth == 0.0f)
+        playerStats.currentHealth += modifier;
+        playerStats.currentHealth = Mathf.Clamp(playerStats.currentHealth, 0, playerStats.currentMaxHealth);
+        updateHealth.Invoke(playerStats.currentHealth);
+
+        if (playerStats.currentHealth == 0.0f)
         {
-            die();
+            Die();
         }
 
 
 
     }
 
-    public void modifyMaxHealth(float hpMaxPoints)
+    public void ModifyMaxHealth(float hpMaxPoints)
     {
-        maxHealth += hpMaxPoints;
-        updateMaxHealth.Invoke(maxHealth);
-        PlayerStatsScript.playerStatsInstance.maxHealth = maxHealth;
-
+        playerStats.currentMaxHealth += hpMaxPoints;
+        updateMaxHealth.Invoke(playerStats.currentMaxHealth);
     }
 
 
-    public void die()
+    public void Die()
     {
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(3);
-    }
-
-
-    public float getCurrentHealth()
-    {
-        return currentHealth;
     }
 
 }

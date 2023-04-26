@@ -15,7 +15,7 @@ public class chestManagerScript : MonoBehaviour
 
     public void randomizeChests()
     {
-        int currentLevel = LevelManager.levelManagerInstance.getCurrentIndex();
+        //int currentLevel = LevelManager.levelManagerInstance.getCurrentIndex();
         Debug.Log("SDAS");
         foreach (GameObject k in chestList)
         {
@@ -48,14 +48,4 @@ public class chestManagerScript : MonoBehaviour
                 k.SetActive(false);
         }
     }
-    public void destroyObject()
-    {
-        foreach (GameObject k in chestList) {
-            if (k.GetComponentInChildren<chestScript>().opened) {
-                Destroy(k);
-            }
-        }
-    }
-
-
 }

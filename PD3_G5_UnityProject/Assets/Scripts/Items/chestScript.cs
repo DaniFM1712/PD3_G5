@@ -5,8 +5,14 @@ using UnityEngine;
 public class chestScript : MonoBehaviour
 {
     [SerializeField] GameObject Canvas;
+    private PlayerStatsScript playerStats;
     public bool opened= false;
     private bool canTake = false;
+
+    private void Start()
+    {
+        playerStats = PlayerStatsScript.playerStatsInstance;
+    }
 
     // Update is called once per frame
     void Update()
@@ -40,5 +46,30 @@ public class chestScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    
+    public void ModifyCurrentMaxHealth(float amount)
+    {
+        Debug.Log("CHEST ITEM");
+        playerStats.currentMaxHealth += amount;
+        //Destroy(transform.parent.gameObject);
+    }
+
+    public void ModifyCurrentHealth(float amount)
+    {
+        playerStats.currentHealth += amount;
+        Destroy(transform.parent.gameObject);
+    }
+
+    public void ModifyCurrentSpeedBonus(int amount)
+    {
+        Debug.Log("CHEST ITEM");
+        playerStats.currentSpeedBonus += amount;
+        Destroy(transform.parent.gameObject);
+    }
+
+    public void ModifyCurrentDamageBonus(int amount)
+    {
+        Debug.Log("CHEST ITEM");
+        playerStats.currentDamageBonus += amount;
+        Destroy(transform.parent.gameObject);
+    }
 }

@@ -15,6 +15,7 @@ public class FPController : MonoBehaviour
     public KeyCode mouseLockKey = KeyCode.O;
 
     private bool angleLocked = false;
+    private PlayerStatsScript playerStats;
 
     float yaw = 0;
     float pitch = 0;
@@ -60,6 +61,11 @@ public class FPController : MonoBehaviour
 
         gravity = (-2 * maxHeightJump) / (jumpTime * jumpTime);
         jumpSpeed = -gravity * jumpTime;
+    }
+
+    private void Start()
+    {
+        playerStats = PlayerStatsScript.playerStatsInstance;
     }
 
     private void FixedUpdate()
@@ -139,11 +145,11 @@ public class FPController : MonoBehaviour
 
         if (Input.GetKey(runKey))
         {
-            currSpeed = runSpeed;
+            currSpeed = runSpeed + playerStats.currentSpeedBonus;
         }
         else
         {
-            currSpeed = walkSpeed;
+            currSpeed = walkSpeed + playerStats.currentSpeedBonus;
         }
 
         if (Input.GetKeyDown(jumpKey) && onGround)
@@ -161,17 +167,4 @@ public class FPController : MonoBehaviour
     {
         return new Vector3(Mathf.Sin((yaw + 90.0f) * Mathf.Deg2Rad), 0.0f, Mathf.Cos((yaw + 90.0f) * Mathf.Deg2Rad));
     }
-
-
-    public void addSpeed(float speed)
-    {
-        Debug.Log("subimos speed:" +speed);
-        walkSpeed += speed;
-    }
-
-    public void changeDamage(float damage)
-    {
-        weaponParent.transform.GetChild(0).GetComponent<ProjectileShootingScript>().changeDamage(damage);
-    }
-
 }

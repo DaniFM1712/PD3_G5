@@ -138,7 +138,7 @@ public class MeleChaserEnemy : MonoBehaviour
 
     private void attack()
     {
-        player.GetComponent<PlayerHealthScript>().modifyHealth(damage);
+        player.GetComponent<PlayerHealthScript>().ModifyHealth(damage);
     }
 
     void updateAttack()
