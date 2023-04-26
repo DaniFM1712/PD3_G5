@@ -14,17 +14,15 @@ public class PlayerHealthScript : MonoBehaviour
     [SerializeField] UnityEvent<float> updateMaxHealth;
     float currentHealth;
 
-    private void Awake()
-    {
-        currentHealth = initialHealth;
-        updateMaxHealth.Invoke(maxHealth);
-        updateHealth.Invoke(currentHealth);
-    }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        maxHealth = PlayerStatsScript.playerStatsInstance.maxHealth;
+        //PQ FA FALTA INITIAL HEALTH?
+        currentHealth = initialHealth;
+        updateMaxHealth.Invoke(maxHealth);
+        updateHealth.Invoke(currentHealth);
     }
 
     // Update is called once per frame
@@ -36,18 +34,26 @@ public class PlayerHealthScript : MonoBehaviour
         }
     }
 
-
     public void modifyHealth(float modifier)
     {
         currentHealth += modifier;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         updateHealth.Invoke(currentHealth);
+        PlayerStatsScript.playerStatsInstance.currentHealth = currentHealth;
         if (currentHealth == 0.0f)
         {
             die();
         }
 
 
+
+    }
+
+    public void modifyMaxHealth(float hpMaxPoints)
+    {
+        maxHealth += hpMaxPoints;
+        updateMaxHealth.Invoke(maxHealth);
+        PlayerStatsScript.playerStatsInstance.maxHealth = maxHealth;
 
     }
 
@@ -64,9 +70,4 @@ public class PlayerHealthScript : MonoBehaviour
         return currentHealth;
     }
 
-    public void modifyMaxHealth(float hpMaxPoints)
-    {
-        maxHealth += hpMaxPoints;
-        updateMaxHealth.Invoke(maxHealth);
-    }
 }
