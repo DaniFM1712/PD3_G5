@@ -21,6 +21,7 @@ public class FPController : MonoBehaviour
     float yaw = 0;
     float pitch = 0;
     Vector3 direction = new Vector3(0, 0, 0);
+    private Quaternion initialRotation;
 
     [Header("Rotation")]
     [SerializeField] float yawSpeed = 5.0f;
@@ -79,10 +80,13 @@ public class FPController : MonoBehaviour
 
         gravity = (-2 * maxHeightJump) / (jumpTime * jumpTime);
         jumpSpeed = -gravity * jumpTime;
+
+        initialRotation = transform.rotation;
     }
 
     private void Start()
     {
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
         playerStats = PlayerStatsScript.playerStatsInstance;
     }
 
@@ -177,13 +181,12 @@ public class FPController : MonoBehaviour
             verticalSpeed = jumpSpeed;
         }
 
-        if (Input.GetKeyDown(KeyCode.R) == true && dashAllowed)
+        if (Input.GetKeyDown(KeyCode.F) == true && dashAllowed)
         {
             dashMove = moved;
             canDash = false;
             dashReset = false;
             dashingNow = true;
-            //startDashCooldown.Invoke(dashResetTime);
         }
     }
     Vector3 updateMoveStats()

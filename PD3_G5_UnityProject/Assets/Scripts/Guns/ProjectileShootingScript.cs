@@ -35,8 +35,8 @@ public class ProjectileShootingScript : MonoBehaviour
     [SerializeField] int specialBulletsPerTap;
 
     [Header("Spawn Point")]
-    [SerializeField] Camera cam;
-    [SerializeField] Transform attackPoint;
+    private Camera cam;
+    [SerializeField] Transform bulletOrigin;
 
     [Header("Debug")]
     [SerializeField] bool allowInvoke;
@@ -136,7 +136,7 @@ public class ProjectileShootingScript : MonoBehaviour
             hitPoint = r.GetPoint(100);
         
 
-        Vector3 directionWithoutSpread = hitPoint - attackPoint.position;
+        Vector3 directionWithoutSpread = hitPoint - bulletOrigin.position;
 
         float xSpread = Random.Range(-spread, +spread);
         float ySpread = Random.Range(-spread, +spread);
@@ -147,7 +147,7 @@ public class ProjectileShootingScript : MonoBehaviour
 
         GameObject currentBullet = bulletPool.Dequeue();
         currentBullet.SetActive(true);
-        currentBullet.transform.position = attackPoint.position;
+        currentBullet.transform.position = bulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
         currentBullet.GetComponent<BulletScript>().SetDamage(bulletDamage);
 
@@ -189,7 +189,7 @@ public class ProjectileShootingScript : MonoBehaviour
             hitPoint = r.GetPoint(100);
 
 
-        Vector3 directionWithoutSpread = hitPoint - attackPoint.position;
+        Vector3 directionWithoutSpread = hitPoint - bulletOrigin.position;
 
         float xSpread = Random.Range(-specialSpread, +specialSpread);
         float ySpread = Random.Range(-specialSpread, +specialSpread);
@@ -200,7 +200,7 @@ public class ProjectileShootingScript : MonoBehaviour
 
         GameObject currentBullet = specialBulletPool.Dequeue();
         currentBullet.SetActive(true);
-        currentBullet.transform.position = attackPoint.position;
+        currentBullet.transform.position = bulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
         currentBullet.GetComponent<SpecialBulletScript>().SetDamage(specialBulletDamage);
 
