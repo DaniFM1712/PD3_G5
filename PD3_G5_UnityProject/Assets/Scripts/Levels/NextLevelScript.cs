@@ -12,7 +12,8 @@ public class NextLevelScript : MonoBehaviour
     [SerializeField] GameObject exitLevel;
     private void Start()
     {
-        exitLevelText = exitLevel.GetComponent<TextMeshProUGUI>();
+        if(exitLevel != null)
+            exitLevelText = exitLevel.GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
@@ -20,7 +21,8 @@ public class NextLevelScript : MonoBehaviour
         if (goNextLevel && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.playerStatsInstance.currentSelectedWeapon != 0)
         {
             LevelManager.levelManagerInstance.LoadLevel();
-            exitLevelText.enabled = false;
+            if (exitLevel != null)
+                exitLevelText.enabled = false;
         }       
     }
 
@@ -29,8 +31,10 @@ public class NextLevelScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            exitLevelText.enabled = true;
+            
             goNextLevel = true;
+            if (exitLevel != null)
+                exitLevelText.enabled = true;
         }
 
     }
@@ -39,8 +43,10 @@ public class NextLevelScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            exitLevelText.enabled = false;
+            
             goNextLevel = false;
+            if (exitLevel != null)
+                exitLevelText.enabled = false;
         }
     }
 }
