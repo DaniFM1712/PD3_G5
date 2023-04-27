@@ -43,7 +43,7 @@ public class PlayerStatsScript : MonoBehaviour
             Destroy(gameObject);
 
         //----------BASE--STATS----------//
-        baseMaxHealth = 100f;
+        baseMaxHealth = 150f;
         baseMaxShield = 0f;
         baseDamageBonus = 0;
         baseSpeedBonus = 0;
