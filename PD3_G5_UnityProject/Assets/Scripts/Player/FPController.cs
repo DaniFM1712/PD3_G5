@@ -208,7 +208,7 @@ public class FPController : MonoBehaviour
     void checkDash()
     {
         dashAllowed = dashing < dashLength && dashingTime < dashResetTime &&
-            dashReset && canDash && onGround;
+            dashReset && canDash ;
 
 
         if (dashingNow && dashing < dashLength)
