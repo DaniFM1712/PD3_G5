@@ -91,6 +91,10 @@ public class MeleChaserEnemy : MonoBehaviour
         {
             currentState = State.CHASE;
         }
+        else
+        {
+            currentState = State.ATTACK;
+        }
         isHit();
     }
    

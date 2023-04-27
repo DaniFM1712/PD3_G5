@@ -128,6 +128,10 @@ public class RangedEnemyAIScript : MonoBehaviour
         {
             currentState = State.CHASE;
         }
+        else
+        {
+            currentState = State.ATTACK;
+        }
         isHit();
     }
 
@@ -169,8 +173,6 @@ public class RangedEnemyAIScript : MonoBehaviour
         if (PlayerInRange())
         {
             currentState = State.ATTACK;
-            shooting = true;
-            attack();
         }
         isHit();
     }
@@ -193,6 +195,7 @@ public class RangedEnemyAIScript : MonoBehaviour
 
     private void Shoot()
     {
+        
         readyToShoot = false;
         Vector3 directionWithoutSpread = shootingPoint - bulletOrigin.position;
 
@@ -250,8 +253,11 @@ public class RangedEnemyAIScript : MonoBehaviour
     {
         if (PlayerInRange() && readyToShoot && !reloading)
         {
+            shooting = true;
             attack();
         }
+        else
+            shooting = false;
     }
 
     void ChangeFromAttack()
