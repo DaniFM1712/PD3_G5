@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.Events;
 
 public class NextLevelScript : MonoBehaviour
 {
 
     private bool goNextLevel = false;
+    private TextMeshProUGUI exitLevelText;
+    [SerializeField] GameObject exitLevel;
+    private void Start()
+    {
+        exitLevelText = exitLevel.GetComponent<TextMeshProUGUI>();
+    }
 
     private void Update()
     {
         if (goNextLevel && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.playerStatsInstance.currentSelectedWeapon != 0)
         {
             LevelManager.levelManagerInstance.LoadLevel();
+            exitLevelText.enabled = false;
         }       
     }
 
@@ -20,12 +28,19 @@ public class NextLevelScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
+        {
+            exitLevelText.enabled = true;
             goNextLevel = true;
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
+        {
+            exitLevelText.enabled = false;
             goNextLevel = false;
+        }
     }
 }
