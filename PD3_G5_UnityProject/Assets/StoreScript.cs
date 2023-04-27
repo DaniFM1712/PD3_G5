@@ -13,6 +13,7 @@ public class StoreScript : MonoBehaviour
     {
         playerStats = PlayerStatsScript.playerStatsInstance;
         player = GameObject.Find("Player");
+        Debug.Log(playerStats.currentMaxHealth);
     }
 
     void Update()
@@ -39,7 +40,7 @@ public class StoreScript : MonoBehaviour
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;
             storeCanvas.SetActive(false);
-            
+
         }
 
     }

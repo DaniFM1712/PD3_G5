@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -10,7 +11,7 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] int PATH_LENGHT;
     static Queue <int> levelPath ;
-    static List <int> allLevels = new List<int> {1,2,1,2};
+    static List <int> allLevels = new List<int> {1,2};
     static List<int> levelIndex;
     static int currentLevel = 0;
     public static LevelManager levelManagerInstance { get; private set; }
@@ -38,19 +39,33 @@ public class LevelManager : MonoBehaviour
             currentLevel++;
             SceneManager.LoadScene(levelPath.Dequeue());
         }
+        else{
+            RestartGame();
+        }
     }
 
     public void generateRandomPath()
     {
+        //Generate Random Path
         levelIndex = new List<int>(allLevels);
         Shuffle(levelIndex);
         for (int i = 0; i < allLevels.Count - PATH_LENGHT; i++)
         {
             levelIndex.RemoveAt(0);
         }
+        
+
+
+        //Add Random Store
+        int storePos = Random.Range(1, levelIndex.Count-1);
+        levelIndex.Insert(storePos, 3);
+
+
+
 
         levelPath = new Queue<int>(levelIndex);
-        //levelPath.Dequeue();
+        levelPath.Enqueue(3);
+
         //levelPath.Enqueue(0); Nivel final que añadimos, bossLvl
     }
 

@@ -17,7 +17,6 @@ public class PlayerHealthScript : MonoBehaviour
     {
         playerStats = PlayerStatsScript.playerStatsInstance;
         updateMaxHealth.Invoke(playerStats.currentMaxHealth);
-        updateHealth.Invoke(playerStats.currentHealth);
     }
 
     // Update is called once per frame
@@ -39,9 +38,6 @@ public class PlayerHealthScript : MonoBehaviour
         {
             Die();
         }
-
-
-
     }
 
     public void ModifyMaxHealth(float hpMaxPoints)
@@ -54,7 +50,7 @@ public class PlayerHealthScript : MonoBehaviour
     public void Die()
     {
         Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 
 }

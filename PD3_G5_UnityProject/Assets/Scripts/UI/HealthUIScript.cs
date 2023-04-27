@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class HealthUIScript : MonoBehaviour
 {
     [SerializeField] Image healthAmount;
-    [SerializeField] GameObject hpCounter; 
+    [SerializeField] GameObject hpCounter;
     private TextMeshProUGUI hpText;
+    PlayerStatsScript playerStats;
 
 
     private float maxHealth;
@@ -17,8 +17,10 @@ public class HealthUIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerStats = PlayerStatsScript.playerStatsInstance;
         hpText = hpCounter.GetComponent<TextMeshProUGUI>();
-
+        updateHealth(playerStats.currentHealth); 
+        updateMaxHealth(playerStats.currentMaxHealth);
     }
 
     // Update is called once per frame
@@ -29,12 +31,18 @@ public class HealthUIScript : MonoBehaviour
 
     public void updateHealth(float hpPoints)
     {
-        hpText.text = (int) hpPoints/maxHealth+" HP";
+        float hp = (hpPoints / maxHealth) * 100;
+        string hpString = (int)hp + " %";
+        hpText.text = hpString;
         healthAmount.fillAmount = hpPoints / maxHealth;
+
     }
 
     public void updateMaxHealth(float maxHpPoints)
     {
         maxHealth = maxHpPoints;
     }
+
+    
+
 }
