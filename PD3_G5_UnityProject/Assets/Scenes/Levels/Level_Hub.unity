@@ -578,6 +578,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 373962279837839876, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519996770}
+    - target: {fileID: 373962279837839876, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartAbilityCooldown
+      objectReference: {fileID: 0}
     - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
       propertyPath: updateHealth.m_PersistentCalls.m_Calls.Array.size
@@ -648,6 +658,41 @@ PrefabInstance:
       propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519996770}
+    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartAbilityCooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CooldownScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3688068328114149645, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
       propertyPath: m_Name
@@ -707,6 +752,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519996770}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartDashCooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CooldownScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3688068328974026977, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
@@ -869,6 +949,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2053805656469387075, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: dashCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2053805656469387075, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: abilityCooldown
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3773309682800077955, guid: 7b076ffa3b93a644ba8934883be79fe1,
         type: 3}
       propertyPath: m_Name
@@ -978,6 +1068,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190709336933046181, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276075333830695715, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b076ffa3b93a644ba8934883be79fe1, type: 3}
@@ -1138,6 +1238,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519996770 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2053805656469387075, guid: 7b076ffa3b93a644ba8934883be79fe1,
+    type: 3}
+  m_PrefabInstance: {fileID: 375895812}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c67bfec0f04a8e54ab667c8662e0ab82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &528929993
 GameObject:
   m_ObjectHideFlags: 0

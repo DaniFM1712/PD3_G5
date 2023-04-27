@@ -756,6 +756,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 373962279837839876, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1077632564}
+    - target: {fileID: 373962279837839876, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartAbilityCooldown
+      objectReference: {fileID: 0}
     - target: {fileID: 2654659574071811245, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
       propertyPath: m_Enabled
@@ -834,6 +844,41 @@ PrefabInstance:
     - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
       propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1077632564}
+    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartAbilityCooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CooldownScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3688068327557051555, guid: b5301dd35a2af1245b35289bf67ebbb0,
@@ -1229,6 +1274,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2053805656469387075, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: dashCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2053805656469387075, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: abilityCooldown
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3773309682800077955, guid: 7b076ffa3b93a644ba8934883be79fe1,
         type: 3}
       propertyPath: m_Name

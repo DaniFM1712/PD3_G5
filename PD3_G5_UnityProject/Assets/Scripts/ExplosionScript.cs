@@ -29,7 +29,6 @@ public class ExplosionScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if(other.gameObject.CompareTag("Player"))
 
         if (other.gameObject.CompareTag("Enemy"))
         {
@@ -42,7 +41,6 @@ public class ExplosionScript : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
         if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
         {
             enemyPart.TakeDamage(damage);
@@ -51,7 +49,6 @@ public class ExplosionScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
         if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
         {
             enemyPart.TakeDamage(damage);
