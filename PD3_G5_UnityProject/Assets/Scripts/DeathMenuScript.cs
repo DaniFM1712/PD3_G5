@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class DeathMenuScript : MonoBehaviour
 {
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
     public void restartButton() {
         LevelManager.levelManagerInstance.RestartGame();
     }
