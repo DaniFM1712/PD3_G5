@@ -6,13 +6,13 @@ public class StoreScript : MonoBehaviour
 {
     private PlayerStatsScript playerStats;
     [SerializeField] GameObject storeCanvas;
-    private GameObject player;
+    private PlayerHealthScript playerHealth;
     private bool canShop = false;
     // Start is called before the first frame update
     void Start()
     {
         playerStats = PlayerStatsScript.playerStatsInstance;
-        player = GameObject.Find("Player");
+        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthScript>();
         Debug.Log(playerStats.currentMaxHealth);
     }
 
@@ -31,9 +31,9 @@ public class StoreScript : MonoBehaviour
         if(playerStats.currentSpecialCoin >= 10)
         {
             playerStats.baseMaxHealth += 10;
-            
-            player.GetComponent<PlayerHealthScript>().ModifyMaxHealth(10);
-            player.GetComponent<PlayerHealthScript>().ModifyHealth(10);
+
+            playerHealth.ModifyMaxHealth(10);
+            playerHealth.ModifyHealth(10);
 
 
             CoinCounterScript.coinCounterInstance.updateSCCounter(-10);

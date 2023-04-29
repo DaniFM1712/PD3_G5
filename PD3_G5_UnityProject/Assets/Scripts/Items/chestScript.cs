@@ -9,12 +9,12 @@ public class chestScript : MonoBehaviour
     private PlayerStatsScript playerStats;
     public bool opened= false;
     private bool canTake = false;
-    private GameObject player;
+    private PlayerHealthScript playerHealth;
 
     private void Start()
     {
         playerStats = PlayerStatsScript.playerStatsInstance;
-        player = GameObject.Find("Player");
+        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthScript>();
     }
 
     // Update is called once per frame
@@ -51,27 +51,27 @@ public class chestScript : MonoBehaviour
 
     public void ModifyCurrentMaxHealth(float amount)
     {
-        Debug.Log("CHEST ITEM");
-        player.GetComponent<PlayerHealthScript>().ModifyMaxHealth(amount);
+        Debug.Log("CHEST ITEM - MAX HEALTH");
+        playerHealth.ModifyMaxHealth(amount);
         //Destroy(transform.parent.gameObject);
     }
 
     public void ModifyCurrentHealth(float amount)
     {
-        player.GetComponent<PlayerHealthScript>().ModifyHealth(amount);
+        playerHealth.ModifyHealth(amount);
         Destroy(transform.parent.gameObject);
     }
 
     public void ModifyCurrentSpeedBonus(int amount)
     {
-        Debug.Log("CHEST ITEM");
+        Debug.Log("CHEST ITEM - SPEED BONUS");
         playerStats.currentSpeedBonus += amount;
         Destroy(transform.parent.gameObject);
     }
 
     public void ModifyCurrentDamageBonus(int amount)
     {
-        Debug.Log("CHEST ITEM");
+        Debug.Log("CHEST ITEM - DAMAGE BONUS");
         playerStats.currentDamageBonus += amount;
         Destroy(transform.parent.gameObject);
     }

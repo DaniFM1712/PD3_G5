@@ -9,14 +9,13 @@ using UnityEngine.SceneManagement;
 public class PlayerHealthScript : MonoBehaviour
 {
     private PlayerStatsScript playerStats;
-    [SerializeField] UnityEvent<float> updateHealth;
-    [SerializeField] UnityEvent<float> updateMaxHealth;
+    private HealthUIScript healthUI;
 
     // Start is called before the first frame update
     void Start()
     {
         playerStats = PlayerStatsScript.playerStatsInstance;
-        updateMaxHealth.Invoke(playerStats.currentMaxHealth);
+        healthUI = HealthUIScript.healthUIInstance;
     }
 
     // Update is called once per frame
@@ -32,7 +31,7 @@ public class PlayerHealthScript : MonoBehaviour
     {
         playerStats.currentHealth += modifier;
         playerStats.currentHealth = Mathf.Clamp(playerStats.currentHealth, 0, playerStats.currentMaxHealth);
-        updateHealth.Invoke(playerStats.currentHealth);
+        healthUI.updateHealth();
 
         if (playerStats.currentHealth == 0.0f)
         {
@@ -43,7 +42,7 @@ public class PlayerHealthScript : MonoBehaviour
     public void ModifyMaxHealth(float hpMaxPoints)
     {
         playerStats.currentMaxHealth += hpMaxPoints;
-        updateMaxHealth.Invoke(playerStats.currentMaxHealth);
+        healthUI.updateMaxHealth();
     }
 
 

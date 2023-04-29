@@ -26,7 +26,6 @@ public class ProjectileShootingScript : MonoBehaviour
     [SerializeField] bool allowButtonHold;
 
     [Header("Special Stats")]
-    [SerializeField] UnityEvent<float> startAbilityCooldown;
     [SerializeField] float specialTimeBetweenShooting;
     [SerializeField] float specialSpread;
     [SerializeField] float specialReloadTime;
@@ -47,12 +46,14 @@ public class ProjectileShootingScript : MonoBehaviour
     bool shooting, readyToShoot, readyToShootSpecial, reloading, shootingSpecial;
     Queue<GameObject> bulletPool;
     Queue<GameObject> specialBulletPool;
+    CooldownScript cooldown;
 
 
     // Start is called before the first frame update
     private void Start()
     {
-        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        cooldown = GameObject.Find("CanvasPrefab/Cooldowns").GetComponent<CooldownScript>();
+        cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         bulletPool = new Queue<GameObject>();
         specialBulletPool = new Queue<GameObject>();
         GameObject bullets = new GameObject("Bullets");
@@ -115,7 +116,8 @@ public class ProjectileShootingScript : MonoBehaviour
             bulletsShot = 0;
             //START COOLDOWN SS
             ShootSpecial();
-            startAbilityCooldown.Invoke(specialTimeBetweenShooting);
+            //startAbilityCooldown.Invoke(specialTimeBetweenShooting);
+            cooldown.StartAbilityCooldown(specialTimeBetweenShooting);
         }
     }
 
