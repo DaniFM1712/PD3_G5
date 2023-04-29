@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3688068328114149650}
   - component: {fileID: 3688068328114149648}
+  - component: {fileID: 3688068328114149649}
   - component: {fileID: 3357865048969623129}
   - component: {fileID: 3688068328114149651}
-  - component: {fileID: 3688068328114149654}
-  - component: {fileID: 3688068328114149649}
+  - component: {fileID: 588255094290663183}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -55,6 +55,19 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &3688068328114149649
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688068328114149645}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3357865048969623129
 MonoBehaviour:
@@ -118,43 +131,33 @@ MonoBehaviour:
   dashLength: 0.15
   dashSpeed: 100
   dashResetTime: 1
---- !u!114 &3688068328114149654
+--- !u!114 &588255094290663183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3688068328114149645}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5634f96eea31d984ebc0c26761c10030, type: 3}
+  m_Script: {fileID: 11500000, guid: d1978f2946843db41ba0849b5983d099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  specialBulletPrefab: {fileID: 0}
+  specialShootForce: 45
+  specialUpwardForce: 5
+  startAbilityCooldown:
+    m_PersistentCalls:
+      m_Calls: []
+  specialTimeBetweenShooting: 10
+  specialSpread: 1
+  specialReloadTime: 0
+  specialTimeBetweenShots: 0
+  specialBulletDamage: 0
+  specialBulletsPerTap: 1
   cam: {fileID: 3688068329298052680}
-  maxShootDist: 1000
-  shootingMask:
-    serializedVersion: 2
-    m_Bits: 1
-  weaponDummy: {fileID: 0}
-  decalParticles: {fileID: 0}
-  zOffset: 0.05
-  damage: 50
-  weaponAnimation: {fileID: 0}
-  reloadKey: 114
-  timeToShoot: 0
---- !u!65 &3688068328114149649
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3688068328114149645}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  bulletOrigin: {fileID: 6610077119698529702}
+  allowInvokeSpecial: 1
 --- !u!1 &3688068328974026976
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +446,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6610077119698529702}
     m_Modifications:
+    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 3688068329298052680}
     - target: {fileID: 7352254665611245801, guid: de1b484802dac7e49827798adf8352ee,
         type: 3}
       propertyPath: m_Name
@@ -529,6 +537,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6610077119698529702}
     m_Modifications:
+    - target: {fileID: 1495583114424343594, guid: e6ef93be3a191454c90ee5f427aa3fd6,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 3688068329298052680}
     - target: {fileID: 7352254665611245801, guid: e6ef93be3a191454c90ee5f427aa3fd6,
         type: 3}
       propertyPath: m_Name

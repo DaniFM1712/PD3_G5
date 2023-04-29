@@ -7,13 +7,10 @@ public class ProjectileShootingScript : MonoBehaviour
 {
 
     [SerializeField] GameObject bulletPrefab;
-    [SerializeField] GameObject specialBulletPrefab;
 
     [Header("Forces")]
     [SerializeField] float shootForce;
     [SerializeField] float upwardForce;
-    [SerializeField] float specialShootForce;
-    [SerializeField] float specialUpwardForce;
 
     [Header("Stats")]
     [SerializeField] float timeBetweenShooting;
@@ -25,14 +22,6 @@ public class ProjectileShootingScript : MonoBehaviour
     [SerializeField] int bulletsPerTap;
     [SerializeField] bool allowButtonHold;
 
-    [Header("Special Stats")]
-    [SerializeField] float specialTimeBetweenShooting;
-    [SerializeField] float specialSpread;
-    [SerializeField] float specialReloadTime;
-    [SerializeField] float specialTimeBetweenShots;
-    [SerializeField] float specialBulletDamage;
-    [SerializeField] int specialBulletsPerTap;
-
     [Header("Spawn Point")]
     private Camera cam;
     [SerializeField] Transform bulletOrigin;
@@ -43,19 +32,14 @@ public class ProjectileShootingScript : MonoBehaviour
 
     int bulletsLeft, bulletsShot;
 
-    bool shooting, readyToShoot, readyToShootSpecial, reloading, shootingSpecial;
+    bool shooting, readyToShoot, reloading;
     Queue<GameObject> bulletPool;
-    Queue<GameObject> specialBulletPool;
-    CooldownScript cooldown;
-
 
     // Start is called before the first frame update
     private void Start()
     {
-        cooldown = GameObject.Find("CanvasPrefab/Cooldowns").GetComponent<CooldownScript>();
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         bulletPool = new Queue<GameObject>();
-        specialBulletPool = new Queue<GameObject>();
         GameObject bullets = new GameObject("Bullets");
         GameObject specialBullets = new GameObject("Special Bullets");
 
@@ -67,19 +51,9 @@ public class ProjectileShootingScript : MonoBehaviour
             bullet.transform.parent = bullets.transform;
         }
 
-        for (int i = 0; i < specialBulletsPerTap + 20; i++)
-        {
-            GameObject specialBullet = Instantiate(specialBulletPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
-            specialBullet.SetActive(false);
-            specialBulletPool.Enqueue(specialBullet);
-            specialBullet.transform.parent = specialBullets.transform;
-        }
-
         bulletsLeft = magazineSize;
         readyToShoot = true;
-        readyToShootSpecial = true;
         shooting = false;
-        shootingSpecial = false;
     }
 
     // Update is called once per frame
@@ -95,8 +69,6 @@ public class ProjectileShootingScript : MonoBehaviour
         else
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        shootingSpecial = Input.GetKeyDown(KeyCode.Mouse1);
-
         if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
             Reload();
 
@@ -109,15 +81,6 @@ public class ProjectileShootingScript : MonoBehaviour
             }
             else
                 Reload();
-        }
-
-        if (readyToShootSpecial && shootingSpecial && !reloading && !shooting)
-        {
-            bulletsShot = 0;
-            //START COOLDOWN SS
-            ShootSpecial();
-            //startAbilityCooldown.Invoke(specialTimeBetweenShooting);
-            cooldown.StartAbilityCooldown(specialTimeBetweenShooting);
         }
     }
 
@@ -174,70 +137,12 @@ public class ProjectileShootingScript : MonoBehaviour
         }
     }
 
-    private void ShootSpecial()
-    {
-        readyToShootSpecial = false;
-
-        Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
-        RaycastHit hitInfo;
-        //Vector3 hitPoint = r.GetPoint(30f);
-        Vector3 hitPoint;
-
-        //if (Physics.Raycast(r, out hitInfo, maxShootDist, shootingMask))
-
-        if (Physics.Raycast(r, out hitInfo))
-            //Crec que a vegades les bales surten rares pq això detecta una bala ja disparada.
-            hitPoint = hitInfo.point;
-
-        else
-            hitPoint = r.GetPoint(100);
-
-
-        Vector3 directionWithoutSpread = hitPoint - bulletOrigin.position;
-
-        float xSpread = Random.Range(-specialSpread, +specialSpread);
-        float ySpread = Random.Range(-specialSpread, +specialSpread);
-        float zSpread = Random.Range(-specialSpread, +specialSpread);
-
-
-        directionWithoutSpread += new Vector3(xSpread, ySpread, zSpread);
-
-        GameObject currentBullet = specialBulletPool.Dequeue();
-        currentBullet.SetActive(true);
-        currentBullet.transform.position = bulletOrigin.position;
-        currentBullet.transform.forward = directionWithoutSpread.normalized;
-        currentBullet.GetComponent<SpecialBulletScript>().SetDamage(specialBulletDamage);
-
-        currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * specialShootForce, ForceMode.Impulse);
-        currentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * specialUpwardForce, ForceMode.Impulse);
-
-        specialBulletPool.Enqueue(currentBullet);
-
-        bulletsShot++;
-
-        if (allowInvokeSpecial)
-        {
-            Invoke("ResetSpecialShot", specialTimeBetweenShooting);
-            allowInvokeSpecial = false;
-        }
-        if (bulletsShot < specialBulletsPerTap)
-        {
-            Invoke("ShootSpecial", specialTimeBetweenShots);
-        }
-    }
-
     private void ResetShot()
     {
         readyToShoot = true;
         allowInvoke = true;
     }
     
-    private void ResetSpecialShot()
-    {
-        readyToShootSpecial = true;
-        allowInvokeSpecial = true;
-    }
-
     private void Reload()
     {
         reloading = true;
