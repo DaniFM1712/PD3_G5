@@ -1,8 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class GrenadeScript : MonoBehaviour
+public class SGSpecialScript : MonoBehaviour
 {
     [SerializeField] GameObject specialBulletPrefab;
 
@@ -10,7 +10,7 @@ public class GrenadeScript : MonoBehaviour
     [SerializeField] float specialShootForce;
     [SerializeField] float specialUpwardForce;
 
-    [Header("Special Stats")]
+    [Header("Stats")]
     [SerializeField] float specialTimeBetweenShooting;
     [SerializeField] float specialSpread;
     [SerializeField] float specialReloadTime;
@@ -20,25 +20,24 @@ public class GrenadeScript : MonoBehaviour
 
     [Header("Spawn Point")]
     private Camera cam;
-    [SerializeField] Transform bulletOrigin;
+    [SerializeField] Transform specialBulletOrigin;
 
     [Header("Debug")]
     [SerializeField] bool allowInvokeSpecial;
 
-    int bulletsShot;
+    int specialBulletsShot;
 
-    bool readyToShootSpecial, reloading, shootingSpecial;
+    bool shootingSpecial, readyToShootSpecial, reloading;
     Queue<GameObject> specialBulletPool;
     CooldownScript cooldown;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         cooldown = GameObject.Find("CanvasPrefab/Cooldowns").GetComponent<CooldownScript>();
-        cam = transform.Find("PitchController/Main Camera").gameObject.GetComponent<Camera>();
+        cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         specialBulletPool = new Queue<GameObject>();
-        GameObject specialBullets = new GameObject("Special Bullets");
-
+        GameObject specialBullets = new("Special Bullets");
 
         for (int i = 0; i < specialBulletsPerTap + 20; i++)
         {
@@ -53,23 +52,24 @@ public class GrenadeScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         CheckInput();
     }
 
     private void CheckInput()
     {
+
         shootingSpecial = Input.GetKeyDown(KeyCode.Mouse1);
 
-        //CHECKEAR SI SE ESTA RECARGANDO Y NO PERMITIR UTILIZAR LA HABLIDAD
+        //CHECKEAR SI SE ESTA RECARGANDO Y NO PERMITIR UTILIZAR EL ESPECIAL
 
         if (readyToShootSpecial && shootingSpecial && !reloading)
         {
-            bulletsShot = 0;
-            //START COOLDOWN SS
+            specialBulletsShot = 0;
             ShootSpecial();
             cooldown.StartAbilityCooldown(specialTimeBetweenShooting);
+
         }
     }
 
@@ -81,15 +81,15 @@ public class GrenadeScript : MonoBehaviour
         RaycastHit hitInfo;
         Vector3 hitPoint;
 
-
         if (Physics.Raycast(r, out hitInfo))
+            //Crec que a vegades les bales surten rares pq això detecta una bala ja disparada.
             hitPoint = hitInfo.point;
 
         else
             hitPoint = r.GetPoint(100);
 
 
-        Vector3 directionWithoutSpread = hitPoint - bulletOrigin.position;
+        Vector3 directionWithoutSpread = hitPoint - specialBulletOrigin.position;
 
         float xSpread = Random.Range(-specialSpread, +specialSpread);
         float ySpread = Random.Range(-specialSpread, +specialSpread);
@@ -100,25 +100,25 @@ public class GrenadeScript : MonoBehaviour
 
         GameObject currentBullet = specialBulletPool.Dequeue();
         currentBullet.SetActive(true);
-        currentBullet.transform.position = bulletOrigin.position;
+        currentBullet.transform.position = specialBulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
-        currentBullet.GetComponent<SpecialBulletScript>().SetDamage(specialBulletDamage);
+        currentBullet.GetComponent<SpecialBulletScript>().SetDamage(specialBulletDamage + PlayerStatsScript.playerStatsInstance.currentDamageBonus);
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * specialShootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * specialUpwardForce, ForceMode.Impulse);
 
         specialBulletPool.Enqueue(currentBullet);
 
-        bulletsShot++;
+        specialBulletsShot++;
 
         if (allowInvokeSpecial)
         {
-            Invoke("ResetSpecialShot", specialTimeBetweenShooting);
+            Invoke(nameof(ResetSpecialShot), specialTimeBetweenShooting);
             allowInvokeSpecial = false;
         }
-        if (bulletsShot < specialBulletsPerTap)
+        if (specialBulletsShot < specialBulletsPerTap)
         {
-            Invoke("ShootSpecial", specialTimeBetweenShots);
+            Invoke(nameof(ShootSpecial), specialTimeBetweenShots);
         }
     }
 

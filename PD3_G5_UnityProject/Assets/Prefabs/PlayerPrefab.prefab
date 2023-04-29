@@ -81,12 +81,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be7e842660bfbe84eb53e3b175018423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateHealth:
-    m_PersistentCalls:
-      m_Calls: []
-  updateMaxHealth:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &3688068328114149651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,21 +137,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1978f2946843db41ba0849b5983d099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  specialBulletPrefab: {fileID: 0}
-  specialShootForce: 45
-  specialUpwardForce: 5
-  startAbilityCooldown:
-    m_PersistentCalls:
-      m_Calls: []
-  specialTimeBetweenShooting: 10
-  specialSpread: 1
-  specialReloadTime: 0
-  specialTimeBetweenShots: 0
-  specialBulletDamage: 0
-  specialBulletsPerTap: 1
-  cam: {fileID: 3688068329298052680}
-  bulletOrigin: {fileID: 6610077119698529702}
-  allowInvokeSpecial: 1
+  grenadePrefab: {fileID: 3682631923943361041, guid: 456834752b0b19b4eb669375375c6915,
+    type: 3}
+  grenadeShootForce: 45
+  grenadeUpwardForce: 5
+  grenadeTimeBetweenShooting: 10
+  grenadeSpread: 1
+  grenadeReloadTime: 0
+  grenadeTimeBetweenShots: 0
+  grenadeBulletDamage: 0
+  grenadesPerTap: 1
+  grenadeOrigin: {fileID: 6610077119698529702}
+  allowInvokeGrenade: 1
 --- !u!1 &3688068328974026976
 GameObject:
   m_ObjectHideFlags: 0

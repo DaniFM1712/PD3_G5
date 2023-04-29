@@ -169,11 +169,11 @@ public class FPController : MonoBehaviour
         {
             direction -= forward;
         }
-
+        /*
         if (Input.GetKey(runKey))
         {
             currSpeed = runSpeed + playerStats.currentSpeedBonus;
-        }
+        }*/
         else
         {
             currSpeed = walkSpeed + playerStats.currentSpeedBonus;
@@ -184,7 +184,7 @@ public class FPController : MonoBehaviour
             verticalSpeed = jumpSpeed;
         }
 
-        if (Input.GetKeyDown(KeyCode.F) == true && dashAllowed)
+        if (Input.GetKeyDown(KeyCode.LeftShift) == true && dashAllowed)
         {
             dashMove = moved;
             canDash = false;

@@ -16,11 +16,9 @@ public class chestManagerScript : MonoBehaviour
     public void randomizeChests()
     {
         //int currentLevel = LevelManager.levelManagerInstance.getCurrentIndex();
-        Debug.Log("SDAS");
         foreach (GameObject k in chestList)
         {
             bool appearsPercent = Random.Range(0, 100) > 50;
-            Debug.Log(appearsPercent);
 
             if (appearsPercent)
             {

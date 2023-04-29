@@ -28,7 +28,6 @@ public class ProjectileShootingScript : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] bool allowInvoke;
-    [SerializeField] bool allowInvokeSpecial;
 
     int bulletsLeft, bulletsShot;
 
@@ -40,8 +39,7 @@ public class ProjectileShootingScript : MonoBehaviour
     {
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         bulletPool = new Queue<GameObject>();
-        GameObject bullets = new GameObject("Bullets");
-        GameObject specialBullets = new GameObject("Special Bullets");
+        GameObject bullets = new("Bullets");
 
         for (int i = 0; i < magazineSize + 20; i++)
         {
@@ -128,12 +126,12 @@ public class ProjectileShootingScript : MonoBehaviour
 
         if (allowInvoke)
         {
-            Invoke("ResetShot", timeBetweenShooting);
+            Invoke(nameof(ResetShot), timeBetweenShooting);
             allowInvoke = false;
         }
         if(bulletsShot < bulletsPerTap && bulletsLeft > 0)
         {
-            Invoke("Shoot", timeBetweenShots);
+            Invoke(nameof(Shoot), timeBetweenShots);
         }
     }
 
