@@ -49,8 +49,11 @@ public class EnemyHealthScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        CoinCounterScript.coinCounterInstance.updateNCCounter(5);
-        CoinCounterScript.coinCounterInstance.updateSCCounter(1);
+        if(GetCurrentHealth() <= 0)
+        {
+            CoinCounterScript.coinCounterInstance.updateNCCounter(5);
+            CoinCounterScript.coinCounterInstance.updateSCCounter(1);
+        }
     }
 
 }

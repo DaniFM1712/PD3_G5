@@ -8,6 +8,7 @@ public class NextLevelScript : MonoBehaviour
 {
 
     private bool goNextLevel = false;
+    private bool stopLoad = false;
     private TextMeshProUGUI exitLevelText;
     [SerializeField] GameObject exitLevel;
     private void Start()
@@ -18,8 +19,9 @@ public class NextLevelScript : MonoBehaviour
 
     private void Update()
     {
-        if (goNextLevel && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.playerStatsInstance.currentSelectedWeapon != 0)
+        if (goNextLevel && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.playerStatsInstance.currentSelectedWeapon != 0 && !stopLoad)
         {
+            stopLoad = true;
             LevelManager.levelManagerInstance.LoadLevel();
             if (exitLevel != null)
                 exitLevelText.enabled = false;

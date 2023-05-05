@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] int PATH_LENGHT;
-    static Queue <int> levelPath ;
+    static Queue <int> levelPath;
     static List <int> allLevels = new List<int> {1,2};
     static List<int> levelIndex;
     static int currentLevel = 0;
@@ -42,6 +42,8 @@ public class LevelManager : MonoBehaviour
         else{
             RestartGame();
         }
+
+        Debug.Log("LOADING LEVEL: "+currentLevel);
     }
 
     public void generateRandomPath()
@@ -61,11 +63,19 @@ public class LevelManager : MonoBehaviour
         levelIndex.Insert(storePos, 3);
 
 
+        foreach(int k in levelIndex)
+        {
+            Debug.Log(k);
+        }
 
 
         levelPath = new Queue<int>(levelIndex);
         levelPath.Enqueue(3);
-
+        foreach (int k in levelPath)
+        {
+            Debug.Log("LP: "+k);
+        }
+        Debug.Log(levelPath.Count);
         //levelPath.Enqueue(0); Nivel final que añadimos, bossLvl
     }
 
