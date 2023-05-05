@@ -34,7 +34,7 @@ public class BulletScript : MonoBehaviour
 
             if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
             {
-                enemyPart.TakeDamage(damage);
+                enemyPart.TakeDamage(damage, null);
             }
             ReturnToOrigin();
         }   
@@ -48,8 +48,7 @@ public class BulletScript : MonoBehaviour
     private void ReturnToOrigin()
     {
         GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
-        transform.position = originPosition;
-        transform.rotation = Quaternion.identity;
+        transform.SetPositionAndRotation(originPosition, Quaternion.identity);
         gameObject.SetActive(false);
     }
 }

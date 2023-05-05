@@ -106,7 +106,7 @@ public class GrenadeScript : MonoBehaviour
         currentGrenade.SetActive(true);
         currentGrenade.transform.position = grenadeOrigin.position;
         currentGrenade.transform.forward = directionWithoutSpread.normalized;
-        currentGrenade.GetComponent<SpecialBulletScript>().SetDamage(grenadeBulletDamage);
+        currentGrenade.GetComponent<GrenadeBulletScript>().SetDamage(grenadeBulletDamage);
 
         currentGrenade.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * grenadeShootForce, ForceMode.Impulse);
         currentGrenade.GetComponent<Rigidbody>().AddForce(cam.transform.up * grenadeUpwardForce, ForceMode.Impulse);

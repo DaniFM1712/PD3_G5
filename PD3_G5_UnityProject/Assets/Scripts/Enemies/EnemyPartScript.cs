@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class EnemyPartScript : MonoBehaviour
 {
     [SerializeField] float damageMultiplyer = 1f;
-    [SerializeField] UnityEvent<float> receiveDamage;
+    private float currentHealth = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +20,23 @@ public class EnemyPartScript : MonoBehaviour
         
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, GameObject bullet)
     {
-        receiveDamage.Invoke(damage * damageMultiplyer);
+        if (transform.parent.gameObject.TryGetComponent<EnemyHealthScript>(out EnemyHealthScript health))
+        {
+            currentHealth = health.GetCurrentHealth();
+            currentHealth -= (damage * damageMultiplyer);
+
+            health.TakeDamage(damage * damageMultiplyer);
+            
+
+            if(bullet.TryGetComponent<SGSpecialBulletScript>(out SGSpecialBulletScript sgBullet))
+            {
+                if(currentHealth<= 0)
+                {
+                    sgBullet.weaponScript.ResetCooldown();
+                }
+            }
+        }
     }
 }

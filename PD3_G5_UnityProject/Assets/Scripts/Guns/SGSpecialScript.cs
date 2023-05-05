@@ -11,9 +11,8 @@ public class SGSpecialScript : MonoBehaviour
     [SerializeField] float specialUpwardForce;
 
     [Header("Stats")]
-    [SerializeField] float specialTimeBetweenShooting;
+    [SerializeField] float specialCooldownTime;
     [SerializeField] float specialSpread;
-    [SerializeField] float specialReloadTime;
     [SerializeField] float specialTimeBetweenShots;
     [SerializeField] float specialBulletDamage;
     [SerializeField] int specialBulletsPerTap;
@@ -31,6 +30,8 @@ public class SGSpecialScript : MonoBehaviour
     Queue<GameObject> specialBulletPool;
     CooldownScript cooldown;
 
+    bool cooldownBlessing = false;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -44,11 +45,20 @@ public class SGSpecialScript : MonoBehaviour
             GameObject specialBullet = Instantiate(specialBulletPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
             specialBullet.SetActive(false);
             specialBulletPool.Enqueue(specialBullet);
+            specialBullet.GetComponent<SGSpecialBulletScript>().weaponScript = this;
             specialBullet.transform.parent = specialBullets.transform;
         }
 
         readyToShootSpecial = true;
         shootingSpecial = false;
+    }
+
+    public void ResetCooldown()
+    {
+        if (cooldownBlessing)
+        {
+            //reducir cooldown
+        }
     }
 
     // Update is called once per frame
@@ -68,7 +78,7 @@ public class SGSpecialScript : MonoBehaviour
         {
             specialBulletsShot = 0;
             ShootSpecial();
-            cooldown.StartAbilityCooldown(specialTimeBetweenShooting);
+            cooldown.StartAbilityCooldown(specialCooldownTime);
 
         }
     }
@@ -102,7 +112,8 @@ public class SGSpecialScript : MonoBehaviour
         currentBullet.SetActive(true);
         currentBullet.transform.position = specialBulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
-        currentBullet.GetComponent<SpecialBulletScript>().SetDamage(specialBulletDamage + PlayerStatsScript.playerStatsInstance.currentDamageBonus);
+        currentBullet.GetComponent<SGSpecialBulletScript>().SetDamage(specialBulletDamage + PlayerStatsScript.playerStatsInstance.currentDamageBonus);
+        currentBullet.GetComponent<SGSpecialBulletScript>().weaponScript = this;
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * specialShootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * specialUpwardForce, ForceMode.Impulse);
@@ -113,7 +124,7 @@ public class SGSpecialScript : MonoBehaviour
 
         if (allowInvokeSpecial)
         {
-            Invoke(nameof(ResetSpecialShot), specialTimeBetweenShooting);
+            Invoke(nameof(ResetSpecialShot), specialCooldownTime);
             allowInvokeSpecial = false;
         }
         if (specialBulletsShot < specialBulletsPerTap)
