@@ -158,4 +158,9 @@ public class ProjectileShootingScript : MonoBehaviour
         bulletDamage = newBulletDamage;
     }
 
+    public bool IsReloading()
+    {
+        return reloading;
+    }
+
 }
