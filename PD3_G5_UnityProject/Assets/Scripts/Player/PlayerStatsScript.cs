@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerStatsScript : MonoBehaviour
@@ -30,6 +31,11 @@ public class PlayerStatsScript : MonoBehaviour
     public int currentNormalCoin { get; set; }
     public int currentSpecialCoin { get; set; }
 
+    //--------- UPGRADES LIST ---------//
+    //public List<bool> currentDashAbilities { get; set; } = new List<bool>(5);
+    public List<bool> currentDashAbilities { get; set; }
+    public List<bool> currentWeaponAbilities { get; set; }
+    public List<bool> currentGrenadeAbilities { get; set; }
 
 
     private void Awake()
@@ -61,7 +67,13 @@ public class PlayerStatsScript : MonoBehaviour
         currentSpeedBonus = baseSpeedBonus;
         currentSelectedWeapon = 0;
         currentNormalCoin = 0;  
-        currentSpecialCoin = 0; 
+        currentSpecialCoin = 0;
+
+        //--------- UPGRADES LIST ---------//
+        currentDashAbilities = Enumerable.Repeat(false, 5).ToList();
+        currentWeaponAbilities = Enumerable.Repeat(false, 5).ToList();
+        currentGrenadeAbilities = Enumerable.Repeat(false, 5).ToList();
+
     }
 
     private void Start()
@@ -80,5 +92,8 @@ public class PlayerStatsScript : MonoBehaviour
         currentSpeedBonus = baseSpeedBonus;
         currentSelectedWeapon = 0;
         currentNormalCoin = 0;
+        currentDashAbilities = Enumerable.Repeat(false, 5).ToList();
+        currentWeaponAbilities = Enumerable.Repeat(false, 5).ToList();
+        currentGrenadeAbilities = Enumerable.Repeat(false, 5).ToList();
     }
 }
