@@ -32,7 +32,7 @@ public class EnemyPartScript : MonoBehaviour
 
             if(bullet.TryGetComponent<SGSpecialBulletScript>(out SGSpecialBulletScript sgBullet))
             {
-                if(currentHealth<= 0)
+                if(currentHealth<= 0 && sgBullet.weaponScript != null)
                 {
                     sgBullet.weaponScript.ResetCooldown();
                 }

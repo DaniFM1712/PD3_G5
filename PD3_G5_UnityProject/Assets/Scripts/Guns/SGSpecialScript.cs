@@ -45,7 +45,6 @@ public class SGSpecialScript : MonoBehaviour
             GameObject specialBullet = Instantiate(specialBulletPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
             specialBullet.SetActive(false);
             specialBulletPool.Enqueue(specialBullet);
-            specialBullet.GetComponent<SGSpecialBulletScript>().weaponScript = this;
             specialBullet.transform.parent = specialBullets.transform;
         }
 
@@ -55,10 +54,7 @@ public class SGSpecialScript : MonoBehaviour
 
     public void ResetCooldown()
     {
-        if (cooldownBlessing)
-        {
-            //reducir cooldown
-        }
+        //reducir cooldown
     }
 
     // Update is called once per frame
@@ -113,7 +109,10 @@ public class SGSpecialScript : MonoBehaviour
         currentBullet.transform.position = specialBulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
         currentBullet.GetComponent<SGSpecialBulletScript>().SetDamage(specialBulletDamage + PlayerStatsScript.playerStatsInstance.currentDamageBonus);
-        currentBullet.GetComponent<SGSpecialBulletScript>().weaponScript = this;
+        if (cooldownBlessing)
+        {
+            currentBullet.GetComponent<SGSpecialBulletScript>().weaponScript = this;
+        }
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * specialShootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * specialUpwardForce, ForceMode.Impulse);
