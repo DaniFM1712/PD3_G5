@@ -35,6 +35,7 @@ Transform:
   m_Children:
   - {fileID: 4021155556585232063}
   - {fileID: 2856412303600812907}
+  - {fileID: 4086315872178790192}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -153,7 +154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665293334332728740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.936, z: 0}
+  m_LocalPosition: {x: 0, y: 0.487, z: 0.028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -175,7 +176,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665293334332728740}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -236,21 +237,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplyer: 2
-  receiveDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1515236647032608047}
-        m_TargetAssemblyTypeName: EnemyHealthScript, Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &9000489654458971120
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +287,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9000489654458971120}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -347,8 +333,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 1, z: 1.25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.25, y: 1.5460767, z: 1.1111528}
+  m_Center: {x: 0, y: 0.27303815, z: -0.06942341}
 --- !u!114 &6951673578415501870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,18 +348,128 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplyer: 1
-  receiveDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1515236647032608047}
-        m_TargetAssemblyTypeName: EnemyHealthScript, Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+--- !u!1001 &4557427180375423195
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1515236647032608032}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.487
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7769866696705768492, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 722e08526974b0e46aaad3146f5ab423, type: 2}
+    - target: {fileID: -4165594333892226527, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 722e08526974b0e46aaad3146f5ab423, type: 2}
+    - target: {fileID: -1123086197064790936, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 722e08526974b0e46aaad3146f5ab423, type: 2}
+    - target: {fileID: -1111820104403210784, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c43bfe6988e78474b8c7da262a329243, type: 2}
+    - target: {fileID: -579645601917969120, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 722e08526974b0e46aaad3146f5ab423, type: 2}
+    - target: {fileID: 919132149155446097, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_Name
+      value: "Modelo_Chill\xF3n_original"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877997859369016090, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8877997859369016090, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5be7523dfa96b044fa8c69dcdc2e6e62, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044, type: 3}
+--- !u!4 &4086315872178790192 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,
+    type: 3}
+  m_PrefabInstance: {fileID: 4557427180375423195}
+  m_PrefabAsset: {fileID: 0}

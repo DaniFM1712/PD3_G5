@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162509213117114373}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.936, z: 0}
+  m_LocalPosition: {x: 0.035, y: 2.163, z: 0.146}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162509213117114373}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -96,8 +96,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6
-  m_Center: {x: 0.0000076293945, y: 0.0000076293945, z: 0.000030517578}
+  m_Radius: 0.3839162
+  m_Center: {x: 0.000007638487, y: 0.000007638487, z: -0.079316646}
 --- !u!114 &3774115546938296462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,21 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplyer: 2
-  receiveDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1313207473817311374}
-        m_TargetAssemblyTypeName: EnemyHealthScript, Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1313207473817311360
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +147,7 @@ Transform:
   - {fileID: 3526392324904278814}
   - {fileID: 2349264190132326090}
   - {fileID: 4636849844181223820}
+  - {fileID: 6859121491112800260}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -349,7 +335,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8923435339764629073}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -395,8 +381,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 1, z: 1.25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.1512423, y: 2.3518353, z: 1.0392202}
+  m_Center: {x: 0.08383863, y: 0.67591774, z: -0.10538987}
 --- !u!114 &7441933157309366159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,18 +396,123 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplyer: 1
-  receiveDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1313207473817311374}
-        m_TargetAssemblyTypeName: EnemyHealthScript, Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+--- !u!1001 &6393642363674941423
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1313207473817311361}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.42662477
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6878589130488362031, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c43bfe6988e78474b8c7da262a329243, type: 2}
+    - target: {fileID: -5070275894413184590, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c43bfe6988e78474b8c7da262a329243, type: 2}
+    - target: {fileID: -3465926650878836785, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 722e08526974b0e46aaad3146f5ab423, type: 2}
+    - target: {fileID: 718147684693466823, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5be7523dfa96b044fa8c69dcdc2e6e62, type: 2}
+    - target: {fileID: 919132149155446097, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_Name
+      value: "Modelo_Arlequ\xEDn_original"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882224344139590433, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5be7523dfa96b044fa8c69dcdc2e6e62, type: 2}
+    - target: {fileID: 7328867905613312565, guid: eaf15352877560b48904c130956c7c60,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c43bfe6988e78474b8c7da262a329243, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eaf15352877560b48904c130956c7c60, type: 3}
+--- !u!4 &6859121491112800260 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eaf15352877560b48904c130956c7c60,
+    type: 3}
+  m_PrefabInstance: {fileID: 6393642363674941423}
+  m_PrefabAsset: {fileID: 0}
