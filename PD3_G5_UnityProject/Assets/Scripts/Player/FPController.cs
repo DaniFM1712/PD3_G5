@@ -16,7 +16,6 @@ public class FPController : MonoBehaviour
     public KeyCode mouseLockKey = KeyCode.O;
 
     private bool angleLocked = false;
-    private PlayerStatsScript playerStats;
 
     float yaw = 0;
     float pitch = 0;
@@ -59,6 +58,7 @@ public class FPController : MonoBehaviour
 
     [Header("Dash Properties")]
     [SerializeField] UnityEvent<float> startDashCooldown;
+    private bool startCooldown = false;
     [SerializeField] float speed = 10.0f;
     [SerializeField] float dashLength = 0.15f;
     [SerializeField] float dashSpeed = 1000.0f;
@@ -74,6 +74,11 @@ public class FPController : MonoBehaviour
     private bool dashAllowed = false;
     private Vector3 moved = new Vector3(0, 0, 0);
 
+    //----------DASH----------//
+    private TwoChargeBlessingScript twoChargeBlessing;
+    private DashIncreasesDamageBlessingScript dashIncreasesDamageBlessing;
+    public int currentDashCharges;
+
     private void Awake()
     {
         Cursor.lockState =  CursorLockMode.Locked;
@@ -88,8 +93,11 @@ public class FPController : MonoBehaviour
 
     private void Start()
     {
+        twoChargeBlessing = GetComponent<TwoChargeBlessingScript>();
+        dashIncreasesDamageBlessing = GetComponent<DashIncreasesDamageBlessingScript>();
+
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
-        playerStats = PlayerStatsScript.playerStatsInstance;
+        currentDashCharges = PlayerStatsScript.playerStatsInstance.currentMaxDashCharges;
         ChangeWeapon();
     }
 
@@ -176,7 +184,7 @@ public class FPController : MonoBehaviour
         }*/
         else
         {
-            currSpeed = walkSpeed + playerStats.currentSpeedBonus;
+            currSpeed = walkSpeed + PlayerStatsScript.playerStatsInstance.currentSpeedBonus;
         }
 
         if (Input.GetKeyDown(jumpKey) && onGround)
@@ -186,9 +194,20 @@ public class FPController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) == true && dashAllowed)
         {
+            dashIncreasesDamageBlessing.StartDamageTimer();
+            dashReset = currentDashCharges > 1;
+
+            if (dashReset)
+                currentDashCharges--;
+            else
+            {
+                startCooldown = true;
+                currentDashCharges = PlayerStatsScript.playerStatsInstance.currentMaxDashCharges;
+
+            }
+
             dashMove = moved;
             canDash = false;
-            dashReset = false;
             dashingNow = true;
         }
     }
@@ -217,8 +236,9 @@ public class FPController : MonoBehaviour
 
         dashingNow = (dashing >= dashLength) ? false : dashingNow;
 
-        if (dashing >= dashLength)
+        if (dashing >= dashLength && startCooldown)
         {
+            startCooldown = false;
             startDashCooldown.Invoke(dashResetTime);
         }
 
@@ -250,11 +270,11 @@ public class FPController : MonoBehaviour
             weapon.SetActive(false);
         }
 
-        if(playerStats.currentSelectedWeapon == 1)
+        if(PlayerStatsScript.playerStatsInstance.currentSelectedWeapon == 1)
         {
             weapons[0].SetActive(true);
         }
-        if (playerStats.currentSelectedWeapon == 2)
+        if (PlayerStatsScript.playerStatsInstance.currentSelectedWeapon == 2)
         {
             weapons[1].SetActive(true);
         }
@@ -269,4 +289,12 @@ public class FPController : MonoBehaviour
     {
         return new Vector3(Mathf.Sin((yaw + 90.0f) * Mathf.Deg2Rad), 0.0f, Mathf.Cos((yaw + 90.0f) * Mathf.Deg2Rad));
     }
+
+    public void ActivateBlessing(string blessingName)
+    {
+        ParentBlessing blessing = GetComponent(blessingName) as ParentBlessing;
+        blessing.enabled = true;
+    
+    }
+
 }

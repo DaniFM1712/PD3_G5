@@ -32,6 +32,7 @@ public class ProjectileShootingScript : MonoBehaviour
     int bulletsLeft, bulletsShot;
 
     bool shooting, readyToShoot, reloading;
+    bool dashDamageBlessing = false;
     Queue<GameObject> bulletPool;
 
     // Start is called before the first frame update
@@ -114,7 +115,11 @@ public class ProjectileShootingScript : MonoBehaviour
         currentBullet.SetActive(true);
         currentBullet.transform.position = bulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
-        currentBullet.GetComponent<BulletScript>().SetDamage(bulletDamage+PlayerStatsScript.playerStatsInstance.currentDamageBonus);
+        if(dashDamageBlessing)
+            currentBullet.GetComponent<BulletScript>().SetDamage(bulletDamage+PlayerStatsScript.playerStatsInstance.currentDamageBonus*1.3f);
+
+        else
+            currentBullet.GetComponent<BulletScript>().SetDamage(bulletDamage + PlayerStatsScript.playerStatsInstance.currentDamageBonus);
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * upwardForce, ForceMode.Impulse);
