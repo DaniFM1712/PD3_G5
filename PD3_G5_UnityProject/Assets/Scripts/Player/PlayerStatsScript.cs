@@ -9,33 +9,36 @@ public class PlayerStatsScript : MonoBehaviour
 
     //----------BASE--STATS----------//
 
-    public float baseMaxHealth { get; set; }
-    public float baseMaxShield { get; set; }
-    public int baseDamageBonus { get; set; }
-    public int baseSpeedBonus { get; set; }
+    public float baseMaxHealth = 150f;
+    public float baseMaxShield = 0;
+    public int baseDamageBonus = 0;
+    public int baseSpeedBonus = 0;
+    public int baseMaxDashCharges = 1;
 
 
     //----------MAX--STATS----------//
 
-    public float currentMaxHealth { get; set; }
-    public float currentMaxShield { get; set; }
+    public float currentMaxHealth;
+    public float currentMaxShield;
+    public int currentMaxDashCharges;
 
 
     //----------CURRENT--STATS----------//
 
-    public float currentHealth { get; set; }
-    public float currentShield { get; set; }
-    public float currentDamageBonus { get; set; }
-    public float currentSpeedBonus { get; set; }
-    public int currentSelectedWeapon { get; set; }
-    public int currentNormalCoin { get; set; }
-    public int currentSpecialCoin { get; set; }
+    public float currentHealth;
+    public float currentShield;
+    public float currentDamageBonus;
+    public float currentSpeedBonus;
+    public int currentSelectedWeapon;
+    public int currentNormalCoin;
+    public int currentSpecialCoin;
 
     //--------- UPGRADES LIST ---------//
-    //public List<bool> currentDashAbilities { get; set; } = new List<bool>(5);
-    public List<bool> currentDashAbilities { get; set; }
-    public List<bool> currentWeaponAbilities { get; set; }
-    public List<bool> currentGrenadeAbilities { get; set; }
+    //public List<bool> currentDashAbilities; = new List<bool>(5);
+    public List<bool> currentDashAbilities;
+    public List<bool> currentWeaponAbilities;
+    public List<bool> currentGrenadeAbilities;
+    public bool dashDamageBlessing = false;
 
 
     private void Awake()
@@ -48,17 +51,11 @@ public class PlayerStatsScript : MonoBehaviour
         else
             Destroy(gameObject);
 
-        //----------BASE--STATS----------//
-        baseMaxHealth = 150f;
-        baseMaxShield = 0f;
-        baseDamageBonus = 0;
-        baseSpeedBonus = 0;
 
         //----------MAX--STATS----------//
         currentMaxHealth = baseMaxHealth;
         currentMaxShield = baseMaxShield;
-
-
+        currentMaxDashCharges = baseMaxDashCharges;
 
         //----------CURRENT--STATS----------//
         currentHealth = currentMaxHealth;
@@ -92,8 +89,12 @@ public class PlayerStatsScript : MonoBehaviour
         currentSpeedBonus = baseSpeedBonus;
         currentSelectedWeapon = 0;
         currentNormalCoin = 0;
+        currentMaxDashCharges = baseMaxDashCharges;
+
+        /*
         currentDashAbilities = Enumerable.Repeat(false, 5).ToList();
         currentWeaponAbilities = Enumerable.Repeat(false, 5).ToList();
         currentGrenadeAbilities = Enumerable.Repeat(false, 5).ToList();
+        */
     }
 }
