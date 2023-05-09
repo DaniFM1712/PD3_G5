@@ -16,6 +16,7 @@ public class SGSpecialScript : MonoBehaviour
     [SerializeField] float specialTimeBetweenShots;
     [SerializeField] float specialBulletDamage;
     [SerializeField] int specialBulletsPerTap;
+    private int baseSpecialBulletsPerTap;
 
     [Header("Spawn Point")]
     private Camera cam;
@@ -35,6 +36,7 @@ public class SGSpecialScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        baseSpecialBulletsPerTap = specialBulletsPerTap;
         cooldown = GameObject.Find("CanvasPrefab/Cooldowns").GetComponent<CooldownScript>();
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         specialBulletPool = new Queue<GameObject>();
@@ -85,14 +87,13 @@ public class SGSpecialScript : MonoBehaviour
 
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
         RaycastHit hitInfo;
-        Vector3 hitPoint;
+        Vector3 hitPoint = r.GetPoint(50);
 
         if (Physics.Raycast(r, out hitInfo))
             //Crec que a vegades les bales surten rares pq això detecta una bala ja disparada.
-            hitPoint = hitInfo.point;
+            if(hitInfo.collider.gameObject.CompareTag("Player"))
+                hitPoint = hitInfo.point;
 
-        else
-            hitPoint = r.GetPoint(100);
 
 
         Vector3 directionWithoutSpread = hitPoint - specialBulletOrigin.position;
@@ -136,5 +137,13 @@ public class SGSpecialScript : MonoBehaviour
     {
         readyToShootSpecial = true;
         allowInvokeSpecial = true;
+    }
+
+    public void SetSBulletsPerTap(int bPerTap)
+    {
+        specialBulletsPerTap = bPerTap;
+
+        if (bPerTap == 0)
+            specialBulletsPerTap = baseSpecialBulletsPerTap;
     }
 }

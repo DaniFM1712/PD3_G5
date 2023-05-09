@@ -29,14 +29,14 @@ public class EnemyPartScript : MonoBehaviour
 
             health.TakeDamage(damage * damageMultiplyer);
             
-
+            /*
             if(bullet.TryGetComponent<SGSpecialBulletScript>(out SGSpecialBulletScript sgBullet))
             {
                 if(currentHealth<= 0 && sgBullet.weaponScript != null)
                 {
                     sgBullet.weaponScript.ResetCooldown();
                 }
-            }
+            }*/
         }
     }
 }

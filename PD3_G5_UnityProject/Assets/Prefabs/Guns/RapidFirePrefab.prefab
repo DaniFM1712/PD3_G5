@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7352254665611245801}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.53478, y: 1, z: 2.2357}
+  m_LocalScale: {x: 0.10379509, y: 0.26895, z: 0.73623836}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7352254666028250572}
@@ -113,32 +113,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3682631923943361041, guid: c75e3bda732298b4cb6cf3728c3d8b24,
     type: 3}
-  specialBulletPrefab: {fileID: 3682631923943361041, guid: 456834752b0b19b4eb669375375c6915,
-    type: 3}
-  shootForce: 300
+  shootForce: 60
   upwardForce: 0
-  specialShootForce: 45
-  specialUpwardForce: 5
   timeBetweenShooting: 0.1
-  spread: 2
+  spread: 0.5
   reloadTime: 1.5
   timeBetweenShots: 0
   bulletDamage: 5
   magazineSize: 50
   bulletsPerTap: 1
   allowButtonHold: 1
-  startAbilityCooldown:
-    m_PersistentCalls:
-      m_Calls: []
-  specialTimeBetweenShooting: 10
-  specialSpread: 1
-  specialReloadTime: 0
-  specialTimeBetweenShots: 0
-  specialBulletDamage: 0
-  specialBulletsPerTap: 1
   bulletOrigin: {fileID: 7352254666028250572}
   allowInvoke: 1
-  allowInvokeSpecial: 1
 --- !u!1 &7352254666028250571
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7352254666028250571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.524}
+  m_LocalPosition: {x: -0, y: 0, z: 0.619}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

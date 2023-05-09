@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7352254665611245803}
   - component: {fileID: 1495583114424343594}
   - component: {fileID: 9131815897324384615}
+  - component: {fileID: 4781853274875488356}
   m_Layer: 0
   m_Name: ShotgunPrefab
   m_TagString: Player
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7352254665611245801}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8386, y: 1, z: 1.9901}
+  m_LocalScale: {x: 0.2089875, y: 0.24803, z: 0.7555799}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7352254666028250572}
@@ -114,10 +115,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3682631923943361041, guid: c7eeff507f5ad6a48b8af0cfb36f1d4a,
     type: 3}
-  shootForce: 300
+  shootForce: 60
   upwardForce: 0
   timeBetweenShooting: 1
-  spread: 3
+  spread: 1
   reloadTime: 1.5
   timeBetweenShots: 0
   bulletDamage: 15
@@ -140,16 +141,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialBulletPrefab: {fileID: 3682631923943361041, guid: 5af0c84197bf00640afcdf25b78ca4af,
     type: 3}
-  specialShootForce: 300
+  specialShootForce: 60
   specialUpwardForce: 0
-  specialTimeBetweenShooting: 1
+  specialCooldownTime: 10
   specialSpread: 1
-  specialReloadTime: 1.5
   specialTimeBetweenShots: 0
   specialBulletDamage: 15
   specialBulletsPerTap: 5
   specialBulletOrigin: {fileID: 7352254666028250572}
   allowInvokeSpecial: 1
+--- !u!114 &4781853274875488356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408fd927562b6d340b9a834414163d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletsPerTapBlessing: 10
 --- !u!1 &7352254666028250571
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7352254666028250571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.524}
+  m_LocalPosition: {x: 0, y: 0, z: 0.649}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

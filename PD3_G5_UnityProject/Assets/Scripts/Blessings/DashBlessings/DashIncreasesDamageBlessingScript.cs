@@ -7,11 +7,6 @@ public class DashIncreasesDamageBlessingScript : ParentBlessing
     public float totalDamageTimer = 3f;
     private bool startTimer = false;
     private float damageTimer;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -32,7 +27,9 @@ public class DashIncreasesDamageBlessingScript : ParentBlessing
     }
     public void StartDamageTimer()
     {
+        Debug.Log("DASH TIMER START");
         PlayerStatsScript.playerStatsInstance.dashDamageBlessing = true;
         startTimer = true;
+        damageTimer = totalDamageTimer;
     }
 }

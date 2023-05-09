@@ -88,18 +88,21 @@ public class ProjectileShootingScript : MonoBehaviour
         readyToShoot = false;
 
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
-        RaycastHit hitInfo; 
+        //RaycastHit hitInfo; 
         //Vector3 hitPoint = r.GetPoint(30f);
-        Vector3 hitPoint;
+        Vector3 hitPoint = r.GetPoint(50);
 
         //if (Physics.Raycast(r, out hitInfo, maxShootDist, shootingMask))
         
-        if (Physics.Raycast(r, out hitInfo))
+        if (Physics.Raycast(r, out RaycastHit hitInfo))
+        {
             //Crec que a vegades les bales surten rares pq això detecta una bala ja disparada.
-            hitPoint = hitInfo.point;
+            if (!hitInfo.collider.gameObject.CompareTag("Bullet"))
+                hitPoint = hitInfo.point;
+        }
+            
 
-        else
-            hitPoint = r.GetPoint(100);
+
         
 
         Vector3 directionWithoutSpread = hitPoint - bulletOrigin.position;
@@ -115,12 +118,7 @@ public class ProjectileShootingScript : MonoBehaviour
         currentBullet.SetActive(true);
         currentBullet.transform.position = bulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
-        if(dashDamageBlessing)
-            currentBullet.GetComponent<BulletScript>().SetDamage(bulletDamage+PlayerStatsScript.playerStatsInstance.currentDamageBonus*1.3f);
-
-        else
-            currentBullet.GetComponent<BulletScript>().SetDamage(bulletDamage + PlayerStatsScript.playerStatsInstance.currentDamageBonus);
-
+        currentBullet.GetComponent<BulletScript>().SetDamage(bulletDamage+PlayerStatsScript.playerStatsInstance.currentDamageBonus);
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * upwardForce, ForceMode.Impulse);
 

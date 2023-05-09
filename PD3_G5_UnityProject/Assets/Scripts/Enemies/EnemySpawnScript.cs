@@ -15,8 +15,7 @@ public class EnemySpawnScript : MonoBehaviour
             {  
                 enemy.gameObject.SetActive(true);
             }
-        }
-
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }  
     }
 }
