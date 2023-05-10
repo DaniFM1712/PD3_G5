@@ -41,6 +41,7 @@ public class GrenadeScript : MonoBehaviour
         doubleAOEBlessing = GetComponent<DoubleAOEBlessingScript>();
         grenadePool = new Queue<GameObject>();
         GameObject grenades = new("Grenades");
+        currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;
 
 
         for (int i = 0; i < grenadesPerTap + 5; i++)
@@ -69,20 +70,27 @@ public class GrenadeScript : MonoBehaviour
         //CHECKEAR SI SE ESTA RECARGANDO Y NO PERMITIR UTILIZAR LA HABLIDAD
         if (readyToShootGrenade && shootingGrenade)
         {
-            Debug.Log("G SHOT: " + grenadesShot);
-            Debug.Log("GRENADE 2");
+
             shootingGrenade = false;
             grenadesShot = 0;
             //START COOLDOWN SS
             ShootGrenade();
-            cooldown.StartAbilityCooldown(grenadeTimeBetweenShooting);
+            if (currentGrenadeCharges < 1)
+            {
+                cooldown.StartGrenadeCooldown(grenadeTimeBetweenShooting);
+                currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;
+            }
+            else
+            {
+                currentGrenadeCharges--;
+            }
         }
     }
 
     private void ShootGrenade()
     {
         Debug.Log("GRENADE 3");
-        readyToShootGrenade = false;
+        readyToShootGrenade = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges == currentGrenadeCharges;
 
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
         RaycastHit hitInfo;
@@ -122,8 +130,11 @@ public class GrenadeScript : MonoBehaviour
 
         if (allowInvokeGrenade)
         {
-            Invoke(nameof(ResetGrenadeShot), grenadeTimeBetweenShooting);
-            allowInvokeGrenade = false;
+            if (currentGrenadeCharges < 1)
+            {
+                Invoke(nameof(ResetGrenadeShot), grenadeTimeBetweenShooting);
+                allowInvokeGrenade = false;
+            }
         }
         if (grenadesShot < grenadesPerTap)
         {
