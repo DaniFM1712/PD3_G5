@@ -77,7 +77,7 @@ public class GrenadeScript : MonoBehaviour
             ShootGrenade();
             if(currentGrenadeCharges < 1)
             {
-                cooldown.StartAbilityCooldown(grenadeTimeBetweenShooting);
+                cooldown.StartGrenadeCooldown(grenadeTimeBetweenShooting);
                 currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;
             }
             else
