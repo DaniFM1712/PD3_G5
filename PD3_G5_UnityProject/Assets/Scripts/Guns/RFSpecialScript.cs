@@ -31,7 +31,7 @@ public class RFSpecialScript : MonoBehaviour
     Queue<GameObject> specialBulletPool;
     CooldownScript cooldown;
     TrapDamageIncreasedBlessingScript trapDamageIncreasedBlessing;
-
+    public int currentTrapCharges;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +41,7 @@ public class RFSpecialScript : MonoBehaviour
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         specialBulletPool = new Queue<GameObject>();
         GameObject specialBullets = new("RF Special Bullets");
-
+        currentTrapCharges = PlayerStatsScript.playerStatsInstance.currentMaxTrapCharges;
 
         for (int i = 0; i < specialBulletsPerTap + 5; i++)
         {
@@ -73,13 +73,21 @@ public class RFSpecialScript : MonoBehaviour
             specialBulletsShot = 0;
             //START COOLDOWN SS
             ShootSpecial();
-            cooldown.StartAbilityCooldown(specialCooldowmTime);
+            if (currentTrapCharges < 1)
+            {
+                cooldown.StartAbilityCooldown(specialCooldowmTime);
+                currentTrapCharges = PlayerStatsScript.playerStatsInstance.currentMaxTrapCharges;
+            }
+            else
+            {
+                currentTrapCharges--;
+            }
         }
     }
 
     private void ShootSpecial()
     {
-        readyToShootSpecial = false;
+        readyToShootSpecial = PlayerStatsScript.playerStatsInstance.currentMaxTrapCharges == currentTrapCharges;
 
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
         RaycastHit hitInfo;
@@ -122,8 +130,11 @@ public class RFSpecialScript : MonoBehaviour
 
         if (allowInvokeSpecial)
         {
-            Invoke(nameof(ResetSpecialShot), specialCooldowmTime);
-            allowInvokeSpecial = false;
+            if (currentTrapCharges < 1)
+            {
+                Invoke(nameof(ResetSpecialShot), specialCooldowmTime);
+                allowInvokeSpecial = false;
+            }
         }
         if (specialBulletsShot < specialBulletsPerTap)
         {
