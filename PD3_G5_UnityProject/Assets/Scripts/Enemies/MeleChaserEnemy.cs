@@ -225,5 +225,22 @@ public class MeleChaserEnemy : MonoBehaviour
 
     }
 
+    public void GetStunned(float stunTimer)
+    {
+        StartCoroutine(StunEffect(stunTimer));
+    }
+
+    IEnumerator StunEffect(float timer)
+    {
+
+        Debug.Log("2. MELEE SCRIPT");
+        StopAgent();
+
+        yield return new WaitForSeconds(timer);
+
+        RestartAgent();
+
+
+    }
 
 }

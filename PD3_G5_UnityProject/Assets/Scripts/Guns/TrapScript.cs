@@ -9,7 +9,7 @@ public class TrapScript : MonoBehaviour
     [SerializeField] float freezeDuration = 5f;
     [SerializeField] float damage = 50f;
     float timeToDestroy;
-    bool activated = false;
+    bool damageDealt = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,16 +20,15 @@ public class TrapScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (activated)
+
+        timeToDestroy -= Time.deltaTime;
+
+        if (timeToDestroy <= 0f)
         {
-            timeToDestroy -= Time.deltaTime;
-            
-            if (timeToDestroy <= 0f)
-            {
-                Debug.Log("DEATH");
-                Destroy(gameObject);
-            }
+            Debug.Log("DESTROY AREA");
+            Destroy(gameObject);
         }
+
 
     }
 
@@ -40,38 +39,21 @@ public class TrapScript : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            /*if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
+            if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart) && !damageDealt)
             {
+                damageDealt = true;
                 enemyPart.TakeDamage(damage, null);
-            }*/
-            activated = true;
-            if (other.gameObject.TryGetComponent<NavMeshAgent>(out _))
-            {
-                Debug.Log("1. NAV AGENT");
-
-                StartCoroutine(FreezeEffect(other.gameObject));
             }
-
+            if (other.gameObject.TryGetComponent<MeleChaserEnemy>(out MeleChaserEnemy enemyIA))
+            {
+                enemyIA.GetStunned(freezeDuration);
+            }
+            Destroy(gameObject);
         }
 
     }
 
-    IEnumerator FreezeEffect(GameObject agent)
-    {
-        if(agent.TryGetComponent<MeleChaserEnemy>(out MeleChaserEnemy meleeStop))
-        {
-            Debug.Log("2. MELEE SCRIPT");
-            meleeStop.StopAgent();
-        }
-        
-        yield return new WaitForSeconds(freezeDuration);
 
-        if (agent.TryGetComponent<MeleChaserEnemy>(out MeleChaserEnemy meleeRestart))
-        {
-            meleeRestart.RestartAgent();
-        }
-        
-    }
 
     /*
     private void OnTriggerExit(Collider other)
