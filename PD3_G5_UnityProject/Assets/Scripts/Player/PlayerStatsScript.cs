@@ -14,6 +14,7 @@ public class PlayerStatsScript : MonoBehaviour
     public int baseDamageBonus = 0;
     public int baseSpeedBonus = 0;
     public int baseMaxDashCharges = 1;
+    public int baseMaxGrenadeCharges = 1;
 
 
     //----------MAX--STATS----------//
@@ -21,6 +22,7 @@ public class PlayerStatsScript : MonoBehaviour
     public float currentMaxHealth;
     public float currentMaxShield;
     public int currentMaxDashCharges;
+    public int currentMaxGrenadeCharges;
 
 
     //----------CURRENT--STATS----------//
@@ -56,6 +58,7 @@ public class PlayerStatsScript : MonoBehaviour
         currentMaxHealth = baseMaxHealth;
         currentMaxShield = baseMaxShield;
         currentMaxDashCharges = baseMaxDashCharges;
+        currentMaxGrenadeCharges = baseMaxGrenadeCharges;
 
         //----------CURRENT--STATS----------//
         currentHealth = currentMaxHealth;
@@ -90,6 +93,7 @@ public class PlayerStatsScript : MonoBehaviour
         currentSelectedWeapon = 0;
         currentNormalCoin = 0;
         currentMaxDashCharges = baseMaxDashCharges;
+        currentMaxGrenadeCharges = baseMaxGrenadeCharges;
 
         /*
         currentDashAbilities = Enumerable.Repeat(false, 5).ToList();
