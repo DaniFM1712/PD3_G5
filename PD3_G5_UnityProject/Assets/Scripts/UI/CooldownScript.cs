@@ -6,12 +6,16 @@ public class CooldownScript : MonoBehaviour
 {
     [SerializeField] float dashCooldown;
     [SerializeField] float abilityCooldown;
+    [SerializeField] float grenadeCooldown;
     [SerializeField] Image dashCDImage;
     [SerializeField] Image abilityCDImage;
+    [SerializeField] Image grenadeCDImage;
     float dashCDTime;
     float abilityCDTime;
+    float grenadeCDTime;
     bool dashInCD;
     bool abilityInCD;
+    bool grenadeInCD;
 
 
     // Start is called before the first frame update
@@ -19,8 +23,11 @@ public class CooldownScript : MonoBehaviour
     {
         dashInCD = false;
         abilityInCD = false;
+        grenadeInCD = false;
         dashCDImage.enabled = false;
         abilityCDImage.enabled = false;
+        grenadeCDImage.enabled = false;
+
 
     }
 
@@ -53,6 +60,19 @@ public class CooldownScript : MonoBehaviour
                 abilityCDImage.enabled = false;
             }
         }
+        
+        if (grenadeInCD)
+        {
+            grenadeCDTime -= Time.deltaTime;
+            grenadeCDImage.fillAmount = grenadeCDTime/ grenadeCooldown;
+            if (grenadeCDTime <= 0f)
+            {
+                grenadeInCD = false;
+                grenadeCDTime = abilityCooldown;
+                grenadeCDImage.fillAmount = 1;
+                grenadeCDImage.enabled = false;
+            }
+        }
 
     }
 
@@ -70,5 +90,13 @@ public class CooldownScript : MonoBehaviour
         abilityCDTime = abilityCooldown;
         abilityInCD = true;
         abilityCDImage.enabled = true;
+    } 
+    
+    public void StartGrenadeCooldown(float cooldown)
+    {
+        grenadeCooldown = cooldown;
+        grenadeCDTime = grenadeCooldown;
+        grenadeInCD = true;
+        grenadeCDImage.enabled = true;
     }
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1495583114424343594}
   - component: {fileID: 9131815897324384615}
   - component: {fileID: 4781853274875488356}
+  - component: {fileID: 2082958648928228346}
   m_Layer: 0
   m_Name: ShotgunPrefab
   m_TagString: Player
@@ -117,7 +118,7 @@ MonoBehaviour:
     type: 3}
   shootForce: 60
   upwardForce: 0
-  timeBetweenShooting: 1
+  timeBetweenShooting: 2
   spread: 1
   reloadTime: 1.5
   timeBetweenShots: 0
@@ -157,12 +158,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7352254665611245801}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 408fd927562b6d340b9a834414163d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletsPerTapBlessing: 10
+--- !u!114 &2082958648928228346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed9f6311241dbf45b45503b0e530915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canDoubleShot: 1
 --- !u!1 &7352254666028250571
 GameObject:
   m_ObjectHideFlags: 0

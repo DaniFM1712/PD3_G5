@@ -30,6 +30,8 @@ public class GrenadeScript : MonoBehaviour
     bool readyToShootGrenade, shootingGrenade;
     Queue<GameObject> grenadePool;
     CooldownScript cooldown;
+    public int currentGrenadeCharges;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,7 @@ public class GrenadeScript : MonoBehaviour
         cam = transform.Find("PitchController/Main Camera").gameObject.GetComponent<Camera>();
         grenadePool = new Queue<GameObject>();
         GameObject grenades = new("Grenades");
+        currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;
 
 
         for (int i = 0; i < grenadesPerTap + 5; i++)
@@ -72,14 +75,22 @@ public class GrenadeScript : MonoBehaviour
             grenadesShot = 0;
             //START COOLDOWN SS
             ShootGrenade();
-            cooldown.StartAbilityCooldown(grenadeTimeBetweenShooting);
+            if(currentGrenadeCharges < 1)
+            {
+                cooldown.StartGrenadeCooldown(grenadeTimeBetweenShooting);
+                currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;
+            }
+            else
+            {
+                currentGrenadeCharges--;
+            }
         }
     }
 
     private void ShootGrenade()
     {
-        Debug.Log("GRENADE 3");
-        readyToShootGrenade = false;
+        readyToShootGrenade = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges == currentGrenadeCharges;
+
 
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
         RaycastHit hitInfo;
@@ -117,8 +128,12 @@ public class GrenadeScript : MonoBehaviour
 
         if (allowInvokeGrenade)
         {
-            Invoke(nameof(ResetGrenadeShot), grenadeTimeBetweenShooting);
-            allowInvokeGrenade = false;
+            if(currentGrenadeCharges < 1)
+            {
+                Invoke(nameof(ResetGrenadeShot), grenadeTimeBetweenShooting);
+                allowInvokeGrenade = false;
+            }
+            
         }
         if (grenadesShot < grenadesPerTap)
         {
