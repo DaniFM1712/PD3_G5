@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParentBlessing : MonoBehaviour
+public class TrapDamageIncreasedBlessingScript : MonoBehaviour
 {
-    protected FPController fPController;
-    protected GrenadeScript grenadeController;
-    protected RFSpecialScript rFSpecialScript;
-
     // Start is called before the first frame update
-    virtual public void Start()
+    void Start()
     {
+        
     }
 
     // Update is called once per frame

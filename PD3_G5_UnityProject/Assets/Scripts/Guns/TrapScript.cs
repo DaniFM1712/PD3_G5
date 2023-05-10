@@ -25,7 +25,6 @@ public class TrapScript : MonoBehaviour
 
         if (timeToDestroy <= 0f)
         {
-            Debug.Log("DESTROY AREA");
             Destroy(gameObject);
         }
 
