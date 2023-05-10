@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DoubleShotBlessingScript : ParentBlessing
 {
-
+    public bool canDoubleShot = true;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +19,10 @@ public class DoubleShotBlessingScript : ParentBlessing
         
     }
 
-
     public bool DoubleShot()
     {
         return UnityEngine.Random.Range(1, 100) > 50;
+
     }
 
 }

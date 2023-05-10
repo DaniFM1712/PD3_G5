@@ -102,9 +102,6 @@ public class ProjectileShootingScript : MonoBehaviour
         }
             
 
-
-        
-
         Vector3 directionWithoutSpread = hitPoint - bulletOrigin.position;
 
         float xSpread = Random.Range(-spread, +spread);

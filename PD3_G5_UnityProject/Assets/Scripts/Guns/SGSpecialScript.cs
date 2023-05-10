@@ -80,11 +80,6 @@ public class SGSpecialScript : MonoBehaviour
         {
             specialBulletsShot = 0;
             ShootSpecial();
-            if (doubleShotBlessing.enabled && doubleShotBlessing.DoubleShot())
-            {
-                specialBulletsShot = 0;
-                Invoke(nameof(ShootSpecial), 0.5f);
-            }
             cooldown.StartAbilityCooldown(specialCooldownTime);
             Debug.Log(totalBullets);
             totalBullets  = 0;
@@ -143,15 +138,22 @@ public class SGSpecialScript : MonoBehaviour
         {
             Invoke(nameof(ShootSpecial), specialTimeBetweenShots);
         }
-
-        
-
+        else
+        {
+            if (doubleShotBlessing.enabled && doubleShotBlessing.DoubleShot() && doubleShotBlessing.canDoubleShot)
+            {
+                doubleShotBlessing.canDoubleShot = false;
+                specialBulletsShot = 0;
+                Invoke(nameof(ShootSpecial), 0.5f);
+            }
+        }
     }
 
     private void ResetSpecialShot()
     {
         readyToShootSpecial = true;
         allowInvokeSpecial = true;
+        doubleShotBlessing.canDoubleShot = true;
     }
 
     public void SetSBulletsPerTap(int bPerTap)
