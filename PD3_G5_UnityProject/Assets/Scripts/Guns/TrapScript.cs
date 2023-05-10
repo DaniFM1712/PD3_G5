@@ -7,9 +7,10 @@ public class TrapScript : MonoBehaviour
 {
     [SerializeField] float lifeTime = 5f;
     [SerializeField] float freezeDuration = 5f;
-    [SerializeField] float damage = 50f;
+    [SerializeField] float baseTrapDamage = 10f;
     float timeToDestroy;
     bool damageDealt = false;
+    float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -35,11 +36,11 @@ public class TrapScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-
         if (other.gameObject.CompareTag("Enemy"))
         {
             if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart) && !damageDealt)
             {
+                Debug.Log("DAMAGE DEALT: "+damage);
                 damageDealt = true;
                 enemyPart.TakeDamage(damage, null);
             }
@@ -49,6 +50,18 @@ public class TrapScript : MonoBehaviour
             }
             Destroy(gameObject);
         }
+
+    }
+
+    public void SetTrapDamage(float increasedDamage)
+    {
+        Debug.Log("INCREASED DAMAGE: "+increasedDamage);
+        damage = increasedDamage;
+        Debug.Log("1. DAMAGE: " + damage);
+        if (increasedDamage == 0)
+            damage = baseTrapDamage;
+
+        Debug.Log("2. DAMAGE: " + damage);
 
     }
 

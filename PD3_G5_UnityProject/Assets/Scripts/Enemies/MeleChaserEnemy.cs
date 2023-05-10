@@ -211,17 +211,18 @@ public class MeleChaserEnemy : MonoBehaviour
 
     public void StopAgent()
     {
-        Debug.Log("AGENT STOPED");
         blocked = true;
-        agent.SetDestination(transform.position);
+        //agent.SetDestination(transform.position);
+        agent.isStopped = true;
 
     }
 
     public void RestartAgent()
     {
-        Debug.Log("AGENT RESTART");
         blocked = false;
-        agent.SetDestination(player.transform.position);
+        //agent.SetDestination(player.transform.position);
+        agent.isStopped = false;
+
 
     }
 
@@ -233,7 +234,6 @@ public class MeleChaserEnemy : MonoBehaviour
     IEnumerator StunEffect(float timer)
     {
 
-        Debug.Log("2. MELEE SCRIPT");
         StopAgent();
 
         yield return new WaitForSeconds(timer);

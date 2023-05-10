@@ -9,6 +9,7 @@ public class RFSpecialBulletScript : MonoBehaviour
     float damage;
     float timeToDestroy;
     Vector3 originPosition = new Vector3(0f, 0f, 0f);
+    private float trapDamage = 0;
 
     private void Awake()
     {
@@ -32,17 +33,16 @@ public class RFSpecialBulletScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Terrain"))
         {
-
-            if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
-            {
-                enemyPart.TakeDamage(damage, null);
-            }
-
             GameObject specialEffect = Instantiate(specialEffectPrefab, other.ClosestPoint(transform.position), Quaternion.identity);
+            specialEffect.GetComponent<TrapScript>().SetTrapDamage(trapDamage);
             ReturnToOrigin();
         }
     }
 
+    public void SetTrapDamage(float trapDamage)
+    {
+        this.trapDamage = trapDamage;
+    }
 
     private void ReturnToOrigin()
     {

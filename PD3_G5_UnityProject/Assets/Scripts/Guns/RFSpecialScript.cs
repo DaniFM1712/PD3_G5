@@ -30,12 +30,14 @@ public class RFSpecialScript : MonoBehaviour
     bool readyToShootSpecial, shootingSpecial;
     Queue<GameObject> specialBulletPool;
     CooldownScript cooldown;
+    TrapDamageIncreasedBlessingScript trapDamageIncreasedBlessing;
 
 
     // Start is called before the first frame update
     void Start()
     {
         cooldown = GameObject.Find("CanvasPrefab/Cooldowns").GetComponent<CooldownScript>();
+        trapDamageIncreasedBlessing = GetComponent<TrapDamageIncreasedBlessingScript>();
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         specialBulletPool = new Queue<GameObject>();
         GameObject specialBullets = new("RF Special Bullets");
@@ -105,6 +107,12 @@ public class RFSpecialScript : MonoBehaviour
         currentSpecialBullet.transform.position = bulletOrigin.position;
         currentSpecialBullet.transform.forward = directionWithoutSpread.normalized;
 
+        if (trapDamageIncreasedBlessing.enabled)
+        {
+            Debug.Log("INCREASE DAMAGE");
+            currentSpecialBullet.GetComponent<RFSpecialBulletScript>().SetTrapDamage(trapDamageIncreasedBlessing.increasedTrapDamage);
+        }
+
         currentSpecialBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * specialShootForce, ForceMode.Impulse);
         currentSpecialBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * specialUpwardForce, ForceMode.Impulse);
 
@@ -128,4 +136,5 @@ public class RFSpecialScript : MonoBehaviour
         readyToShootSpecial = true;
         allowInvokeSpecial = true;
     }
+
 }

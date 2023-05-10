@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrapDamageIncreasedBlessingScript : MonoBehaviour
+public class TrapDamageIncreasedBlessingScript : ParentBlessing
 {
+    public float increasedTrapDamage;
     // Start is called before the first frame update
     void Start()
     {
