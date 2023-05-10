@@ -29,13 +29,9 @@ public class EnemyHealthScript : MonoBehaviour
 
         if (PlayerStatsScript.playerStatsInstance.dashDamageBlessing)
         {
-            Debug.Log("DASH DAMAGE ACTIVATED");
             damage *= 1.3f;
         }
         
-
-        Debug.Log("DAMAGE: "+damage);
-
         currentHealth -= damage;
         if(currentHealth <= 0)
         {

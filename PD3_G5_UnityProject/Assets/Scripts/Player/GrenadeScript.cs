@@ -15,7 +15,6 @@ public class GrenadeScript : MonoBehaviour
     [SerializeField] float grenadeSpread;
     [SerializeField] float grenadeReloadTime;
     [SerializeField] float grenadeTimeBetweenShots;
-    [SerializeField] float grenadeBulletDamage;
     [SerializeField] int grenadesPerTap;
 
     [Header("Spawn Point")]
@@ -30,17 +29,18 @@ public class GrenadeScript : MonoBehaviour
     bool readyToShootGrenade, shootingGrenade;
     Queue<GameObject> grenadePool;
     CooldownScript cooldown;
+    DoubleAOEBlessingScript doubleAOEBlessing;
     public int currentGrenadeCharges;
-
+    private Vector3 explosionScale;
 
     // Start is called before the first frame update
     void Start()
     {
         cooldown = GameObject.Find("CanvasPrefab/Cooldowns").GetComponent<CooldownScript>();
         cam = transform.Find("PitchController/Main Camera").gameObject.GetComponent<Camera>();
+        doubleAOEBlessing = GetComponent<DoubleAOEBlessingScript>();
         grenadePool = new Queue<GameObject>();
         GameObject grenades = new("Grenades");
-        currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;
 
 
         for (int i = 0; i < grenadesPerTap + 5; i++)
@@ -75,22 +75,14 @@ public class GrenadeScript : MonoBehaviour
             grenadesShot = 0;
             //START COOLDOWN SS
             ShootGrenade();
-            if(currentGrenadeCharges < 1)
-            {
-                cooldown.StartGrenadeCooldown(grenadeTimeBetweenShooting);
-                currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;
-            }
-            else
-            {
-                currentGrenadeCharges--;
-            }
+            cooldown.StartAbilityCooldown(grenadeTimeBetweenShooting);
         }
     }
 
     private void ShootGrenade()
     {
-        readyToShootGrenade = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges == currentGrenadeCharges;
-
+        Debug.Log("GRENADE 3");
+        readyToShootGrenade = false;
 
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
         RaycastHit hitInfo;
@@ -117,7 +109,9 @@ public class GrenadeScript : MonoBehaviour
         currentGrenade.SetActive(true);
         currentGrenade.transform.position = grenadeOrigin.position;
         currentGrenade.transform.forward = directionWithoutSpread.normalized;
-        currentGrenade.GetComponent<GrenadeBulletScript>().SetDamage(grenadeBulletDamage);
+
+        if(doubleAOEBlessing.enabled)
+            currentGrenade.GetComponent<GrenadeBulletScript>().SetAreaMulitplier(doubleAOEBlessing.areaMultiplyer);
 
         currentGrenade.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * grenadeShootForce, ForceMode.Impulse);
         currentGrenade.GetComponent<Rigidbody>().AddForce(cam.transform.up * grenadeUpwardForce, ForceMode.Impulse);
@@ -128,12 +122,8 @@ public class GrenadeScript : MonoBehaviour
 
         if (allowInvokeGrenade)
         {
-            if(currentGrenadeCharges < 1)
-            {
-                Invoke(nameof(ResetGrenadeShot), grenadeTimeBetweenShooting);
-                allowInvokeGrenade = false;
-            }
-            
+            Invoke(nameof(ResetGrenadeShot), grenadeTimeBetweenShooting);
+            allowInvokeGrenade = false;
         }
         if (grenadesShot < grenadesPerTap)
         {

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7352254665611245804}
   - component: {fileID: 7352254665611245803}
   - component: {fileID: 1495583114424343594}
+  - component: {fileID: 6010861365889382181}
   m_Layer: 0
   m_Name: RapidFirePrefab
   m_TagString: Player
@@ -125,6 +126,30 @@ MonoBehaviour:
   allowButtonHold: 1
   bulletOrigin: {fileID: 7352254666028250572}
   allowInvoke: 1
+--- !u!114 &6010861365889382181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a185708ca2f7de947bd5109dd2ce8cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialBulletPrefab: {fileID: 3682631923943361041, guid: b4c56e34a3a267340a0b5494befcd0f6,
+    type: 3}
+  specialShootForce: 60
+  specialUpwardForce: 0
+  specialCooldowmTime: 10
+  specialSpread: 0.2
+  specialReloadTime: 0
+  specialTimeBetweenShots: 0
+  specialBulletDamage: 0
+  specialBulletsPerTap: 1
+  bulletOrigin: {fileID: 7352254666028250572}
+  allowInvokeSpecial: 1
 --- !u!1 &7352254666028250571
 GameObject:
   m_ObjectHideFlags: 0

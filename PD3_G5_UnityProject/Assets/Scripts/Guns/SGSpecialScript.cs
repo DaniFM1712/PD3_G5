@@ -44,7 +44,7 @@ public class SGSpecialScript : MonoBehaviour
         doubleShotBlessing = GetComponent<DoubleShotBlessingScript>();
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         specialBulletPool = new Queue<GameObject>();
-        GameObject specialBullets = new("Special Bullets");
+        GameObject specialBullets = new("SG Special Bullets");
 
         for (int i = 0; i < specialBulletsPerTap + 20; i++)
         {

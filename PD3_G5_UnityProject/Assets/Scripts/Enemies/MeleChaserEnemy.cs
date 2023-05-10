@@ -7,11 +7,12 @@ using UnityEngine.Events;
 public class MeleChaserEnemy : MonoBehaviour
 {
 
-    NavMeshAgent enemy;
+    NavMeshAgent agent;
     
     [SerializeField] LayerMask obstacleMask;
     Vector3 distanceToPlayer;
     [SerializeField] UnityEvent<GameObject> objectIsDead;
+    private bool blocked = false;
 
 
 
@@ -42,7 +43,7 @@ public class MeleChaserEnemy : MonoBehaviour
 
     private void Awake()
     {
-        enemy = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
         lastCheckedHealth = GetComponent<EnemyHealthScript>().GetCurrentHealth();
         currentState = State.IDLE;
     }
@@ -122,13 +123,13 @@ public class MeleChaserEnemy : MonoBehaviour
 
     }
 
-
-
-
     void updateChase()
     {
-        if (enemy.isStopped) enemy.isStopped = !enemy.isStopped;
-        enemy.SetDestination(player.transform.position);
+        if (agent.isStopped) 
+            agent.isStopped = !agent.isStopped;
+        
+        if(!blocked)
+            agent.SetDestination(player.transform.position);
     }
 
     void ChangeFromChase()
@@ -137,7 +138,8 @@ public class MeleChaserEnemy : MonoBehaviour
         {
             currentState = State.ATTACK;
             attack();
-            StartCoroutine(CooldownAttack());
+            if(!blocked)
+                StartCoroutine(CooldownAttack());
         }
         isHit();
     }
@@ -154,15 +156,15 @@ public class MeleChaserEnemy : MonoBehaviour
 
     IEnumerator CooldownAttack()
     {
-        enemy.isStopped = true;
+        agent.isStopped = true;
         yield return new WaitForSeconds(3.0f);
-        enemy.isStopped = false;
+        agent.isStopped = false;
     }
 
     void ChangeFromAttack()
     {
         //seesPlayer() &&
-        if (!enemy.isStopped && !PlayerInRange())
+        if (!agent.isStopped && !PlayerInRange())
         {
             currentState = State.CHASE;
         }
@@ -172,7 +174,8 @@ public class MeleChaserEnemy : MonoBehaviour
     void updateHit()
     {
         lastCheckedHealth = GetComponent<EnemyHealthScript>().GetCurrentHealth();
-        enemy.isStopped = true;
+        if(!blocked)
+            agent.isStopped = true;
     }
 
     void ChangeFromHit()
@@ -206,6 +209,21 @@ public class MeleChaserEnemy : MonoBehaviour
         }
     }
 
+    public void StopAgent()
+    {
+        Debug.Log("AGENT STOPED");
+        blocked = true;
+        agent.SetDestination(transform.position);
+
+    }
+
+    public void RestartAgent()
+    {
+        Debug.Log("AGENT RESTART");
+        blocked = false;
+        agent.SetDestination(player.transform.position);
+
+    }
 
 
 }
