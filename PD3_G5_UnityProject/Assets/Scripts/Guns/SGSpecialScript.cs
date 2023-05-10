@@ -32,12 +32,16 @@ public class SGSpecialScript : MonoBehaviour
     CooldownScript cooldown;
 
     bool cooldownBlessing = false;
+    private int totalBullets = 0;
+
+    DoubleShotBlessingScript doubleShotBlessing;
 
     // Start is called before the first frame update
     private void Start()
     {
         baseSpecialBulletsPerTap = specialBulletsPerTap;
         cooldown = GameObject.Find("CanvasPrefab/Cooldowns").GetComponent<CooldownScript>();
+        doubleShotBlessing = GetComponent<DoubleShotBlessingScript>();
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         specialBulletPool = new Queue<GameObject>();
         GameObject specialBullets = new("Special Bullets");
@@ -76,7 +80,14 @@ public class SGSpecialScript : MonoBehaviour
         {
             specialBulletsShot = 0;
             ShootSpecial();
+            if (doubleShotBlessing.enabled && doubleShotBlessing.DoubleShot())
+            {
+                specialBulletsShot = 0;
+                Invoke(nameof(ShootSpecial), 0.5f);
+            }
             cooldown.StartAbilityCooldown(specialCooldownTime);
+            Debug.Log(totalBullets);
+            totalBullets  = 0;
 
         }
     }
@@ -121,6 +132,7 @@ public class SGSpecialScript : MonoBehaviour
         specialBulletPool.Enqueue(currentBullet);
 
         specialBulletsShot++;
+        totalBullets++;
 
         if (allowInvokeSpecial)
         {
@@ -131,6 +143,9 @@ public class SGSpecialScript : MonoBehaviour
         {
             Invoke(nameof(ShootSpecial), specialTimeBetweenShots);
         }
+
+        
+
     }
 
     private void ResetSpecialShot()
