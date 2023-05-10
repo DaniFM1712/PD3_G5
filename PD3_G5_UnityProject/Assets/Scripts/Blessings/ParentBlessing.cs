@@ -6,7 +6,6 @@ public class ParentBlessing : MonoBehaviour
 {
     protected FPController fPController;
     protected GrenadeScript grenadeController;
-    protected RFSpecialScript rFSpecialScript;
 
     // Start is called before the first frame update
     virtual public void Start()

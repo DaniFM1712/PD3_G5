@@ -74,22 +74,22 @@ public class GrenadeScript : MonoBehaviour
             shootingGrenade = false;
             grenadesShot = 0;
             //START COOLDOWN SS
+            Debug.Log("CURRENT GRENADES: "+currentGrenadeCharges);
             ShootGrenade();
-            if (currentGrenadeCharges < 1)
+            if (currentGrenadeCharges > 1)
             {
-                cooldown.StartGrenadeCooldown(grenadeTimeBetweenShooting);
-                currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;
+                currentGrenadeCharges--;
             }
             else
             {
-                currentGrenadeCharges--;
+                cooldown.StartGrenadeCooldown(grenadeTimeBetweenShooting);
+                currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;
             }
         }
     }
 
     private void ShootGrenade()
     {
-        Debug.Log("GRENADE 3");
         readyToShootGrenade = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges == currentGrenadeCharges;
 
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));

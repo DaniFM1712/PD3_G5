@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1495583114424343594}
   - component: {fileID: 6010861365889382181}
   - component: {fileID: 4184947771254055846}
+  - component: {fileID: 2086164306476858657}
   m_Layer: 0
   m_Name: RapidFirePrefab
   m_TagString: Player
@@ -151,6 +152,7 @@ MonoBehaviour:
   specialBulletsPerTap: 1
   bulletOrigin: {fileID: 7352254666028250572}
   allowInvokeSpecial: 1
+  currentTrapCharges: 0
 --- !u!114 &4184947771254055846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +166,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   increasedTrapDamage: 100
+--- !u!114 &2086164306476858657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67bf69828229cb64381fed606bc40964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7352254666028250571
 GameObject:
   m_ObjectHideFlags: 0

@@ -116,10 +116,8 @@ public class RFSpecialScript : MonoBehaviour
         currentSpecialBullet.transform.forward = directionWithoutSpread.normalized;
 
         if (trapDamageIncreasedBlessing.enabled)
-        {
-            Debug.Log("INCREASE DAMAGE");
             currentSpecialBullet.GetComponent<RFSpecialBulletScript>().SetTrapDamage(trapDamageIncreasedBlessing.increasedTrapDamage);
-        }
+
 
         currentSpecialBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * specialShootForce, ForceMode.Impulse);
         currentSpecialBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * specialUpwardForce, ForceMode.Impulse);

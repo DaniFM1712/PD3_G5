@@ -19,8 +19,7 @@ public class MoreTrapChargesBlessingScript : ParentBlessing
     private void OnEnable()
     {
         PlayerStatsScript.playerStatsInstance.currentMaxTrapCharges = 2;
-        rFSpecialScript = GetComponent<RFSpecialScript>();
-        rFSpecialScript.currentTrapCharges = PlayerStatsScript.playerStatsInstance.currentMaxTrapCharges;
+        GetComponent<RFSpecialScript>().currentTrapCharges = PlayerStatsScript.playerStatsInstance.currentMaxTrapCharges;
     }
 
     private void OnDisable()

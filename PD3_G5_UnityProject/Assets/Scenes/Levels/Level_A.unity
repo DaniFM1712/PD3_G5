@@ -7962,10 +7962,12 @@ MonoBehaviour:
   baseSpeedBonus: 0
   baseMaxDashCharges: 1
   baseMaxGrenadeCharges: 1
+  baseMaxTrapCharges: 1
   currentMaxHealth: 0
   currentMaxShield: 0
   currentMaxDashCharges: 0
   currentMaxGrenadeCharges: 0
+  currentMaxTrapCharges: 0
   currentHealth: 0
   currentShield: 0
   currentDamageBonus: 0
@@ -20258,6 +20260,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2017799672264874748, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017799672264874748, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
       propertyPath: increasedTrapDamage
       value: 50
       objectReference: {fileID: 0}
@@ -20492,6 +20499,11 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3688068328114149654, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242613695352439931, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
       propertyPath: m_Enabled
       value: 0
