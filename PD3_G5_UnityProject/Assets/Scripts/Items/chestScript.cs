@@ -11,11 +11,14 @@ public class chestScript : MonoBehaviour
     private bool canTake = false;
     private PlayerHealthScript playerHealth;
     [SerializeField] Consumable consumableItem;
-    [SerializeField] ConsumableAsset commonMaxHealth;
-    [SerializeField] ConsumableAsset commonFireRate;
-    [SerializeField] ConsumableAsset commonEssenceObtained;
-    [SerializeField] ConsumableAsset commonDivinePowerObtained;
-    [SerializeField] ConsumableAsset commonCriticalDamage;
+    //[SerializeField] ConsumableAsset commonMaxHealth;
+    //[SerializeField] ConsumableAsset commonFireRate;
+    //[SerializeField] ConsumableAsset commonEssenceObtained;
+    //[SerializeField] ConsumableAsset commonDivinePowerObtained;
+    //[SerializeField] ConsumableAsset commonCriticalDamage;
+    [SerializeField] List<ConsumableAsset> commonItemPool;
+    [SerializeField] List<ConsumableAsset> rareItemPool;
+    [SerializeField] List<ConsumableAsset> legendaryItemPool;
 
     private void Start()
     {
@@ -47,19 +50,19 @@ public class chestScript : MonoBehaviour
             switch (itemType)
             {
                 case 1:
-                    asset = commonMaxHealth;
+                    asset = commonItemPool[0];
                     break;
                 case 2:
-                    asset = commonFireRate;
+                    asset = commonItemPool[1];
                     break;
                 case 3:
-                    asset = commonEssenceObtained;
+                    asset = commonItemPool[2];
                     break;
                 case 4:
-                    asset = commonDivinePowerObtained;
+                    asset = commonItemPool[3];
                     break;
                 case 5:
-                    asset = commonCriticalDamage;
+                    asset = commonItemPool[4];
                     break;
             }
             consumableItem.SetConsumableItem(asset);
@@ -67,9 +70,54 @@ public class chestScript : MonoBehaviour
         }
         else if (randomNumber <= 90)
         {
+            int itemType = Random.Range(0, 10);
+            itemType = 1;
+            ConsumableAsset asset = null;
+            switch (itemType)
+            {
+                case 1:
+                    asset = rareItemPool[0];
+                    break;
+                case 2:
+                    asset = rareItemPool[1];
+                    break;
+                case 3:
+                    asset = rareItemPool[2];
+                    break;
+                case 4:
+                    asset = rareItemPool[3];
+                    break;
+                case 5:
+                    asset = rareItemPool[4];
+                    break;
+            }
+            consumableItem.SetConsumableItem(asset);
 
         }
-        else{
+        else
+        {
+            int itemType = Random.Range(0, 10);
+            itemType = 1;
+            ConsumableAsset asset = null;
+            switch (itemType)
+            {
+                case 1:
+                    asset = legendaryItemPool[0];
+                    break;
+                case 2:
+                    asset = legendaryItemPool[1];
+                    break;
+                case 3:
+                    asset = legendaryItemPool[2];
+                    break;
+                case 4:
+                    asset = legendaryItemPool[3];
+                    break;
+                case 5:
+                    asset = legendaryItemPool[4];
+                    break;
+            }
+            consumableItem.SetConsumableItem(asset);
 
         }
 
