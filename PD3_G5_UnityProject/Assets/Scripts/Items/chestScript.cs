@@ -6,24 +6,17 @@ using UnityEngine;
 public class chestScript : MonoBehaviour
 {
     [SerializeField] GameObject Canvas;
-    private PlayerStatsScript playerStats;
-    public bool opened = false;
     private bool canTake = false;
-    private PlayerHealthScript playerHealth;
     [SerializeField] Consumable consumableItem;
-    //[SerializeField] ConsumableAsset commonMaxHealth;
-    //[SerializeField] ConsumableAsset commonFireRate;
-    //[SerializeField] ConsumableAsset commonEssenceObtained;
-    //[SerializeField] ConsumableAsset commonDivinePowerObtained;
-    //[SerializeField] ConsumableAsset commonCriticalDamage;
+    [SerializeField] GameObject consumableItemGO;
+    
     [SerializeField] List<ConsumableAsset> commonItemPool;
     [SerializeField] List<ConsumableAsset> rareItemPool;
     [SerializeField] List<ConsumableAsset> legendaryItemPool;
 
     private void Start()
     {
-        playerStats = PlayerStatsScript.playerStatsInstance;
-        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthScript>();
+        Canvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,22 +24,18 @@ public class chestScript : MonoBehaviour
     {
         if (canTake && Input.GetKeyDown(KeyCode.E))
         {
-            opened = true;
-            Canvas.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = 0;
+            consumableItemGO.SetActive(true);
+            Destroy(gameObject);
         }
     }
 
     public void generateRandomReward()
     {
-        //int randomNumber = Random.Range(0, 100);
-        int randomNumber = 1;
+        ConsumableAsset asset = null;
+        int randomNumber = Random.Range(0, 100);
         if(randomNumber <= 60)
         {
-            int itemType = Random.Range(0, 10);
-            itemType = 1;
-            ConsumableAsset asset = null;
+            int itemType = Random.Range(0, 5);
             switch (itemType)
             {
                 case 1:
@@ -65,14 +54,10 @@ public class chestScript : MonoBehaviour
                     asset = commonItemPool[4];
                     break;
             }
-            consumableItem.SetConsumableItem(asset);
-
         }
         else if (randomNumber <= 90)
         {
-            int itemType = Random.Range(0, 10);
-            itemType = 1;
-            ConsumableAsset asset = null;
+            int itemType = Random.Range(0, 5);
             switch (itemType)
             {
                 case 1:
@@ -91,14 +76,10 @@ public class chestScript : MonoBehaviour
                     asset = rareItemPool[4];
                     break;
             }
-            consumableItem.SetConsumableItem(asset);
-
         }
         else
         {
-            int itemType = Random.Range(0, 10);
-            itemType = 1;
-            ConsumableAsset asset = null;
+            int itemType = Random.Range(0, 5);
             switch (itemType)
             {
                 case 1:
@@ -117,57 +98,41 @@ public class chestScript : MonoBehaviour
                     asset = legendaryItemPool[4];
                     break;
             }
-            consumableItem.SetConsumableItem(asset);
-
         }
-
+        Debug.Log(asset);
+        consumableItem.SetConsumableItem(asset);
     }
 
-    
+
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))        
+        if (other.gameObject.CompareTag("Player"))
+        {
             canTake = true;
+            Canvas.SetActive(true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
+        {
             canTake = false;
+            Canvas.SetActive(false);
+        }
+            
     }
 
     private void OnDestroy()
     {
         Canvas.SetActive(false);
-        Time.timeScale = 1;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void ModifyCurrentMaxHealth(float amount)
+
+    private void OnEnable()
     {
-        Debug.Log("CHEST ITEM - MAX HEALTH");
-        playerHealth.ModifyMaxHealth(amount);
-        //Destroy(transform.parent.gameObject);
+        generateRandomReward();
     }
 
-    public void ModifyCurrentHealth(float amount)
-    {
-        playerHealth.ModifyHealth(amount);
-        Destroy(transform.parent.gameObject);
-    }
-
-    public void ModifyCurrentSpeedBonus(int amount)
-    {
-        Debug.Log("CHEST ITEM - SPEED BONUS");
-        playerStats.currentSpeedBonus += amount;
-        Destroy(transform.parent.gameObject);
-    }
-
-    public void ModifyCurrentDamageBonus(int amount)
-    {
-        Debug.Log("CHEST ITEM - DAMAGE BONUS");
-        playerStats.currentDamageBonus += amount;
-        Destroy(transform.parent.gameObject);
-    }
 }

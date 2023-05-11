@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Consumable : MonoBehaviour
 {
     [SerializeField] private ConsumableAsset _consumableAsset;
     [SerializeField] GameObject takeItemUI;
     [SerializeField] GameObject itemInfoUI;
+    [SerializeField] GameObject nameUI;
+    [SerializeField] GameObject descriptionUI;
+    private TextMeshProUGUI nameText;
+    private TextMeshProUGUI descriptionText;
 
     private bool canTake = false;
     // Start is called before the first frame update
@@ -17,12 +22,15 @@ public class Consumable : MonoBehaviour
     {
         //_consumableAsset = new MaxHealthAsset();
         takeItemUI.SetActive(false);
+        nameText = nameUI.GetComponent<TextMeshProUGUI>();
+        descriptionText = descriptionUI.GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
         if (canTake && Input.GetKeyDown(KeyCode.E))
         {
+            setItemData();
             itemInfoUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
@@ -40,12 +48,7 @@ public class Consumable : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        takeItemUI.SetActive(false);
-        Time.timeScale = 1;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+
 
     public void Leave()
     {
@@ -53,6 +56,18 @@ public class Consumable : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
     }
+
+    public void SetConsumableItem(ConsumableAsset asset)
+    {
+        _consumableAsset = asset;
+    }
+
+    public void setItemData()
+    {
+        nameText.text = _consumableAsset.itemName;
+        descriptionText.text = _consumableAsset.itemDescription;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -73,8 +88,11 @@ public class Consumable : MonoBehaviour
         }
     }
 
-    public void SetConsumableItem(ConsumableAsset asset)
+
+    private void OnDestroy()
     {
-        _consumableAsset = asset;
+        takeItemUI.SetActive(false);
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
