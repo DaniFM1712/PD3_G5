@@ -34,7 +34,21 @@ public class chestScript : MonoBehaviour
         int randomNumber = Random.Range(0, 100);
         if(randomNumber <= 60)
         {
-
+            int itemType = Random.Range(0, 10);
+            ConsumableAsset asset;
+            switch (itemType)
+            {
+                case 1:
+                    asset = new HealthAsset();
+                    break;
+                case 2:
+                    asset = new AmmoAsset();
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+            }
         }
         else if (randomNumber <= 90)
         {
