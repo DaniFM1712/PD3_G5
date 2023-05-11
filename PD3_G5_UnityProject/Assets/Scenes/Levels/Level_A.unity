@@ -8883,7 +8883,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8980126845112080731}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8980126845112080732}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6882d2dd511dc184d997da246b4d51f9, type: 3}
@@ -28725,39 +28725,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b202ad6ee9780b14aa5af4ec54a7bf46, type: 3}
---- !u!1 &8980126845112080732 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8980126844607102095, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-    type: 3}
-  m_PrefabInstance: {fileID: 8980126845112080731}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8980126845112080733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8980126845112080732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d40c3bb1bae79a49a12c86adf2c6d7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Canvas: {fileID: 0}
-  consumableItem: {fileID: 0}
-  consumableItemGO: {fileID: 0}
-  commonItemPool:
-  - {fileID: 11400000, guid: b49105190cf890b4cb241c66e35f989a, type: 2}
-  - {fileID: 11400000, guid: b0bebd1322bd39b4184f05b0dffebfe6, type: 2}
-  - {fileID: 11400000, guid: 522218da6e5f55f44a49a31d63a11cf1, type: 2}
-  - {fileID: 11400000, guid: 011bb88d3bdc2564d8ceabdb43252591, type: 2}
-  rareItemPool:
-  - {fileID: 11400000, guid: 9c51f12a6b3589440bbaac9f250f4974, type: 2}
-  - {fileID: 11400000, guid: 4be3e609e59fdc24f8b578aafe81475e, type: 2}
-  - {fileID: 11400000, guid: 6648541279c77db41a9f4bb9b8afcf2e, type: 2}
-  - {fileID: 11400000, guid: a4777d14dd468cc4b879b452d26773cb, type: 2}
-  legendaryItemPool:
-  - {fileID: 11400000, guid: 5477611a9cdc64445a58614653cd1d16, type: 2}
-  - {fileID: 11400000, guid: 88fff0909b257a1479296b1e781ae578, type: 2}
-  - {fileID: 11400000, guid: 9845540cd5b38df4b9ab2b59f1815dfa, type: 2}
-  - {fileID: 11400000, guid: 1be28afc82e51964199ab6d4968cde82, type: 2}

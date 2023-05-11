@@ -48,8 +48,6 @@ public class Consumable : MonoBehaviour
         }
     }
 
-
-
     public void Leave()
     {
         itemInfoUI.SetActive(false);
