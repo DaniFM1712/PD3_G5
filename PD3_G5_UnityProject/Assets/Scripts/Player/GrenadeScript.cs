@@ -74,7 +74,7 @@ public class GrenadeScript : MonoBehaviour
             shootingGrenade = false;
             grenadesShot = 0;
             //START COOLDOWN SS
-            Debug.Log("CURRENT GRENADES: "+currentGrenadeCharges);
+            Debug.Log("CURRENT GRENADES: " + currentGrenadeCharges);
             ShootGrenade();
             if (currentGrenadeCharges > 1)
             {
@@ -90,8 +90,6 @@ public class GrenadeScript : MonoBehaviour
 
     private void ShootGrenade()
     {
-        readyToShootGrenade = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges == currentGrenadeCharges;
-
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
         RaycastHit hitInfo;
         Vector3 hitPoint;
@@ -118,7 +116,7 @@ public class GrenadeScript : MonoBehaviour
         currentGrenade.transform.position = grenadeOrigin.position;
         currentGrenade.transform.forward = directionWithoutSpread.normalized;
 
-        if(doubleAOEBlessing.enabled)
+        if (doubleAOEBlessing.enabled)
             currentGrenade.GetComponent<GrenadeBulletScript>().SetAreaMulitplier(doubleAOEBlessing.areaMultiplyer);
 
         currentGrenade.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * grenadeShootForce, ForceMode.Impulse);
@@ -128,14 +126,14 @@ public class GrenadeScript : MonoBehaviour
 
         grenadesShot++;
 
-        if (allowInvokeGrenade)
+        if (currentGrenadeCharges <= 1)
         {
-            if (currentGrenadeCharges < 1)
-            {
-                Invoke(nameof(ResetGrenadeShot), grenadeTimeBetweenShooting);
-                allowInvokeGrenade = false;
-            }
+            allowInvokeGrenade = false;
+            readyToShootGrenade = false;
+            Invoke(nameof(ResetGrenadeShot), grenadeTimeBetweenShooting);
+
         }
+
         if (grenadesShot < grenadesPerTap)
         {
             Invoke(nameof(ShootGrenade), grenadeTimeBetweenShots);

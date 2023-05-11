@@ -73,21 +73,20 @@ public class RFSpecialScript : MonoBehaviour
             specialBulletsShot = 0;
             //START COOLDOWN SS
             ShootSpecial();
-            if (currentTrapCharges < 1)
+            if (currentTrapCharges > 1)
             {
-                cooldown.StartAbilityCooldown(specialCooldowmTime);
-                currentTrapCharges = PlayerStatsScript.playerStatsInstance.currentMaxTrapCharges;
+                currentTrapCharges--;
             }
             else
             {
-                currentTrapCharges--;
+                cooldown.StartAbilityCooldown(specialCooldowmTime);
+                currentTrapCharges = PlayerStatsScript.playerStatsInstance.currentMaxTrapCharges;
             }
         }
     }
 
     private void ShootSpecial()
     {
-        readyToShootSpecial = PlayerStatsScript.playerStatsInstance.currentMaxTrapCharges == currentTrapCharges;
 
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
         RaycastHit hitInfo;
@@ -126,14 +125,13 @@ public class RFSpecialScript : MonoBehaviour
 
         specialBulletsShot++;
 
-        if (allowInvokeSpecial)
+        if (currentTrapCharges <= 1)
         {
-            if (currentTrapCharges < 1)
-            {
-                Invoke(nameof(ResetSpecialShot), specialCooldowmTime);
-                allowInvokeSpecial = false;
-            }
+            allowInvokeSpecial = false;
+            readyToShootSpecial = false;
+            Invoke(nameof(ResetSpecialShot), specialCooldowmTime);
         }
+
         if (specialBulletsShot < specialBulletsPerTap)
         {
             Invoke(nameof(ShootSpecial), specialTimeBetweenShots);
