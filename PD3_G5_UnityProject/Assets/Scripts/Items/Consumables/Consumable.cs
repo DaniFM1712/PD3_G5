@@ -31,6 +31,7 @@ public class Consumable : MonoBehaviour
 
     public void Take()
     {
+
         Debug.Log("CONSUME");
         GameObject player = GameObject.Find("Player");
         if (_consumableAsset.consume())
