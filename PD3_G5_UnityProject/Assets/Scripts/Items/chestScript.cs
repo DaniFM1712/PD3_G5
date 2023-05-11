@@ -7,7 +7,7 @@ public class chestScript : MonoBehaviour
 {
     [SerializeField] GameObject Canvas;
     private PlayerStatsScript playerStats;
-    public bool opened= false;
+    public bool opened = false;
     private bool canTake = false;
     private PlayerHealthScript playerHealth;
 
@@ -25,10 +25,28 @@ public class chestScript : MonoBehaviour
             opened = true;
             Canvas.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = 0;            
+            Time.timeScale = 0;
         }
-        
     }
+
+    public void generateRandomReward()
+    {
+        int randomNumber = Random.Range(0, 100);
+        if(randomNumber <= 60)
+        {
+
+        }
+        else if (randomNumber <= 90)
+        {
+
+        }
+        else{
+
+        }
+
+    }
+
+    
 
     private void OnTriggerEnter(Collider other)
     {

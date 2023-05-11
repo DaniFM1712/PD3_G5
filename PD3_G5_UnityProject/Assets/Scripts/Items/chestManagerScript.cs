@@ -22,28 +22,13 @@ public class chestManagerScript : MonoBehaviour
 
             if (appearsPercent)
             {
+                //60 30 10
                 k.SetActive(true);
-                int rewardPercent = Random.Range(0, 100);
-                // Check with design team
-                /*
-                 * if (rewardPercent >= 0 && rewardPercent < 40 - (currentLevel * 5))
-                {
-
-                }
-                else if (rewardPercent >= 41 - (currentLevel * 5) && rewardPercent < 65 - (currentLevel * 5))
-                {
-
-                }
-                else if (rewardPercent >= 66 - (currentLevel * 5) && rewardPercent < 85 - (currentLevel * 5))
-                {
-
-                }
-                else
-                {
-
-                }*/
-            }  else
+                k.generateRandomReward();
+            }
+            else{
                 k.SetActive(false);
+            }
         }
     }
 }
