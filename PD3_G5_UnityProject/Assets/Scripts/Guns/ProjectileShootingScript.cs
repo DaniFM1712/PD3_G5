@@ -14,6 +14,7 @@ public class ProjectileShootingScript : MonoBehaviour
 
     [Header("Stats")]
     [SerializeField] float timeBetweenShooting;
+    private float baseTimeBetweenShooting;
     [SerializeField] float spread;
     [SerializeField] float reloadTime;
     [SerializeField] float timeBetweenShots;
@@ -30,7 +31,6 @@ public class ProjectileShootingScript : MonoBehaviour
     [SerializeField] bool allowInvoke;
 
     int bulletsLeft, bulletsShot;
-
     bool shooting, readyToShoot, reloading;
     bool dashDamageBlessing = false;
     Queue<GameObject> bulletPool;
@@ -38,6 +38,7 @@ public class ProjectileShootingScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        baseTimeBetweenShooting = timeBetweenShooting;
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         bulletPool = new Queue<GameObject>();
         GameObject bullets = new("Bullets");
@@ -126,7 +127,7 @@ public class ProjectileShootingScript : MonoBehaviour
 
         if (allowInvoke)
         {
-            Invoke(nameof(ResetShot), timeBetweenShooting);
+            Invoke(nameof(ResetShot), timeBetweenShooting*PlayerStatsScript.playerStatsInstance.currentFireRateMultiplyer);
             allowInvoke = false;
         }
         if(bulletsShot < bulletsPerTap && bulletsLeft > 0)
@@ -161,6 +162,13 @@ public class ProjectileShootingScript : MonoBehaviour
     public bool IsReloading()
     {
         return reloading;
+    }
+
+    public void SetTimeBetweenShooting(float multiplyer)
+    {
+        timeBetweenShooting *= multiplyer;
+        if (multiplyer == 0)
+            timeBetweenShooting = baseTimeBetweenShooting;
     }
 
 }

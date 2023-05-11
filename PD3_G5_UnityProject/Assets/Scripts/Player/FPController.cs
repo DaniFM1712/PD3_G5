@@ -270,12 +270,14 @@ public class FPController : MonoBehaviour
             weapon.SetActive(false);
         }
 
-        if(PlayerStatsScript.playerStatsInstance.currentSelectedWeapon == 1)
+        if(PlayerStatsScript.playerStatsInstance.currentWeaponIndex == 1)
         {
+            PlayerStatsScript.playerStatsInstance.currentWeapon = weapons[0].GetComponent<ProjectileShootingScript>();
             weapons[0].SetActive(true);
         }
-        if (PlayerStatsScript.playerStatsInstance.currentSelectedWeapon == 2)
+        if (PlayerStatsScript.playerStatsInstance.currentWeaponIndex == 2)
         {
+            PlayerStatsScript.playerStatsInstance.currentWeapon = weapons[1].GetComponent<ProjectileShootingScript>();
             weapons[1].SetActive(true);
         }
     }

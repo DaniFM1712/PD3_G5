@@ -7,57 +7,73 @@ using TMPro;
 public class Consumable : MonoBehaviour
 {
     [SerializeField] private ConsumableAsset _consumableAsset;
-    [SerializeField] GameObject Canvas;
     [SerializeField] GameObject takeItemUI;
-    private TextMeshProUGUI takeItemText;
+    [SerializeField] GameObject itemInfoUI;
+
     private bool canTake = false;
     // Start is called before the first frame update
 
-    public void consume(GameObject consumer)
-    {
-        if (_consumableAsset.consume(consumer)) //si s'ha consumit, destruim
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void Start()
     {
-        if (takeItemUI != null)
-            takeItemText = takeItemUI.GetComponent<TextMeshProUGUI>();
+        //_consumableAsset = new MaxHealthAsset();
+        takeItemUI.SetActive(false);
     }
 
     void Update()
     {
         if (canTake && Input.GetKeyDown(KeyCode.E))
         {
-            Canvas.SetActive(true);
+            itemInfoUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
         }
+    }
+
+    public void Take()
+    {
+        Debug.Log("CONSUME");
+        GameObject player = GameObject.Find("Player");
+        if (_consumableAsset.consume())
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        takeItemUI.SetActive(false);
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void Leave()
+    {
+        itemInfoUI.SetActive(false);
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-
             canTake = true;
-            if (takeItemUI != null)
-                takeItemText.enabled = true;
+            takeItemUI.SetActive(true);
         }
 
     }
-
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-
             canTake = false;
-            if (takeItemUI != null)
-                takeItemText.enabled = false;
+            takeItemUI.SetActive(false);
         }
+    }
+
+    public void SetConsumableItem(ConsumableAsset asset)
+    {
+        _consumableAsset = asset;
     }
 }

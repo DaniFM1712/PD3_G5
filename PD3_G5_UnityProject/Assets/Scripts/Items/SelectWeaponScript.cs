@@ -33,7 +33,7 @@ public class SelectWeaponScript : MonoBehaviour
 
     public void selectRapidFire()
     {
-        PlayerStatsScript.playerStatsInstance.currentSelectedWeapon = 1;
+        PlayerStatsScript.playerStatsInstance.currentWeaponIndex = 1;
         player.GetComponent<FPController>().ChangeWeapon();
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
@@ -42,7 +42,7 @@ public class SelectWeaponScript : MonoBehaviour
 
     public void selectShotGun()
     {
-        PlayerStatsScript.playerStatsInstance.currentSelectedWeapon = 2;
+        PlayerStatsScript.playerStatsInstance.currentWeaponIndex = 2;
         player.GetComponent<FPController>().ChangeWeapon();
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;

@@ -10,7 +10,7 @@ public class Consumer : MonoBehaviour
     {//guardem el resultat en la variable en consumable
         if (other.gameObject.TryGetComponent<Consumable>(out Consumable consumable))
         {
-            consumable.consume(gameObject);
+            consumable.Take();
         }
     }
 }

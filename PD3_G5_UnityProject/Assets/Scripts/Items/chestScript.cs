@@ -10,6 +10,12 @@ public class chestScript : MonoBehaviour
     public bool opened = false;
     private bool canTake = false;
     private PlayerHealthScript playerHealth;
+    [SerializeField] Consumable consumableItem;
+    [SerializeField] ConsumableAsset commonMaxHealth;
+    [SerializeField] ConsumableAsset commonFireRate;
+    [SerializeField] ConsumableAsset commonEssenceObtained;
+    [SerializeField] ConsumableAsset commonDivinePowerObtained;
+    [SerializeField] ConsumableAsset commonCriticalDamage;
 
     private void Start()
     {
@@ -31,24 +37,33 @@ public class chestScript : MonoBehaviour
 
     public void generateRandomReward()
     {
-        int randomNumber = Random.Range(0, 100);
+        //int randomNumber = Random.Range(0, 100);
+        int randomNumber = 1;
         if(randomNumber <= 60)
         {
             int itemType = Random.Range(0, 10);
-            ConsumableAsset asset;
+            itemType = 1;
+            ConsumableAsset asset = null;
             switch (itemType)
             {
                 case 1:
-                    asset = new HealthAsset();
+                    asset = commonMaxHealth;
                     break;
                 case 2:
-                    asset = new AmmoAsset();
+                    asset = commonFireRate;
                     break;
                 case 3:
+                    asset = commonEssenceObtained;
                     break;
                 case 4:
+                    asset = commonDivinePowerObtained;
+                    break;
+                case 5:
+                    asset = commonCriticalDamage;
                     break;
             }
+            consumableItem.SetConsumableItem(asset);
+
         }
         else if (randomNumber <= 90)
         {

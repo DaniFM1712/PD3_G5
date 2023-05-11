@@ -19,7 +19,7 @@ public class NextLevelScript : MonoBehaviour
 
     private void Update()
     {
-        if (goNextLevel && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.playerStatsInstance.currentSelectedWeapon != 0 && !stopLoad)
+        if (goNextLevel && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.playerStatsInstance.currentWeaponIndex != 0 && !stopLoad)
         {
             stopLoad = true;
             LevelManager.levelManagerInstance.LoadLevel();

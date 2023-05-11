@@ -6,6 +6,6 @@ using UnityEngine;
 
 public abstract class ConsumableAsset: ScriptableObject
 {
-    abstract public bool consume(GameObject consumer);
+    abstract public bool consume();
 
 }

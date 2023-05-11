@@ -24,7 +24,7 @@ public class chestManagerScript : MonoBehaviour
             {
                 //60 30 10
                 k.SetActive(true);
-                k.GetComponent<chestScript>().generateRandomReward();
+                //k.GetComponent<chestScript>().generateRandomReward();
             }
             else{
                 k.SetActive(false);
