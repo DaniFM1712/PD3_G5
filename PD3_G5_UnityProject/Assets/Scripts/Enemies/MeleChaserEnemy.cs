@@ -243,4 +243,9 @@ public class MeleChaserEnemy : MonoBehaviour
 
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, CHASE_MAX);
+    }
+
 }

@@ -307,4 +307,10 @@ public class RangedEnemyAIScript : MonoBehaviour
             else currentState = State.HIT;
         }
     }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, CHASE_MAX);
+    }
 }
