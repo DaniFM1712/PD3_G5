@@ -22,7 +22,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7352254665611245802
 Transform:
   m_ObjectHideFlags: 0
@@ -30,9 +30,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7352254665611245801}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2089875, y: 0.24803, z: 0.7555799}
+  m_LocalScale: {x: 0.2089875, y: 0.24803, z: 0.75557995}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7352254666028250572}
@@ -163,6 +163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408fd927562b6d340b9a834414163d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blessingName: 'SG: Bullet Amount '
+  blessingDescription: Increses special shot bullet amount.
+  blessingType: 2
   bulletsPerTapBlessing: 10
 --- !u!114 &2082958648928228346
 MonoBehaviour:
@@ -176,6 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed9f6311241dbf45b45503b0e530915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blessingName: 'SG: Double Shot'
+  blessingDescription: Probability of shooting your special twice.
+  blessingType: 2
   canDoubleShot: 1
 --- !u!1 &7352254666028250571
 GameObject:

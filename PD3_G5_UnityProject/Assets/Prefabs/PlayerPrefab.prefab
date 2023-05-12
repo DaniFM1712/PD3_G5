@@ -150,7 +150,6 @@ MonoBehaviour:
   grenadeSpread: 0.2
   grenadeReloadTime: 0
   grenadeTimeBetweenShots: 0
-  grenadeBulletDamage: 0
   grenadesPerTap: 1
   grenadeOrigin: {fileID: 6610077119698529702}
   allowInvokeGrenade: 1
@@ -167,6 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c952355df4398241a8c5f4ac1aa68e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blessingName: 'DA: Increses Dash Charges'
+  blessingDescription: Grants an extra dash charge.
+  blessingType: 0
 --- !u!114 &1425451561130305447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acf31c5333245f439e72c734305260f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blessingName: 'DA: Damage Buff'
+  blessingDescription: Grants a damage buff after dashing for 3 seconds.
+  blessingType: 0
   totalDamageTimer: 3
 --- !u!114 &709132662307341657
 MonoBehaviour:
@@ -192,6 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c9c400ec9f62545bc1ea4e81102d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blessingName: 'DO: Increses Divine Orb Charges'
+  blessingDescription: Grants an extra charge of the Divine Orb.
+  blessingType: 1
 --- !u!114 &2688424487243589265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6645e705960ff4b87675b76f9177b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blessingName: 'DO: Double Explosion Size'
+  blessingDescription: Doubles the size of the orb explosion.
+  blessingType: 1
   areaMultiplyer: 2
 --- !u!1 &3688068329095023214
 GameObject:
@@ -495,30 +506,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6610077119698529702}
     m_Modifications:
-    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
-        type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 3688068329298052680}
     - target: {fileID: 7352254665611245801, guid: de1b484802dac7e49827798adf8352ee,
         type: 3}
       propertyPath: m_Name
       value: ShotgunPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 7352254665611245801, guid: de1b484802dac7e49827798adf8352ee,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7352254665611245802, guid: de1b484802dac7e49827798adf8352ee,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7352254665611245802, guid: de1b484802dac7e49827798adf8352ee,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.75557995
       objectReference: {fileID: 0}
     - target: {fileID: 7352254665611245802, guid: de1b484802dac7e49827798adf8352ee,
         type: 3}
@@ -591,20 +587,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6610077119698529702}
     m_Modifications:
-    - target: {fileID: 1495583114424343594, guid: e6ef93be3a191454c90ee5f427aa3fd6,
-        type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 3688068329298052680}
     - target: {fileID: 7352254665611245801, guid: e6ef93be3a191454c90ee5f427aa3fd6,
         type: 3}
       propertyPath: m_Name
       value: RapidFirePrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 7352254665611245801, guid: e6ef93be3a191454c90ee5f427aa3fd6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7352254665611245802, guid: e6ef93be3a191454c90ee5f427aa3fd6,
         type: 3}

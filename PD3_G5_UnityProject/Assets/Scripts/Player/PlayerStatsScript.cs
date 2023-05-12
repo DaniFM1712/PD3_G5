@@ -16,6 +16,7 @@ public class PlayerStatsScript : MonoBehaviour
     public int baseMaxDashCharges = 1;
     public int baseMaxGrenadeCharges = 1;
     public int baseMaxTrapCharges = 1;
+    public int maxBlessings = 8;
 
     //----------MAX--STATS----------//
 
@@ -36,7 +37,7 @@ public class PlayerStatsScript : MonoBehaviour
     public ProjectileShootingScript currentWeapon;
     public int currentNormalCoin;
     public int currentSpecialCoin;
-
+    public int activatedBlessings = 0; 
 
     //----------SHOTGUN----------//
 
