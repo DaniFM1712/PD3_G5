@@ -30,6 +30,7 @@ public class RangedEnemyAIScript : MonoBehaviour
     [SerializeField] int bulletsPerTap;
     [SerializeField] bool allowButtonHold;
 
+
     int bulletsLeft, bulletsShot;
 
     bool shooting, readyToShoot, reloading;
@@ -41,6 +42,10 @@ public class RangedEnemyAIScript : MonoBehaviour
 
     enum State { IDLE, CHASE, ATTACK, HIT, DIE }
     [SerializeField] State currentState;
+    [SerializeField] public float secondsToSetEnemy;
+    private bool enemySetted = false;
+
+
     private GameObject player;
 
     [Header("IDLE")]
@@ -312,5 +317,17 @@ public class RangedEnemyAIScript : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, CHASE_MAX);
+    }
+
+
+    private void OnEnable()
+    {
+        StartCoroutine(SetEnemySpawn());
+    }
+
+    IEnumerator SetEnemySpawn()
+    {
+        yield return new WaitForSeconds(secondsToSetEnemy);
+        enemySetted = true;
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyWavesSpawnScript : MonoBehaviour
 {
     [SerializeField] private List<GameObject> enemiesToSpawn;
-    public List<GameObject> enemiesToKill;
+    private List<GameObject> enemiesToKill;
     [SerializeField] private float secondsForNextWave;
     private int listIndex = 0;
     private bool canGoNextWave = true;
