@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class InventoryManagerScript : MonoBehaviour
 {
-    public static InventoryManagerScript inventoryInstance { get; private set; }
+    public static InventoryManagerScript InventoryInstance { get; private set; }
 
     private List<ConsumableAsset> commonItems;
     private List<ConsumableAsset> rareItems;
     private List<ConsumableAsset> legendaryItems;
 
-    private List<GameObject> commonItemsSlots;
-    private List<GameObject> rareItemsSlots;
-    private List<GameObject> legendaryItemsSlots;
+    [SerializeField] GameObject inventoryBackground;
+
+    [SerializeField] List<GameObject> commonItemsSlots;
+    [SerializeField] List<GameObject> rareItemsSlots;
+    [SerializeField] List<GameObject> legendaryItemsSlots;
     public enum Rarity { Common, Rare, Legendary };
 
     //1 ITEM:
@@ -22,17 +24,17 @@ public class InventoryManagerScript : MonoBehaviour
     //2 textos (name + descrip)
 
 
-    //4 Common Items GO
+    //3 Common Items GO
 
-    //3 Rare Items GO
+    //2 Rare Items GO
 
     //1 Legendary Items GO
 
     private void Awake()
     {
-        if (inventoryInstance == null)
+        if (InventoryInstance == null)
         {
-            inventoryInstance = this;
+            InventoryInstance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -50,7 +52,26 @@ public class InventoryManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            Debug.Log("1. TAB PRESSED");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab) && !inventoryBackground.activeSelf)
+        {
+            Debug.Log("2. TAB PRESSED");
+            inventoryBackground.SetActive(true);
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        else if(Input.GetKeyDown(KeyCode.Tab) && inventoryBackground.activeSelf)
+        {
+            Debug.Log("3. TAB PRESSED");
+            inventoryBackground.SetActive(false);
+            Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     public void UpdateInventoryUI()
@@ -87,10 +108,10 @@ public class InventoryManagerScript : MonoBehaviour
         switch (rarity)
         {
             case Rarity.Common:
-                return commonItems.Count < 4;
+                return commonItems.Count < 3;
 
             case Rarity.Rare:
-                return rareItems.Count < 3;
+                return rareItems.Count < 2;
 
             case Rarity.Legendary:
                 return legendaryItems.Count < 1;
@@ -127,5 +148,39 @@ public class InventoryManagerScript : MonoBehaviour
         commonItems.Clear();
         rareItems.Clear();
         legendaryItems.Clear();
+    }
+
+    public void RemoveCommonItem(int slot)
+    {
+        switch (slot)
+        {
+            case 1:
+                commonItemsSlots.RemoveAt(0);
+                break;
+            case 2:
+                commonItemsSlots.RemoveAt(1);
+                break;
+            case 3:
+                commonItemsSlots.RemoveAt(2);
+                break;
+        }
+    }
+
+    public void RemoveRareItem(int slot)
+    {
+        switch (slot)
+        {
+            case 1:
+                rareItemsSlots.RemoveAt(0);
+                break;
+            case 2:
+                rareItemsSlots.RemoveAt(1);
+                break;
+        }
+    }
+
+    public void RemoveLegendarayItem()
+    {
+        legendaryItemsSlots.Clear();
     }
 }
