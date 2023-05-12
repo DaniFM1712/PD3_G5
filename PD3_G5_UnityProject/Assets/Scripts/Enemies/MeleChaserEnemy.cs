@@ -18,6 +18,7 @@ public class MeleChaserEnemy : MonoBehaviour
 
     enum State { IDLE, CHASE, ATTACK, HIT , DIE }
     [SerializeField] State currentState;
+    [SerializeField] float secondsToSetEnemy;
     private GameObject player;
 
     [Header("IDLE")]
@@ -41,6 +42,9 @@ public class MeleChaserEnemy : MonoBehaviour
     [SerializeField] float fadeSpeed;
     [SerializeField] MeshRenderer enemyRenderer;
 
+
+    private bool enemySetted = false;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -54,32 +58,36 @@ public class MeleChaserEnemy : MonoBehaviour
 
     void Update()
     {
-        distanceToPlayer = player.transform.position - transform.position;
-        switch (currentState)
+        if (enemySetted)
         {
-            case State.ATTACK:
-                lastState = State.ATTACK;
-                updateAttack();
-                ChangeFromAttack();
-                break;
-            case State.IDLE:
-                lastState = State.IDLE;
-                updateIdle();
-                ChangeFromIdle();
-                break;
-            case State.CHASE:
-                lastState = State.CHASE;
-                updateChase();
-                ChangeFromChase();
-                break;
-            case State.HIT:
-                updateHit();
-                ChangeFromHit();
-                break;
-            case State.DIE:
-                updateDie();
-                break;
+            distanceToPlayer = player.transform.position - transform.position;
+            switch (currentState)
+            {
+                case State.ATTACK:
+                    lastState = State.ATTACK;
+                    updateAttack();
+                    ChangeFromAttack();
+                    break;
+                case State.IDLE:
+                    lastState = State.IDLE;
+                    updateIdle();
+                    ChangeFromIdle();
+                    break;
+                case State.CHASE:
+                    lastState = State.CHASE;
+                    updateChase();
+                    ChangeFromChase();
+                    break;
+                case State.HIT:
+                    updateHit();
+                    ChangeFromHit();
+                    break;
+                case State.DIE:
+                    updateDie();
+                    break;
+            }
         }
+        
     }
 
 
@@ -246,6 +254,18 @@ public class MeleChaserEnemy : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, CHASE_MAX);
+    }
+
+
+
+    private void OnEnable()
+    {
+        StartCoroutine(SetEnemySpawn());    
+    }
+
+    IEnumerator SetEnemySpawn() {
+        yield return new WaitForSeconds(secondsToSetEnemy);
+        enemySetted = true;
     }
 
 }

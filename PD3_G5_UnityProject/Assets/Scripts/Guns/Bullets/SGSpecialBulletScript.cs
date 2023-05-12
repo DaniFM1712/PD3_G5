@@ -30,6 +30,11 @@ public class SGSpecialBulletScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("EnergyEnemyShield"))
+        {
+            ReturnToOrigin();
+        }
+
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Terrain"))
         {
 

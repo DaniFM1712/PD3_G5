@@ -31,6 +31,11 @@ public class RFSpecialBulletScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("EnergyEnemyShield"))
+        {
+            ReturnToOrigin();
+        }
+
         if (other.gameObject.CompareTag("Terrain"))
         {
             GameObject specialEffect = Instantiate(specialEffectPrefab, other.ClosestPoint(transform.position), Quaternion.identity);

@@ -37,7 +37,11 @@ public class BulletScript : MonoBehaviour
                 enemyPart.TakeDamage(damage, null);
             }
             ReturnToOrigin();
-        }   
+        }
+        if (other.gameObject.CompareTag("EnergyEnemyShield"))
+        {
+            ReturnToOrigin();
+        }
     }
 
     public void SetDamage(float bulletDamage)
