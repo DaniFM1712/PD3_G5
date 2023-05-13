@@ -2,17 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class RunStoreScript : MonoBehaviour
 {
-    private PlayerStatsScript playerStats;
     [SerializeField] GameObject storeCanvas;
+    [SerializeField] TextMeshProUGUI invFullText;
+    [SerializeField] TextMeshProUGUI NCText;
+
+    [SerializeField] int healthCost = 20;
+    [SerializeField] int healthValue = 20;
+    [SerializeField] int randomItemCost = 40;
+    [SerializeField] int randomRareCost = 50;
+    [SerializeField] int randomLegendaryCost = 60;
+
     private GameObject player;
     private bool canShop = false;
+
+    [SerializeField] List<ConsumableAsset> commonItemPool;
+    [SerializeField] List<ConsumableAsset> rareItemPool;
+    [SerializeField] List<ConsumableAsset> legendaryItemPool;
     // Start is called before the first frame update
     void Start()
     {
-        playerStats = PlayerStatsScript.playerStatsInstance;
         player = GameObject.Find("Player");
     }
 
@@ -23,50 +35,93 @@ public class RunStoreScript : MonoBehaviour
         {
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
+            NCText.text = "NC: "+ PlayerStatsScript.playerStatsInstance.currentNormalCoin;
+            NCText.enabled = true;
             storeCanvas.SetActive(true);
         }
     }
 
-    public void IncreaseMaxHealth()
+    public void BuyHealth()
     {
-        if (playerStats.currentNormalCoin >= 20)
+        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= healthCost)
         {
-            playerStats.baseMaxHealth += 10;
 
-            player.GetComponent<PlayerHealthScript>().ModifyMaxHealth(10);
-            player.GetComponent<PlayerHealthScript>().ModifyHealth(10);
+            player.GetComponent<PlayerHealthScript>().ModifyHealth(healthValue);
 
-
-            CoinCounterScript.coinCounterInstance.updateNCCounter(-20);
-            Time.timeScale = 1;
-            Cursor.lockState = CursorLockMode.Locked;
-            storeCanvas.SetActive(false);
+            CoinCounterScript.coinCounterInstance.updateNCCounter(-healthCost);
+            NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
 
         }
-
     }
-    public void IncreaseDamage()
+    public void BuyRandomItem()
     {
-        if (playerStats.currentNormalCoin >= 20)
+        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomItemCost)
         {
-            playerStats.baseDamageBonus += 10;
-            playerStats.currentDamageBonus += 10;
-            CoinCounterScript.coinCounterInstance.updateNCCounter(-20);
-            Time.timeScale = 1;
-            Cursor.lockState = CursorLockMode.Locked;
-            storeCanvas.SetActive(false);
+            if (InventoryManagerScript.InventoryInstance.IsInventoryFull())
+            {
+                invFullText.enabled = true;
+            }
+
+            else
+            {
+                ConsumableAsset asset = GenerateRandomItem();
+                while (!InventoryManagerScript.InventoryInstance.CanAddItem(asset.rarity))
+                {
+                    asset = GenerateRandomItem();
+                }
+
+                InventoryManagerScript.InventoryInstance.AddItem(asset.rarity, asset);
+
+                CoinCounterScript.coinCounterInstance.updateNCCounter(-randomItemCost);
+                NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
+            }
+
         }
     }
-    public void IncreaseSpeed()
+
+    public void BuyRareItem()
     {
-        if (playerStats.currentNormalCoin >= 20)
+        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomRareCost)
         {
-            playerStats.baseSpeedBonus += 10;
-            playerStats.currentSpeedBonus += 10;
-            CoinCounterScript.coinCounterInstance.updateNCCounter(-20);
-            Time.timeScale = 1;
-            Cursor.lockState = CursorLockMode.Locked;
-            storeCanvas.SetActive(false);
+            if (!InventoryManagerScript.InventoryInstance.CanAddItem(ConsumableAsset.Rarity.Rare))
+            {
+                invFullText.enabled = true;
+            }
+
+            else
+            {
+                ConsumableAsset asset = GenerateRareItem();
+
+                InventoryManagerScript.InventoryInstance.AddItem(asset.rarity, asset);
+
+                CoinCounterScript.coinCounterInstance.updateNCCounter(-randomRareCost);
+                NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
+
+            }
+
+        }
+    }
+
+    public void BuyLegendaryItem()
+    {
+        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomLegendaryCost)
+        {
+            if (!InventoryManagerScript.InventoryInstance.CanAddItem(ConsumableAsset.Rarity.Legendary))
+            {
+                invFullText.enabled = true;
+            }
+
+            else
+            {
+                ConsumableAsset asset = GenerateLegendaryItem();
+
+                InventoryManagerScript.InventoryInstance.AddItem(asset.rarity, asset);
+
+                CoinCounterScript.coinCounterInstance.updateNCCounter(-randomLegendaryCost);
+                NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
+
+            }
+
         }
     }
 
@@ -74,7 +129,110 @@ public class RunStoreScript : MonoBehaviour
     {
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
+        invFullText.enabled = false;
         storeCanvas.SetActive(false);
+    }
+
+    private ConsumableAsset GenerateRandomItem()
+    {
+        ConsumableAsset asset = null;
+        int randomNumber = Random.Range(0, 100);
+        if (randomNumber <= 60)
+        {
+            int itemType = Random.Range(0, 4);
+            switch (itemType)
+            {
+                case 0:
+                    asset = commonItemPool[0];
+                    break;
+                case 1:
+                    asset = commonItemPool[1];
+                    break;
+                case 2:
+                    asset = commonItemPool[2];
+                    break;
+                case 3:
+                    asset = commonItemPool[3];
+                    break;
+            }
+        }
+        else if (randomNumber <= 90)
+        {
+            int itemType = Random.Range(0, 4);
+            switch (itemType)
+            {
+                case 0:
+                    asset = rareItemPool[0];
+                    break;
+                case 1:
+                    asset = rareItemPool[1];
+                    break;
+                case 2:
+                    asset = rareItemPool[2];
+                    break;
+                case 3:
+                    asset = rareItemPool[3];
+                    break;
+            }
+        }
+        else
+        {
+            int itemType = Random.Range(0, 4);
+            switch (itemType)
+            {
+                case 0:
+                    asset = legendaryItemPool[0];
+                    break;
+                case 1:
+                    asset = legendaryItemPool[1];
+                    break;
+                case 2:
+                    asset = legendaryItemPool[2];
+                    break;
+                case 3:
+                    asset = legendaryItemPool[3];
+                    break;
+            }
+        }
+
+        return asset;
+    }
+
+    private ConsumableAsset GenerateRareItem()
+    {
+        int itemType = Random.Range(0, 4);
+        switch (itemType)
+        {
+            case 0:
+                return rareItemPool[0];
+            case 1:
+                return rareItemPool[1];
+            case 2:
+                return rareItemPool[2];
+            case 3:
+                return rareItemPool[3];
+            default:
+                return null;
+        }
+    }
+
+    private ConsumableAsset GenerateLegendaryItem()
+    {
+        int itemType = Random.Range(0, 4);
+        switch (itemType)
+        {
+            case 0:
+                return legendaryItemPool[0];
+            case 1:
+                return legendaryItemPool[1];
+            case 2:
+                return legendaryItemPool[2];
+            case 3:
+                return legendaryItemPool[3];
+            default:
+                return null;
+        }
+
     }
 
 

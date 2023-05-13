@@ -90,7 +90,6 @@ public class chestScript : MonoBehaviour
                     break;
             }
         }
-        Debug.Log(asset);
         consumableItem.SetConsumableItem(asset);
     }
 

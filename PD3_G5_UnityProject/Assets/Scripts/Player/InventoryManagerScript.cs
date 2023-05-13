@@ -293,4 +293,9 @@ public class InventoryManagerScript : MonoBehaviour
 
         UpdateInventoryUI();
     }
+
+    public bool IsInventoryFull()
+    {
+        return commonItems.Count == 3 && rareItems.Count == 2 && legendaryItems.Count == 1;
+    }
 }
