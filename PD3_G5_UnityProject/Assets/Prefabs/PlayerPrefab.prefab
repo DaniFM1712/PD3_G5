@@ -537,7 +537,7 @@ PrefabInstance:
         type: 3}
       propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8779332266522506681}
+      objectReference: {fileID: 5573015739273501095}
     - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
         type: 3}
       propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -557,6 +557,21 @@ PrefabInstance:
         type: 3}
       propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4029432212676455537, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4029432212676455537, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4029432212676455537, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7352254665611245801, guid: de1b484802dac7e49827798adf8352ee,
         type: 3}
@@ -620,6 +635,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de1b484802dac7e49827798adf8352ee, type: 3}
+--- !u!114 &5573015739273501095 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6676199508897576841, guid: de1b484802dac7e49827798adf8352ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1293083250355662382}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198b7427955878f4db90cadacf6e68b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8645082759729223364 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7352254665611245802, guid: de1b484802dac7e49827798adf8352ee,
@@ -632,18 +659,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1293083250355662382}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8779332266522506681 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7505108535668513687, guid: de1b484802dac7e49827798adf8352ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 1293083250355662382}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 198b7427955878f4db90cadacf6e68b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2743608956522232154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -660,7 +675,7 @@ PrefabInstance:
         type: 3}
       propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 711741174551565837}
+      objectReference: {fileID: 2169417829409375313}
     - target: {fileID: 1495583114424343594, guid: e6ef93be3a191454c90ee5f427aa3fd6,
         type: 3}
       propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -680,6 +695,21 @@ PrefabInstance:
         type: 3}
       propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797201087035725225, guid: e6ef93be3a191454c90ee5f427aa3fd6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797201087035725225, guid: e6ef93be3a191454c90ee5f427aa3fd6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797201087035725225, guid: e6ef93be3a191454c90ee5f427aa3fd6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7352254665611245801, guid: e6ef93be3a191454c90ee5f427aa3fd6,
         type: 3}
@@ -743,9 +773,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6ef93be3a191454c90ee5f427aa3fd6, type: 3}
---- !u!114 &711741174551565837 stripped
+--- !u!114 &2169417829409375313 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3455348453620330327, guid: e6ef93be3a191454c90ee5f427aa3fd6,
+  m_CorrespondingSourceObject: {fileID: 4037498827921308939, guid: e6ef93be3a191454c90ee5f427aa3fd6,
     type: 3}
   m_PrefabInstance: {fileID: 2743608956522232154}
   m_PrefabAsset: {fileID: 0}

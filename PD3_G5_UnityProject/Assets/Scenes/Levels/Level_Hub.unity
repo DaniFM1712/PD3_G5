@@ -123,18 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &20602888 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6713257869126485707, guid: 7b076ffa3b93a644ba8934883be79fe1,
-    type: 3}
-  m_PrefabInstance: {fileID: 375895812}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf648751ea449c45bcbe84cf4f9b6d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &56805608
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,121 +566,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 373962279837839876, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 519996770}
-    - target: {fileID: 373962279837839876, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartAbilityCooldown
-      objectReference: {fileID: 0}
-    - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: updateHealth.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: updateHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: updateHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 20602888}
-    - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: updateHealth.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 20602888}
-    - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: updateHealth.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: updateHealth
-      objectReference: {fileID: 0}
-    - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: updateMaxHealth
-      objectReference: {fileID: 0}
-    - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: updateHealth.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HealthUIScript, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HealthUIScript, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: updateHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3357865048969623129, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 519996770}
-    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartAbilityCooldown
-      objectReference: {fileID: 0}
-    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CooldownScript, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3662025887173551472, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: startAbilityCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 3688068328114149645, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
       propertyPath: m_Name
@@ -755,44 +628,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
-      propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
       propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 519996770}
-    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartDashCooldown
-      objectReference: {fileID: 0}
-    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CooldownScript, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3688068328974026977, guid: b5301dd35a2af1245b35289bf67ebbb0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.16
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5301dd35a2af1245b35289bf67ebbb0, type: 3}
 --- !u!1 &286048612 stripped
@@ -2222,6 +2060,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85353edfa2bab70439e83894f246331a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseMaxHealth: 150
+  baseMaxShield: 0
+  baseDamageBonus: 0
+  baseSpeedBonus: 0
+  baseMaxDashCharges: 1
+  baseMaxGrenadeCharges: 1
+  baseMaxTrapCharges: 1
+  maxBlessings: 8
+  currentMaxHealth: 0
+  currentMaxShield: 0
+  currentMaxDashCharges: 0
+  currentMaxGrenadeCharges: 0
+  currentMaxTrapCharges: 0
+  currentHealth: 0
+  currentShield: 0
+  currentDamageBonus: 0
+  currentSpeedBonus: 0
+  currentWeaponIndex: 0
+  currentWeapon: {fileID: 0}
+  currentNormalCoin: 0
+  currentSpecialCoin: 0
+  activatedBlessings: 0
+  currentDashAbilities: 
+  currentWeaponAbilities: 
+  currentGrenadeAbilities: 
+  dashDamageBlessing: 0
+  baseFireRateMultiplyer: 1
+  currentFireRateMultiplyer: 0
+  baseEssenceMultiplyer: 1
+  currentEssenceMultiplyer: 0
+  baseDivinePowerMultiplyer: 1
+  currentDivinePowerMultiplyer: 0
+  baseCriticalMultiplyer: 1
+  currentCriticalMultiplyer: 0
+  baseMaxHealthMultiplyer: 1
+  currentMaxHealthMultiplyer: 0
 --- !u!4 &1016272284
 Transform:
   m_ObjectHideFlags: 0
@@ -2836,6 +2710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3cefdae70407af40adf0f9ccdba8bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitLevel: {fileID: 0}
 --- !u!1 &1534452280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3080,6 +2955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3cefdae70407af40adf0f9ccdba8bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitLevel: {fileID: 0}
 --- !u!1 &1764354192
 GameObject:
   m_ObjectHideFlags: 0
