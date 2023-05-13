@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4594626948559032886}
   - component: {fileID: 607070368133504403}
   - component: {fileID: 3425066687430633817}
+  - component: {fileID: -7371715803091817159}
   m_Layer: 0
   m_Name: 205_up_1_terrain
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-7371715803091817159
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3785473885621454988}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4538960273669383222, guid: e354f8a3447c22f4a980682041a1d923, type: 3}

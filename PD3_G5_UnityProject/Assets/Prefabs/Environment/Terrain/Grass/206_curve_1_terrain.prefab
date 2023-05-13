@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5767561006759744295}
   - component: {fileID: 7468557770015382658}
   - component: {fileID: 4630073087630567496}
+  - component: {fileID: -4343817612886691648}
   m_Layer: 0
   m_Name: 206_curve_1_terrain
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-4343817612886691648
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6575728800531696029}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5574023194865703779, guid: 20e9968dc59cb2e4c9c308f4701a4975, type: 3}
