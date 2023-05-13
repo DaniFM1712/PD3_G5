@@ -95,32 +95,35 @@ public class RangedEnemyAIScript : MonoBehaviour
 
     void Update()
     {
-        distanceToPlayer = player.transform.position - transform.position;
-        switch (currentState)
-        {
-            case State.ATTACK:
-                lastState = State.ATTACK;
-                updateAttack();
-                ChangeFromAttack();
-                break;
-            case State.IDLE:
-                lastState = State.IDLE;
-                updateIdle();
-                ChangeFromIdle();
-                break;
-            case State.CHASE:
-                lastState = State.CHASE;
-                updateChase();
-                ChangeFromChase();
-                break;
-            case State.HIT:
-                updateHit();
-                ChangeFromHit();
-                break;
-            case State.DIE:
-                updateDie();
-                break;
+        if (enemySetted) {
+            distanceToPlayer = player.transform.position - transform.position;
+            switch (currentState)
+            {
+                case State.ATTACK:
+                    lastState = State.ATTACK;
+                    updateAttack();
+                    ChangeFromAttack();
+                    break;
+                case State.IDLE:
+                    lastState = State.IDLE;
+                    updateIdle();
+                    ChangeFromIdle();
+                    break;
+                case State.CHASE:
+                    lastState = State.CHASE;
+                    updateChase();
+                    ChangeFromChase();
+                    break;
+                case State.HIT:
+                    updateHit();
+                    ChangeFromHit();
+                    break;
+                case State.DIE:
+                    updateDie();
+                    break;
+            }
         }
+        
     }
 
 
