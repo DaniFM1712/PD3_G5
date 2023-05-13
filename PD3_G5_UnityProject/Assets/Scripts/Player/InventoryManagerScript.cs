@@ -40,7 +40,6 @@ public class InventoryManagerScript : MonoBehaviour
         rareItems = new List<ConsumableAsset>();
         legendaryItems = new List<ConsumableAsset>();
 
-        //UpdateInventoryUI();
     }
 
     // Update is called once per frame
@@ -112,7 +111,7 @@ public class InventoryManagerScript : MonoBehaviour
         int index = 0;
         foreach(GameObject slot in commonItemsSlots)
         {
-            if (commonItems.Count > index)//commonItems.count < index
+            if (commonItems.Count > index)
             {
                 slot.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = commonItems[index].itemName;
                 slot.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = commonItems[index].itemDescription;
@@ -134,7 +133,7 @@ public class InventoryManagerScript : MonoBehaviour
         index = 0;
         foreach (GameObject slot in rareItemsSlots)
         {
-            if (rareItems.Count > index)//commonItems.count < index
+            if (rareItems.Count > index)
             {
                 slot.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = rareItems[index].itemName;
                 slot.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = rareItems[index].itemDescription;
@@ -210,6 +209,7 @@ public class InventoryManagerScript : MonoBehaviour
         }
 
         asset.consume();
+        HealthUIScript.healthUIInstance.updateHealth();
         UpdateInventoryUI();
     }
 
@@ -266,6 +266,7 @@ public class InventoryManagerScript : MonoBehaviour
 
         commonItems.RemoveAt(slot - 1);
 
+        HealthUIScript.healthUIInstance.updateHealth();
         UpdateInventoryUI();
     }
 
@@ -278,6 +279,7 @@ public class InventoryManagerScript : MonoBehaviour
 
         rareItems.RemoveAt(slot - 1);
 
+        HealthUIScript.healthUIInstance.updateHealth();
         UpdateInventoryUI();
 
     }
@@ -291,6 +293,7 @@ public class InventoryManagerScript : MonoBehaviour
 
         legendaryItems.Clear();
 
+        HealthUIScript.healthUIInstance.updateHealth();
         UpdateInventoryUI();
     }
 

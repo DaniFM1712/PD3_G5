@@ -43,7 +43,7 @@ public class RunStoreScript : MonoBehaviour
 
     public void BuyHealth()
     {
-        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= healthCost)
+        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= healthCost && PlayerStatsScript.playerStatsInstance.currentHealth < PlayerStatsScript.playerStatsInstance.currentMaxHealth * PlayerStatsScript.playerStatsInstance.currentMaxHealthMultiplyer)
         {
 
             player.GetComponent<PlayerHealthScript>().ModifyHealth(healthValue);

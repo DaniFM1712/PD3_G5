@@ -29,7 +29,6 @@ public class HealthUIScript : MonoBehaviour
     void Start()
     {
         hpText = hpCounter.GetComponent<TextMeshProUGUI>();
-        updateMaxHealth();
         updateHealth(); 
     }
 
@@ -41,19 +40,12 @@ public class HealthUIScript : MonoBehaviour
 
     public void updateHealth()
     {
-        float normalizedHP = PlayerStatsScript.playerStatsInstance.currentHealth / maxHealth;
+        float normalizedHP = PlayerStatsScript.playerStatsInstance.currentHealth / PlayerStatsScript.playerStatsInstance.currentMaxHealth * PlayerStatsScript.playerStatsInstance.currentMaxHealthMultiplyer;
         int hp = Mathf.RoundToInt(normalizedHP * 100);
         
         hpText.text = hp + " %";
         healthAmount.fillAmount = normalizedHP;
 
     }
-
-    public void updateMaxHealth()
-    {
-        maxHealth = PlayerStatsScript.playerStatsInstance.currentMaxHealth * PlayerStatsScript.playerStatsInstance.currentMaxHealthMultiplyer;
-    }
-
     
-
 }

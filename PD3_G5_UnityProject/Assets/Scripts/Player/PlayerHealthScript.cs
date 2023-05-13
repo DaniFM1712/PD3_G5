@@ -19,7 +19,12 @@ public class PlayerHealthScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            ModifyHealth(-15f);
+        }
+    
     }
 
     public void ModifyHealth(float modifier)
@@ -39,7 +44,6 @@ public class PlayerHealthScript : MonoBehaviour
     public void ModifyMaxHealth(float hpMaxPoints)
     {
         PlayerStatsScript.playerStatsInstance.currentMaxHealth += hpMaxPoints;
-        healthUI.updateMaxHealth();
     }
 
 

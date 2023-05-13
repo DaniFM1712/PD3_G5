@@ -38,8 +38,8 @@ public class CoinCounterScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.V))
         {
-            updateNCCounter(5);
-            updateSCCounter(1);
+            updateNCCounter(50);
+            updateSCCounter(10);
         }
     }
 
