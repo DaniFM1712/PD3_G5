@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1234442625051062129}
   - component: {fileID: 705163812685349242}
-  - component: {fileID: 3166505091635628489}
+  - component: {fileID: 9036838192771899753}
+  - component: {fileID: 9043572844892320094}
   m_Layer: 0
   m_Name: 22_flag
   m_TagString: Untagged
@@ -25,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4004833243829696050}
-  m_LocalRotation: {x: 0.000000015454312, y: -0.7071068, z: 0.000000015454312, w: 0.7071068}
-  m_LocalPosition: {x: -0.19853836, y: 5.6385074, z: 0}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0.094, y: 5.6385074, z: 0}
   m_LocalScale: {x: 1.18766, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6654428136059557673}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
 --- !u!33 &705163812685349242
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -41,8 +42,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4004833243829696050}
   m_Mesh: {fileID: -1604252116014686676, guid: 1e490b3afcd0f064392b9daf95a68c5c, type: 3}
---- !u!23 &3166505091635628489
-MeshRenderer:
+--- !u!137 &9036838192771899753
+SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -56,12 +57,12 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
+  m_RayTracingMode: 3
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3040d81e63df5484bb75a2dc4db5cea3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,7 +83,241 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: -1604252116014686676, guid: 1e490b3afcd0f064392b9daf95a68c5c, type: 3}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0.040111363, y: 0.75366336, z: 1.1390945}
+    m_Extent: {x: 0.6104019, y: 0.7016695, z: 1.7656001}
+  m_DirtyAABB: 0
+--- !u!183 &9043572844892320094
+Cloth:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4004833243829696050}
+  m_Enabled: 1
+  m_StretchingStiffness: 1
+  m_BendingStiffness: 0
+  m_UseTethers: 1
+  m_UseGravity: 1
+  m_Damping: 0
+  m_ExternalAcceleration: {x: -5, y: -1, z: -5}
+  m_RandomAcceleration: {x: -10, y: 2, z: -15}
+  m_WorldVelocityScale: 0.5
+  m_WorldAccelerationScale: 1
+  m_Friction: 0.5
+  m_CollisionMassScale: 0
+  m_UseContinuousCollision: 1
+  m_UseVirtualParticles: 1
+  m_SolverFrequency: 120
+  m_SleepThreshold: 0.1
+  m_Coefficients:
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 0
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 0
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 0
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 0
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 0
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 0
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 3.54
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 0
+    collisionSphereDistance: 3.4028235e+38
+  - maxDistance: 0
+    collisionSphereDistance: 3.4028235e+38
+  m_CapsuleColliders:
+  - {fileID: 1393320434219565136}
+  m_SphereColliders: []
+  m_SelfCollisionDistance: 0
+  m_SelfCollisionStiffness: 0.2
+  m_SelfAndInterCollisionIndices: 
+  m_VirtualParticleWeights:
+  - {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+  - {x: 0.6666667, y: 0.16666667, z: 0.16666667}
+  - {x: 0.5, y: 0.5, z: 0}
+  m_VirtualParticleIndices: 
 --- !u!1 &6274243869362195859
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +377,7 @@ GameObject:
   - component: {fileID: 892379905881715981}
   - component: {fileID: 2046283843099895778}
   - component: {fileID: 380791539512975256}
+  - component: {fileID: 1393320434219565136}
   m_Layer: 0
   m_Name: 22_flag_pole
   m_TagString: Untagged
@@ -192,7 +428,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ca1acd05d9faa4d448be09571202e90d, type: 2}
+  - {fileID: 2100000, guid: c5024928be6f5414a901e239abff569e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -214,3 +450,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &1393320434219565136
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7147806341611090620}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.16
+  m_Height: 7.48
+  m_Direction: 2
+  m_Center: {x: 9.632316e-23, y: 0.037776195, z: 3.6762056}
