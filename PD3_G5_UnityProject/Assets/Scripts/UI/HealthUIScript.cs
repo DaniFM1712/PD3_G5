@@ -11,7 +11,6 @@ public class HealthUIScript : MonoBehaviour
     [SerializeField] Image healthAmount;
     [SerializeField] GameObject hpCounter;
     private TextMeshProUGUI hpText;
-    PlayerStatsScript playerStats;
 
     private float maxHealth;
 
@@ -29,7 +28,6 @@ public class HealthUIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerStats = PlayerStatsScript.playerStatsInstance;
         hpText = hpCounter.GetComponent<TextMeshProUGUI>();
         updateMaxHealth();
         updateHealth(); 
@@ -43,7 +41,7 @@ public class HealthUIScript : MonoBehaviour
 
     public void updateHealth()
     {
-        float normalizedHP = playerStats.currentHealth / maxHealth;
+        float normalizedHP = PlayerStatsScript.playerStatsInstance.currentHealth / maxHealth;
         int hp = Mathf.RoundToInt(normalizedHP * 100);
         
         hpText.text = hp + " %";
@@ -53,7 +51,7 @@ public class HealthUIScript : MonoBehaviour
 
     public void updateMaxHealth()
     {
-        maxHealth = playerStats.currentMaxHealth;
+        maxHealth = PlayerStatsScript.playerStatsInstance.currentMaxHealth * PlayerStatsScript.playerStatsInstance.currentMaxHealthMultiplyer;
     }
 
     

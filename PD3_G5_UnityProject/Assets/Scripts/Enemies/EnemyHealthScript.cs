@@ -57,8 +57,8 @@ public class EnemyHealthScript : MonoBehaviour
     {
         if(GetCurrentHealth() <= 0)
         {
-            CoinCounterScript.coinCounterInstance.updateNCCounter(5 * (int)PlayerStatsScript.playerStatsInstance.currentEssenceMultiplyer);
-            CoinCounterScript.coinCounterInstance.updateSCCounter(1 * (int)PlayerStatsScript.playerStatsInstance.currentDivinePowerMultiplyer);
+            CoinCounterScript.coinCounterInstance.updateNCCounter(Mathf.CeilToInt(5f * PlayerStatsScript.playerStatsInstance.currentEssenceMultiplyer));
+            CoinCounterScript.coinCounterInstance.updateSCCounter(Mathf.CeilToInt(1f * PlayerStatsScript.playerStatsInstance.currentDivinePowerMultiplyer));
         }
     }
 

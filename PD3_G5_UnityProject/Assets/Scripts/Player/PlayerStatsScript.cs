@@ -61,6 +61,9 @@ public class PlayerStatsScript : MonoBehaviour
     public float baseCriticalMultiplyer = 1f;
     public float currentCriticalMultiplyer;
 
+    public float baseMaxHealthMultiplyer = 1f;
+    public float currentMaxHealthMultiplyer;
+
 
     private void Awake()
     {
@@ -100,6 +103,7 @@ public class PlayerStatsScript : MonoBehaviour
         currentEssenceMultiplyer = baseEssenceMultiplyer;
         currentDivinePowerMultiplyer = baseDivinePowerMultiplyer;
         currentCriticalMultiplyer = baseCriticalMultiplyer;
+        currentMaxHealthMultiplyer = baseMaxHealthMultiplyer;
 
     }
 

@@ -8,32 +8,29 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealthScript : MonoBehaviour
 {
-    private PlayerStatsScript playerStats;
     private HealthUIScript healthUI;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerStats = PlayerStatsScript.playerStatsInstance;
         healthUI = HealthUIScript.healthUIInstance;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            ModifyHealth(-20.0f);
-        }
+
     }
 
     public void ModifyHealth(float modifier)
     {
-        playerStats.currentHealth += modifier;
-        playerStats.currentHealth = Mathf.Clamp(playerStats.currentHealth, 0, playerStats.currentMaxHealth);
+        PlayerStatsScript.playerStatsInstance.currentHealth += modifier;
+        PlayerStatsScript.playerStatsInstance.currentHealth = Mathf.Clamp(PlayerStatsScript.playerStatsInstance.currentHealth, 0, 
+            PlayerStatsScript.playerStatsInstance.currentMaxHealth * PlayerStatsScript.playerStatsInstance.currentMaxHealthMultiplyer);
+
         healthUI.updateHealth();
 
-        if (playerStats.currentHealth == 0.0f)
+        if (PlayerStatsScript.playerStatsInstance.currentHealth == 0.0f)
         {
             Die();
         }
@@ -41,7 +38,7 @@ public class PlayerHealthScript : MonoBehaviour
 
     public void ModifyMaxHealth(float hpMaxPoints)
     {
-        playerStats.currentMaxHealth += hpMaxPoints;
+        PlayerStatsScript.playerStatsInstance.currentMaxHealth += hpMaxPoints;
         healthUI.updateMaxHealth();
     }
 

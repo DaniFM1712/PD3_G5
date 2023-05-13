@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class EssenceAsset : ConsumableAsset
 {
-    [SerializeField] float essenceMultiplyer = 0.8f;
-    override public bool consume()
+    [SerializeField] float essenceMultiplyer = 0.2f;
+    override public void consume()
     {
-        PlayerStatsScript.playerStatsInstance.currentEssenceMultiplyer = essenceMultiplyer;
-        return true;
+        PlayerStatsScript.playerStatsInstance.currentEssenceMultiplyer += essenceMultiplyer;
+    }
+
+    public override void drop()
+    {
+        PlayerStatsScript.playerStatsInstance.currentEssenceMultiplyer -= essenceMultiplyer;
     }
 }

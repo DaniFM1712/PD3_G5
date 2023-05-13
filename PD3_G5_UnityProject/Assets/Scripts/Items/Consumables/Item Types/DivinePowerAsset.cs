@@ -4,10 +4,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Items/divinePower")]
 public class DivinePowerAsset : ConsumableAsset
 {
-    [SerializeField] float divinePowerMultiplyer = 0.8f;
-    override public bool consume()
+    [SerializeField] float divinePowerMultiplyer = 0.2f;
+    override public void consume()
     {
-        PlayerStatsScript.playerStatsInstance.currentDivinePowerMultiplyer = divinePowerMultiplyer;
-        return true;
+        PlayerStatsScript.playerStatsInstance.currentDivinePowerMultiplyer += divinePowerMultiplyer;
+    }
+
+    public override void drop()
+    {
+        PlayerStatsScript.playerStatsInstance.currentDivinePowerMultiplyer -= divinePowerMultiplyer;
     }
 }

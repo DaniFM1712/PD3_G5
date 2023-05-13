@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class StoreScript : MonoBehaviour
 {
-    private PlayerStatsScript playerStats;
     [SerializeField] GameObject storeCanvas;
     private PlayerHealthScript playerHealth;
     private bool canShop = false;
     // Start is called before the first frame update
     void Start()
     {
-        playerStats = PlayerStatsScript.playerStatsInstance;
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthScript>();
-        Debug.Log(playerStats.currentMaxHealth);
     }
 
     void Update()
@@ -28,9 +25,9 @@ public class StoreScript : MonoBehaviour
 
     public void IncreaseMaxHealth() 
     {
-        if(playerStats.currentSpecialCoin >= 10)
+        if(PlayerStatsScript.playerStatsInstance.currentSpecialCoin >= 10)
         {
-            playerStats.baseMaxHealth += 10;
+            PlayerStatsScript.playerStatsInstance.baseMaxHealth += 10;
 
             playerHealth.ModifyMaxHealth(10);
             playerHealth.ModifyHealth(10);
@@ -45,10 +42,10 @@ public class StoreScript : MonoBehaviour
 
     }
     public void IncreaseDamage() {
-        if (playerStats.currentSpecialCoin >= 10)
+        if (PlayerStatsScript.playerStatsInstance.currentSpecialCoin >= 10)
         {
-            playerStats.baseDamageBonus += 10;
-            playerStats.currentDamageBonus += 10;
+            PlayerStatsScript.playerStatsInstance.baseDamageBonus += 10;
+            PlayerStatsScript.playerStatsInstance.currentDamageBonus += 10;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-10);
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;
@@ -56,10 +53,10 @@ public class StoreScript : MonoBehaviour
         }
     }
     public void IncreaseSpeed() {
-        if (playerStats.currentSpecialCoin >= 10)
+        if (PlayerStatsScript.playerStatsInstance.currentSpecialCoin >= 10)
         {
-            playerStats.baseSpeedBonus += 10;
-            playerStats.currentSpeedBonus += 10;
+            PlayerStatsScript.playerStatsInstance.baseSpeedBonus += 10;
+            PlayerStatsScript.playerStatsInstance.currentSpeedBonus += 10;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-10);
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;

@@ -4,11 +4,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Items/maxHealth")]
 public class MaxHealthAsset : ConsumableAsset {
 
-    [SerializeField] float maxHealthMultiplyer = 1.2f;
-    override public bool consume()
+    [SerializeField] float maxHealthMultiplyer = 0.2f;
+    override public void consume()
     {
-        PlayerStatsScript.playerStatsInstance.currentMaxHealth *= maxHealthMultiplyer;
-        return true;
+        PlayerStatsScript.playerStatsInstance.currentMaxHealthMultiplyer += maxHealthMultiplyer;
+    }
+
+    public override void drop()
+    {
+        PlayerStatsScript.playerStatsInstance.currentMaxHealthMultiplyer -= maxHealthMultiplyer;
     }
 }
 

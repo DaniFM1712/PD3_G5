@@ -1,34 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class InventoryManagerScript : MonoBehaviour
 {
     public static InventoryManagerScript InventoryInstance { get; private set; }
 
+    //SCRIPTS
     private List<ConsumableAsset> commonItems;
     private List<ConsumableAsset> rareItems;
     private List<ConsumableAsset> legendaryItems;
 
     [SerializeField] GameObject inventoryBackground;
 
+
+    //UI
     [SerializeField] List<GameObject> commonItemsSlots;
     [SerializeField] List<GameObject> rareItemsSlots;
     [SerializeField] List<GameObject> legendaryItemsSlots;
-    public enum Rarity { Common, Rare, Legendary };
 
-    //1 ITEM:
-    //1 remove buttons
-    //1 backgrounds (no cal pq sempre estaràn allà)
-    //1 imatges
-    //2 textos (name + descrip)
-
-
-    //3 Common Items GO
-
-    //2 Rare Items GO
-
-    //1 Legendary Items GO
 
     private void Awake()
     {
@@ -47,40 +39,37 @@ public class InventoryManagerScript : MonoBehaviour
         commonItems = new List<ConsumableAsset>();
         rareItems = new List<ConsumableAsset>();
         legendaryItems = new List<ConsumableAsset>();
+
+        //UpdateInventoryUI();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            Debug.Log("1. TAB PRESSED");
-        }
 
         if (Input.GetKeyDown(KeyCode.Tab) && !inventoryBackground.activeSelf)
         {
-            Debug.Log("2. TAB PRESSED");
-            inventoryBackground.SetActive(true);
+            ShowInventoryUI();
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
         }
 
         else if(Input.GetKeyDown(KeyCode.Tab) && inventoryBackground.activeSelf)
         {
-            Debug.Log("3. TAB PRESSED");
-            inventoryBackground.SetActive(false);
+            HideInventoryUI();
             Time.timeScale = 1f;
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
-    public void UpdateInventoryUI()
+    private void ShowInventoryUI()
     {
+        inventoryBackground.SetActive(true);
+
         int index = 0;
-        foreach(ConsumableAsset item in commonItems)
+        foreach (ConsumableAsset item in commonItems)
         {
             commonItemsSlots[index].SetActive(true);
-            //commonItemsSlots[index].SetItemData();
             index++;
         }
 
@@ -88,7 +77,6 @@ public class InventoryManagerScript : MonoBehaviour
         foreach (ConsumableAsset item in rareItems)
         {
             rareItemsSlots[index].SetActive(true);
-            //rareItemsSlots[index].SetItemData();
             index++;
         }
 
@@ -96,24 +84,95 @@ public class InventoryManagerScript : MonoBehaviour
         foreach (ConsumableAsset item in legendaryItems)
         {
             legendaryItemsSlots[index].SetActive(true);
-            //legendaryItemsSlots[index].SetItemData();
+            index++;
+        }
+    }
+
+    private void HideInventoryUI()
+    {
+        foreach (GameObject itemUI in commonItemsSlots)
+        {
+            itemUI.SetActive(false);
+        }
+
+        foreach (GameObject itemUI in rareItemsSlots)
+        {
+            itemUI.SetActive(false);
+        }
+
+        foreach (GameObject itemUI in legendaryItemsSlots)
+        {
+            itemUI.SetActive(false);
+        }
+        inventoryBackground.SetActive(false);
+    }
+
+    public void UpdateInventoryUI()
+    {
+        int index = 0;
+        foreach(GameObject slot in commonItemsSlots)
+        {
+            if (commonItems.Count > index)//commonItems.count < index
+            {
+                slot.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = commonItems[index].itemName;
+                slot.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = commonItems[index].itemDescription;
+                slot.transform.Find("ItemBackground").GetComponent<Image>().color = Color.blue;
+
+                index++;
+            }
+            else
+            {
+                slot.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = "";
+                slot.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "";
+                slot.SetActive(false);
+            }
+
+
+
+        }
+
+        index = 0;
+        foreach (ConsumableAsset slot in rareItemsSlots)
+        {
+            if (GameObject.Count > index)//commonItems.count < index
+            {
+                rareItemsSlots[index].transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = item.itemName;
+                rareItemsSlots[index].transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = item.itemDescription;
+                rareItemsSlots[index].transform.Find("ItemBackground").GetComponent<Image>().color = new Color32(138, 43, 226, 255);
+                index++;
+            }
+            else
+            {
+                slot.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = "";
+                slot.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "";
+                slot.SetActive(false);
+            }
+        }
+
+        index = 0;
+        foreach (ConsumableAsset item in legendaryItems)
+        {
+
+            legendaryItemsSlots[index].transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = item.itemName;
+            legendaryItemsSlots[index].transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = item.itemDescription;
+            legendaryItemsSlots[index].transform.Find("ItemBackground").GetComponent<Image>().color = Color.yellow;
             index++;
         }
     }
 
 
 
-    public bool CanAddItem(Rarity rarity)
+    public bool CanAddItem(ConsumableAsset.Rarity rarity)
     {
         switch (rarity)
         {
-            case Rarity.Common:
+            case ConsumableAsset.Rarity.Common:
                 return commonItems.Count < 3;
 
-            case Rarity.Rare:
+            case ConsumableAsset.Rarity.Rare:
                 return rareItems.Count < 2;
 
-            case Rarity.Legendary:
+            case ConsumableAsset.Rarity.Legendary:
                 return legendaryItems.Count < 1;
 
             default:
@@ -122,65 +181,108 @@ public class InventoryManagerScript : MonoBehaviour
 
     }
 
-    public void AddItem(Rarity rarity, ConsumableAsset asset)
+    public void AddItem(ConsumableAsset.Rarity rarity, ConsumableAsset asset)
     {
         switch (rarity)
         {
-            case Rarity.Common:
+            case ConsumableAsset.Rarity.Common:
                 commonItems.Add(asset);
                 break;
 
-            case Rarity.Rare:
+            case ConsumableAsset.Rarity.Rare:
                 rareItems.Add(asset);
                 break;
 
-            case Rarity.Legendary:
+            case ConsumableAsset.Rarity.Legendary:
                 legendaryItems.Add(asset);
                 break;
 
             default:
                 break;
         }
+
+        asset.consume();
+        UpdateInventoryUI();
     }
 
     public void ResetInventory()
     {
+        foreach (ConsumableAsset item in commonItems)
+        {
+            item.drop();
+        }
+
+        foreach (ConsumableAsset item in rareItems)
+        {
+            item.drop();
+        }
+
+        foreach (ConsumableAsset item in legendaryItems)
+        {
+            item.drop();
+        }
+
         commonItems.Clear();
         rareItems.Clear();
         legendaryItems.Clear();
+
+        foreach (GameObject itemUI in commonItemsSlots)
+        {
+            itemUI.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = "";
+            itemUI.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "";
+            itemUI.SetActive(false);
+        }
+
+        foreach (GameObject itemUI in rareItemsSlots)
+        {
+            itemUI.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = "";
+            itemUI.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "";
+            itemUI.SetActive(false);
+        }
+
+        foreach (GameObject itemUI in legendaryItemsSlots)
+        {
+            itemUI.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = "";
+            itemUI.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "";
+            itemUI.SetActive(false);
+        }
     }
 
     public void RemoveCommonItem(int slot)
     {
-        switch (slot)
-        {
-            case 1:
-                commonItemsSlots.RemoveAt(0);
-                break;
-            case 2:
-                commonItemsSlots.RemoveAt(1);
-                break;
-            case 3:
-                commonItemsSlots.RemoveAt(2);
-                break;
-        }
+        Debug.Log("REMOVE COMMON ITEM");
+        commonItems[slot-1].drop();
+       
+        commonItemsSlots[slot - 1].transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = "";
+        commonItemsSlots[slot - 1].transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "";
+
+        commonItems.RemoveAt(slot - 1);
+
+        UpdateInventoryUI();
     }
 
     public void RemoveRareItem(int slot)
     {
-        switch (slot)
-        {
-            case 1:
-                rareItemsSlots.RemoveAt(0);
-                break;
-            case 2:
-                rareItemsSlots.RemoveAt(1);
-                break;
-        }
+        rareItems[slot - 1].drop();   
+
+        rareItemsSlots[slot - 1].transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = "";
+        rareItemsSlots[slot - 1].transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "";
+
+        rareItems.RemoveAt(slot - 1);
+
+        UpdateInventoryUI();
+
     }
 
     public void RemoveLegendarayItem()
     {
-        legendaryItemsSlots.Clear();
+        legendaryItems[0].drop();
+        
+        legendaryItemsSlots[0].transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = "";
+        legendaryItemsSlots[0].transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "";
+
+        legendaryItems.Clear();
+
+        UpdateInventoryUI();
     }
 }

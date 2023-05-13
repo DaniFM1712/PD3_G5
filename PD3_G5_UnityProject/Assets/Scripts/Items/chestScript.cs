@@ -35,67 +35,58 @@ public class chestScript : MonoBehaviour
         int randomNumber = Random.Range(0, 100);
         if(randomNumber <= 60)
         {
-            int itemType = Random.Range(0, 5);
+            int itemType = Random.Range(0, 4);
             switch (itemType)
             {
-                case 1:
+                case 0:
                     asset = commonItemPool[0];
                     break;
-                case 2:
+                case 1:
                     asset = commonItemPool[1];
                     break;
-                case 3:
+                case 2:
                     asset = commonItemPool[2];
                     break;
-                case 4:
+                case 3:
                     asset = commonItemPool[3];
-                    break;
-                case 5:
-                    asset = commonItemPool[4];
                     break;
             }
         }
         else if (randomNumber <= 90)
         {
-            int itemType = Random.Range(0, 5);
+            int itemType = Random.Range(0, 4);
             switch (itemType)
             {
-                case 1:
+                case 0:
                     asset = rareItemPool[0];
                     break;
-                case 2:
+                case 1:
                     asset = rareItemPool[1];
                     break;
-                case 3:
+                case 2:
                     asset = rareItemPool[2];
                     break;
-                case 4:
+                case 3:
                     asset = rareItemPool[3];
-                    break;
-                case 5:
-                    asset = rareItemPool[4];
                     break;
             }
         }
         else
         {
-            int itemType = Random.Range(0, 5);
+            int itemType = Random.Range(0, 4);
             switch (itemType)
             {
-                case 1:
+                case 0:
                     asset = legendaryItemPool[0];
                     break;
-                case 2:
+                case 1:
                     asset = legendaryItemPool[1];
                     break;
-                case 3:
+                case 2:
                     asset = legendaryItemPool[2];
                     break;
-                case 4:
+                case 3:
                     asset = legendaryItemPool[3];
-                    break;
-                case 5:
-                    asset = legendaryItemPool[4];
                     break;
             }
         }

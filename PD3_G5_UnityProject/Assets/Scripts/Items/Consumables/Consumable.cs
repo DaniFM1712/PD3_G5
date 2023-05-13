@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Consumable : MonoBehaviour
 {
@@ -12,8 +11,11 @@ public class Consumable : MonoBehaviour
     [SerializeField] GameObject itemInfoUI;
     [SerializeField] GameObject nameUI;
     [SerializeField] GameObject descriptionUI;
+    [SerializeField] GameObject backgroundUI;
+    [SerializeField] GameObject slotsFullText;
     private TextMeshProUGUI nameText;
     private TextMeshProUGUI descriptionText;
+    
 
     private bool canTake = false;
     // Start is called before the first frame update
@@ -30,8 +32,23 @@ public class Consumable : MonoBehaviour
     {
         if (canTake && Input.GetKeyDown(KeyCode.E))
         {
-            setItemData();
             itemInfoUI.SetActive(true);
+            setItemData();
+            switch (_consumableAsset.rarity)
+            {
+                case ConsumableAsset.Rarity.Common:
+                    backgroundUI.GetComponent<Image>().color = Color.blue;
+                    break;
+
+                case ConsumableAsset.Rarity.Rare:
+                    backgroundUI.GetComponent<Image>().color = new Color32(138, 43, 226, 255);
+                    break;
+
+                case ConsumableAsset.Rarity.Legendary:
+                    backgroundUI.GetComponent<Image>().color = Color.yellow;
+                    break;
+
+            }
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
         }
@@ -39,13 +56,19 @@ public class Consumable : MonoBehaviour
 
     public void Take()
     {
-
-        Debug.Log("CONSUME");
-        GameObject player = GameObject.Find("Player");
-        if (_consumableAsset.consume())
+        
+        if (InventoryManagerScript.InventoryInstance.CanAddItem(_consumableAsset.rarity))
         {
+            Debug.Log("CONSUME");
+            InventoryManagerScript.InventoryInstance.AddItem(_consumableAsset.rarity, _consumableAsset);
             Destroy(gameObject);
         }
+        else
+        {
+            slotsFullText.SetActive(true);
+        }
+
+
     }
 
     public void Leave()
