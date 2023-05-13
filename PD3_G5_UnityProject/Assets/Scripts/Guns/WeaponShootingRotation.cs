@@ -1,53 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WeaponShootingRotation : MonoBehaviour
 {
 
     [SerializeField] private int m_NCannons = 4;
-    [SerializeField] private float m_RotationSpeed = 0.1f;
+    private float m_RotationSpeed = 0.1f;
     private float m_RotationXShoot;
     private bool m_CanRotate;
     
-    // Start is called before the first frame update
     void Start()
     {
         m_RotationXShoot = 360f / m_NCannons;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))//change
+        if (m_CanRotate)
         {
-            StartRotation();
-            StartCoroutine(RotateWeapon(Vector3.forward, m_RotationXShoot, m_RotationSpeed));
-            
+            StartCoroutine(RotateWeapon());
         }
     }
 
-    public void StartRotation()
+    public void StartRotation(float l_RotationTime)
     {
+        m_RotationSpeed = l_RotationTime;
         m_CanRotate = true;
     }
-    private IEnumerator RotateWeapon(Vector3 axis, float angle, float duration)
+    private IEnumerator RotateWeapon()
     {
 
-        Quaternion from = transform.localRotation;
-        Quaternion to = transform.localRotation;
-        to *= Quaternion.Euler(0, 0, angle);
+        Quaternion l_From = transform.localRotation;
+        Quaternion l_To = transform.localRotation;
+        l_To *= Quaternion.Euler(0, 0, m_RotationXShoot);
         
         float elapsed = 0.0f;
-        while (elapsed < duration && m_CanRotate)
+        while (elapsed < m_RotationSpeed && m_CanRotate)
         {
-            transform.localRotation = Quaternion.Slerp(from, to, elapsed / duration);
+            transform.localRotation = Quaternion.Slerp(l_From, l_To, elapsed / m_RotationSpeed);
             elapsed += Time.deltaTime;
             yield return null;
         }
         
-        transform.localRotation = to;
+        transform.localRotation = l_To;
         m_CanRotate = false;
     }
-    
+
 }
