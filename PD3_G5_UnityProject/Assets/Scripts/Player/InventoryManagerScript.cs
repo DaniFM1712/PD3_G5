@@ -132,13 +132,13 @@ public class InventoryManagerScript : MonoBehaviour
         }
 
         index = 0;
-        foreach (ConsumableAsset slot in rareItemsSlots)
+        foreach (GameObject slot in rareItemsSlots)
         {
-            if (GameObject.Count > index)//commonItems.count < index
+            if (rareItems.Count > index)//commonItems.count < index
             {
-                rareItemsSlots[index].transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = item.itemName;
-                rareItemsSlots[index].transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = item.itemDescription;
-                rareItemsSlots[index].transform.Find("ItemBackground").GetComponent<Image>().color = new Color32(138, 43, 226, 255);
+                slot.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = rareItems[index].itemName;
+                slot.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = rareItems[index].itemDescription;
+                slot.transform.Find("ItemBackground").GetComponent<Image>().color = new Color32(138, 43, 226, 255);
                 index++;
             }
             else
@@ -150,13 +150,21 @@ public class InventoryManagerScript : MonoBehaviour
         }
 
         index = 0;
-        foreach (ConsumableAsset item in legendaryItems)
+        foreach (GameObject slot in legendaryItemsSlots)
         {
-
-            legendaryItemsSlots[index].transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = item.itemName;
-            legendaryItemsSlots[index].transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = item.itemDescription;
-            legendaryItemsSlots[index].transform.Find("ItemBackground").GetComponent<Image>().color = Color.yellow;
-            index++;
+            if (legendaryItems.Count > index)//commonItems.count < index
+            {
+                slot.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = legendaryItems[index].itemName;
+                slot.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = legendaryItems[index].itemDescription;
+                slot.transform.Find("ItemBackground").GetComponent<Image>().color = Color.yellow;
+                index++;
+            }
+            else
+            {
+                slot.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = "";
+                slot.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "";
+                slot.SetActive(false);
+            }
         }
     }
 

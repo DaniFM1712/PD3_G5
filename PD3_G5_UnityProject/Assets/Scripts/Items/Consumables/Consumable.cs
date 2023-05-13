@@ -76,6 +76,7 @@ public class Consumable : MonoBehaviour
         itemInfoUI.SetActive(false);
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
+        slotsFullText.SetActive(false);
     }
 
     public void SetConsumableItem(ConsumableAsset asset)
