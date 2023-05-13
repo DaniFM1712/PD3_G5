@@ -35,6 +35,7 @@ public class ProjectileShootingScript : MonoBehaviour
     bool dashDamageBlessing = false;
     Queue<GameObject> bulletPool;
 
+    [SerializeField] private UnityEvent<float> PlayerHasShoot; 
     // Start is called before the first frame update
     private void Start()
     {
@@ -86,6 +87,7 @@ public class ProjectileShootingScript : MonoBehaviour
 
     private void Shoot()
     {
+        PlayerHasShoot.Invoke(timeBetweenShooting);
         readyToShoot = false;
 
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
@@ -97,7 +99,7 @@ public class ProjectileShootingScript : MonoBehaviour
         
         if (Physics.Raycast(r, out RaycastHit hitInfo))
         {
-            //Crec que a vegades les bales surten rares pq això detecta una bala ja disparada.
+            //Crec que a vegades les bales surten rares pq aixï¿½ detecta una bala ja disparada.
             if (!hitInfo.collider.gameObject.CompareTag("Bullet"))
                 hitPoint = hitInfo.point;
         }
@@ -170,5 +172,5 @@ public class ProjectileShootingScript : MonoBehaviour
         if (multiplyer == 0)
             timeBetweenShooting = baseTimeBetweenShooting;
     }
-
+    
 }

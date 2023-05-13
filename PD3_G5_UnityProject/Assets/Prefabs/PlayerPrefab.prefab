@@ -32,7 +32,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3688068328114149645}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -124,7 +124,19 @@ MonoBehaviour:
   - {fileID: 8645082759729223367}
   startDashCooldown:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CooldownScript, Assembly-CSharp
+        m_MethodName: StartDashCooldown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   speed: 10
   dashLength: 0.15
   dashSpeed: 100
@@ -506,6 +518,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6610077119698529702}
     m_Modifications:
+    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: reloadTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: timeBetweenShooting
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8779332266522506681}
+    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartRotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WeaponShootingRotation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495583114424343594, guid: de1b484802dac7e49827798adf8352ee,
+        type: 3}
+      propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7352254665611245801, guid: de1b484802dac7e49827798adf8352ee,
         type: 3}
       propertyPath: m_Name
@@ -580,6 +632,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1293083250355662382}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8779332266522506681 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7505108535668513687, guid: de1b484802dac7e49827798adf8352ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1293083250355662382}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198b7427955878f4db90cadacf6e68b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2743608956522232154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -587,6 +651,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6610077119698529702}
     m_Modifications:
+    - target: {fileID: 1495583114424343594, guid: e6ef93be3a191454c90ee5f427aa3fd6,
+        type: 3}
+      propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495583114424343594, guid: e6ef93be3a191454c90ee5f427aa3fd6,
+        type: 3}
+      propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 711741174551565837}
+    - target: {fileID: 1495583114424343594, guid: e6ef93be3a191454c90ee5f427aa3fd6,
+        type: 3}
+      propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495583114424343594, guid: e6ef93be3a191454c90ee5f427aa3fd6,
+        type: 3}
+      propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartRotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495583114424343594, guid: e6ef93be3a191454c90ee5f427aa3fd6,
+        type: 3}
+      propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WeaponShootingRotation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495583114424343594, guid: e6ef93be3a191454c90ee5f427aa3fd6,
+        type: 3}
+      propertyPath: PlayerHasShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7352254665611245801, guid: e6ef93be3a191454c90ee5f427aa3fd6,
         type: 3}
       propertyPath: m_Name
@@ -649,6 +743,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6ef93be3a191454c90ee5f427aa3fd6, type: 3}
+--- !u!114 &711741174551565837 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3455348453620330327, guid: e6ef93be3a191454c90ee5f427aa3fd6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2743608956522232154}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198b7427955878f4db90cadacf6e68b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4619344552080245168 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7352254665611245802, guid: e6ef93be3a191454c90ee5f427aa3fd6,
