@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7f5f3ff05d810459c35dbb87e948ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialHealth: 75
+  InitialHealth: 25
 --- !u!114 &1515236647032608043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +106,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   currentState: 0
-  CHASE_MAX: 1
+  secondsToSetEnemy: 0
+  CHASE_MAX: 3
   damage: -10
   fadeSpeed: 0
   enemyRenderer: {fileID: 0}
