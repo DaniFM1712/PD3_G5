@@ -187,12 +187,12 @@ public class FPController : MonoBehaviour
             currSpeed = walkSpeed + PlayerStatsScript.playerStatsInstance.currentSpeedBonus;
         }
 
-        if (Input.GetKeyDown(jumpKey) && onGround)
+        if (Input.GetKeyDown(jumpKey) && onGround && Time.timeScale == 1f)
         {
             verticalSpeed = jumpSpeed;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) == true && dashAllowed)
+        if (Input.GetKeyDown(KeyCode.LeftShift) == true && dashAllowed && Time.timeScale == 1f)
         {
             dashIncreasesDamageBlessing.StartDamageTimer();
             dashReset = currentDashCharges > 1;

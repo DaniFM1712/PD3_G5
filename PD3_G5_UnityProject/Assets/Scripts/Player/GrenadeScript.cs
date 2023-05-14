@@ -68,7 +68,7 @@ public class GrenadeScript : MonoBehaviour
         shootingGrenade = Input.GetKeyDown(KeyCode.F);
 
         //CHECKEAR SI SE ESTA RECARGANDO Y NO PERMITIR UTILIZAR LA HABLIDAD
-        if (readyToShootGrenade && shootingGrenade)
+        if (readyToShootGrenade && shootingGrenade && Time.timeScale == 1f && !PlayerStatsScript.playerStatsInstance.isReloading)
         {
 
             shootingGrenade = false;

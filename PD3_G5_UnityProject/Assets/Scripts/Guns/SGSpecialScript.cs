@@ -76,7 +76,7 @@ public class SGSpecialScript : MonoBehaviour
 
         //CHECKEAR SI SE ESTA RECARGANDO Y NO PERMITIR UTILIZAR EL ESPECIAL
 
-        if (readyToShootSpecial && shootingSpecial && !reloading)
+        if (readyToShootSpecial && shootingSpecial && !reloading && !PlayerStatsScript.playerStatsInstance.isReloading)
         {
             specialBulletsShot = 0;
             ShootSpecial();

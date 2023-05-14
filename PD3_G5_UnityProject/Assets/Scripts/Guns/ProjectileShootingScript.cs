@@ -31,7 +31,7 @@ public class ProjectileShootingScript : MonoBehaviour
     [SerializeField] bool allowInvoke;
 
     int bulletsLeft, bulletsShot;
-    bool shooting, readyToShoot, reloading;
+    bool shooting, readyToShoot;
     bool dashDamageBlessing = false;
     Queue<GameObject> bulletPool;
 
@@ -70,10 +70,10 @@ public class ProjectileShootingScript : MonoBehaviour
         else
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
+        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !PlayerStatsScript.playerStatsInstance.isReloading)
             Reload();
 
-        if(readyToShoot && shooting && !reloading)
+        if(readyToShoot && shooting && !PlayerStatsScript.playerStatsInstance.isReloading && Time.timeScale == 1f)
         {
             bulletsShot = 0;
             if (bulletsLeft > 0)
@@ -146,14 +146,14 @@ public class ProjectileShootingScript : MonoBehaviour
     
     private void Reload()
     {
-        reloading = true;
+        PlayerStatsScript.playerStatsInstance.isReloading = true;
         Invoke("ReloadFinished", reloadTime);
     }
 
     private void ReloadFinished()
     {
+        PlayerStatsScript.playerStatsInstance.isReloading = false;
         bulletsLeft = magazineSize;
-        reloading = false;
     }
 
     public void changeDamage(float newBulletDamage)
@@ -161,10 +161,6 @@ public class ProjectileShootingScript : MonoBehaviour
         bulletDamage = newBulletDamage;
     }
 
-    public bool IsReloading()
-    {
-        return reloading;
-    }
 
     public void SetTimeBetweenShooting(float multiplyer)
     {

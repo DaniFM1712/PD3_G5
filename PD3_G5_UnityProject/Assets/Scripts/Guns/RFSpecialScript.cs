@@ -67,7 +67,7 @@ public class RFSpecialScript : MonoBehaviour
         shootingSpecial = Input.GetKeyDown(KeyCode.Mouse1);
 
         //CHECKEAR SI SE ESTA RECARGANDO Y NO PERMITIR UTILIZAR LA HABLIDAD
-        if (readyToShootSpecial && shootingSpecial)
+        if (readyToShootSpecial && shootingSpecial && !PlayerStatsScript.playerStatsInstance.isReloading)
         {
             shootingSpecial = false;
             specialBulletsShot = 0;

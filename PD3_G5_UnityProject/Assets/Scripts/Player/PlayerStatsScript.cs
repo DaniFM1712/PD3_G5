@@ -37,7 +37,8 @@ public class PlayerStatsScript : MonoBehaviour
     public ProjectileShootingScript currentWeapon;
     public int currentNormalCoin;
     public int currentSpecialCoin;
-    public int activatedBlessings = 0; 
+    public int activatedBlessings = 0;
+    public bool isReloading = false;
 
     //----------SHOTGUN----------//
 
@@ -131,6 +132,7 @@ public class PlayerStatsScript : MonoBehaviour
         currentMaxGrenadeCharges = baseMaxGrenadeCharges;
         currentMaxTrapCharges = baseMaxTrapCharges;
         currentBlessings.Clear();
+        isReloading = false;
 
 
         /*

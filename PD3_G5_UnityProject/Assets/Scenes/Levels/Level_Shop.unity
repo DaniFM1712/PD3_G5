@@ -712,22 +712,22 @@ PrefabInstance:
     - target: {fileID: 3688068328114149650, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -89.51
+      value: -70.19
       objectReference: {fileID: 0}
     - target: {fileID: 3688068328114149650, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -59.38
+      value: -65.28
       objectReference: {fileID: 0}
     - target: {fileID: 3688068328114149650, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -228.18
+      value: -215.14
       objectReference: {fileID: 0}
     - target: {fileID: 3688068328114149650, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.74025834
+      value: 0.861648
       objectReference: {fileID: 0}
     - target: {fileID: 3688068328114149650, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
@@ -737,7 +737,7 @@ PrefabInstance:
     - target: {fileID: 3688068328114149650, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.67232263
+      value: 0.50750625
       objectReference: {fileID: 0}
     - target: {fileID: 3688068328114149650, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
@@ -752,7 +752,7 @@ PrefabInstance:
     - target: {fileID: 3688068328114149650, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 84.493
+      value: 60.996
       objectReference: {fileID: 0}
     - target: {fileID: 3688068328114149650, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
@@ -2001,7 +2001,7 @@ Transform:
   m_GameObject: {fileID: 869808050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -64.156685, y: -66.438614, z: -206.52563}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2599567, y: 0.2599567, z: 0.2599567}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2097782377}
@@ -2530,6 +2530,7 @@ MonoBehaviour:
   currentDashAbilities: 
   currentWeaponAbilities: 
   currentGrenadeAbilities: 
+  currentBlessings: []
   dashDamageBlessing: 0
   baseFireRateMultiplyer: 1
   currentFireRateMultiplyer: 0

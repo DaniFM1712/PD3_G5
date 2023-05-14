@@ -46,7 +46,7 @@ public class InventoryManagerScript : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Tab) && !inventoryBackground.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Tab) && !inventoryBackground.activeSelf && Time.timeScale == 1f)
         {
             ShowInventoryUI();
             Time.timeScale = 0f;
