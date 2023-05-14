@@ -46,6 +46,8 @@ public class GolemEnemyAIScript : MonoBehaviour
     enum State { IDLE, CHASE, ATTACK, HIT, DIE }
     [SerializeField] State currentState;
     [SerializeField] float secondsToSetEnemy;
+    [SerializeField] float secondsToCDMeleeAttack;
+    private bool canMeleeAttack = true;
     private GameObject player;
 
     [Header("IDLE")]
@@ -82,6 +84,19 @@ public class GolemEnemyAIScript : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
+        bulletPool = new Queue<GameObject>();
+        GameObject bullets = new GameObject("GolemBullets");
+        for (int i = 0; i < magazineSize + 10; i++)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            bullet.SetActive(false);
+            bulletPool.Enqueue(bullet);
+            bullet.transform.parent = bullets.transform;
+        }
+
+        bulletsLeft = magazineSize;
+        readyToShoot = true;
+        shooting = false;
     }
 
     void Update()
@@ -124,7 +139,7 @@ public class GolemEnemyAIScript : MonoBehaviour
     void ChangeFromIdle()
     {
         //seesPlayer() &&
-        if (!PlayerInMeleeRange())
+        if (!PlayerInRangedRange())
         {
             currentState = State.CHASE;
         }
@@ -177,39 +192,49 @@ public class GolemEnemyAIScript : MonoBehaviour
         if (PlayerInMeleeRange() || PlayerInRangedRange())
         {
             currentState = State.ATTACK;
-            attack();
-            if (!blocked)
-                StartCoroutine(CooldownAttack());
         }
         isHit();
     }
 
-    private void attack()
+    private void MeleeAttack()
     {
-        if (PlayerInMeleeRange())
+        player.GetComponent<PlayerHealthScript>().ModifyHealth(damage);
+        StartCoroutine(CooldownAttack());
+    }
+
+    private void RangedAttack()
+    {
+        if (readyToShoot && shooting && !reloading)
         {
-            player.GetComponent<PlayerHealthScript>().ModifyHealth(damage);
-        }
-        else if(PlayerInRangedRange())
-        {
-            if (readyToShoot && shooting && !reloading)
+            bulletsShot = 0;
+            if (bulletsLeft > 0)
             {
-                bulletsShot = 0;
-                if (bulletsLeft > 0)
-                {
-                    shootingPoint = player.transform.position;
-                    agent.isStopped = true;
-                    Shoot();
-                }
-                else
-                    Reload();
+                shootingPoint = player.transform.position;
+                agent.isStopped = true;
+                Shoot();
             }
+            else
+                Reload();
         }
     }
 
     void updateAttack()
     {
-
+        if (PlayerInMeleeRange() && canMeleeAttack)
+        {
+            MeleeAttack();
+            canMeleeAttack = false;
+            StartCoroutine(CooldownAttack());
+        }
+        else if (PlayerInRangedRange() && readyToShoot && !reloading)
+        {
+            shooting = true;
+            RangedAttack();
+        }
+        else
+        {
+            shooting = false;
+        }
     }
 
     IEnumerator CooldownAttack()
@@ -217,12 +242,13 @@ public class GolemEnemyAIScript : MonoBehaviour
         agent.isStopped = true;
         yield return new WaitForSeconds(3.0f);
         agent.isStopped = false;
+        canMeleeAttack = true;
     }
 
     void ChangeFromAttack()
     {
         //seesPlayer() &&
-        if (!agent.isStopped && !PlayerInMeleeRange())
+        if (!PlayerInRangedRange())
         {
             currentState = State.CHASE;
         }
@@ -272,7 +298,7 @@ public class GolemEnemyAIScript : MonoBehaviour
         currentBullet.SetActive(true);
         currentBullet.transform.position = bulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
-        currentBullet.GetComponent<EnemyBulletScript>().SetDamage(bulletDamage);
+        currentBullet.GetComponent<EnemyGolemBulletScript>().SetDamage(bulletDamage);
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(transform.up * upwardForce, ForceMode.Impulse);
@@ -377,4 +403,5 @@ public class GolemEnemyAIScript : MonoBehaviour
         yield return new WaitForSeconds(secondsToSetEnemy);
         enemySetted = true;
     }
+    
 }

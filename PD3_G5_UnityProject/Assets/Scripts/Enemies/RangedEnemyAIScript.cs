@@ -77,7 +77,7 @@ public class RangedEnemyAIScript : MonoBehaviour
     {
         player = GameObject.Find("Player");
         bulletPool = new Queue<GameObject>();
-        GameObject bullets = new GameObject("Bullets");
+        GameObject bullets = new GameObject("RangedBullets");
         for (int i = 0; i < magazineSize + 10; i++)
         {
             GameObject bullet = Instantiate(bulletPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);

@@ -26,7 +26,7 @@ public class EnemyHealthScript : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
+        Debug.Log(currentHealth);
         if (PlayerStatsScript.playerStatsInstance.dashDamageBlessing)
         {
             damage *= 1.3f;

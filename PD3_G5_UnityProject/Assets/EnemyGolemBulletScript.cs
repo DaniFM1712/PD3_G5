@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrenadeBulletScript : MonoBehaviour
+public class EnemyGolemBulletScript : MonoBehaviour
 {
     [SerializeField] GameObject specialEffectPrefab;
     [SerializeField] float lifeTime = 5f;
@@ -21,37 +21,41 @@ public class GrenadeBulletScript : MonoBehaviour
     {
         timeToDestroy -= Time.deltaTime;
 
-        if(timeToDestroy <= 0f)
+        if (timeToDestroy <= 0f)
         {
             timeToDestroy = lifeTime;
             ReturnToOrigin();
-            //Destroy(gameObject);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("EnergyEnemyShield"))
-        {
-            ReturnToOrigin();
-        }
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Terrain"))
-        {
 
-            if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Terrain"))
+        {
+            Vector3 vector3 = transform.position;
+            Debug.Log(vector3);
+            Debug.Log(other.gameObject.name);
+
+            if (other.gameObject.TryGetComponent<PlayerHealthScript>(out PlayerHealthScript playerHealth))
             {
-                enemyPart.TakeDamage(damage, null);
+                playerHealth.ModifyHealth(-damage);
             }
 
-            GameObject specialEffect = Instantiate(specialEffectPrefab,transform.position, Quaternion.identity);
+            GameObject specialEffect = Instantiate(specialEffectPrefab, vector3, Quaternion.identity);
             specialEffect.transform.localScale *= areaMultiplyer;
             ReturnToOrigin();
-        }   
+        }
     }
 
     public void SetAreaMulitplier(float areaMultiplyer)
     {
         this.areaMultiplyer = areaMultiplyer;
+    }
+
+    public void SetDamage(float bulletDamage)
+    {
+        damage = bulletDamage;
     }
 
     private void ReturnToOrigin()

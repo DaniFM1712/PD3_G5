@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8380774448551487589}
   m_Layer: 0
   m_Name: EnemyBody
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 2070484513136213079}
   m_Layer: 0
   m_Name: GolemEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 2100608988851071974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6784526692379747447}
@@ -127,7 +127,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.5
-  m_Speed: 1
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -180,16 +180,16 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 0
-  bulletPrefab: {fileID: 3682631923943361041, guid: b84eff78ae545cf43953de10513c39a8,
+  bulletPrefab: {fileID: 3682631923943361041, guid: 3544da6cd7e2ec1499b1993120b485c8,
     type: 3}
   objectIsDead:
     m_PersistentCalls:
       m_Calls: []
-  shootForce: 100
-  upwardForce: 0
+  shootForce: 10
+  upwardForce: 10
   bulletOrigin: {fileID: 2854670299365616931}
   timeBetweenShooting: 2
-  spread: 2
+  spread: 0.2
   reloadTime: 2
   timeBetweenShots: 0
   bulletDamage: 25
@@ -199,9 +199,10 @@ MonoBehaviour:
   allowInvoke: 1
   currentState: 0
   secondsToSetEnemy: 0
+  secondsToCDMeleeAttack: 0
   RANGED_RANGE: 25
   MELEE_RANGE: 5
-  damage: 0
+  damage: -40
   fadeSpeed: 0
   enemyRenderer: {fileID: 0}
 --- !u!1 &4803716996045623164
@@ -217,7 +218,7 @@ GameObject:
   - component: {fileID: 5897955937878138431}
   m_Layer: 0
   m_Name: EnemyHead
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

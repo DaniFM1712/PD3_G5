@@ -23,7 +23,6 @@ public class EnemyBulletScript : MonoBehaviour
         {
             timeToDestroy = lifeTime;
             ReturnToOrigin();
-            //Destroy(gameObject);
         }
     }
 
@@ -34,6 +33,7 @@ public class EnemyBulletScript : MonoBehaviour
 
             if (other.gameObject.TryGetComponent<PlayerHealthScript>(out PlayerHealthScript playerHealth))
             {
+                Debug.Log(damage);
                 playerHealth.ModifyHealth(-damage);
             }
             ReturnToOrigin();

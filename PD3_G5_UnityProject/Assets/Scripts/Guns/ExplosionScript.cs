@@ -11,6 +11,8 @@ public class ExplosionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(gameObject.name);
+
         timeToDestroy = lifeTime;
     }
 
@@ -28,15 +30,29 @@ public class ExplosionScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-
-        if (other.gameObject.CompareTag("Enemy"))
+        Debug.Log(gameObject.name);
+        if(gameObject.name == "AoEPrefab(Clone)")
         {
-            if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
+            if (other.gameObject.CompareTag("Enemy"))
             {
-                enemyPart.TakeDamage(damage, null);
+                if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
+                {
+                    enemyPart.TakeDamage(damage, null);
+                }
             }
         }
+        else if (gameObject.name == "GolemExplosionPrefab(Clone)")
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                if (other.gameObject.TryGetComponent<PlayerHealthScript>(out PlayerHealthScript player))
+                {
+                    player.ModifyHealth(-damage);
+                }
+            }
+        }
+
+        
    
     }
     /*

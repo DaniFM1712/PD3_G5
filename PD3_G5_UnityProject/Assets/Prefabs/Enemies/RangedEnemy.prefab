@@ -237,11 +237,9 @@ MonoBehaviour:
       m_Calls: []
   shootForce: 100
   upwardForce: 0
-  specialShootForce: 0
-  specialUpwardForce: 0
   bulletOrigin: {fileID: 4636849844181223820}
   timeBetweenShooting: 2
-  spread: 2
+  spread: 0.2
   reloadTime: 2
   timeBetweenShots: 0
   bulletDamage: 25
@@ -250,6 +248,7 @@ MonoBehaviour:
   allowButtonHold: 0
   allowInvoke: 1
   currentState: 0
+  secondsToSetEnemy: 0
   CHASE_MAX: 100
   damage: 0
   fadeSpeed: 0
