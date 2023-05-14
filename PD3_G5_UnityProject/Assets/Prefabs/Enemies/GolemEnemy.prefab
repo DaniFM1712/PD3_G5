@@ -68,6 +68,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4750356070292140640}
+  - component: {fileID: 1017561494103061888}
+  - component: {fileID: 5677690227920434692}
+  - component: {fileID: 6379223510045939995}
+  - component: {fileID: 794669723146363780}
+  - component: {fileID: 2070484513136213079}
   m_Layer: 0
   m_Name: GolemEnemy
   m_TagString: Untagged
@@ -92,9 +97,113 @@ Transform:
   - {fileID: 1577922432098411825}
   - {fileID: 1361195740109325462}
   - {fileID: 2264916898379122729}
+  - {fileID: 2854670299365616931}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1017561494103061888
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100608988851071974}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!195 &5677690227920434692
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100608988851071974}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 1.5
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2.5
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &6379223510045939995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100608988851071974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7f5f3ff05d810459c35dbb87e948ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialHealth: 150
+--- !u!65 &794669723146363780
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100608988851071974}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.5327797, y: 2.9413743, z: 1}
+  m_Center: {x: 0.13947487, y: 0.97068715, z: 0}
+--- !u!114 &2070484513136213079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100608988851071974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7205f45f2e5a019498a267e20289a9f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  bulletPrefab: {fileID: 3682631923943361041, guid: b84eff78ae545cf43953de10513c39a8,
+    type: 3}
+  objectIsDead:
+    m_PersistentCalls:
+      m_Calls: []
+  shootForce: 100
+  upwardForce: 0
+  bulletOrigin: {fileID: 2854670299365616931}
+  timeBetweenShooting: 2
+  spread: 2
+  reloadTime: 2
+  timeBetweenShots: 0
+  bulletDamage: 25
+  magazineSize: 10
+  bulletsPerTap: 1
+  allowButtonHold: 0
+  allowInvoke: 1
+  currentState: 0
+  secondsToSetEnemy: 0
+  RANGED_RANGE: 25
+  MELEE_RANGE: 5
+  damage: 0
+  fadeSpeed: 0
+  enemyRenderer: {fileID: 0}
 --- !u!1 &4803716996045623164
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +263,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.87973416, y: 1.1592002, z: 0.7026735}
   m_Center: {x: -0.011333524, y: 1.8705108, z: 0.66006744}
+--- !u!1 &5830248395623032901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2854670299365616931}
+  m_Layer: 0
+  m_Name: BulletOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2854670299365616931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5830248395623032901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.39, y: 1.04, z: 0.394}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4750356070292140640}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1328369935082439386
 PrefabInstance:
   m_ObjectHideFlags: 0
