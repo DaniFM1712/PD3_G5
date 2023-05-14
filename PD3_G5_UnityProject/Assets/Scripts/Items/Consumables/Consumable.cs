@@ -73,6 +73,8 @@ public class Consumable : MonoBehaviour
 
     public void Leave()
     {
+        Debug.Log("CONSUME");
+
         itemInfoUI.SetActive(false);
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;

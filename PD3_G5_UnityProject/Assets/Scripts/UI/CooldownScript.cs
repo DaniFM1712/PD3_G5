@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CooldownScript : MonoBehaviour
 {
-    [SerializeField] float dashCooldown;
-    [SerializeField] float abilityCooldown;
-    [SerializeField] float grenadeCooldown;
+    float dashCooldown;
+    float abilityCooldown;
+    float grenadeCooldown;
     [SerializeField] Image dashCDImage;
     [SerializeField] Image abilityCDImage;
     [SerializeField] Image grenadeCDImage;

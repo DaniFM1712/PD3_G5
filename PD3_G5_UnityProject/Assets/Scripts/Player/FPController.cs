@@ -62,7 +62,7 @@ public class FPController : MonoBehaviour
     [SerializeField] float speed = 10.0f;
     [SerializeField] float dashLength = 0.15f;
     [SerializeField] float dashSpeed = 1000.0f;
-    [SerializeField] float dashResetTime = 1.0f;
+    [SerializeField] float dashCooldown = 1.0f;
 
     [Header("Dash Conditions")]
     private Vector3 dashMove;
@@ -226,7 +226,7 @@ public class FPController : MonoBehaviour
 
     void checkDash()
     {
-        dashAllowed = dashing < dashLength && dashingTime < dashResetTime && dashReset && canDash ;
+        dashAllowed = dashing < dashLength && dashingTime < dashCooldown && dashReset && canDash ;
 
         if (dashingNow && dashing < dashLength)
         {
@@ -239,7 +239,7 @@ public class FPController : MonoBehaviour
         if (dashing >= dashLength && startCooldown)
         {
             startCooldown = false;
-            startDashCooldown.Invoke(dashResetTime);
+            startDashCooldown.Invoke(dashCooldown);
         }
 
 
@@ -256,7 +256,7 @@ public class FPController : MonoBehaviour
             dashing = 0f;
         }
 
-        if (dashingTime >= dashResetTime && !dashReset)
+        if (dashingTime >= dashCooldown && !dashReset)
         {
             dashReset = true;
             dashingTime = 0f;

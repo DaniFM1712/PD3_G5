@@ -138,9 +138,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   speed: 10
-  dashLength: 0.15
-  dashSpeed: 100
-  dashResetTime: 1
+  dashLength: 0.08
+  dashSpeed: 60
+  dashResetTime: 5
   currentDashCharges: 0
 --- !u!114 &588255094290663183
 MonoBehaviour:
@@ -158,7 +158,7 @@ MonoBehaviour:
     type: 3}
   grenadeShootForce: 45
   grenadeUpwardForce: 5
-  grenadeTimeBetweenShooting: 10
+  grenadeCooldown: 10
   grenadeSpread: 0.2
   grenadeReloadTime: 0
   grenadeTimeBetweenShots: 0

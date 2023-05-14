@@ -27,7 +27,6 @@ public class DashIncreasesDamageBlessingScript : ParentBlessing
     }
     public void StartDamageTimer()
     {
-        Debug.Log("DASH TIMER START");
         PlayerStatsScript.playerStatsInstance.dashDamageBlessing = true;
         startTimer = true;
         damageTimer = totalDamageTimer;

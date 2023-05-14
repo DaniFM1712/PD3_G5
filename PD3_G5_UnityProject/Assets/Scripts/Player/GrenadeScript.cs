@@ -11,7 +11,7 @@ public class GrenadeScript : MonoBehaviour
     [SerializeField] float grenadeUpwardForce;
 
     [Header("Special Stats")]
-    [SerializeField] float grenadeTimeBetweenShooting;
+    [SerializeField] float grenadeCooldown;
     [SerializeField] float grenadeSpread;
     [SerializeField] float grenadeReloadTime;
     [SerializeField] float grenadeTimeBetweenShots;
@@ -74,7 +74,6 @@ public class GrenadeScript : MonoBehaviour
             shootingGrenade = false;
             grenadesShot = 0;
             //START COOLDOWN SS
-            Debug.Log("CURRENT GRENADES: " + currentGrenadeCharges);
             ShootGrenade();
             if (currentGrenadeCharges > 1)
             {
@@ -82,7 +81,7 @@ public class GrenadeScript : MonoBehaviour
             }
             else
             {
-                cooldown.StartGrenadeCooldown(grenadeTimeBetweenShooting);
+                cooldown.StartGrenadeCooldown(grenadeCooldown);
                 currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;
             }
         }
@@ -130,7 +129,7 @@ public class GrenadeScript : MonoBehaviour
         {
             allowInvokeGrenade = false;
             readyToShootGrenade = false;
-            Invoke(nameof(ResetGrenadeShot), grenadeTimeBetweenShooting);
+            Invoke(nameof(ResetGrenadeShot), grenadeCooldown);
 
         }
 
