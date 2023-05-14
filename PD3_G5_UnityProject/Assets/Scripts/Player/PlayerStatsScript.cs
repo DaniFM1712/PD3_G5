@@ -144,9 +144,19 @@ public class PlayerStatsScript : MonoBehaviour
 
     public void ActivateBlessings()
     {
-        foreach(ParentBlessing blessing in currentBlessings)
+        foreach (ParentBlessing blessing in currentBlessings)
         {
             blessing.enabled = true;
+        }
+    }
+
+    public void DeactivateBlessings() {
+        foreach (ParentBlessing parentBlessing in FindObjectsByType<ParentBlessing>(FindObjectsSortMode.None))
+        {
+            if (parentBlessing.enabled)
+            {
+                currentBlessings.Add(parentBlessing);
+            }
         }
     }
 

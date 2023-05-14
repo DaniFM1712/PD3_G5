@@ -38,8 +38,10 @@ public class LevelManager : MonoBehaviour
         {
             currentLevel++;
             SceneManager.LoadScene(levelPath.Dequeue());
+            PlayerStatsScript.playerStatsInstance.ActivateBlessings();
         }
-        else{
+        else
+        {
             RestartGame();
         }
 

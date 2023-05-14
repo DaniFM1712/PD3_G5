@@ -23,14 +23,11 @@ public class BlessingStartScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerStatsScript.playerStatsInstance.ActivateBlessings();
-        Debug.Log("DASDYHLAS");
         blessings = FindObjectsByType<ParentBlessing>(FindObjectsSortMode.None);
         generateBlessings();
         Time.timeScale = 0f;
         Canvas.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
-        Debug.Log("blessings leng: "+blessings.Length);
     }
     
 
@@ -67,22 +64,22 @@ public class BlessingStartScript : MonoBehaviour
             blessingIndex = Random.Range(0, blessings.Length );
             if(PlayerStatsScript.playerStatsInstance.currentWeaponIndex == 1)
             {
-                while (blessings[blessingIndex].enabled || blessings[blessingIndex].blessingType != ParentBlessing.BlessingType.RapidFire
+                /*while (blessings[blessingIndex].enabled || blessings[blessingIndex].blessingType != ParentBlessing.BlessingType.RapidFire
                 || usedIndexes.Contains(blessingIndex))
                 {
                     blessingIndex = Random.Range(0, blessings.Length);
                     //Hem d'evitar aixo si totes les blessings ja estan activades
-                }
+                }*/
             }
             else if(PlayerStatsScript.playerStatsInstance.currentWeaponIndex == 2)
             {
 
-                while (blessings[blessingIndex].enabled || blessings[blessingIndex].blessingType != ParentBlessing.BlessingType.ShotGun
+                /*while (blessings[blessingIndex].enabled || blessings[blessingIndex].blessingType != ParentBlessing.BlessingType.ShotGun
                 || usedIndexes.Contains(blessingIndex))
                 {
                     blessingIndex = Random.Range(0, blessings.Length);
                     //Hem d'evitar aixo si totes les blessings ja estan activades
-                }
+                }*/
             }
             
             usedIndexes.Add(blessingIndex);
