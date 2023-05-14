@@ -46,18 +46,18 @@ public class CoinCounterScript : MonoBehaviour
     public void updateNCCounter(int amount)
     {
         playerStats.currentNormalCoin += amount;
-        ncText.text = ": " + playerStats.currentNormalCoin.ToString();
+        ncText.text = " " + playerStats.currentNormalCoin.ToString();
     }
     public void updateSCCounter(int amount)
     {
         playerStats.currentSpecialCoin += amount;
-        scText.text = ": " + playerStats.currentSpecialCoin.ToString();
+        scText.text = " " + playerStats.currentSpecialCoin.ToString();
     }
 
     public void resetNCCounter()
     {
         playerStats.currentNormalCoin = 0;
-        ncText.text = ": " + playerStats.currentNormalCoin.ToString();
+        ncText.text = " " + playerStats.currentNormalCoin.ToString();
     }
 
 
