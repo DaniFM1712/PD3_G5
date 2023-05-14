@@ -47,6 +47,9 @@ public class PlayerStatsScript : MonoBehaviour
     public List<bool> currentDashAbilities;
     public List<bool> currentWeaponAbilities;
     public List<bool> currentGrenadeAbilities;
+
+    public List<ParentBlessing> currentBlessings;
+
     public bool dashDamageBlessing = false;
    
     public float baseFireRateMultiplyer = 1f;
@@ -99,6 +102,7 @@ public class PlayerStatsScript : MonoBehaviour
         currentWeaponAbilities = Enumerable.Repeat(false, 5).ToList();
         currentGrenadeAbilities = Enumerable.Repeat(false, 5).ToList();
         */
+        currentBlessings = new List<ParentBlessing>();
         currentFireRateMultiplyer = baseFireRateMultiplyer;
         currentEssenceMultiplyer = baseEssenceMultiplyer;
         currentDivinePowerMultiplyer = baseDivinePowerMultiplyer;
@@ -126,6 +130,8 @@ public class PlayerStatsScript : MonoBehaviour
         currentMaxDashCharges = baseMaxDashCharges;
         currentMaxGrenadeCharges = baseMaxGrenadeCharges;
         currentMaxTrapCharges = baseMaxTrapCharges;
+        currentBlessings.Clear();
+
 
         /*
         currentDashAbilities = Enumerable.Repeat(false, 5).ToList();
@@ -133,4 +139,13 @@ public class PlayerStatsScript : MonoBehaviour
         currentGrenadeAbilities = Enumerable.Repeat(false, 5).ToList();
         */
     }
+
+    public void ActivateBlessings()
+    {
+        foreach(ParentBlessing blessing in currentBlessings)
+        {
+            blessing.enabled = true;
+        }
+    }
+
 }
