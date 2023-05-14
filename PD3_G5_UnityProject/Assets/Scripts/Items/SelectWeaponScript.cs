@@ -38,6 +38,9 @@ public class SelectWeaponScript : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         weaponCanvas.SetActive(false);
+        PlayerStatsScript.playerStatsInstance.currentBlessings.Clear();
+        PlayerStatsScript.playerStatsInstance.SaveBlessings();
+        PlayerStatsScript.playerStatsInstance.ActivateBlessings();
     }
 
     public void selectShotGun()
@@ -47,8 +50,12 @@ public class SelectWeaponScript : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         weaponCanvas.SetActive(false);
+        PlayerStatsScript.playerStatsInstance.currentBlessings.Clear();
+        PlayerStatsScript.playerStatsInstance.SaveBlessings();
+        PlayerStatsScript.playerStatsInstance.ActivateBlessings();
+
     }
-   
+
 
     private void OnTriggerEnter(Collider other)
     {

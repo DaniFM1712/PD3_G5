@@ -128,6 +128,7 @@ public class PlayerStatsScript : MonoBehaviour
         currentMaxTrapCharges = baseMaxTrapCharges;
         currentBlessings.Clear();
         isReloading = false;
+        activatedBlessings = 0;
 
 
         /*
@@ -163,6 +164,7 @@ public class PlayerStatsScript : MonoBehaviour
             if (activeBlessing)
             {
                 blessings[index].enabled = true;
+                Debug.Log("Index: " + index + "  Blessing: " + blessings[index] + blessings[index].enabled);
             }
             index++;
         }
@@ -183,5 +185,15 @@ public class PlayerStatsScript : MonoBehaviour
                 currentBlessings.Add(false);
             }
         }
+
+        string savedBless="";
+
+        foreach (bool textBlessing in currentBlessings)
+        {
+            savedBless += textBlessing + " ";
+        }
+
+        Debug.Log("Saved Blessings: " + savedBless);
+
     }
 }

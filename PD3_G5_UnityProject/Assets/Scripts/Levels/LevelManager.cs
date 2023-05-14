@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerStatsScript.playerStatsInstance.SaveBlessings();
         generateRandomPath();
     }
 
@@ -39,7 +40,6 @@ public class LevelManager : MonoBehaviour
             currentLevel++;
             PlayerStatsScript.playerStatsInstance.SaveBlessings();
             SceneManager.LoadScene(levelPath.Dequeue());
-            PlayerStatsScript.playerStatsInstance.ActivateBlessings();
         }
         else
         {
@@ -111,7 +111,4 @@ public class LevelManager : MonoBehaviour
     public int getCurrentIndex() {
         return currentLevel;
     }
-
-    
-
 }

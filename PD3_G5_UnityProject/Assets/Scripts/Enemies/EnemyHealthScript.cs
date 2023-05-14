@@ -1,17 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealthScript : MonoBehaviour
 {
     [SerializeField] float InitialHealth;
     float currentHealth;
+    [SerializeField] Image healthBar;
+    [SerializeField] Gradient colorGradient;
+    
+    private Canvas canvas;
 
     private void Awake()
     {
         currentHealth = InitialHealth;
     }
-
+    private void Start()
+    {
+        canvas = GameObject.Find("EnemyHealthCanvas").GetComponent<Canvas>();
+        healthBar.gameObject.transform.SetParent(canvas.transform);
+        healthBar.GetComponent<EnemyHealthBarScript>().target = transform; 
+    }
 
     // Update is called once per frame
     void Update()
@@ -31,8 +41,8 @@ public class EnemyHealthScript : MonoBehaviour
         {
             damage *= 1.3f;
         }
-        
         currentHealth -= damage;
+        healthBar.fillAmount = currentHealth/InitialHealth;
         if(currentHealth <= 0)
         {
             currentHealth = 0;
@@ -44,7 +54,9 @@ public class EnemyHealthScript : MonoBehaviour
     {
         //ANIMATION
         //SOUND
+        Destroy(healthBar);
         Destroy(gameObject);
+
     }
 
 

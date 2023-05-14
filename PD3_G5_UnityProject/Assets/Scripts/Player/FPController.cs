@@ -98,6 +98,9 @@ public class FPController : MonoBehaviour
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
         currentDashCharges = PlayerStatsScript.playerStatsInstance.currentMaxDashCharges;
         ChangeWeapon();
+
+        PlayerStatsScript.playerStatsInstance.ActivateBlessings();
+
     }
 
     private void FixedUpdate()

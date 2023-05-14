@@ -23,7 +23,7 @@ public class BlessingStartScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        blessings = FindObjectsByType<ParentBlessing>(FindObjectsSortMode.None);
+        blessings = FindObjectsByType<ParentBlessing>(FindObjectsSortMode.InstanceID);
         generateBlessings();
         Time.timeScale = 0f;
         Canvas.SetActive(true);
@@ -45,7 +45,7 @@ public class BlessingStartScript : MonoBehaviour
             while (blessings[blessingIndex].enabled || blessings[blessingIndex].blessingType != ParentBlessing.BlessingType.Dash
                 || usedIndexes.Contains(blessingIndex))
             {
-                blessingIndex = Random.Range(0, blessings.Length );
+                blessingIndex = Random.Range(0, blessings.Length);
                 //Hem d'evitar aixo si totes les blessings ja estan activades
             }
             usedIndexes.Add(blessingIndex);
