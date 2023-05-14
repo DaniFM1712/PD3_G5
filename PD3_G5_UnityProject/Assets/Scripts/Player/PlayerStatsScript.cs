@@ -49,10 +49,10 @@ public class PlayerStatsScript : MonoBehaviour
     public List<bool> currentWeaponAbilities;
     public List<bool> currentGrenadeAbilities;
 
-    public List<ParentBlessing> currentBlessings;
+    public List<bool> currentBlessings;
 
     public bool dashDamageBlessing = false;
-   
+
     public float baseFireRateMultiplyer = 1f;
     public float currentFireRateMultiplyer;
 
@@ -93,17 +93,12 @@ public class PlayerStatsScript : MonoBehaviour
         currentDamageBonus = baseDamageBonus;
         currentSpeedBonus = baseSpeedBonus;
         currentWeaponIndex = 0;
-        currentNormalCoin = 0;  
+        currentNormalCoin = 0;
         currentSpecialCoin = 0;
         currentWeapon = null;
 
         //--------- UPGRADES LIST ---------//
-        /*
-        currentDashAbilities = Enumerable.Repeat(false, 5).ToList();
-        currentWeaponAbilities = Enumerable.Repeat(false, 5).ToList();
-        currentGrenadeAbilities = Enumerable.Repeat(false, 5).ToList();
-        */
-        currentBlessings = new List<ParentBlessing>();
+        currentBlessings = new List<bool>();
         currentFireRateMultiplyer = baseFireRateMultiplyer;
         currentEssenceMultiplyer = baseEssenceMultiplyer;
         currentDivinePowerMultiplyer = baseDivinePowerMultiplyer;
@@ -144,20 +139,49 @@ public class PlayerStatsScript : MonoBehaviour
 
     public void ActivateBlessings()
     {
-        foreach (ParentBlessing blessing in currentBlessings)
+        int index = 0;
+        ParentBlessing[] blessings = FindObjectsByType<ParentBlessing>(FindObjectsSortMode.InstanceID);
+        string bools = "";
+        string blessingFound = "";
+
+        foreach(bool boolean in currentBlessings)
         {
-            blessing.enabled = true;
+
+            bools += boolean + " ";
         }
+
+        foreach(ParentBlessing blessing in blessings)
+        {
+            blessingFound +=blessing+ " ";
+        }
+
+        Debug.Log("Active Blessings: " + bools);
+        Debug.Log("Blessings: "+blessingFound);
+
+        foreach (bool activeBlessing in currentBlessings)
+        {
+            if (activeBlessing)
+            {
+                blessings[index].enabled = true;
+            }
+            index++;
+        }
+        currentBlessings.Clear();
     }
 
-    public void DeactivateBlessings() {
-        foreach (ParentBlessing parentBlessing in FindObjectsByType<ParentBlessing>(FindObjectsSortMode.None))
+    public void SaveBlessings()
+    {
+        ParentBlessing[] blessings = FindObjectsByType<ParentBlessing>(FindObjectsSortMode.InstanceID);
+        foreach (ParentBlessing blessing in blessings)
         {
-            if (parentBlessing.enabled)
+            if (blessing.enabled)
             {
-                currentBlessings.Add(parentBlessing);
+                currentBlessings.Add(true);
+            }
+            else
+            {
+                currentBlessings.Add(false);
             }
         }
     }
-
 }

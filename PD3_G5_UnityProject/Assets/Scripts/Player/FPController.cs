@@ -35,7 +35,6 @@ public class FPController : MonoBehaviour
     [SerializeField] CharacterController characterController;
     [SerializeField] float walkSpeed;
     [SerializeField] float runSpeed;
-    [SerializeField] KeyCode runKey = KeyCode.LeftShift;
     [SerializeField] KeyCode forwardKey = KeyCode.W;
     [SerializeField] KeyCode leftKey = KeyCode.A;
     [SerializeField] KeyCode backwardsKey = KeyCode.S;

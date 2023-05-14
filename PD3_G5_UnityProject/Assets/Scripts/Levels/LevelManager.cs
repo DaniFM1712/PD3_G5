@@ -37,6 +37,7 @@ public class LevelManager : MonoBehaviour
         if (levelPath.Count > 0)
         {
             currentLevel++;
+            PlayerStatsScript.playerStatsInstance.SaveBlessings();
             SceneManager.LoadScene(levelPath.Dequeue());
             PlayerStatsScript.playerStatsInstance.ActivateBlessings();
         }
