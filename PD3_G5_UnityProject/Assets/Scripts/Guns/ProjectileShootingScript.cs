@@ -43,7 +43,7 @@ public class ProjectileShootingScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        animatorConsumer = GameObject.Find("AnimatorConsumerPrefab").GetComponent<AnimatorEventConsumerScript>();
+        //animatorConsumer = GameObject.Find("AnimatorConsumerPrefab").GetComponent<AnimatorEventConsumerScript>();
         baseTimeBetweenShooting = timeBetweenShooting;
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         bulletPool = new Queue<GameObject>();
@@ -83,14 +83,14 @@ public class ProjectileShootingScript : MonoBehaviour
             bulletsShot = 0;
             if (bulletsLeft > 0)
             {
-                if(PlayerStatsScript.playerStatsInstance.currentWeaponIndex == 1)
-                {
-                    animatorConsumer.RapidFireEvent();
-                }
-                else
-                {
-                    animatorConsumer.ShotGunEvent();
-                }
+                //if(PlayerStatsScript.playerStatsInstance.currentWeaponIndex == 1)
+                //{
+                //    animatorConsumer.RapidFireEvent();
+                //}
+                //else if(PlayerStatsScript.playerStatsInstance.currentWeaponIndex == 2)
+                //{
+                //    animatorConsumer.ShotGunEvent();
+                //}
                 Shoot();
             }
             else
