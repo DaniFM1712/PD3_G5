@@ -31,7 +31,6 @@ public class MeleChaserEnemy : MonoBehaviour
 
 
     [Header("ATTACK")]
-    [Header("ATTACK")]
     [SerializeField] float damage;
     float lastTimeCollisioned;
 
@@ -75,6 +74,11 @@ public class MeleChaserEnemy : MonoBehaviour
                     ChangeFromIdle();
                     break;
                 case State.CHASE:
+                    Vector3 targetDelta = player.transform.position - transform.position;
+                    float angleToTarget = Vector3.Angle(transform.forward, targetDelta);
+                    Vector3 turnAxis = Vector3.Cross(transform.forward, targetDelta);
+
+                    transform.RotateAround(transform.position, turnAxis, Time.deltaTime * turnRate * angleToTarget);
                     lastState = State.CHASE;
                     updateChase();
                     ChangeFromChase();

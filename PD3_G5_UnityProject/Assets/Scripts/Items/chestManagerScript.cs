@@ -6,6 +6,9 @@ using UnityEngine;
 public class chestManagerScript : MonoBehaviour
 {
     [SerializeField] List<GameObject> chestList;
+    [SerializeField] int chestNumber;
+    private int chestSpawned = 0;
+
 
     private void Start()
     {
@@ -16,19 +19,26 @@ public class chestManagerScript : MonoBehaviour
     public void randomizeChests()
     {
         //int currentLevel = LevelManager.levelManagerInstance.getCurrentIndex();
-        foreach (GameObject k in chestList)
+        while (chestSpawned < chestNumber)
         {
-            bool appearsPercent = Random.Range(0, 100) > 50;
-
-            if (appearsPercent)
+            int rIndex = Random.Range(0, chestList.Count);
+            if (!chestList[rIndex].activeSelf)
             {
-                //60 30 10
-                k.SetActive(true);
-                //k.GetComponent<chestScript>().generateRandomReward();
-            }
-            else{
-                k.SetActive(false);
+                bool appearsPercent = Random.Range(0, 100) > 50;
+
+                if (appearsPercent)
+                {
+                    //60 30 10
+                    chestList[rIndex].SetActive(true);
+                    chestSpawned++;
+                    //k.GetComponent<chestScript>().generateRandomReward();
+                }
+                else
+                {
+                    chestList[rIndex].SetActive(false);
+                }
             }
         }
+
     }
 }

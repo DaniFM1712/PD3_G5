@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.015121135, g: 0.030998224, b: 0.053726047, a: 1}
+  m_IndirectSpecularColor: {r: 0.015102276, g: 0.030965172, b: 0.05367574, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1320,6 +1320,9 @@ MonoBehaviour:
   storeCanvas: {fileID: 231669899}
   invFullText: {fileID: 306337437}
   NCText: {fileID: 1579176685}
+  randomItemBtn: {fileID: 1003568537}
+  rareItemBtn: {fileID: 1799905169}
+  legendaryItemBtn: {fileID: 533645984}
   healthCost: 20
   healthValue: 20
   randomItemCost: 40
@@ -2949,6 +2952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chestList: []
+  chestNumber: 0
 --- !u!4 &1295639506
 Transform:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class MainMenuScript : MonoBehaviour
     }
     public void onStartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void onSettings()

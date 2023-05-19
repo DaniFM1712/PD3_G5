@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class RunStoreScript : MonoBehaviour
@@ -10,6 +11,10 @@ public class RunStoreScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI invFullText;
     [SerializeField] TextMeshProUGUI NCText;
 
+    [SerializeField] Button randomItemBtn;
+    [SerializeField] Button rareItemBtn;
+    [SerializeField] Button legendaryItemBtn;
+
     [SerializeField] int healthCost = 20;
     [SerializeField] int healthValue = 20;
     [SerializeField] int randomItemCost = 40;
@@ -17,6 +22,9 @@ public class RunStoreScript : MonoBehaviour
     [SerializeField] int randomLegendaryCost = 60;
 
     private GameObject player;
+    private int randomItemsLeft = 1;
+    private int rareItemsLeft = 1;
+    private int legendaryItemsLeft = 1;
     private bool canShop = false;
 
     [SerializeField] List<ConsumableAsset> commonItemPool;
@@ -55,74 +63,95 @@ public class RunStoreScript : MonoBehaviour
     }
     public void BuyRandomItem()
     {
-        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomItemCost)
+        if (randomItemsLeft > 0)
         {
-            if (InventoryManagerScript.InventoryInstance.IsInventoryFull())
+            if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomItemCost)
             {
-                invFullText.enabled = true;
-            }
-
-            else
-            {
-                ConsumableAsset asset = GenerateRandomItem();
-                while (!InventoryManagerScript.InventoryInstance.CanAddItem(asset.rarity))
+                if (InventoryManagerScript.InventoryInstance.IsInventoryFull())
                 {
-                    asset = GenerateRandomItem();
+                    invFullText.enabled = true;
                 }
 
-                InventoryManagerScript.InventoryInstance.AddItem(asset.rarity, asset);
+                else
+                {
+                    randomItemsLeft--;
+                    randomItemBtn.interactable = false;
 
-                CoinCounterScript.coinCounterInstance.updateNCCounter(-randomItemCost);
-                NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
+                    ConsumableAsset asset = GenerateRandomItem();
+                    while (!InventoryManagerScript.InventoryInstance.CanAddItem(asset.rarity))
+                    {
+                        asset = GenerateRandomItem();
+                    }
+
+                    InventoryManagerScript.InventoryInstance.AddItem(asset.rarity, asset);
+
+                    CoinCounterScript.coinCounterInstance.updateNCCounter(-randomItemCost);
+                    NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
+                }
+
             }
-
         }
+
     }
 
     public void BuyRareItem()
     {
-        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomRareCost)
+        if (rareItemsLeft > 0)
         {
-            if (!InventoryManagerScript.InventoryInstance.CanAddItem(ConsumableAsset.Rarity.Rare))
+            if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomRareCost)
             {
-                invFullText.enabled = true;
+                if (!InventoryManagerScript.InventoryInstance.CanAddItem(ConsumableAsset.Rarity.Rare))
+                {
+                    invFullText.enabled = true;
+                }
+
+                else
+                {
+                    rareItemsLeft--;
+                    rareItemBtn.interactable = false;
+
+                    ConsumableAsset asset = GenerateRareItem();
+
+                    InventoryManagerScript.InventoryInstance.AddItem(asset.rarity, asset);
+
+                    CoinCounterScript.coinCounterInstance.updateNCCounter(-randomRareCost);
+                    NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
+
+                }
+
             }
-
-            else
-            {
-                ConsumableAsset asset = GenerateRareItem();
-
-                InventoryManagerScript.InventoryInstance.AddItem(asset.rarity, asset);
-
-                CoinCounterScript.coinCounterInstance.updateNCCounter(-randomRareCost);
-                NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
-
-            }
-
         }
+
     }
 
     public void BuyLegendaryItem()
     {
-        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomLegendaryCost)
+        if(legendaryItemsLeft > 0)
         {
-            if (!InventoryManagerScript.InventoryInstance.CanAddItem(ConsumableAsset.Rarity.Legendary))
+            if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomLegendaryCost)
             {
-                invFullText.enabled = true;
+                if (!InventoryManagerScript.InventoryInstance.CanAddItem(ConsumableAsset.Rarity.Legendary))
+                {
+                    invFullText.enabled = true;
+                }
+
+                else
+                {
+                    legendaryItemsLeft--;
+                    legendaryItemBtn.interactable = false;
+
+                    ConsumableAsset asset = GenerateLegendaryItem();
+
+                    InventoryManagerScript.InventoryInstance.AddItem(asset.rarity, asset);
+
+                    CoinCounterScript.coinCounterInstance.updateNCCounter(-randomLegendaryCost);
+                    NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
+
+                }
+
             }
-
-            else
-            {
-                ConsumableAsset asset = GenerateLegendaryItem();
-
-                InventoryManagerScript.InventoryInstance.AddItem(asset.rarity, asset);
-
-                CoinCounterScript.coinCounterInstance.updateNCCounter(-randomLegendaryCost);
-                NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
-
-            }
-
         }
+
     }
 
     public void CloseStore()
