@@ -54,7 +54,7 @@ public class EnemyHealthScript : MonoBehaviour
     {
         //ANIMATION
         //SOUND
-        Destroy(healthBar);
+        Destroy(healthBar.gameObject);
         Destroy(gameObject);
 
     }

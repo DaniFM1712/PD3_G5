@@ -283,6 +283,7 @@ public class GolemEnemyAIScript : MonoBehaviour
 
     private void Shoot()
     {
+        transform.LookAt(player.GetComponent<Transform>(), Vector3.up);
 
         readyToShoot = false;
         Vector3 directionWithoutSpread = shootingPoint - bulletOrigin.position;
@@ -387,7 +388,10 @@ public class GolemEnemyAIScript : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, RANGED_RANGE);
+
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, MELEE_RANGE);
     }
 

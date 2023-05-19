@@ -26,10 +26,11 @@ public class MeleChaserEnemy : MonoBehaviour
 
  
     [Header("CHASE")]
-    [SerializeField] float CHASE_MAX;
+    [SerializeField] float MELEE_RANGE;
+    [SerializeField] float CHASE_RANGE;
 
 
-
+    [Header("ATTACK")]
     [Header("ATTACK")]
     [SerializeField] float damage;
     float lastTimeCollisioned;
@@ -96,11 +97,11 @@ public class MeleChaserEnemy : MonoBehaviour
     void ChangeFromIdle()
     {
         //seesPlayer() &&
-        if ( !PlayerInRange())
+        if (seesPlayer() && PlayerInChaseRange() &&!PlayerInMeleeRange())
         {
             currentState = State.CHASE;
         }
-        else
+        else if(seesPlayer() && PlayerInMeleeRange())
         {
             currentState = State.ATTACK;
         }
@@ -108,9 +109,14 @@ public class MeleChaserEnemy : MonoBehaviour
     }
    
 
-    bool PlayerInRange()
+    bool PlayerInMeleeRange()
     {
-        return (distanceToPlayer).magnitude < CHASE_MAX;
+        return (distanceToPlayer).magnitude < MELEE_RANGE;
+    }
+
+    bool PlayerInChaseRange()
+    {
+        return (distanceToPlayer).magnitude < CHASE_RANGE;
     }
 
     bool seesPlayer()
@@ -142,7 +148,7 @@ public class MeleChaserEnemy : MonoBehaviour
 
     void ChangeFromChase()
     {
-        if (PlayerInRange())
+        if (PlayerInMeleeRange())
         {
             currentState = State.ATTACK;
             attack();
@@ -172,7 +178,7 @@ public class MeleChaserEnemy : MonoBehaviour
     void ChangeFromAttack()
     {
         //seesPlayer() &&
-        if (!agent.isStopped && !PlayerInRange())
+        if (!agent.isStopped && !PlayerInMeleeRange())
         {
             currentState = State.CHASE;
         }
@@ -253,7 +259,11 @@ public class MeleChaserEnemy : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position, CHASE_MAX);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, MELEE_RANGE);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, CHASE_RANGE);
     }
 
 

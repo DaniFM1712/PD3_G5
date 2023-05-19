@@ -17,6 +17,7 @@ public class RangedEnemyAIScript : MonoBehaviour
     [SerializeField] float shootForce;
     [SerializeField] float upwardForce;
     [SerializeField] Transform bulletOrigin;
+    [SerializeField] float turnRate;
 
     [Header("Stats")]
     [SerializeField] float timeBetweenShooting;
@@ -51,7 +52,7 @@ public class RangedEnemyAIScript : MonoBehaviour
 
 
     [Header("CHASE")]
-    [SerializeField] float CHASE_MAX;
+    [SerializeField] float RANGED_RANGE;
 
 
 
@@ -130,11 +131,7 @@ public class RangedEnemyAIScript : MonoBehaviour
     void ChangeFromIdle()
     {
         //seesPlayer() &&
-        if (!PlayerInRange())
-        {
-            currentState = State.CHASE;
-        }
-        else
+        if(seesPlayer() && PlayerInRange())
         {
             currentState = State.ATTACK;
         }
@@ -144,7 +141,7 @@ public class RangedEnemyAIScript : MonoBehaviour
 
     bool PlayerInRange()
     {
-        return (distanceToPlayer).magnitude < CHASE_MAX;
+        return (distanceToPlayer).magnitude < RANGED_RANGE;
     }
 
     bool seesPlayer()
@@ -201,6 +198,8 @@ public class RangedEnemyAIScript : MonoBehaviour
 
     private void Shoot()
     {
+        //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(player.transform.position), Time.deltaTime * turnRate);
+        transform.LookAt(player.GetComponent<Transform>(), Vector3.up);
         
         readyToShoot = false;
         Vector3 directionWithoutSpread = shootingPoint - bulletOrigin.position;
@@ -272,7 +271,7 @@ public class RangedEnemyAIScript : MonoBehaviour
         if (!PlayerInRange())
         {
             agent.isStopped = false;
-            currentState = State.CHASE;
+            currentState = State.IDLE;
         }
         isHit();
     }
@@ -317,7 +316,8 @@ public class RangedEnemyAIScript : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position, CHASE_MAX);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, RANGED_RANGE);
     }
 
 

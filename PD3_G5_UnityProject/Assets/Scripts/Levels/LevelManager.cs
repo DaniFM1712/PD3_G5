@@ -53,11 +53,14 @@ public class LevelManager : MonoBehaviour
     {
         //Generate Random Path
         levelIndex = new List<int>(allLevels);
+
         Shuffle(levelIndex);
         for (int i = 0; i < allLevels.Count - PATH_LENGHT; i++)
         {
             levelIndex.RemoveAt(0);
         }
+        /////PARA TESTEAR/////
+        levelIndex.Insert(0, 1);
         
 
 
