@@ -15,6 +15,11 @@ public class FPController : MonoBehaviour
     [SerializeField]
     public KeyCode mouseLockKey = KeyCode.O;
 
+
+    [SerializeField] KeyCode menuKey = KeyCode.Escape;
+    [SerializeField] GameObject menuPause;
+
+
     private bool angleLocked = false;
 
     float yaw = 0;
@@ -72,7 +77,6 @@ public class FPController : MonoBehaviour
     private bool dashReset = true;
     private bool dashAllowed = false;
     private Vector3 moved = new Vector3(0, 0, 0);
-
     //----------DASH----------//
     private TwoChargeBlessingScript twoChargeBlessing;
     private DashIncreasesDamageBlessingScript dashIncreasesDamageBlessing;
@@ -212,6 +216,21 @@ public class FPController : MonoBehaviour
             canDash = false;
             dashingNow = true;
         }
+
+        if (Input.GetKeyDown(menuKey))
+        {
+            if (Time.timeScale == 1f)
+            {
+                ShowMenuUI();
+            }
+            else
+            {
+                HideMenuUI();
+            }
+            
+
+        }
+
     }
     Vector3 updateMoveStats()
     {
@@ -301,4 +320,22 @@ public class FPController : MonoBehaviour
     
     }
 
+
+    public void ShowMenuUI()
+    {
+        menuPause.SetActive(true);
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+    }
+    public void HideMenuUI()
+    {
+        menuPause.SetActive(false);
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void GoToMainMenu()
+    {
+        LevelManager.levelManagerInstance.GoToMainMenu();
+    }
 }

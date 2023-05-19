@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] int PATH_LENGHT;
     static Queue <int> levelPath;
-    static List <int> allLevels = new List<int> {3,4};
+    static List <int> allLevels = new List<int> {1,2};
     static List<int> levelIndex;
     static int currentLevel = 0;
     public static LevelManager levelManagerInstance { get; private set; }
@@ -54,19 +54,19 @@ public class LevelManager : MonoBehaviour
         //Generate Random Path
         levelIndex = new List<int>(allLevels);
 
-        ShuffleInt(levelIndex);
+        Shuffle(levelIndex);
         for (int i = 0; i < allLevels.Count - PATH_LENGHT; i++)
         {
             levelIndex.RemoveAt(0);
         }
         /////PARA TESTEAR/////
-        levelIndex.Insert(0, 2);
+        levelIndex.Insert(0, 1);
         
 
 
         //Add Random Store
         int storePos = Random.Range(1, levelIndex.Count-1);
-        levelIndex.Insert(storePos, 2);
+        levelIndex.Insert(storePos, 3);
 
 
         foreach(int k in levelIndex)
@@ -76,7 +76,7 @@ public class LevelManager : MonoBehaviour
 
 
         levelPath = new Queue<int>(levelIndex);
-        levelPath.Enqueue(2);
+        levelPath.Enqueue(3);
         foreach (int k in levelPath)
         {
             Debug.Log("LP: "+k);
@@ -85,7 +85,7 @@ public class LevelManager : MonoBehaviour
         //levelPath.Enqueue(0); Nivel final que añadimos, bossLvl
     }
 
-    public void ShuffleInt(List<int> alpha)
+    public void Shuffle(List<int> alpha)
     {
         for (int i = 0; i < alpha.Count; i++)
         {
@@ -108,6 +108,11 @@ public class LevelManager : MonoBehaviour
         generateRandomPath();
         CoinCounterScript.coinCounterInstance.resetNCCounter();
         PlayerStatsScript.playerStatsInstance.ResetStats();
+        SceneManager.LoadScene(1);
+    }
+
+    public void GoToMainMenu()
+    {
         SceneManager.LoadScene(0);
     }
 

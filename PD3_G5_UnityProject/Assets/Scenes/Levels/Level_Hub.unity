@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.015121135, g: 0.030998224, b: 0.053726047, a: 1}
+  m_IndirectSpecularColor: {r: 0.015102276, g: 0.030965172, b: 0.05367574, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -712,6 +712,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
+      propertyPath: menuPause
+      value: 
+      objectReference: {fileID: 375895813}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
       propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 519996770}
@@ -886,6 +891,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1014340324231770293, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2053805656469387075, guid: 7b076ffa3b93a644ba8934883be79fe1,
         type: 3}
       propertyPath: dashCooldown
@@ -895,6 +905,41 @@ PrefabInstance:
         type: 3}
       propertyPath: abilityCooldown
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193372508900235235, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193372508900235235, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193372508900235235, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1345206595}
+    - target: {fileID: 3193372508900235235, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193372508900235235, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HideMenuUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193372508900235235, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FPController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193372508900235235, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3773309682800077955, guid: 7b076ffa3b93a644ba8934883be79fe1,
         type: 3}
@@ -1016,8 +1061,34 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9049428593501490886, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1345206595}
+    - target: {fileID: 9049428593501490886, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049428593501490886, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FPController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049428593501490886, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b076ffa3b93a644ba8934883be79fe1, type: 3}
+--- !u!1 &375895813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1014340324231770293, guid: 7b076ffa3b93a644ba8934883be79fe1,
+    type: 3}
+  m_PrefabInstance: {fileID: 375895812}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &459996481
 GameObject:
   m_ObjectHideFlags: 0
@@ -2820,6 +2891,18 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &1345206595 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 286048611}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2aa1b6159e8ce1438a00785009a7781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1395840939
 GameObject:
   m_ObjectHideFlags: 0
