@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] int PATH_LENGHT;
     static Queue <int> levelPath;
-    static List <int> allLevels = new List<int> {1,2};
+    static List <int> allLevels = new List<int> {3,4};
     static List<int> levelIndex;
     static int currentLevel = 0;
     public static LevelManager levelManagerInstance { get; private set; }
@@ -60,7 +60,7 @@ public class LevelManager : MonoBehaviour
             levelIndex.RemoveAt(0);
         }
         /////PARA TESTEAR/////
-        levelIndex.Insert(0, 1);
+        levelIndex.Insert(0, 3);
         
 
 
