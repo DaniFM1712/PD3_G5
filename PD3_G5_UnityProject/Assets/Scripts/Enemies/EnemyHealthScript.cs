@@ -42,6 +42,10 @@ public class EnemyHealthScript : MonoBehaviour
             damage *= 1.3f;
         }
         currentHealth -= damage;
+        if (healthBar.gameObject.activeSelf == false)
+        {
+            healthBar.gameObject.SetActive(true);
+        }
         healthBar.fillAmount = currentHealth/InitialHealth;
         if(currentHealth <= 0)
         {

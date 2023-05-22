@@ -108,6 +108,7 @@ public class LevelManager : MonoBehaviour
         generateRandomPath();
         CoinCounterScript.coinCounterInstance.resetNCCounter();
         PlayerStatsScript.playerStatsInstance.ResetStats();
+        InventoryManagerScript.InventoryInstance.ResetInventory();
         SceneManager.LoadScene(1);
     }
 

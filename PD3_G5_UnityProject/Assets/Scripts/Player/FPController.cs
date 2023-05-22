@@ -346,6 +346,7 @@ public class FPController : MonoBehaviour
     public void GoToMainMenu()
     {
         PlayerStatsScript.playerStatsInstance.ResetStats();
+        InventoryManagerScript.InventoryInstance.ResetInventory();
         HideMenuUI();
         LevelManager.levelManagerInstance.GoToMainMenu();
         

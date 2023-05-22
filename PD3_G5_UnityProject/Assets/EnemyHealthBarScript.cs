@@ -12,6 +12,7 @@ public class EnemyHealthBarScript : MonoBehaviour
     void Start()
     {
         camera = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
