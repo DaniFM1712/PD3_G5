@@ -57,6 +57,7 @@ public class GolemEnemyAIScript : MonoBehaviour
     [Header("CHASE")]
     [SerializeField] float RANGED_RANGE;
     [SerializeField] float MELEE_RANGE;
+    [SerializeField] float CHASE_RANGE;
 
 
 
@@ -140,13 +141,9 @@ public class GolemEnemyAIScript : MonoBehaviour
     void ChangeFromIdle()
     {
         //seesPlayer() &&
-        if (!PlayerInRangedRange())
+        if (PlayerInChaseRange())
         {
             currentState = State.CHASE;
-        }
-        else
-        {
-            currentState = State.ATTACK;
         }
         CheckHit();
     }
@@ -154,11 +151,15 @@ public class GolemEnemyAIScript : MonoBehaviour
 
     bool PlayerInMeleeRange()
     {
-        return (distanceToPlayer).magnitude < MELEE_RANGE;
+        return (distanceToPlayer).magnitude < MELEE_RANGE && (distanceToPlayer).magnitude < CHASE_RANGE && (distanceToPlayer).magnitude < RANGED_RANGE;
     }
     bool PlayerInRangedRange()
     {
-        return (distanceToPlayer).magnitude < RANGED_RANGE;
+        return (distanceToPlayer).magnitude < RANGED_RANGE && (distanceToPlayer).magnitude > MELEE_RANGE && (distanceToPlayer).magnitude > CHASE_RANGE;
+    }    
+    bool PlayerInChaseRange()
+    {
+        return ((distanceToPlayer).magnitude < CHASE_RANGE && (distanceToPlayer).magnitude > MELEE_RANGE) || (distanceToPlayer).magnitude > RANGED_RANGE;
     }
 
     bool seesPlayer()
@@ -190,7 +191,7 @@ public class GolemEnemyAIScript : MonoBehaviour
 
     void ChangeFromChase()
     {
-        if (PlayerInMeleeRange() || PlayerInRangedRange())
+        if (PlayerInRangedRange() || PlayerInMeleeRange())  
         {
             currentState = State.ATTACK;
         }
@@ -200,7 +201,6 @@ public class GolemEnemyAIScript : MonoBehaviour
     private void MeleeAttack()
     {
         player.GetComponent<PlayerHealthScript>().ModifyHealth(damage);
-        StartCoroutine(CooldownAttack());
     }
 
     private void RangedAttack()
@@ -221,16 +221,24 @@ public class GolemEnemyAIScript : MonoBehaviour
 
     void updateAttack()
     {
-        if (PlayerInMeleeRange() && canMeleeAttack)
+        if (PlayerInMeleeRange())
         {
-            MeleeAttack();
-            canMeleeAttack = false;
-            StartCoroutine(CooldownAttack());
+            if (canMeleeAttack)
+            {
+                MeleeAttack();
+                canMeleeAttack = false;
+                StartCoroutine(CooldownAttack());
+            }
+
         }
-        else if (PlayerInRangedRange() && readyToShoot && !reloading)
+        else if (PlayerInRangedRange())
         {
-            shooting = true;
-            RangedAttack();
+            if (readyToShoot && !reloading)
+            {
+                shooting = true;
+                RangedAttack();
+            }
+
         }
         else
         {
@@ -249,7 +257,7 @@ public class GolemEnemyAIScript : MonoBehaviour
     void ChangeFromAttack()
     {
         //seesPlayer() &&
-        if (!PlayerInRangedRange())
+        if (!PlayerInMeleeRange() && !PlayerInRangedRange())
         {
             currentState = State.CHASE;
         }
@@ -394,6 +402,9 @@ public class GolemEnemyAIScript : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, MELEE_RANGE);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, CHASE_RANGE);
     }
 
 

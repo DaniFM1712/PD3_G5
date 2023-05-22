@@ -3604,6 +3604,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1014340324231770293, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3773309682800077955, guid: 7b076ffa3b93a644ba8934883be79fe1,
         type: 3}
       propertyPath: m_Name
@@ -5647,7 +5652,7 @@ GameObject:
   - component: {fileID: 1404421968}
   m_Layer: 0
   m_Name: Cube_1
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -6151,10 +6156,10 @@ GameObject:
   - component: {fileID: 1567740163}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1567740162
 Transform:
@@ -7257,6 +7262,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1017561494103061888, guid: 4d3414c6c62cd9c41b31bc5b7438f124,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2100608988851071974, guid: 4d3414c6c62cd9c41b31bc5b7438f124,
         type: 3}
       propertyPath: m_Name
