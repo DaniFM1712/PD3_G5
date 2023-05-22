@@ -104,7 +104,7 @@ public class FPController : MonoBehaviour
         ChangeWeapon();
 
         PlayerStatsScript.playerStatsInstance.ActivateBlessings();
-
+        menuPause = GameObject.Find("CanvasPrefab/PauseMenu");
     }
 
     private void FixedUpdate()
