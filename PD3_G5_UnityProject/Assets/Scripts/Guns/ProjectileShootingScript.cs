@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using UnityEngine.Events;
+using TMPro;
 
 public class ProjectileShootingScript : MonoBehaviour
 {
@@ -25,6 +27,7 @@ public class ProjectileShootingScript : MonoBehaviour
 
     [Header("Spawn Point")]
     private Camera cam;
+    private TextMeshProUGUI bulletCounterText;
     [SerializeField] Transform bulletOrigin;
 
     [Header("Debug")]
@@ -43,9 +46,13 @@ public class ProjectileShootingScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+      
         //animatorConsumer = GameObject.Find("AnimatorConsumerPrefab").GetComponent<AnimatorEventConsumerScript>();
         baseTimeBetweenShooting = timeBetweenShooting;
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
+        bulletCounterText = GameObject.Find("CanvasPrefab/Bullets/BulletCounter").GetComponent<TextMeshProUGUI>();
+
+
         bulletPool = new Queue<GameObject>();
         GameObject bullets = new("Bullets");
 
@@ -58,8 +65,16 @@ public class ProjectileShootingScript : MonoBehaviour
         }
 
         bulletsLeft = magazineSize;
+        bulletCounterText.text = bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
+
         readyToShoot = true;
         shooting = false;
+
+        if(PlayerStatsScript.playerStatsInstance.currentWeaponIndex == 0)
+        {
+            bulletCounterText.text = "0 / 0" ;
+        }
+
     }
 
     // Update is called once per frame
@@ -120,9 +135,9 @@ public class ProjectileShootingScript : MonoBehaviour
 
         Vector3 directionWithoutSpread = hitPoint - bulletOrigin.position;
 
-        float xSpread = Random.Range(-spread, +spread);
-        float ySpread = Random.Range(-spread, +spread);
-        float zSpread = Random.Range(-spread, +spread);
+        float xSpread = UnityEngine.Random.Range(-spread, +spread);
+        float ySpread = UnityEngine.Random.Range(-spread, +spread);
+        float zSpread = UnityEngine.Random.Range(-spread, +spread);
 
 
         directionWithoutSpread += new Vector3(xSpread, ySpread, zSpread);
@@ -139,6 +154,8 @@ public class ProjectileShootingScript : MonoBehaviour
 
         bulletsLeft--;
         bulletsShot++;
+
+        bulletCounterText.text = bulletsLeft/bulletsPerTap + " / " + magazineSize/ bulletsPerTap;
 
         if (allowInvoke)
         {
@@ -167,6 +184,8 @@ public class ProjectileShootingScript : MonoBehaviour
     {
         PlayerStatsScript.playerStatsInstance.isReloading = false;
         bulletsLeft = magazineSize;
+        bulletCounterText.text = bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
+
     }
 
     public void changeDamage(float newBulletDamage)
@@ -181,5 +200,20 @@ public class ProjectileShootingScript : MonoBehaviour
         if (multiplyer == 0)
             timeBetweenShooting = baseTimeBetweenShooting;
     }
-    
+
+
+    private void OnEnable()
+    {
+        try
+        {
+            if (PlayerStatsScript.playerStatsInstance.currentWeaponIndex != 0)
+            {
+                bulletCounterText.text = bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
+            }
+        } catch (Exception e) {
+
+        }
+        
+    }
+
 }
