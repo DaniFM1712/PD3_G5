@@ -78,7 +78,6 @@ public class MeleChaserEnemy : MonoBehaviour
                     float angleToTarget = Vector3.Angle(transform.forward, targetDelta);
                     Vector3 turnAxis = Vector3.Cross(transform.forward, targetDelta);
 
-                    //transform.RotateAround(transform.position, turnAxis, Time.deltaTime * turnRate * angleToTarget);
                     lastState = State.CHASE;
                     updateChase();
                     ChangeFromChase();
@@ -101,15 +100,16 @@ public class MeleChaserEnemy : MonoBehaviour
     void ChangeFromIdle()
     {
         //seesPlayer() &&
-        if (seesPlayer() && PlayerInChaseRange() &&!PlayerInMeleeRange())
+        if (PlayerInChaseRange() &&!PlayerInMeleeRange())
         {
             currentState = State.CHASE;
         }
-        else if(seesPlayer() && PlayerInMeleeRange())
+        //seesPlayer() &&
+        else if(PlayerInMeleeRange())
         {
             currentState = State.ATTACK;
         }
-        isHit();
+        checkHit();
     }
    
 
@@ -159,7 +159,7 @@ public class MeleChaserEnemy : MonoBehaviour
             if(!blocked)
                 StartCoroutine(CooldownAttack());
         }
-        isHit();
+        checkHit();
     }
 
     private void attack()
@@ -186,7 +186,7 @@ public class MeleChaserEnemy : MonoBehaviour
         {
             currentState = State.CHASE;
         }
-        isHit();
+        checkHit();
     }
 
     void updateHit()
@@ -204,7 +204,7 @@ public class MeleChaserEnemy : MonoBehaviour
         }
         else
         {
-            currentState = lastState;
+            currentState = State.CHASE;
         }
     }
 
@@ -215,7 +215,7 @@ public class MeleChaserEnemy : MonoBehaviour
 
     
 
-    private void isHit()
+    private void checkHit()
     {
         if (lastCheckedHealth > GetComponent<EnemyHealthScript>().GetCurrentHealth())
         {

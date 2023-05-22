@@ -110,6 +110,7 @@ public class GolemEnemyAIScript : MonoBehaviour
                     lastState = State.ATTACK;
                     updateAttack();
                     ChangeFromAttack();
+                    transform.LookAt(player.transform, Vector3.up);
                     break;
                 case State.IDLE:
                     lastState = State.IDLE;
@@ -147,7 +148,7 @@ public class GolemEnemyAIScript : MonoBehaviour
         {
             currentState = State.ATTACK;
         }
-        isHit();
+        CheckHit();
     }
 
 
@@ -193,7 +194,7 @@ public class GolemEnemyAIScript : MonoBehaviour
         {
             currentState = State.ATTACK;
         }
-        isHit();
+        CheckHit();
     }
 
     private void MeleeAttack()
@@ -252,7 +253,7 @@ public class GolemEnemyAIScript : MonoBehaviour
         {
             currentState = State.CHASE;
         }
-        isHit();
+        CheckHit();
     }
 
     void updateHit()
@@ -270,7 +271,7 @@ public class GolemEnemyAIScript : MonoBehaviour
         }
         else
         {
-            currentState = lastState;
+            currentState = State.CHASE;
         }
     }
 
@@ -340,7 +341,7 @@ public class GolemEnemyAIScript : MonoBehaviour
 
 
 
-    private void isHit()
+    private void CheckHit()
     {
         if (lastCheckedHealth > GetComponent<EnemyHealthScript>().GetCurrentHealth())
         {

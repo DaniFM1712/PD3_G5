@@ -48,7 +48,10 @@ public class RangedEnemyAIScript : MonoBehaviour
     private GameObject player;
 
     [Header("IDLE")]
+    [SerializeField] float maxDetectionCooldown = 2f;
     State lastState;
+    private float currentDetectionCooldown;
+    private bool detecting = false;
 
 
     [Header("CHASE")]
@@ -68,14 +71,16 @@ public class RangedEnemyAIScript : MonoBehaviour
     [SerializeField] float fadeSpeed;
     [SerializeField] MeshRenderer enemyRenderer;
 
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        lastCheckedHealth = GetComponent<EnemyHealthScript>().GetCurrentHealth();
         currentState = State.IDLE;
     }
     private void Start()
     {
+        lastCheckedHealth = GetComponent<EnemyHealthScript>().GetCurrentHealth();
+        currentDetectionCooldown = maxDetectionCooldown;
         player = GameObject.Find("Player");
         bulletPool = new Queue<GameObject>();
         GameObject bullets = new GameObject("RangedBullets");
@@ -102,6 +107,7 @@ public class RangedEnemyAIScript : MonoBehaviour
                     lastState = State.ATTACK;
                     updateAttack();
                     ChangeFromAttack();
+                    transform.LookAt(player.transform, Vector3.up);
                     break;
                 case State.IDLE:
                     lastState = State.IDLE;
@@ -131,16 +137,26 @@ public class RangedEnemyAIScript : MonoBehaviour
     void ChangeFromIdle()
     {
         //seesPlayer() &&
-        if(seesPlayer() && PlayerInRange())
+        if (PlayerInRange())
         {
-            currentState = State.ATTACK;
+            detecting = true;
+            if(currentDetectionCooldown <= 0)
+                currentState = State.ATTACK;
         }
-        isHit();
+        if(detecting && !PlayerInRange())
+        {
+            detecting = false;
+            currentDetectionCooldown = maxDetectionCooldown;
+        }
+        CheckHit();
+
+
     }
 
 
     bool PlayerInRange()
     {
+        currentDetectionCooldown -= Time.deltaTime;
         return (distanceToPlayer).magnitude < RANGED_RANGE;
     }
 
@@ -177,7 +193,7 @@ public class RangedEnemyAIScript : MonoBehaviour
         {
             currentState = State.ATTACK;
         }
-        isHit();
+        CheckHit();
     }
 
     private void attack()
@@ -199,7 +215,7 @@ public class RangedEnemyAIScript : MonoBehaviour
     private void Shoot()
     {
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(player.transform.position), Time.deltaTime * turnRate);
-        transform.LookAt(player.GetComponent<Transform>(), Vector3.up);
+        //transform.LookAt(player.GetComponent<Transform>(), Vector3.up);
         
         readyToShoot = false;
         Vector3 directionWithoutSpread = shootingPoint - bulletOrigin.position;
@@ -273,7 +289,7 @@ public class RangedEnemyAIScript : MonoBehaviour
             agent.isStopped = false;
             currentState = State.IDLE;
         }
-        isHit();
+        CheckHit();
     }
 
     void updateHit()
@@ -290,7 +306,7 @@ public class RangedEnemyAIScript : MonoBehaviour
         }
         else
         {
-            currentState = lastState;
+            currentState = State.CHASE;
         }
     }
 
@@ -301,7 +317,7 @@ public class RangedEnemyAIScript : MonoBehaviour
 
 
 
-    private void isHit()
+    private void CheckHit()
     {
         if (lastCheckedHealth > GetComponent<EnemyHealthScript>().GetCurrentHealth())
         {
