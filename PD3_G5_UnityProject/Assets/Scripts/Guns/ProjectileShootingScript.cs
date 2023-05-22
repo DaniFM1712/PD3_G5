@@ -121,14 +121,14 @@ public class ProjectileShootingScript : MonoBehaviour
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
         //RaycastHit hitInfo; 
         //Vector3 hitPoint = r.GetPoint(30f);
-        Vector3 hitPoint = r.GetPoint(50);
+        Vector3 hitPoint = r.GetPoint(50); 
 
         //if (Physics.Raycast(r, out hitInfo, maxShootDist, shootingMask))
         
         if (Physics.Raycast(r, out RaycastHit hitInfo))
         {
             //Crec que a vegades les bales surten rares pq aix� detecta una bala ja disparada.
-            if (!hitInfo.collider.gameObject.CompareTag("Bullet"))
+            if (hitInfo.collider.gameObject.CompareTag("Enemy") || hitInfo.collider.gameObject.CompareTag("Terrain"))
                 hitPoint = hitInfo.point;
         }
             

@@ -60,7 +60,7 @@ public class LevelManager : MonoBehaviour
             levelIndex.RemoveAt(0);
         }
         /////PARA TESTEAR/////
-        levelIndex.Insert(0, 4);
+        levelIndex.Insert(0, 3);
         
 
 
