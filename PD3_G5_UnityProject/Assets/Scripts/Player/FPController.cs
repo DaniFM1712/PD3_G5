@@ -104,7 +104,9 @@ public class FPController : MonoBehaviour
         ChangeWeapon();
 
         PlayerStatsScript.playerStatsInstance.ActivateBlessings();
-        menuPause = GameObject.Find("CanvasPrefab/PauseMenu");
+        
+        menuPause.SetActive(false);
+
     }
 
     private void FixedUpdate()
@@ -333,9 +335,19 @@ public class FPController : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
     }
+    
+    public void ShowSettingsUI()
+    {
+        menuPause.SetActive(false);
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     public void GoToMainMenu()
     {
+        PlayerStatsScript.playerStatsInstance.ResetStats();
+        HideMenuUI();
         LevelManager.levelManagerInstance.GoToMainMenu();
+        
     }
 }

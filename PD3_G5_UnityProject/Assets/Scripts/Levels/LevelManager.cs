@@ -60,13 +60,13 @@ public class LevelManager : MonoBehaviour
             levelIndex.RemoveAt(0);
         }
         /////PARA TESTEAR/////
-        levelIndex.Insert(0, 3);
+        levelIndex.Insert(0, 4);
         
 
 
         //Add Random Store
         int storePos = Random.Range(1, levelIndex.Count-1);
-        levelIndex.Insert(storePos, 3);
+        levelIndex.Insert(storePos, 2);
 
 
         foreach(int k in levelIndex)
@@ -76,7 +76,7 @@ public class LevelManager : MonoBehaviour
 
 
         levelPath = new Queue<int>(levelIndex);
-        levelPath.Enqueue(3);
+        levelPath.Enqueue(2);
         foreach (int k in levelPath)
         {
             Debug.Log("LP: "+k);
