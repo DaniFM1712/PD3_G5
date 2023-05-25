@@ -16,8 +16,7 @@ public class FPController : MonoBehaviour
     public KeyCode mouseLockKey = KeyCode.O;
 
 
-    [SerializeField] KeyCode menuKey = KeyCode.Escape;
-    [SerializeField] GameObject menuPause;
+
 
 
     private bool angleLocked = false;
@@ -105,7 +104,6 @@ public class FPController : MonoBehaviour
 
         PlayerStatsScript.playerStatsInstance.ActivateBlessings();
         
-        menuPause.SetActive(false);
 
     }
 
@@ -202,36 +200,29 @@ public class FPController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) == true && dashAllowed && Time.timeScale == 1f)
         {
-            dashIncreasesDamageBlessing.StartDamageTimer();
-            dashReset = currentDashCharges > 1;
-
-            if (dashReset)
-                currentDashCharges--;
-            else
+            if (direction != Vector3.zero)
             {
-                startCooldown = true;
-                currentDashCharges = PlayerStatsScript.playerStatsInstance.currentMaxDashCharges;
+                dashIncreasesDamageBlessing.StartDamageTimer();
+                dashReset = currentDashCharges > 1;
 
+                if (dashReset)
+                    currentDashCharges--;
+                else
+                {
+                    startCooldown = true;
+                    currentDashCharges = PlayerStatsScript.playerStatsInstance.currentMaxDashCharges;
+
+                }
             }
+            
 
             dashMove = moved;
             canDash = false;
             dashingNow = true;
         }
 
-        if (Input.GetKeyDown(menuKey))
-        {
-            if (Time.timeScale == 1f)
-            {
-                ShowMenuUI();
-            }
-            else
-            {
-                HideMenuUI();
-            }
-            
-
-        }
+        
+        
 
     }
     Vector3 updateMoveStats()
@@ -323,32 +314,4 @@ public class FPController : MonoBehaviour
     }
 
 
-    public void ShowMenuUI()
-    {
-        menuPause.SetActive(true);
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
-    }
-    public void HideMenuUI()
-    {
-        menuPause.SetActive(false);
-        Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-    
-    public void ShowSettingsUI()
-    {
-        menuPause.SetActive(false);
-        Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    public void GoToMainMenu()
-    {
-        PlayerStatsScript.playerStatsInstance.ResetStats();
-        InventoryManagerScript.InventoryInstance.ResetInventory();
-        HideMenuUI();
-        LevelManager.levelManagerInstance.GoToMainMenu();
-        
-    }
 }

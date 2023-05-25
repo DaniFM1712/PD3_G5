@@ -129,7 +129,7 @@ public class PlayerStatsScript : MonoBehaviour
         currentBlessings.Clear();
         isReloading = false;
         activatedBlessings = 0;
-
+        LevelManager.levelManagerInstance.generateRandomPath();
 
         /*
         currentDashAbilities = Enumerable.Repeat(false, 5).ToList();
