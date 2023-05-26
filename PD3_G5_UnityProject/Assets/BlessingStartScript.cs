@@ -20,6 +20,7 @@ public class BlessingStartScript : MonoBehaviour
     private ParentBlessing blessing3;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -103,18 +104,21 @@ public class BlessingStartScript : MonoBehaviour
     {
         blessing1.enabled = true;
         PlayerStatsScript.playerStatsInstance.activatedBlessings++;
+        InventoryManagerScript.InventoryInstance.UpdateBlessingsUI();
         Destroy(gameObject);
     }
     public void activateBlessing2()
     {
         blessing2.enabled = true;
         PlayerStatsScript.playerStatsInstance.activatedBlessings++;
+        InventoryManagerScript.InventoryInstance.UpdateBlessingsUI();
         Destroy(gameObject);
     }
     public void activateBlessing3()
     {
         blessing3.enabled = true;
         PlayerStatsScript.playerStatsInstance.activatedBlessings++;
+        InventoryManagerScript.InventoryInstance.UpdateBlessingsUI();
         Destroy(gameObject);
     }
 

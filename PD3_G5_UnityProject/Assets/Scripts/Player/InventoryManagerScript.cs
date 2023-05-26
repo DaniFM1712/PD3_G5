@@ -13,13 +13,24 @@ public class InventoryManagerScript : MonoBehaviour
     private List<ConsumableAsset> rareItems;
     private List<ConsumableAsset> legendaryItems;
 
-    [SerializeField] GameObject inventoryBackground;
+    [SerializeField] GameObject itemsInventory;
+    [SerializeField] GameObject blessingsInventory;
 
 
     //UI
+    [Header("Objects")]
     [SerializeField] List<GameObject> commonItemsSlots;
     [SerializeField] List<GameObject> rareItemsSlots;
     [SerializeField] List<GameObject> legendaryItemsSlots;
+    
+    [Header("Blessings")]
+    [SerializeField] List<ParentBlessing> blessings;
+    [SerializeField] TextMeshProUGUI dashBlessings;
+    [SerializeField] TextMeshProUGUI weaponsBlessings;
+    [SerializeField] TextMeshProUGUI grenadeBlessings;
+
+
+
 
 
     private void Awake()
@@ -46,14 +57,14 @@ public class InventoryManagerScript : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Tab) && !inventoryBackground.activeSelf && Time.timeScale == 1f)
+        if (Input.GetKeyDown(KeyCode.Tab) && !itemsInventory.activeSelf && Time.timeScale == 1f)
         {
             ShowInventoryUI();
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
         }
 
-        else if(Input.GetKeyDown(KeyCode.Tab) && inventoryBackground.activeSelf)
+        else if(Input.GetKeyDown(KeyCode.Tab) && (itemsInventory.activeSelf || blessingsInventory.activeSelf))
         {
             HideInventoryUI();
             Time.timeScale = 1f;
@@ -63,7 +74,7 @@ public class InventoryManagerScript : MonoBehaviour
 
     private void ShowInventoryUI()
     {
-        inventoryBackground.SetActive(true);
+        itemsInventory.SetActive(true);
 
         int index = 0;
         foreach (ConsumableAsset item in commonItems)
@@ -103,10 +114,11 @@ public class InventoryManagerScript : MonoBehaviour
         {
             itemUI.SetActive(false);
         }
-        inventoryBackground.SetActive(false);
+        itemsInventory.SetActive(false);
+        blessingsInventory.SetActive(false);
     }
 
-    public void UpdateInventoryUI()
+    public void UpdateItemsUI()
     {
         int index = 0;
         foreach(GameObject slot in commonItemsSlots)
@@ -125,9 +137,6 @@ public class InventoryManagerScript : MonoBehaviour
                 slot.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "";
                 slot.SetActive(false);
             }
-
-
-
         }
 
         index = 0;
@@ -147,7 +156,6 @@ public class InventoryManagerScript : MonoBehaviour
                 slot.SetActive(false);
             }
         }
-
         index = 0;
         foreach (GameObject slot in legendaryItemsSlots)
         {
@@ -163,6 +171,33 @@ public class InventoryManagerScript : MonoBehaviour
                 slot.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text = "";
                 slot.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "";
                 slot.SetActive(false);
+            }
+        }
+    }
+
+    public void UpdateBlessingsUI()
+    {
+        ParentBlessing[] blessings = FindObjectsByType<ParentBlessing>(FindObjectsSortMode.InstanceID);
+        foreach (ParentBlessing blessing in blessings)
+        {
+
+            if (blessing.enabled)
+            {
+                switch (blessing.blessingType)
+                {
+                    case ParentBlessing.BlessingType.Dash:
+                        dashBlessings.text += "·" + blessing.blessingName + "\n";
+                        break;
+                    case ParentBlessing.BlessingType.RapidFire:
+                        weaponsBlessings.text += "·" + blessing.blessingName + "\n";
+                        break;
+                    case ParentBlessing.BlessingType.ShotGun:
+                        weaponsBlessings.text += "·" + blessing.blessingName + "\n";
+                        break;
+                    case ParentBlessing.BlessingType.Grenade:
+                        grenadeBlessings.text += "·" + blessing.blessingName + "\n";
+                        break;
+                } 
             }
         }
     }
@@ -210,7 +245,7 @@ public class InventoryManagerScript : MonoBehaviour
 
         asset.consume();
         HealthUIScript.healthUIInstance.updateHealth();
-        UpdateInventoryUI();
+        UpdateItemsUI();
     }
 
     public void ResetInventory()
@@ -267,7 +302,7 @@ public class InventoryManagerScript : MonoBehaviour
         commonItems.RemoveAt(slot - 1);
 
         HealthUIScript.healthUIInstance.updateHealth();
-        UpdateInventoryUI();
+        UpdateItemsUI();
     }
 
     public void RemoveRareItem(int slot)
@@ -280,7 +315,7 @@ public class InventoryManagerScript : MonoBehaviour
         rareItems.RemoveAt(slot - 1);
 
         HealthUIScript.healthUIInstance.updateHealth();
-        UpdateInventoryUI();
+        UpdateItemsUI();
 
     }
 
@@ -294,11 +329,28 @@ public class InventoryManagerScript : MonoBehaviour
         legendaryItems.Clear();
 
         HealthUIScript.healthUIInstance.updateHealth();
-        UpdateInventoryUI();
+        UpdateItemsUI();
     }
 
     public bool IsInventoryFull()
     {
         return commonItems.Count == 3 && rareItems.Count == 2 && legendaryItems.Count == 1;
+    }
+
+    public void switchInventoryTabsToInv()
+    {
+        if (!itemsInventory.activeSelf)
+        {
+            blessingsInventory.SetActive(false);
+            itemsInventory.SetActive(true);
+        }
+    }
+    public void switchInventoryTabsToBlessings()
+    {
+        if (!blessingsInventory.activeSelf)
+        {
+            blessingsInventory.SetActive(true);
+            itemsInventory.SetActive(false);
+        }
     }
 }
