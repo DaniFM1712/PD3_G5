@@ -186,16 +186,16 @@ public class InventoryManagerScript : MonoBehaviour
                 switch (blessing.blessingType)
                 {
                     case ParentBlessing.BlessingType.Dash:
-                        dashBlessings.text += "·" + blessing.blessingName + "\n";
+                        dashBlessings.text += "· " + blessing.blessingName + "\n";
                         break;
                     case ParentBlessing.BlessingType.RapidFire:
-                        weaponsBlessings.text += "·" + blessing.blessingName + "\n";
+                        weaponsBlessings.text += "· " + blessing.blessingName + "\n";
                         break;
                     case ParentBlessing.BlessingType.ShotGun:
-                        weaponsBlessings.text += "·" + blessing.blessingName + "\n";
+                        weaponsBlessings.text += "· " + blessing.blessingName + "\n";
                         break;
                     case ParentBlessing.BlessingType.Grenade:
-                        grenadeBlessings.text += "·" + blessing.blessingName + "\n";
+                        grenadeBlessings.text += "· " + blessing.blessingName + "\n";
                         break;
                 } 
             }
