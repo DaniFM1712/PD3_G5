@@ -291,9 +291,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'RANDOM LEGENDARY
+  m_text: 'RANDOM LEG ITEM
 
-    ITEM
 
     COST: 60NC'
   m_isRightToLeft: 0
@@ -322,8 +321,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -481,6 +480,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuController
       objectReference: {fileID: 0}
+    - target: {fileID: 9075133619693385989, guid: d904462fecfb9ac4abdf152ce1f66314,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9075133619693385991, guid: d904462fecfb9ac4abdf152ce1f66314,
         type: 3}
       propertyPath: m_RootOrder
@@ -556,7 +560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &231669900
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1037,7 +1041,7 @@ RectTransform:
   m_GameObject: {fileID: 315403366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.429856, y: 0.20400599, z: 1}
+  m_LocalScale: {x: 1.2689543, y: 0.20400599, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1003568536}
@@ -1068,9 +1072,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'RANDOM CHEST
+  m_text: 'RANDOM COM ITEM
 
-    ITEM
 
     COST: 40NC'
   m_isRightToLeft: 0
@@ -1099,8 +1102,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1156,6 +1159,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1014340324231770293, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3773309682800077955, guid: 7b076ffa3b93a644ba8934883be79fe1,
         type: 3}
       propertyPath: m_Name
@@ -1526,9 +1534,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'RANDOM RARE
+  m_text: 'RANDOM RARE ITEM
 
-    ITEM
 
     COST: 50NC'
   m_isRightToLeft: 0
@@ -1557,8 +1564,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
