@@ -22,18 +22,23 @@ public class RunStoreScript : MonoBehaviour
     [SerializeField] int randomLegendaryCost = 60;
 
     private GameObject player;
-    private int randomItemsLeft = 1;
-    private int rareItemsLeft = 1;
-    private int legendaryItemsLeft = 1;
     private bool canShop = false;
 
     [SerializeField] List<ConsumableAsset> commonItemPool;
     [SerializeField] List<ConsumableAsset> rareItemPool;
     [SerializeField] List<ConsumableAsset> legendaryItemPool;
+
+    private ConsumableAsset randomItem;
+    private ConsumableAsset rareItem;
+    private ConsumableAsset legendaryItem;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
+        GenerateRandomItem();
+        GenerateRareItem();
+        GenerateLegendaryItem();
     }
 
     // Update is called once per frame
@@ -63,93 +68,62 @@ public class RunStoreScript : MonoBehaviour
     }
     public void BuyRandomItem()
     {
-        if (randomItemsLeft > 0)
+
+        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomItemCost)
         {
-            if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomItemCost)
+
+            if(InventoryManagerScript.InventoryInstance.CanAddItem(randomItem.rarity))
             {
-                if (InventoryManagerScript.InventoryInstance.IsInventoryFull())
-                {
-                    invFullText.enabled = true;
-                }
+                randomItemBtn.interactable = false;
 
-                else
-                {
-                    randomItemsLeft--;
-                    randomItemBtn.interactable = false;
+                InventoryManagerScript.InventoryInstance.AddItem(randomItem.rarity, randomItem);
 
-                    ConsumableAsset asset = GenerateRandomItem();
-                    while (!InventoryManagerScript.InventoryInstance.CanAddItem(asset.rarity))
-                    {
-                        asset = GenerateRandomItem();
-                    }
-
-                    InventoryManagerScript.InventoryInstance.AddItem(asset.rarity, asset);
-
-                    CoinCounterScript.coinCounterInstance.updateNCCounter(-randomItemCost);
-                    NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
-                }
-
+                CoinCounterScript.coinCounterInstance.updateNCCounter(-randomItemCost);
+                NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
             }
+
         }
 
     }
 
     public void BuyRareItem()
     {
-        if (rareItemsLeft > 0)
+
+        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomRareCost)
         {
-            if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomRareCost)
+
+            if (InventoryManagerScript.InventoryInstance.CanAddItem(rareItem.rarity))
             {
-                if (!InventoryManagerScript.InventoryInstance.CanAddItem(ConsumableAsset.Rarity.Rare))
-                {
-                    invFullText.enabled = true;
-                }
+                rareItemBtn.interactable = false;
 
-                else
-                {
-                    rareItemsLeft--;
-                    rareItemBtn.interactable = false;
+                InventoryManagerScript.InventoryInstance.AddItem(rareItem.rarity, rareItem);
 
-                    ConsumableAsset asset = GenerateRareItem();
-
-                    InventoryManagerScript.InventoryInstance.AddItem(asset.rarity, asset);
-
-                    CoinCounterScript.coinCounterInstance.updateNCCounter(-randomRareCost);
-                    NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
-
-                }
+                CoinCounterScript.coinCounterInstance.updateNCCounter(-randomRareCost);
+                NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
 
             }
+
         }
 
     }
 
     public void BuyLegendaryItem()
     {
-        if(legendaryItemsLeft > 0)
+
+        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomLegendaryCost)
         {
-            if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomLegendaryCost)
+
+            if (InventoryManagerScript.InventoryInstance.CanAddItem(legendaryItem.rarity))
             {
-                if (!InventoryManagerScript.InventoryInstance.CanAddItem(ConsumableAsset.Rarity.Legendary))
-                {
-                    invFullText.enabled = true;
-                }
+                legendaryItemBtn.interactable = false;
 
-                else
-                {
-                    legendaryItemsLeft--;
-                    legendaryItemBtn.interactable = false;
+                InventoryManagerScript.InventoryInstance.AddItem(legendaryItem.rarity, legendaryItem);
 
-                    ConsumableAsset asset = GenerateLegendaryItem();
-
-                    InventoryManagerScript.InventoryInstance.AddItem(asset.rarity, asset);
-
-                    CoinCounterScript.coinCounterInstance.updateNCCounter(-randomLegendaryCost);
-                    NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
-
-                }
+                CoinCounterScript.coinCounterInstance.updateNCCounter(-randomLegendaryCost);
+                NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
 
             }
+
         }
 
     }
@@ -162,7 +136,7 @@ public class RunStoreScript : MonoBehaviour
         storeCanvas.SetActive(false);
     }
 
-    private ConsumableAsset GenerateRandomItem()
+    private void GenerateRandomItem()
     {
         ConsumableAsset asset = null;
         int randomNumber = Random.Range(0, 100);
@@ -224,43 +198,57 @@ public class RunStoreScript : MonoBehaviour
             }
         }
 
-        return asset;
+        randomItem = asset;
+        randomItemBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "RANDOM COM ITEM\n" + randomItem.itemDescription + "\nCOST: "+randomItemCost+"NC";
     }
 
-    private ConsumableAsset GenerateRareItem()
+    private void GenerateRareItem()
     {
+        ConsumableAsset asset = null;
         int itemType = Random.Range(0, 4);
         switch (itemType)
         {
             case 0:
-                return rareItemPool[0];
+                asset =  rareItemPool[0];
+                break;
             case 1:
-                return rareItemPool[1];
+                asset = rareItemPool[1];
+                break;
             case 2:
-                return rareItemPool[2];
+                asset = rareItemPool[2];
+                break;
             case 3:
-                return rareItemPool[3];
-            default:
-                return null;
+                asset = rareItemPool[3];
+                break;
         }
+
+        rareItem = asset;
+        rareItemBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "RANDOM RARE ITEM\n" + rareItem.itemDescription + "\nCOST: "+randomRareCost+"NC";
+
     }
 
-    private ConsumableAsset GenerateLegendaryItem()
+    private void GenerateLegendaryItem()
     {
+        ConsumableAsset asset = null;
         int itemType = Random.Range(0, 4);
         switch (itemType)
         {
             case 0:
-                return legendaryItemPool[0];
+                asset = legendaryItemPool[0];
+                break;
             case 1:
-                return legendaryItemPool[1];
+                asset = legendaryItemPool[1];
+                break;
             case 2:
-                return legendaryItemPool[2];
+                asset = legendaryItemPool[2];
+                break;
             case 3:
-                return legendaryItemPool[3];
-            default:
-                return null;
+                asset = legendaryItemPool[3];
+                break;
         }
+        legendaryItem = asset;
+        legendaryItemBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "RANDOM LEG ITEM\n" + legendaryItem.itemDescription + "\nCOST: " + randomLegendaryCost + "NC";
+
 
     }
 
