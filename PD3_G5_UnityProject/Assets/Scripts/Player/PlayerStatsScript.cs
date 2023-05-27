@@ -42,16 +42,14 @@ public class PlayerStatsScript : MonoBehaviour
 
     //----------SHOTGUN----------//
 
+    //--------- BLESSING---------//
+    public List<bool> currentBlessings;
+    public bool dashDamageBlessing = false;
 
-    //--------- UPGRADES LIST ---------//
-    //public List<bool> currentDashAbilities; = new List<bool>(5);
+    //---------ITEMS---------//
     public List<bool> currentDashAbilities;
     public List<bool> currentWeaponAbilities;
     public List<bool> currentGrenadeAbilities;
-
-    public List<bool> currentBlessings;
-
-    public bool dashDamageBlessing = false;
 
     public float baseFireRateMultiplyer = 1f;
     public float currentFireRateMultiplyer;
@@ -67,6 +65,9 @@ public class PlayerStatsScript : MonoBehaviour
 
     public float baseMaxHealthMultiplyer = 1f;
     public float currentMaxHealthMultiplyer;
+
+    public bool highHealthDamageBuff = false;
+    public bool highHealthDamageApplied = false;
 
 
     private void Awake()
@@ -97,13 +98,20 @@ public class PlayerStatsScript : MonoBehaviour
         currentSpecialCoin = 0;
         currentWeapon = null;
 
-        //--------- UPGRADES LIST ---------//
+        //---------BLESSINGS---------//
+
         currentBlessings = new List<bool>();
+        dashDamageBlessing = false;
+
+        //---------ITEMS---------//
+
         currentFireRateMultiplyer = baseFireRateMultiplyer;
         currentEssenceMultiplyer = baseEssenceMultiplyer;
         currentDivinePowerMultiplyer = baseDivinePowerMultiplyer;
         currentCriticalMultiplyer = baseCriticalMultiplyer;
         currentMaxHealthMultiplyer = baseMaxHealthMultiplyer;
+        highHealthDamageBuff = false;
+        highHealthDamageApplied = false;
 
     }
 
@@ -129,6 +137,10 @@ public class PlayerStatsScript : MonoBehaviour
         currentBlessings.Clear();
         isReloading = false;
         activatedBlessings = 0;
+        dashDamageBlessing = false;
+        highHealthDamageBuff = false;
+        highHealthDamageApplied = false;
+
         LevelManager.levelManagerInstance.generateRandomPath();
 
         /*
@@ -195,5 +207,10 @@ public class PlayerStatsScript : MonoBehaviour
 
         Debug.Log("Saved Blessings: " + savedBless);
 
+    }
+
+    public float GetCurrentMaxHealth()
+    {
+        return currentMaxHealth * currentMaxHealthMultiplyer;
     }
 }

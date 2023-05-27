@@ -40,6 +40,7 @@ public class ProjectileShootingScript : MonoBehaviour
     int bulletsLeft, bulletsShot;
     bool shooting, readyToShoot;
     bool dashDamageBlessing = false;
+    bool highHealthDamageBuff = false;
     Queue<GameObject> bulletPool;
 
     [SerializeField] private UnityEvent<float> PlayerHasShoot; 

@@ -14,6 +14,14 @@ public class PlayerHealthScript : MonoBehaviour
     void Start()
     {
         healthUI = HealthUIScript.healthUIInstance;
+        if (PlayerStatsScript.playerStatsInstance.highHealthDamageBuff && !PlayerStatsScript.playerStatsInstance.highHealthDamageApplied)
+        {
+            if (PlayerStatsScript.playerStatsInstance.currentHealth / PlayerStatsScript.playerStatsInstance.GetCurrentMaxHealth() >= 0.9)
+            {
+                PlayerStatsScript.playerStatsInstance.currentDamageBonus += 0.2f;
+                PlayerStatsScript.playerStatsInstance.highHealthDamageApplied = true;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -26,7 +34,21 @@ public class PlayerHealthScript : MonoBehaviour
     {
         PlayerStatsScript.playerStatsInstance.currentHealth += modifier;
         PlayerStatsScript.playerStatsInstance.currentHealth = Mathf.Clamp(PlayerStatsScript.playerStatsInstance.currentHealth, 0, 
-            PlayerStatsScript.playerStatsInstance.currentMaxHealth * PlayerStatsScript.playerStatsInstance.currentMaxHealthMultiplyer);
+            PlayerStatsScript.playerStatsInstance.GetCurrentMaxHealth());
+
+        if (PlayerStatsScript.playerStatsInstance.highHealthDamageBuff)
+        {
+            if (PlayerStatsScript.playerStatsInstance.currentHealth / PlayerStatsScript.playerStatsInstance.GetCurrentMaxHealth() >= 0.9 && !PlayerStatsScript.playerStatsInstance.highHealthDamageApplied)
+            {
+                PlayerStatsScript.playerStatsInstance.highHealthDamageApplied = true;
+                PlayerStatsScript.playerStatsInstance.currentDamageBonus += 0.2f;
+            }
+            else if(PlayerStatsScript.playerStatsInstance.currentHealth / PlayerStatsScript.playerStatsInstance.GetCurrentMaxHealth() < 0.9 && PlayerStatsScript.playerStatsInstance.highHealthDamageApplied)
+            {
+                PlayerStatsScript.playerStatsInstance.currentDamageBonus -= 0.2f;
+                PlayerStatsScript.playerStatsInstance.highHealthDamageApplied = false;
+            }
+        }
 
         healthUI.updateHealth();
 
