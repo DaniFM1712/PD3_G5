@@ -13,6 +13,16 @@ public class ExplosionScript : MonoBehaviour
     void Start()
     {
         timeToDestroy = lifeTime;
+        if (PlayerStatsScript.playerStatsInstance.fireDOTBlessing)
+        {
+            if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y+1, transform.position.z), Vector3.down, out RaycastHit hitInfo))
+            {
+                if (hitInfo.collider.gameObject.CompareTag("Terrain"))
+                {
+                    Instantiate(fireDOTPrefab, transform.position, Quaternion.identity);
+                }
+            }
+        }
     }
 
     // Update is called once per frame
@@ -36,16 +46,6 @@ public class ExplosionScript : MonoBehaviour
                 if (other.gameObject.TryGetComponent<EnemyHealthScript>(out EnemyHealthScript enemyHealth))
                 {
                     enemyHealth.TakeDamage(damage);
-                }
-            }
-            if (PlayerStatsScript.playerStatsInstance.fireDOTBlessing)
-            {
-                if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo))
-                {
-                    if (hitInfo.collider.gameObject.CompareTag("Terrain"))
-                    {
-                        GameObject fireDOT = Instantiate(fireDOTPrefab, transform.position, Quaternion.identity);
-                    }
                 }
             }
         }

@@ -41,14 +41,14 @@ public class FireDotScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.TryGetComponent<EnemyHealthScript>(out EnemyHealthScript enemyHealth))
+        if(other.gameObject.TryGetComponent(out EnemyHealthScript enemyHealth))
         {
             enemies.Add(enemyHealth);
         }
     }    
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.TryGetComponent<EnemyHealthScript>(out EnemyHealthScript enemyHealth))
+        if(other.gameObject.TryGetComponent(out EnemyHealthScript enemyHealth))
         {
             enemies.Remove(enemyHealth);
         }
@@ -58,7 +58,8 @@ public class FireDotScript : MonoBehaviour
     {
         foreach(EnemyHealthScript enemyHealth in enemies)
         {
-            enemyHealth.TakeDamage(damage);
+            if(enemyHealth != null)
+                enemyHealth.TakeDamage(damage);
         }
     }
 
