@@ -115,7 +115,7 @@ public class SGSpecialScript : MonoBehaviour
         currentBullet.SetActive(true);
         currentBullet.transform.position = specialBulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
-        currentBullet.GetComponent<SGSpecialBulletScript>().SetDamage(specialBulletDamage + PlayerStatsScript.playerStatsInstance.currentDamageBonus);
+        currentBullet.GetComponent<SGSpecialBulletScript>().SetDamage(specialBulletDamage + PlayerStatsScript.playerStatsInstance.currentDamageMultiplyer);
         if (cooldownBlessing)
         {
             currentBullet.GetComponent<SGSpecialBulletScript>().weaponScript = this;

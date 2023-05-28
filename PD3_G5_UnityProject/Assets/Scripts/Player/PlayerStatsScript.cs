@@ -67,8 +67,8 @@ public class PlayerStatsScript : MonoBehaviour
     public float currentMaxHealthMultiplyer;
     
     
-    public float baseCurrentDamageBonusMultiplyer = 1f;
-    public float currentDamageBonusMultiplyer;
+    public float baseCurrentDamageMultiplyer = 1f;
+    public float currentDamageMultiplyer;
 
 
 
@@ -97,7 +97,7 @@ public class PlayerStatsScript : MonoBehaviour
         //----------CURRENT--STATS----------//
         currentHealth = currentMaxHealth;
         currentShield = currentMaxShield;
-        currentDamageBonus = baseDamageBonus;
+        //currentDamageBonus = baseDamageBonus;
         currentSpeedBonus = baseSpeedBonus;
         currentWeaponIndex = 0;
         currentNormalCoin = 0;
@@ -115,7 +115,7 @@ public class PlayerStatsScript : MonoBehaviour
         currentEssenceMultiplyer = baseEssenceMultiplyer;
         currentDivinePowerMultiplyer = baseDivinePowerMultiplyer;
         currentCriticalMultiplyer = baseCriticalMultiplyer;
-        currentDamageBonusMultiplyer = baseCurrentDamageBonusMultiplyer;
+        currentDamageMultiplyer = baseCurrentDamageMultiplyer;
         currentMaxHealthMultiplyer = baseMaxHealthMultiplyer;
         highHealthDamageBuff = false;
         highHealthDamageApplied = false;

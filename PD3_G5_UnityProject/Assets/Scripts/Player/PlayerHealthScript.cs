@@ -18,7 +18,7 @@ public class PlayerHealthScript : MonoBehaviour
         {
             if (PlayerStatsScript.playerStatsInstance.currentHealth / PlayerStatsScript.playerStatsInstance.GetCurrentMaxHealth() >= 0.9)
             {
-                PlayerStatsScript.playerStatsInstance.currentDamageBonus += 0.2f;
+                PlayerStatsScript.playerStatsInstance.currentDamageMultiplyer += 0.2f;
                 PlayerStatsScript.playerStatsInstance.highHealthDamageApplied = true;
             }
         }
@@ -41,11 +41,11 @@ public class PlayerHealthScript : MonoBehaviour
             if (PlayerStatsScript.playerStatsInstance.currentHealth / PlayerStatsScript.playerStatsInstance.GetCurrentMaxHealth() >= 0.9 && !PlayerStatsScript.playerStatsInstance.highHealthDamageApplied)
             {
                 PlayerStatsScript.playerStatsInstance.highHealthDamageApplied = true;
-                PlayerStatsScript.playerStatsInstance.currentDamageBonus += 0.2f;
+                PlayerStatsScript.playerStatsInstance.currentDamageMultiplyer += 0.2f;
             }
             else if(PlayerStatsScript.playerStatsInstance.currentHealth / PlayerStatsScript.playerStatsInstance.GetCurrentMaxHealth() < 0.9 && PlayerStatsScript.playerStatsInstance.highHealthDamageApplied)
             {
-                PlayerStatsScript.playerStatsInstance.currentDamageBonus -= 0.2f;
+                PlayerStatsScript.playerStatsInstance.currentDamageMultiplyer -= 0.2f;
                 PlayerStatsScript.playerStatsInstance.highHealthDamageApplied = false;
             }
         }

@@ -30,6 +30,7 @@ public class GrenadeScript : MonoBehaviour
     Queue<GameObject> grenadePool;
     CooldownScript cooldown;
     DoubleAOEBlessingScript doubleAOEBlessing;
+    MultipleTargetsDamageBuffBlessingScript multipleTargetsDamageBuffBlessing;
     public int currentGrenadeCharges;
     private Vector3 explosionScale;
 
@@ -39,6 +40,7 @@ public class GrenadeScript : MonoBehaviour
         cooldown = GameObject.Find("CanvasPrefab/Cooldowns").GetComponent<CooldownScript>();
         cam = transform.Find("PitchController/Main Camera").gameObject.GetComponent<Camera>();
         doubleAOEBlessing = GetComponent<DoubleAOEBlessingScript>();
+        multipleTargetsDamageBuffBlessing = GetComponent<MultipleTargetsDamageBuffBlessingScript>();
         grenadePool = new Queue<GameObject>();
         GameObject grenades = new("Grenades");
         currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;
@@ -117,6 +119,10 @@ public class GrenadeScript : MonoBehaviour
 
         if (doubleAOEBlessing.enabled)
             currentGrenade.GetComponent<GrenadeBulletScript>().SetAreaMulitplier(doubleAOEBlessing.areaMultiplyer);
+
+        if(multipleTargetsDamageBuffBlessing.enabled)
+            currentGrenade.GetComponent<GrenadeBulletScript>().multipleTargetsBlessing = true;
+
 
         currentGrenade.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * grenadeShootForce, ForceMode.Impulse);
         currentGrenade.GetComponent<Rigidbody>().AddForce(cam.transform.up * grenadeUpwardForce, ForceMode.Impulse);

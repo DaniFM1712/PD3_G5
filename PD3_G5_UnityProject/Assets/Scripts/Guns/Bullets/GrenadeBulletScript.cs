@@ -10,6 +10,8 @@ public class GrenadeBulletScript : MonoBehaviour
     float timeToDestroy;
     float areaMultiplyer = 1f;
     Vector3 originPosition = new Vector3(0f, 0f, 0f);
+    public bool multipleTargetsBlessing = false;
+    private bool firstTarget = false;
 
     private void Awake()
     {
@@ -37,10 +39,15 @@ public class GrenadeBulletScript : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Terrain"))
         {
-
-            if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
+            firstTarget = true;
+            if (other.gameObject.TryGetComponent(out EnemyPartScript enemyPart))
             {
-                enemyPart.TakeDamage(damage, null);
+                if(firstTarget && multipleTargetsBlessing)
+                {
+                    enemyPart.TakeDamage(damage*1.3f, null);
+                }
+                else
+                    enemyPart.TakeDamage(damage, null);
             }
 
             GameObject specialEffect = Instantiate(specialEffectPrefab,transform.position, Quaternion.identity);

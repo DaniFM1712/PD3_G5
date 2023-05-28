@@ -10,7 +10,7 @@ public class HighHealthBuffAsset : ConsumableAsset
         PlayerStatsScript.playerStatsInstance.highHealthDamageBuff = true;
         if (PlayerStatsScript.playerStatsInstance.currentHealth / PlayerStatsScript.playerStatsInstance.GetCurrentMaxHealth() >= 0.9 && !PlayerStatsScript.playerStatsInstance.highHealthDamageApplied)
         {
-            PlayerStatsScript.playerStatsInstance.currentDamageBonusMultiplyer += 0.2f;
+            PlayerStatsScript.playerStatsInstance.currentDamageMultiplyer += 0.2f;
             PlayerStatsScript.playerStatsInstance.highHealthDamageApplied = true;
         }
     }
@@ -20,7 +20,7 @@ public class HighHealthBuffAsset : ConsumableAsset
         PlayerStatsScript.playerStatsInstance.highHealthDamageBuff = false;
         if (PlayerStatsScript.playerStatsInstance.highHealthDamageApplied)
         {
-            PlayerStatsScript.playerStatsInstance.currentDamageBonusMultiplyer -= 0.2f;
+            PlayerStatsScript.playerStatsInstance.currentDamageMultiplyer -= 0.2f;
             PlayerStatsScript.playerStatsInstance.highHealthDamageApplied = false;
         }
 
