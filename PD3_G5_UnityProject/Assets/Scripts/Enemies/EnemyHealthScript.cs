@@ -9,7 +9,9 @@ public class EnemyHealthScript : MonoBehaviour
     float currentHealth;
     [SerializeField] Image healthBar;
     [SerializeField] Gradient colorGradient;
-    
+    [SerializeField] private GameObject damageTextPrefab;
+
+
     private Canvas canvas;
 
     private void Awake()
@@ -42,6 +44,8 @@ public class EnemyHealthScript : MonoBehaviour
             damage *= 1.3f;
         }
         currentHealth -= damage;
+        Instantiate(damageTextPrefab, transform.position, Quaternion.identity).GetComponent<DamageTextScript>().Initialise(damage);
+
         if (healthBar.gameObject.activeSelf == false)
         {
             healthBar.gameObject.SetActive(true);
@@ -52,6 +56,8 @@ public class EnemyHealthScript : MonoBehaviour
             currentHealth = 0;
             Die();
         }
+
+
     }
 
     private void Die()

@@ -17974,11 +17974,12 @@ MonoBehaviour:
   currentSpecialCoin: 0
   activatedBlessings: 0
   isReloading: 0
+  currentBlessings: 
+  dashDamageBlessing: 0
+  fireDOTBlessing: 0
   currentDashAbilities: 
   currentWeaponAbilities: 
   currentGrenadeAbilities: 
-  currentBlessings: 
-  dashDamageBlessing: 0
   baseFireRateMultiplyer: 1
   currentFireRateMultiplyer: 0
   baseEssenceMultiplyer: 1
@@ -17989,6 +17990,10 @@ MonoBehaviour:
   currentCriticalMultiplyer: 0
   baseMaxHealthMultiplyer: 1
   currentMaxHealthMultiplyer: 0
+  baseCurrentDamageMultiplyer: 1
+  currentDamageMultiplyer: 0
+  highHealthDamageBuff: 0
+  highHealthDamageApplied: 0
 --- !u!4 &625535076
 Transform:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 1425451561130305447}
   - component: {fileID: 709132662307341657}
   - component: {fileID: 2688424487243589265}
+  - component: {fileID: 5675935048691595221}
+  - component: {fileID: 4620273999810753855}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -227,6 +229,37 @@ MonoBehaviour:
   blessingDescription: Doubles the size of the orb explosion.
   blessingType: 1
   areaMultiplyer: 2
+--- !u!114 &5675935048691595221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688068328114149645}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec04b33d7e22e942b60c908bc379e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blessingName: 'DO: Increased damage on multiple targets.'
+  blessingDescription: +30% of damage if explosion affects multiples enemies.
+  blessingType: 1
+--- !u!114 &4620273999810753855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688068328114149645}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5715133014478e4cb14c234bc0ad2ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blessingName: 'DO: Creates fire DoT area after explosion.'
+  blessingDescription: After grenade explotes, it leaves a fire area that damages
+    enemies every two seconds, for eight seconds.
+  blessingType: 1
 --- !u!1 &3688068329095023214
 GameObject:
   m_ObjectHideFlags: 0

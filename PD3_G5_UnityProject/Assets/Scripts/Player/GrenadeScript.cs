@@ -93,16 +93,16 @@ public class GrenadeScript : MonoBehaviour
     {
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
         RaycastHit hitInfo;
-        Vector3 hitPoint;
+        Vector3 hitPoint = r.GetPoint(50);
 
 
         if (Physics.Raycast(r, out hitInfo))
+        {
             hitPoint = hitInfo.point;
-
-        else
-            hitPoint = r.GetPoint(100);
-
-
+            if (hitInfo.collider.gameObject.CompareTag("Enemy") || hitInfo.collider.gameObject.CompareTag("Terrain"))
+                hitPoint = hitInfo.point;
+        }
+   
         Vector3 directionWithoutSpread = hitPoint - grenadeOrigin.position;
 
         float xSpread = Random.Range(-grenadeSpread, +grenadeSpread);

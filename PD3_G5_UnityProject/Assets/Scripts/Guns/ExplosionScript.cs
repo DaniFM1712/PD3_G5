@@ -6,6 +6,7 @@ public class ExplosionScript : MonoBehaviour
 {
     [SerializeField] float lifeTime = 5f;
     [SerializeField] float damage = 50f;
+    [SerializeField] GameObject fireDOTPrefab;
     float timeToDestroy;
 
     // Start is called before the first frame update
@@ -32,9 +33,19 @@ public class ExplosionScript : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Enemy"))
             {
-                if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
+                if (other.gameObject.TryGetComponent<EnemyHealthScript>(out EnemyHealthScript enemyHealth))
                 {
-                    enemyPart.TakeDamage(damage, null);
+                    enemyHealth.TakeDamage(damage);
+                }
+            }
+            if (PlayerStatsScript.playerStatsInstance.fireDOTBlessing)
+            {
+                if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo))
+                {
+                    if (hitInfo.collider.gameObject.CompareTag("Terrain"))
+                    {
+                        GameObject fireDOT = Instantiate(fireDOTPrefab, transform.position, Quaternion.identity);
+                    }
                 }
             }
         }

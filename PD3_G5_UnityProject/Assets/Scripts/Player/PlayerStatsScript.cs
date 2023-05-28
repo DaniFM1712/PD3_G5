@@ -45,6 +45,7 @@ public class PlayerStatsScript : MonoBehaviour
     //--------- BLESSING---------//
     public List<bool> currentBlessings;
     public bool dashDamageBlessing = false;
+    public bool fireDOTBlessing = false;
 
     //---------ITEMS---------//
     public List<bool> currentDashAbilities;
@@ -108,6 +109,7 @@ public class PlayerStatsScript : MonoBehaviour
 
         currentBlessings = new List<bool>();
         dashDamageBlessing = false;
+        fireDOTBlessing = false;
 
         //---------ITEMS---------//
 
@@ -143,10 +145,12 @@ public class PlayerStatsScript : MonoBehaviour
         currentMaxTrapCharges = baseMaxTrapCharges;
         currentBlessings.Clear();
         isReloading = false;
-        activatedBlessings = 0;
-        dashDamageBlessing = false;
         highHealthDamageBuff = false;
         highHealthDamageApplied = false;
+        activatedBlessings = 0;
+        dashDamageBlessing = false;
+        fireDOTBlessing = false;
+
 
         /*
         currentDashAbilities = Enumerable.Repeat(false, 5).ToList();

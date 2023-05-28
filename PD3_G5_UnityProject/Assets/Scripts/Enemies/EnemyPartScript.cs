@@ -7,7 +7,6 @@ public class EnemyPartScript : MonoBehaviour
 {
     [SerializeField] float damageMultiplyer = 1f;
     private float currentHealth = 0;
-    [SerializeField] private GameObject damageTextPrefab;
 
 
     // Start is called before the first frame update
@@ -29,9 +28,7 @@ public class EnemyPartScript : MonoBehaviour
         {
             currentHealth = health.GetCurrentHealth();
             currentHealth -= (damage * damageMultiplyer);
-
             health.TakeDamage(damage * damageMultiplyer);
-            Instantiate(damageTextPrefab, transform.position, Quaternion.identity).GetComponent<DamageTextScript>().Initialise(damage);
 
 
             /*
