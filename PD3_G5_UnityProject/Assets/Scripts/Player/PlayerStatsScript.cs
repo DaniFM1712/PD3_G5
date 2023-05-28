@@ -65,6 +65,12 @@ public class PlayerStatsScript : MonoBehaviour
 
     public float baseMaxHealthMultiplyer = 1f;
     public float currentMaxHealthMultiplyer;
+    
+    
+    public float baseCurrentDamageBonusMultiplyer = 1f;
+    public float currentDamageBonusMultiplyer;
+
+
 
     public bool highHealthDamageBuff = false;
     public bool highHealthDamageApplied = false;
@@ -109,6 +115,7 @@ public class PlayerStatsScript : MonoBehaviour
         currentEssenceMultiplyer = baseEssenceMultiplyer;
         currentDivinePowerMultiplyer = baseDivinePowerMultiplyer;
         currentCriticalMultiplyer = baseCriticalMultiplyer;
+        currentDamageBonusMultiplyer = baseCurrentDamageBonusMultiplyer;
         currentMaxHealthMultiplyer = baseMaxHealthMultiplyer;
         highHealthDamageBuff = false;
         highHealthDamageApplied = false;
@@ -140,8 +147,6 @@ public class PlayerStatsScript : MonoBehaviour
         dashDamageBlessing = false;
         highHealthDamageBuff = false;
         highHealthDamageApplied = false;
-
-        LevelManager.levelManagerInstance.generateRandomPath();
 
         /*
         currentDashAbilities = Enumerable.Repeat(false, 5).ToList();

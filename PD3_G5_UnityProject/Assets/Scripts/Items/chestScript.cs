@@ -33,7 +33,7 @@ public class chestScript : MonoBehaviour
     {
         ConsumableAsset asset = null;
         int randomNumber = Random.Range(0, 100);
-        if(randomNumber <= 60)
+        if(randomNumber <= 0)
         {
             int itemType = Random.Range(0, 4);
             switch (itemType)
@@ -52,9 +52,9 @@ public class chestScript : MonoBehaviour
                     break;
             }
         }
-        else if (randomNumber <= 90)
+        else if (randomNumber <= 100)
         {
-            int itemType = Random.Range(0, 4);
+            int itemType = Random.Range(4, 5);
             switch (itemType)
             {
                 case 0:
@@ -68,6 +68,9 @@ public class chestScript : MonoBehaviour
                     break;
                 case 3:
                     asset = rareItemPool[3];
+                    break;
+                case 4:
+                    asset = rareItemPool[4];
                     break;
             }
         }

@@ -75,7 +75,7 @@ public class buttonControllerScript : MonoBehaviour
         InventoryManagerScript.InventoryInstance.ResetInventory();
         
         HideMenuUI();
-        LevelManager.levelManagerInstance.GoToMainMenu();
+        LevelManager.levelManagerInstance.RestartGame(0);
 
     }
 

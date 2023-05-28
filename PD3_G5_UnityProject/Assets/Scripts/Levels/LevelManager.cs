@@ -43,7 +43,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            RestartGame();
+            RestartGame(1);
         }
 
         Debug.Log("LOADING LEVEL: "+currentLevel);
@@ -102,19 +102,15 @@ public class LevelManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void RestartGame()
+    public void RestartGame(int scene)
     {
         generateRandomPath();
         CoinCounterScript.coinCounterInstance.resetNCCounter();
         PlayerStatsScript.playerStatsInstance.ResetStats();
         InventoryManagerScript.InventoryInstance.ResetInventory();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(scene);
     }
 
-    public void GoToMainMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
 
     public int getCurrentIndex() {
         return currentLevel;

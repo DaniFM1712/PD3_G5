@@ -9,7 +9,7 @@ public class DeathMenuScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
     public void restartButton() {
-        LevelManager.levelManagerInstance.RestartGame();
+        LevelManager.levelManagerInstance.RestartGame(1);
     }
 
     public void QuitGame()

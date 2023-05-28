@@ -147,7 +147,7 @@ public class ProjectileShootingScript : MonoBehaviour
         currentBullet.SetActive(true);
         currentBullet.transform.position = bulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
-        currentBullet.GetComponent<BulletScript>().SetDamage(bulletDamage+PlayerStatsScript.playerStatsInstance.currentDamageBonus);
+        currentBullet.GetComponent<BulletScript>().SetDamage(bulletDamage*PlayerStatsScript.playerStatsInstance.currentDamageBonusMultiplyer);
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * upwardForce, ForceMode.Impulse);
 
