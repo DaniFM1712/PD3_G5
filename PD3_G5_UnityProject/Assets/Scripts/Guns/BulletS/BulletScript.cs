@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    public GameObject player;
     [SerializeField] float lifeTime = 5f;
     float damage;
     float timeToDestroy;
@@ -29,12 +30,18 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Terrain"))
         {
+            bool dead = false;
 
             if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
             {
-                enemyPart.TakeDamage(damage, null);
+                dead = enemyPart.TakeDamage(damage, null);
+            }
+            if (dead && PlayerStatsScript.playerStatsInstance.dashCooldownBlessing)
+            {
+                player.GetComponent<FPController>().reduceDashCooldown(2f);
             }
             ReturnToOrigin();
         }

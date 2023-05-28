@@ -21,15 +21,15 @@ public class EnemyPartScript : MonoBehaviour
         
     }
 
-    public void TakeDamage(float damage, GameObject bullet)
+    public bool TakeDamage(float damage, GameObject bullet)
     {
 
         if (transform.parent.gameObject.TryGetComponent<EnemyHealthScript>(out EnemyHealthScript health))
         {
             currentHealth = health.GetCurrentHealth();
             currentHealth -= (damage * damageMultiplyer);
-            health.TakeDamage(damage * damageMultiplyer);
-
+            bool dead = health.TakeDamage(damage * damageMultiplyer);
+            return dead;
 
             /*
             if(bullet.TryGetComponent<SGSpecialBulletScript>(out SGSpecialBulletScript sgBullet))
@@ -40,5 +40,6 @@ public class EnemyPartScript : MonoBehaviour
                 }
             }*/
         }
+        return false;
     }
 }

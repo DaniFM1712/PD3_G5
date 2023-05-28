@@ -717,14 +717,24 @@ PrefabInstance:
       objectReference: {fileID: 375895813}
     - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
+      propertyPath: dashCooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
       propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 519996770}
-    - target: {fileID: 4620273999810753855, guid: b5301dd35a2af1245b35289bf67ebbb0,
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: startDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519996770}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: reduceDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519996770}
     - target: {fileID: 6610077119698529702, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2325,6 +2335,7 @@ MonoBehaviour:
   currentBlessings: 
   dashDamageBlessing: 0
   fireDOTBlessing: 0
+  dashCooldownBlessing: 0
   currentDashAbilities: 
   currentWeaponAbilities: 
   currentGrenadeAbilities: 

@@ -60,7 +60,8 @@ public class FPController : MonoBehaviour
     [SerializeField] List<GameObject> weapons;
 
     [Header("Dash Properties")]
-    [SerializeField] UnityEvent<float> startDashCooldown;
+    [SerializeField] UnityEvent<float> startDashCooldownEvent;
+    [SerializeField] UnityEvent<float> reduceDashCooldownEvent;
     private bool startCooldown = false;
     [SerializeField] float speed = 10.0f;
     [SerializeField] float dashLength = 0.15f;
@@ -253,7 +254,7 @@ public class FPController : MonoBehaviour
         if (dashing >= dashLength && startCooldown)
         {
             startCooldown = false;
-            startDashCooldown.Invoke(dashCooldown);
+            startDashCooldownEvent.Invoke(dashCooldown);
         }
 
 
@@ -312,6 +313,19 @@ public class FPController : MonoBehaviour
         blessing.enabled = true;
     
     }
+
+    public void reduceDashCooldown(float time)
+    {
+        Debug.Log("ENTRO CD");
+        if (dashingTime<dashCooldown)
+        {
+            Debug.Log("ENTRO BE AL CD");
+            //DashingTime<dashCooldown
+            dashingTime += time;
+            reduceDashCooldownEvent.Invoke(time);
+        }
+    }
+
 
 
 }

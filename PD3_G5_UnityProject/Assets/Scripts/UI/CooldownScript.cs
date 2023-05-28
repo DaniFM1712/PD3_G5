@@ -83,6 +83,13 @@ public class CooldownScript : MonoBehaviour
         dashInCD = true;
         dashCDImage.enabled = true;
     }
+    public void ReduceDashCooldown(float time)
+    {
+        if (dashInCD)
+        {
+            dashCDTime -= time;
+        }
+    }
 
     public void StartAbilityCooldown(float cooldown)
     {

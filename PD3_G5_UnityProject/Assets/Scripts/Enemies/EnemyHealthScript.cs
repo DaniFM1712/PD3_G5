@@ -36,7 +36,7 @@ public class EnemyHealthScript : MonoBehaviour
         InitialHealth += healthIncresed;
     }
 
-    public void TakeDamage(float damage)
+    public bool TakeDamage(float damage)
     {
         Debug.Log(currentHealth);
         if (PlayerStatsScript.playerStatsInstance.dashDamageBlessing)
@@ -55,9 +55,11 @@ public class EnemyHealthScript : MonoBehaviour
         {
             currentHealth = 0;
             Die();
+            Debug.Log("RETURN BOOL");
+            return true;
         }
 
-
+        return false;
     }
 
     private void Die()

@@ -46,6 +46,7 @@ public class PlayerStatsScript : MonoBehaviour
     public List<bool> currentBlessings;
     public bool dashDamageBlessing = false;
     public bool fireDOTBlessing = false;
+    public bool dashCooldownBlessing = false;
 
     //---------ITEMS---------//
     public List<bool> currentDashAbilities;
@@ -110,6 +111,7 @@ public class PlayerStatsScript : MonoBehaviour
         currentBlessings = new List<bool>();
         dashDamageBlessing = false;
         fireDOTBlessing = false;
+        dashCooldownBlessing = false;
 
         //---------ITEMS---------//
 
@@ -150,6 +152,7 @@ public class PlayerStatsScript : MonoBehaviour
         activatedBlessings = 0;
         dashDamageBlessing = false;
         fireDOTBlessing = false;
+        dashCooldownBlessing = false;
 
 
         /*

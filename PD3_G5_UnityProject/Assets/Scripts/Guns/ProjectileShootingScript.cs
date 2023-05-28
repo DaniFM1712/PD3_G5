@@ -43,7 +43,9 @@ public class ProjectileShootingScript : MonoBehaviour
     bool highHealthDamageBuff = false;
     Queue<GameObject> bulletPool;
 
-    [SerializeField] private UnityEvent<float> PlayerHasShoot; 
+    [SerializeField] private UnityEvent<float> PlayerHasShoot;
+    private GameObject player;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -76,6 +78,7 @@ public class ProjectileShootingScript : MonoBehaviour
             bulletCounterText.text = "0 / 0" ;
         }
 
+        player = transform.parent.parent.parent.gameObject;
     }
 
     // Update is called once per frame
@@ -148,6 +151,7 @@ public class ProjectileShootingScript : MonoBehaviour
         currentBullet.transform.position = bulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
         currentBullet.GetComponent<BulletScript>().SetDamage((bulletDamage+PlayerStatsScript.playerStatsInstance.currentDamageBonus)*PlayerStatsScript.playerStatsInstance.currentDamageMultiplyer);
+        currentBullet.GetComponent<BulletScript>().player = player;
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * upwardForce, ForceMode.Impulse);
 

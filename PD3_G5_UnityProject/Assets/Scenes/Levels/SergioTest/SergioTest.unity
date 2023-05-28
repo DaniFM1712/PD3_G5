@@ -17796,8 +17796,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
+      propertyPath: dashCooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
       propertyPath: maxHeightJump
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldownEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: reduceDashCooldownEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
@@ -17806,8 +17821,68 @@ PrefabInstance:
       objectReference: {fileID: 1877390464}
     - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
+      propertyPath: startDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: reduceDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
       propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartDashCooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1877390464}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: reduceDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1877390464}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: reduceDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartDashCooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: reduceDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReduceDashCooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CooldownScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: reduceDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CooldownScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: reduceDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3688068329298052683, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}
