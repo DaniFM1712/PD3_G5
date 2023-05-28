@@ -67,7 +67,7 @@ public class PlayerHealthScript : MonoBehaviour
     public void Die()
     {
         Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(3);
     }
 
 }
