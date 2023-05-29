@@ -5453,7 +5453,7 @@ PrefabInstance:
     - target: {fileID: 1313207473817311360, guid: 2a085df5aafecd744a289608354486e6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1313207473817311361, guid: 2a085df5aafecd744a289608354486e6,
         type: 3}
@@ -6638,8 +6638,11 @@ MonoBehaviour:
   isReloading: 0
   currentBlessings: 
   dashDamageBlessing: 0
-  fireDOTBlessing: 0
   dashCooldownBlessing: 0
+  fireDOTBlessing: 0
+  killEnemyGrenadeBlessing: 0
+  killEnemyAbilityCooldownBlessing: 0
+  killEnemyDamageBuffBlessing: 0
   currentDashAbilities: 
   currentWeaponAbilities: 
   currentGrenadeAbilities: 
@@ -8909,6 +8912,7 @@ Transform:
   - {fileID: 774646038}
   - {fileID: 589706256}
   - {fileID: 1682253541}
+  - {fileID: 1973204055}
   m_Father: {fileID: 79899658}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15090,7 +15094,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1983142880}
+    m_TransformParent: {fileID: 1015912282}
     m_Modifications:
     - target: {fileID: 7370641021885123092, guid: d01eb276b360c66478c5cffab9c73783,
         type: 3}
@@ -15100,7 +15104,7 @@ PrefabInstance:
     - target: {fileID: 7854865275333824686, guid: d01eb276b360c66478c5cffab9c73783,
         type: 3}
       propertyPath: m_RootOrder
-      value: 59
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7854865275333824686, guid: d01eb276b360c66478c5cffab9c73783,
         type: 3}
@@ -16495,7 +16499,6 @@ Transform:
   - {fileID: 351130519}
   - {fileID: 929758510}
   - {fileID: 589001397}
-  - {fileID: 1973204055}
   - {fileID: 2107980170}
   m_Father: {fileID: 79899658}
   m_RootOrder: 2
@@ -17779,7 +17782,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1983142880}
-  m_RootOrder: 60
+  m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &2107980171
 BoxCollider:
