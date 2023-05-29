@@ -7,21 +7,21 @@ public class HighHealthBuffAsset : ConsumableAsset
 
     public override void consume()
     {
-        PlayerStatsScript.playerStatsInstance.highHealthDamageBuff = true;
-        if (PlayerStatsScript.playerStatsInstance.currentHealth / PlayerStatsScript.playerStatsInstance.GetCurrentMaxHealth() >= 0.9 && !PlayerStatsScript.playerStatsInstance.highHealthDamageApplied)
+        PlayerStatsScript.instance.highHealthDamageBuff = true;
+        if (PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth() >= 0.9 && !PlayerStatsScript.instance.highHealthDamageApplied)
         {
-            PlayerStatsScript.playerStatsInstance.currentDamageMultiplyer += 0.2f;
-            PlayerStatsScript.playerStatsInstance.highHealthDamageApplied = true;
+            PlayerStatsScript.instance.currentDamageMultiplyer += 0.2f;
+            PlayerStatsScript.instance.highHealthDamageApplied = true;
         }
     }
 
     public override void drop()
     {
-        PlayerStatsScript.playerStatsInstance.highHealthDamageBuff = false;
-        if (PlayerStatsScript.playerStatsInstance.highHealthDamageApplied)
+        PlayerStatsScript.instance.highHealthDamageBuff = false;
+        if (PlayerStatsScript.instance.highHealthDamageApplied)
         {
-            PlayerStatsScript.playerStatsInstance.currentDamageMultiplyer -= 0.2f;
-            PlayerStatsScript.playerStatsInstance.highHealthDamageApplied = false;
+            PlayerStatsScript.instance.currentDamageMultiplyer -= 0.2f;
+            PlayerStatsScript.instance.highHealthDamageApplied = false;
         }
 
     }

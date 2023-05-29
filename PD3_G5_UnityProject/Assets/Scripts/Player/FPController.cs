@@ -100,10 +100,10 @@ public class FPController : MonoBehaviour
         dashIncreasesDamageBlessing = GetComponent<DashIncreasesDamageBlessingScript>();
 
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
-        currentDashCharges = PlayerStatsScript.playerStatsInstance.currentMaxDashCharges;
+        currentDashCharges = PlayerStatsScript.instance.currentMaxDashCharges;
         ChangeWeapon();
 
-        PlayerStatsScript.playerStatsInstance.ActivateBlessings();
+        PlayerStatsScript.instance.ActivateBlessings();
         
 
     }
@@ -191,7 +191,7 @@ public class FPController : MonoBehaviour
         }*/
         else
         {
-            currSpeed = walkSpeed + PlayerStatsScript.playerStatsInstance.currentSpeedBonus;
+            currSpeed = walkSpeed + PlayerStatsScript.instance.currentSpeedBonus;
         }
 
         if (Input.GetKeyDown(jumpKey) && onGround && Time.timeScale == 1f)
@@ -203,7 +203,9 @@ public class FPController : MonoBehaviour
         {
             if (direction != Vector3.zero)
             {
-                dashIncreasesDamageBlessing.StartDamageTimer();
+                if(dashIncreasesDamageBlessing.enabled)
+                    dashIncreasesDamageBlessing.StartDamageTimer();
+
                 dashReset = currentDashCharges > 1;
 
                 if (dashReset)
@@ -211,7 +213,7 @@ public class FPController : MonoBehaviour
                 else
                 {
                     startCooldown = true;
-                    currentDashCharges = PlayerStatsScript.playerStatsInstance.currentMaxDashCharges;
+                    currentDashCharges = PlayerStatsScript.instance.currentMaxDashCharges;
 
                 }
             }
@@ -285,14 +287,14 @@ public class FPController : MonoBehaviour
             weapon.SetActive(false);
         }
 
-        if(PlayerStatsScript.playerStatsInstance.currentWeaponIndex == 1)
+        if(PlayerStatsScript.instance.currentWeaponIndex == 1)
         {
-            PlayerStatsScript.playerStatsInstance.currentWeapon = weapons[0].GetComponent<ProjectileShootingScript>();
+            PlayerStatsScript.instance.currentWeapon = weapons[0].GetComponent<ProjectileShootingScript>();
             weapons[0].SetActive(true);
         }
-        if (PlayerStatsScript.playerStatsInstance.currentWeaponIndex == 2)
+        if (PlayerStatsScript.instance.currentWeaponIndex == 2)
         {
-            PlayerStatsScript.playerStatsInstance.currentWeapon = weapons[1].GetComponent<ProjectileShootingScript>();
+            PlayerStatsScript.instance.currentWeapon = weapons[1].GetComponent<ProjectileShootingScript>();
             weapons[1].SetActive(true);
         }
     }

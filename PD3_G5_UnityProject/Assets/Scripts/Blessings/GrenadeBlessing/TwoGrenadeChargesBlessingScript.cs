@@ -18,14 +18,14 @@ public class TwoGrenadeChargesBlessingScript : ParentBlessing
 
     private void OnEnable()
     {
-        PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges = 2;
+        PlayerStatsScript.instance.currentMaxGrenadeCharges = 2;
         grenadeController = GetComponent<GrenadeScript>();
-        grenadeController.currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;
+        grenadeController.currentGrenadeCharges = PlayerStatsScript.instance.currentMaxGrenadeCharges;
     }
 
     private void OnDisable()
     {
-        PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges = PlayerStatsScript.playerStatsInstance.baseMaxGrenadeCharges;
+        PlayerStatsScript.instance.currentMaxGrenadeCharges = PlayerStatsScript.instance.baseMaxGrenadeCharges;
 
     }
 

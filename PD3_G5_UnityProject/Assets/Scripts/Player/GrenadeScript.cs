@@ -43,7 +43,7 @@ public class GrenadeScript : MonoBehaviour
         multipleTargetsDamageBuffBlessing = GetComponent<MultipleTargetsDamageBuffBlessingScript>();
         grenadePool = new Queue<GameObject>();
         GameObject grenades = new("Grenades");
-        currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;
+        currentGrenadeCharges = PlayerStatsScript.instance.currentMaxGrenadeCharges;
 
 
         for (int i = 0; i < grenadesPerTap + 5; i++)
@@ -70,7 +70,7 @@ public class GrenadeScript : MonoBehaviour
         shootingGrenade = Input.GetKeyDown(KeyCode.F);
 
         //CHECKEAR SI SE ESTA RECARGANDO Y NO PERMITIR UTILIZAR LA HABLIDAD
-        if (readyToShootGrenade && shootingGrenade && Time.timeScale == 1f && !PlayerStatsScript.playerStatsInstance.isReloading)
+        if (readyToShootGrenade && shootingGrenade && Time.timeScale == 1f && !PlayerStatsScript.instance.isReloading)
         {
 
             shootingGrenade = false;
@@ -84,7 +84,7 @@ public class GrenadeScript : MonoBehaviour
             else
             {
                 cooldown.StartGrenadeCooldown(grenadeCooldown);
-                currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;
+                currentGrenadeCharges = PlayerStatsScript.instance.currentMaxGrenadeCharges;
             }
         }
     }

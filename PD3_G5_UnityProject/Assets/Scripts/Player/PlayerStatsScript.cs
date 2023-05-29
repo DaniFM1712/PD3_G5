@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerStatsScript : MonoBehaviour
 {
-    public static PlayerStatsScript playerStatsInstance { get; private set; }
+    public static PlayerStatsScript instance { get; private set; }
 
     //----------BASE--STATS----------//
 
@@ -44,11 +44,20 @@ public class PlayerStatsScript : MonoBehaviour
 
     //--------- BLESSING---------//
     public List<bool> currentBlessings;
+
+    //DASH
     public bool dashDamageBlessing = false;
     public bool dashCooldownBlessing = false;
 
+    //GRENADE
     public bool fireDOTBlessing = false;
     public bool killEnemyGrenadeBlessing = false;
+
+    //SHOTGUN
+    public bool killEnemyAbilityCooldownBlessing = false;
+    public bool killEnemyDamageBuffBlessing = false;
+
+    //RAPIDFIRE
 
     //---------ITEMS---------//
     public List<bool> currentDashAbilities;
@@ -82,9 +91,9 @@ public class PlayerStatsScript : MonoBehaviour
 
     private void Awake()
     {
-        if (playerStatsInstance == null)
+        if (instance == null)
         {
-            playerStatsInstance = this;
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -115,6 +124,7 @@ public class PlayerStatsScript : MonoBehaviour
         fireDOTBlessing = false;
         dashCooldownBlessing = false;
         killEnemyGrenadeBlessing = false;
+        killEnemyAbilityCooldownBlessing = false;
 
         //---------ITEMS---------//
 
@@ -157,6 +167,7 @@ public class PlayerStatsScript : MonoBehaviour
         fireDOTBlessing = false;
         dashCooldownBlessing = false;
         killEnemyGrenadeBlessing = false;
+        killEnemyAbilityCooldownBlessing = false;
 
 
         /*

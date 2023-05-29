@@ -73,7 +73,7 @@ public class ProjectileShootingScript : MonoBehaviour
         readyToShoot = true;
         shooting = false;
 
-        if(PlayerStatsScript.playerStatsInstance.currentWeaponIndex == 0)
+        if(PlayerStatsScript.instance.currentWeaponIndex == 0)
         {
             bulletCounterText.text = "0 / 0" ;
         }
@@ -94,10 +94,10 @@ public class ProjectileShootingScript : MonoBehaviour
         else
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !PlayerStatsScript.playerStatsInstance.isReloading)
+        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !PlayerStatsScript.instance.isReloading)
             Reload();
 
-        if(readyToShoot && shooting && !PlayerStatsScript.playerStatsInstance.isReloading && Time.timeScale == 1f)
+        if(readyToShoot && shooting && !PlayerStatsScript.instance.isReloading && Time.timeScale == 1f)
         {
             bulletsShot = 0;
             if (bulletsLeft > 0)
@@ -150,7 +150,7 @@ public class ProjectileShootingScript : MonoBehaviour
         currentBullet.SetActive(true);
         currentBullet.transform.position = bulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
-        currentBullet.GetComponent<BulletScript>().SetDamage((bulletDamage+PlayerStatsScript.playerStatsInstance.currentDamageBonus)*PlayerStatsScript.playerStatsInstance.currentDamageMultiplyer);
+        currentBullet.GetComponent<BulletScript>().SetDamage((bulletDamage+PlayerStatsScript.instance.currentDamageBonus)*PlayerStatsScript.instance.currentDamageMultiplyer);
         currentBullet.GetComponent<BulletScript>().player = player;
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * upwardForce, ForceMode.Impulse);
@@ -164,7 +164,7 @@ public class ProjectileShootingScript : MonoBehaviour
 
         if (allowInvoke)
         {
-            Invoke(nameof(ResetShot), timeBetweenShooting*PlayerStatsScript.playerStatsInstance.currentFireRateMultiplyer);
+            Invoke(nameof(ResetShot), timeBetweenShooting*PlayerStatsScript.instance.currentFireRateMultiplyer);
             allowInvoke = false;
         }
         if(bulletsShot < bulletsPerTap && bulletsLeft > 0)
@@ -181,13 +181,13 @@ public class ProjectileShootingScript : MonoBehaviour
     
     private void Reload()
     {
-        PlayerStatsScript.playerStatsInstance.isReloading = true;
+        PlayerStatsScript.instance.isReloading = true;
         Invoke("ReloadFinished", reloadTime);
     }
 
     private void ReloadFinished()
     {
-        PlayerStatsScript.playerStatsInstance.isReloading = false;
+        PlayerStatsScript.instance.isReloading = false;
         bulletsLeft = magazineSize;
         bulletCounterText.text = bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
 
@@ -211,7 +211,7 @@ public class ProjectileShootingScript : MonoBehaviour
     {
         try
         {
-            if (PlayerStatsScript.playerStatsInstance.currentWeaponIndex != 0)
+            if (PlayerStatsScript.instance.currentWeaponIndex != 0)
             {
                 bulletCounterText.text = bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
             }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9131815897324384615}
   - component: {fileID: 4781853274875488356}
   - component: {fileID: 2082958648928228346}
+  - component: {fileID: 6900740338379118312}
   - component: {fileID: 322781685182346913}
   m_Layer: 0
   m_Name: ShotgunPrefab
@@ -144,6 +145,21 @@ MonoBehaviour:
   blessingDescription: Probability of shooting your special twice.
   blessingType: 3
   canDoubleShot: 1
+--- !u!114 &6900740338379118312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afce2ac057cfe8b4485ee904988223bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blessingName: 'SG: Reset ability cooldown on kill.'
+  blessingDescription: After killing an enemy, the ability cooldown resets.
+  blessingType: 3
 --- !u!95 &322781685182346913
 Animator:
   serializedVersion: 5

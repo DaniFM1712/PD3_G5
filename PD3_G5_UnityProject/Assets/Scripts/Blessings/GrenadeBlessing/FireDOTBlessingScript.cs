@@ -14,13 +14,13 @@ public class FireDOTBlessingScript : ParentBlessing
 
     private void OnEnable()
     {
-        PlayerStatsScript.playerStatsInstance.fireDOTBlessing = true;
+        PlayerStatsScript.instance.fireDOTBlessing = true;
     }
 
 
     private void OnDisable()
     {
-        PlayerStatsScript.playerStatsInstance.fireDOTBlessing = false;
+        PlayerStatsScript.instance.fireDOTBlessing = false;
     }
 
 }

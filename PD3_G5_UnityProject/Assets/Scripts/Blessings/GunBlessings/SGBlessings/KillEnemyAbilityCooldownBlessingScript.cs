@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReduceDashCooldownBlessingScript : ParentBlessing
+public class KillEnemyAbilityCooldownBlessingScript : ParentBlessing
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        base.Start();
+        base.blessingType = BlessingType.Grenade;
     }
 
     // Update is called once per frame
@@ -18,13 +19,11 @@ public class ReduceDashCooldownBlessingScript : ParentBlessing
 
     private void OnEnable()
     {
-        PlayerStatsScript.instance.dashCooldownBlessing = true;
+        PlayerStatsScript.instance.killEnemyAbilityCooldownBlessing = true;
     }
 
     private void OnDisable()
     {
-        PlayerStatsScript.instance.dashCooldownBlessing = false;
-
+        PlayerStatsScript.instance.killEnemyAbilityCooldownBlessing = false;
     }
-
 }

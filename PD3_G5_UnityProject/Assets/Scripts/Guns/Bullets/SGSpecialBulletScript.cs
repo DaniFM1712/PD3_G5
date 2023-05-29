@@ -24,7 +24,6 @@ public class SGSpecialBulletScript : MonoBehaviour
         {
             timeToDestroy = lifeTime;
             ReturnToOrigin();
-            //Destroy(gameObject);
         }
     }
 
@@ -37,11 +36,29 @@ public class SGSpecialBulletScript : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Terrain"))
         {
+            bool dead = false;
 
             if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
             {
-                enemyPart.TakeDamage(damage, gameObject);
+                dead = enemyPart.TakeDamage(damage, gameObject);
             }
+            if (dead)
+            {
+                if (PlayerStatsScript.instance.killEnemyAbilityCooldownBlessing)
+                {
+                    weaponScript.ResetSpecialCooldown();
+
+                }
+            }
+            if (dead)
+            {
+                if (PlayerStatsScript.instance.killEnemyDamageBuffBlessing)
+                {
+                    weaponScript.ResetSpecialCooldown();
+
+                }
+            }
+
             ReturnToOrigin();
         }
     }

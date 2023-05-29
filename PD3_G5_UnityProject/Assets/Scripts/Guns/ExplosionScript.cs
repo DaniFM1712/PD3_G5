@@ -13,7 +13,7 @@ public class ExplosionScript : MonoBehaviour
     void Start()
     {
         timeToDestroy = lifeTime;
-        if (PlayerStatsScript.playerStatsInstance.fireDOTBlessing)
+        if (PlayerStatsScript.instance.fireDOTBlessing)
         {
             if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y+1, transform.position.z), Vector3.down, out RaycastHit hitInfo))
             {

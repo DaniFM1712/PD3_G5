@@ -17,7 +17,7 @@ public class DashIncreasesDamageBlessingScript : ParentBlessing
 
             if (damageTimer < 0)
             {
-                PlayerStatsScript.playerStatsInstance.dashDamageBlessing = false;
+                PlayerStatsScript.instance.dashDamageBlessing = false;
                 damageTimer = totalDamageTimer;
                 startTimer = false;
             }
@@ -27,7 +27,7 @@ public class DashIncreasesDamageBlessingScript : ParentBlessing
     }
     public void StartDamageTimer()
     {
-        PlayerStatsScript.playerStatsInstance.dashDamageBlessing = true;
+        PlayerStatsScript.instance.dashDamageBlessing = true;
         startTimer = true;
         damageTimer = totalDamageTimer;
     }

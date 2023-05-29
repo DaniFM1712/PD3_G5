@@ -25,9 +25,9 @@ public class StoreScript : MonoBehaviour
 
     public void IncreaseMaxHealth() 
     {
-        if(PlayerStatsScript.playerStatsInstance.currentSpecialCoin >= 10)
+        if(PlayerStatsScript.instance.currentSpecialCoin >= 10)
         {
-            PlayerStatsScript.playerStatsInstance.baseMaxHealth += 10;
+            PlayerStatsScript.instance.baseMaxHealth += 10;
 
             playerHealth.ModifyMaxHealth(10);
             playerHealth.ModifyHealth(10);
@@ -42,10 +42,10 @@ public class StoreScript : MonoBehaviour
 
     }
     public void IncreaseDamage() {
-        if (PlayerStatsScript.playerStatsInstance.currentSpecialCoin >= 10)
+        if (PlayerStatsScript.instance.currentSpecialCoin >= 10)
         {
-            PlayerStatsScript.playerStatsInstance.baseDamageBonus += 10;
-            PlayerStatsScript.playerStatsInstance.currentDamageBonus += 10;
+            PlayerStatsScript.instance.baseDamageBonus += 10;
+            PlayerStatsScript.instance.currentDamageBonus += 10;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-10);
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;
@@ -53,10 +53,10 @@ public class StoreScript : MonoBehaviour
         }
     }
     public void IncreaseSpeed() {
-        if (PlayerStatsScript.playerStatsInstance.currentSpecialCoin >= 10)
+        if (PlayerStatsScript.instance.currentSpecialCoin >= 10)
         {
-            PlayerStatsScript.playerStatsInstance.baseSpeedBonus += 10;
-            PlayerStatsScript.playerStatsInstance.currentSpeedBonus += 10;
+            PlayerStatsScript.instance.baseSpeedBonus += 10;
+            PlayerStatsScript.instance.currentSpeedBonus += 10;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-10);
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;

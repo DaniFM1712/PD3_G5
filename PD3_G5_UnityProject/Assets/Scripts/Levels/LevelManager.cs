@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerStatsScript.playerStatsInstance.SaveBlessings();
+        PlayerStatsScript.instance.SaveBlessings();
         generateRandomPath();
     }
 
@@ -38,7 +38,7 @@ public class LevelManager : MonoBehaviour
         if (levelPath.Count > 0)
         {
             currentLevel++;
-            PlayerStatsScript.playerStatsInstance.SaveBlessings();
+            PlayerStatsScript.instance.SaveBlessings();
             SceneManager.LoadScene(levelPath.Dequeue());
         }
         else
@@ -106,7 +106,7 @@ public class LevelManager : MonoBehaviour
     {
         generateRandomPath();
         CoinCounterScript.coinCounterInstance.resetNCCounter();
-        PlayerStatsScript.playerStatsInstance.ResetStats();
+        PlayerStatsScript.instance.ResetStats();
         InventoryManagerScript.InventoryInstance.ResetInventory();
         SceneManager.LoadScene(scene);
     }

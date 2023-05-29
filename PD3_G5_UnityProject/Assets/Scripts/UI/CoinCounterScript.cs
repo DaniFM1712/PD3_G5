@@ -27,7 +27,7 @@ public class CoinCounterScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerStats = PlayerStatsScript.playerStatsInstance;
+        playerStats = PlayerStatsScript.instance;
         ncText = ncCounter.GetComponent<TextMeshProUGUI>(); 
         scText = scCounter.GetComponent<TextMeshProUGUI>(); 
         updateNCCounter(0);

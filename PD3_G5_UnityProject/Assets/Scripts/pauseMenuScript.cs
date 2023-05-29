@@ -54,7 +54,7 @@ public class pauseMenuScript : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        PlayerStatsScript.playerStatsInstance.ResetStats();
+        PlayerStatsScript.instance.ResetStats();
         InventoryManagerScript.InventoryInstance.ResetInventory();
         HideMenuUI();
         LevelManager.levelManagerInstance.RestartGame(0);

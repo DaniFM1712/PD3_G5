@@ -71,7 +71,7 @@ public class buttonControllerScript : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        PlayerStatsScript.playerStatsInstance.ResetStats();
+        PlayerStatsScript.instance.ResetStats();
         InventoryManagerScript.InventoryInstance.ResetInventory();
         
         HideMenuUI();

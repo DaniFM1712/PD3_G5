@@ -20,14 +20,14 @@ public class TwoChargeBlessingScript : ParentBlessing
 
     private void OnEnable()
     {
-        PlayerStatsScript.playerStatsInstance.currentMaxDashCharges = 2;
+        PlayerStatsScript.instance.currentMaxDashCharges = 2;
         fPController = GetComponent<FPController>();
-        fPController.currentDashCharges = PlayerStatsScript.playerStatsInstance.currentMaxDashCharges;
+        fPController.currentDashCharges = PlayerStatsScript.instance.currentMaxDashCharges;
     }
 
     private void OnDisable()
     {
-        PlayerStatsScript.playerStatsInstance.currentMaxDashCharges = PlayerStatsScript.playerStatsInstance.baseMaxDashCharges;
+        PlayerStatsScript.instance.currentMaxDashCharges = PlayerStatsScript.instance.baseMaxDashCharges;
 
     }
 

@@ -41,7 +41,7 @@ public class RFSpecialScript : MonoBehaviour
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         specialBulletPool = new Queue<GameObject>();
         GameObject specialBullets = new("RF Special Bullets");
-        currentTrapCharges = PlayerStatsScript.playerStatsInstance.currentMaxTrapCharges;
+        currentTrapCharges = PlayerStatsScript.instance.currentMaxTrapCharges;
 
         for (int i = 0; i < specialBulletsPerTap + 5; i++)
         {
@@ -67,7 +67,7 @@ public class RFSpecialScript : MonoBehaviour
         shootingSpecial = Input.GetKeyDown(KeyCode.Mouse1);
 
         //CHECKEAR SI SE ESTA RECARGANDO Y NO PERMITIR UTILIZAR LA HABLIDAD
-        if (readyToShootSpecial && shootingSpecial && !PlayerStatsScript.playerStatsInstance.isReloading)
+        if (readyToShootSpecial && shootingSpecial && !PlayerStatsScript.instance.isReloading)
         {
             shootingSpecial = false;
             specialBulletsShot = 0;
@@ -80,7 +80,7 @@ public class RFSpecialScript : MonoBehaviour
             else
             {
                 cooldown.StartAbilityCooldown(specialCooldowmTime);
-                currentTrapCharges = PlayerStatsScript.playerStatsInstance.currentMaxTrapCharges;
+                currentTrapCharges = PlayerStatsScript.instance.currentMaxTrapCharges;
             }
         }
     }

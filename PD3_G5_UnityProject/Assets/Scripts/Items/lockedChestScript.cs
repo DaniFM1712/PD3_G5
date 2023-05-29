@@ -27,12 +27,12 @@ public class lockedChestScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canTake && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.playerStatsInstance.currentNormalCoin >= openPrice)
+        if (canTake && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.instance.currentNormalCoin >= openPrice)
         {
             consumableItemGO.SetActive(true);
             Destroy(gameObject);
         }
-        else if (canTake && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.playerStatsInstance.currentNormalCoin < openPrice)
+        else if (canTake && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.instance.currentNormalCoin < openPrice)
         {
             unableText.enabled = true;
         }

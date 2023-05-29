@@ -12,6 +12,8 @@ public class SGSpecialScript : MonoBehaviour
 
     [Header("Stats")]
     [SerializeField] float specialCooldownTime;
+    private float currentCooldownTime;
+    private bool specialInCooldown = false;
     [SerializeField] float specialSpread;
     [SerializeField] float specialTimeBetweenShots;
     [SerializeField] float specialBulletDamage;
@@ -31,7 +33,6 @@ public class SGSpecialScript : MonoBehaviour
     Queue<GameObject> specialBulletPool;
     CooldownScript cooldown;
 
-    bool cooldownBlessing = false;
     private int totalBullets = 0;
 
     DoubleShotBlessingScript doubleShotBlessing;
@@ -39,6 +40,7 @@ public class SGSpecialScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        currentCooldownTime = specialCooldownTime;
         baseSpecialBulletsPerTap = specialBulletsPerTap;
         cooldown = GameObject.Find("CanvasPrefab/Cooldowns").GetComponent<CooldownScript>();
         doubleShotBlessing = GetComponent<DoubleShotBlessingScript>();
@@ -58,15 +60,21 @@ public class SGSpecialScript : MonoBehaviour
         shootingSpecial = false;
     }
 
-    public void ResetCooldown()
-    {
-        //reducir cooldown
-    }
-
     // Update is called once per frame
     private void Update()
     {
         CheckInput();
+
+        if (specialInCooldown)
+        {
+            currentCooldownTime -= Time.deltaTime;
+        }
+        if(currentCooldownTime <= 0)
+        {
+            specialInCooldown = false;
+            currentCooldownTime = specialCooldownTime;
+            ResetSpecialShot();
+        }
     }
 
     private void CheckInput()
@@ -76,7 +84,7 @@ public class SGSpecialScript : MonoBehaviour
 
         //CHECKEAR SI SE ESTA RECARGANDO Y NO PERMITIR UTILIZAR EL ESPECIAL
 
-        if (readyToShootSpecial && shootingSpecial && !reloading && !PlayerStatsScript.playerStatsInstance.isReloading)
+        if (readyToShootSpecial && shootingSpecial && !reloading && !PlayerStatsScript.instance.isReloading)
         {
             specialBulletsShot = 0;
             ShootSpecial();
@@ -115,8 +123,8 @@ public class SGSpecialScript : MonoBehaviour
         currentBullet.SetActive(true);
         currentBullet.transform.position = specialBulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
-        currentBullet.GetComponent<SGSpecialBulletScript>().SetDamage(specialBulletDamage + PlayerStatsScript.playerStatsInstance.currentDamageMultiplyer);
-        if (cooldownBlessing)
+        currentBullet.GetComponent<SGSpecialBulletScript>().SetDamage(specialBulletDamage + PlayerStatsScript.instance.currentDamageMultiplyer);
+        if (PlayerStatsScript.instance.killEnemyAbilityCooldownBlessing)
         {
             currentBullet.GetComponent<SGSpecialBulletScript>().weaponScript = this;
         }
@@ -131,7 +139,7 @@ public class SGSpecialScript : MonoBehaviour
 
         if (allowInvokeSpecial)
         {
-            Invoke(nameof(ResetSpecialShot), specialCooldownTime);
+            specialInCooldown = true;
             allowInvokeSpecial = false;
         }
         if (specialBulletsShot < specialBulletsPerTap)
@@ -162,5 +170,13 @@ public class SGSpecialScript : MonoBehaviour
 
         if (bPerTap == 0)
             specialBulletsPerTap = baseSpecialBulletsPerTap;
+    }
+
+    public void ResetSpecialCooldown()
+    {
+        if (specialInCooldown)
+        {
+            currentCooldownTime = 0;
+        }
     }
 }

@@ -19,11 +19,11 @@ public class KillEnemyGrenadeBlessingScript : ParentBlessing
 
     private void OnEnable()
     {
-        PlayerStatsScript.playerStatsInstance.killEnemyGrenadeBlessing = true;
+        PlayerStatsScript.instance.killEnemyGrenadeBlessing = true;
     }
 
     private void OnDisable()
     {
-        PlayerStatsScript.playerStatsInstance.killEnemyGrenadeBlessing = false;
+        PlayerStatsScript.instance.killEnemyGrenadeBlessing = false;
     }
 }

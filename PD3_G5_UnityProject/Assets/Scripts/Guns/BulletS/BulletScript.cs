@@ -31,8 +31,12 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("EnergyEnemyShield"))
+        {
+            ReturnToOrigin();
+        }
 
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Terrain"))
+        else if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Terrain"))
         {
             bool dead = false;
 
@@ -42,24 +46,24 @@ public class BulletScript : MonoBehaviour
             }
             if (dead)
             {
-                if (PlayerStatsScript.playerStatsInstance.dashCooldownBlessing)
+                if (PlayerStatsScript.instance.dashCooldownBlessing)
                 {
                     player.GetComponent<FPController>().reduceDashCooldown(2f);
 
                 }
-                if (PlayerStatsScript.playerStatsInstance.killEnemyGrenadeBlessing)
+                if (PlayerStatsScript.instance.killEnemyGrenadeBlessing)
                 {
                     int i = Random.Range(0,100);
                     if(i>=90)
                         Instantiate(grenadePrefab, new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y+2f, other.gameObject.transform.position.z), Quaternion.identity);
                 }
+                if (PlayerStatsScript.instance.killEnemyAbilityCooldownBlessing)
+                {
+
+                }
             }
 
 
-            ReturnToOrigin();
-        }
-        if (other.gameObject.CompareTag("EnergyEnemyShield"))
-        {
             ReturnToOrigin();
         }
     }

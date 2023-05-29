@@ -40,7 +40,7 @@ public class BlessingStartScript : MonoBehaviour
         List<int> usedIndexes = new List<int>();
 
         Debug.Log("BLESSINGS LENGTH: "+blessings.Length);
-        if (PlayerStatsScript.playerStatsInstance.activatedBlessings < PlayerStatsScript.playerStatsInstance.maxBlessings)
+        if (PlayerStatsScript.instance.activatedBlessings < PlayerStatsScript.instance.maxBlessings)
         {
             blessingIndex = Random.Range(0, blessings.Length );
             while (blessings[blessingIndex].enabled || blessings[blessingIndex].blessingType != ParentBlessing.BlessingType.Dash
@@ -63,7 +63,7 @@ public class BlessingStartScript : MonoBehaviour
             blessing2 = blessings[blessingIndex];
 
             blessingIndex = Random.Range(0, blessings.Length );
-            if(PlayerStatsScript.playerStatsInstance.currentWeaponIndex == 1)
+            if(PlayerStatsScript.instance.currentWeaponIndex == 1)
             {
                 while (blessings[blessingIndex].enabled || blessings[blessingIndex].blessingType != ParentBlessing.BlessingType.RapidFire
                 || usedIndexes.Contains(blessingIndex))
@@ -72,7 +72,7 @@ public class BlessingStartScript : MonoBehaviour
                     //Hem d'evitar aixo si totes les blessings ja estan activades
                 }
             }
-            else if(PlayerStatsScript.playerStatsInstance.currentWeaponIndex == 2)
+            else if(PlayerStatsScript.instance.currentWeaponIndex == 2)
             {
 
                 while (blessings[blessingIndex].enabled || blessings[blessingIndex].blessingType != ParentBlessing.BlessingType.ShotGun
@@ -103,21 +103,21 @@ public class BlessingStartScript : MonoBehaviour
     public void activateBlessing1()
     {
         blessing1.enabled = true;
-        PlayerStatsScript.playerStatsInstance.activatedBlessings++;
+        PlayerStatsScript.instance.activatedBlessings++;
         InventoryManagerScript.InventoryInstance.UpdateBlessingsUI();
         Destroy(gameObject);
     }
     public void activateBlessing2()
     {
         blessing2.enabled = true;
-        PlayerStatsScript.playerStatsInstance.activatedBlessings++;
+        PlayerStatsScript.instance.activatedBlessings++;
         InventoryManagerScript.InventoryInstance.UpdateBlessingsUI();
         Destroy(gameObject);
     }
     public void activateBlessing3()
     {
         blessing3.enabled = true;
-        PlayerStatsScript.playerStatsInstance.activatedBlessings++;
+        PlayerStatsScript.instance.activatedBlessings++;
         InventoryManagerScript.InventoryInstance.UpdateBlessingsUI();
         Destroy(gameObject);
     }

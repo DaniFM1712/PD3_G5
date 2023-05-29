@@ -48,7 +48,7 @@ public class RunStoreScript : MonoBehaviour
         {
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
-            NCText.text = "NC: "+ PlayerStatsScript.playerStatsInstance.currentNormalCoin;
+            NCText.text = "NC: "+ PlayerStatsScript.instance.currentNormalCoin;
             NCText.enabled = true;
             storeCanvas.SetActive(true);
         }
@@ -56,20 +56,20 @@ public class RunStoreScript : MonoBehaviour
 
     public void BuyHealth()
     {
-        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= healthCost && PlayerStatsScript.playerStatsInstance.currentHealth < PlayerStatsScript.playerStatsInstance.currentMaxHealth * PlayerStatsScript.playerStatsInstance.currentMaxHealthMultiplyer)
+        if (PlayerStatsScript.instance.currentNormalCoin >= healthCost && PlayerStatsScript.instance.currentHealth < PlayerStatsScript.instance.currentMaxHealth * PlayerStatsScript.instance.currentMaxHealthMultiplyer)
         {
 
             player.GetComponent<PlayerHealthScript>().ModifyHealth(healthValue);
 
             CoinCounterScript.coinCounterInstance.updateNCCounter(-healthCost);
-            NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
+            NCText.text = "NC: " + PlayerStatsScript.instance.currentNormalCoin;
 
         }
     }
     public void BuyRandomItem()
     {
 
-        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomItemCost)
+        if (PlayerStatsScript.instance.currentNormalCoin >= randomItemCost)
         {
 
             if(InventoryManagerScript.InventoryInstance.CanAddItem(randomItem.rarity))
@@ -79,7 +79,7 @@ public class RunStoreScript : MonoBehaviour
                 InventoryManagerScript.InventoryInstance.AddItem(randomItem.rarity, randomItem);
 
                 CoinCounterScript.coinCounterInstance.updateNCCounter(-randomItemCost);
-                NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
+                NCText.text = "NC: " + PlayerStatsScript.instance.currentNormalCoin;
             }
 
         }
@@ -89,7 +89,7 @@ public class RunStoreScript : MonoBehaviour
     public void BuyRareItem()
     {
 
-        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomRareCost)
+        if (PlayerStatsScript.instance.currentNormalCoin >= randomRareCost)
         {
 
             if (InventoryManagerScript.InventoryInstance.CanAddItem(rareItem.rarity))
@@ -99,7 +99,7 @@ public class RunStoreScript : MonoBehaviour
                 InventoryManagerScript.InventoryInstance.AddItem(rareItem.rarity, rareItem);
 
                 CoinCounterScript.coinCounterInstance.updateNCCounter(-randomRareCost);
-                NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
+                NCText.text = "NC: " + PlayerStatsScript.instance.currentNormalCoin;
 
             }
 
@@ -110,7 +110,7 @@ public class RunStoreScript : MonoBehaviour
     public void BuyLegendaryItem()
     {
 
-        if (PlayerStatsScript.playerStatsInstance.currentNormalCoin >= randomLegendaryCost)
+        if (PlayerStatsScript.instance.currentNormalCoin >= randomLegendaryCost)
         {
 
             if (InventoryManagerScript.InventoryInstance.CanAddItem(legendaryItem.rarity))
@@ -120,7 +120,7 @@ public class RunStoreScript : MonoBehaviour
                 InventoryManagerScript.InventoryInstance.AddItem(legendaryItem.rarity, legendaryItem);
 
                 CoinCounterScript.coinCounterInstance.updateNCCounter(-randomLegendaryCost);
-                NCText.text = "NC: " + PlayerStatsScript.playerStatsInstance.currentNormalCoin;
+                NCText.text = "NC: " + PlayerStatsScript.instance.currentNormalCoin;
 
             }
 

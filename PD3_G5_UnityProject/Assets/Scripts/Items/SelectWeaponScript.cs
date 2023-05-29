@@ -33,26 +33,26 @@ public class SelectWeaponScript : MonoBehaviour
 
     public void selectRapidFire()
     {
-        PlayerStatsScript.playerStatsInstance.currentWeaponIndex = 1;
+        PlayerStatsScript.instance.currentWeaponIndex = 1;
         player.GetComponent<FPController>().ChangeWeapon();
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         weaponCanvas.SetActive(false);
-        PlayerStatsScript.playerStatsInstance.currentBlessings.Clear();
-        PlayerStatsScript.playerStatsInstance.SaveBlessings();
-        PlayerStatsScript.playerStatsInstance.ActivateBlessings();
+        PlayerStatsScript.instance.currentBlessings.Clear();
+        PlayerStatsScript.instance.SaveBlessings();
+        PlayerStatsScript.instance.ActivateBlessings();
     }
 
     public void selectShotGun()
     {
-        PlayerStatsScript.playerStatsInstance.currentWeaponIndex = 2;
+        PlayerStatsScript.instance.currentWeaponIndex = 2;
         player.GetComponent<FPController>().ChangeWeapon();
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         weaponCanvas.SetActive(false);
-        PlayerStatsScript.playerStatsInstance.currentBlessings.Clear();
-        PlayerStatsScript.playerStatsInstance.SaveBlessings();
-        PlayerStatsScript.playerStatsInstance.ActivateBlessings();
+        PlayerStatsScript.instance.currentBlessings.Clear();
+        PlayerStatsScript.instance.SaveBlessings();
+        PlayerStatsScript.instance.ActivateBlessings();
 
     }
 

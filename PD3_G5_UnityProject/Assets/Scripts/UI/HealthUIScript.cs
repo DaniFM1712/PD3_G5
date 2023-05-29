@@ -40,7 +40,7 @@ public class HealthUIScript : MonoBehaviour
 
     public void updateHealth()
     {
-        float normalizedHP = PlayerStatsScript.playerStatsInstance.currentHealth / (PlayerStatsScript.playerStatsInstance.currentMaxHealth * PlayerStatsScript.playerStatsInstance.currentMaxHealthMultiplyer);
+        float normalizedHP = PlayerStatsScript.instance.currentHealth / (PlayerStatsScript.instance.currentMaxHealth * PlayerStatsScript.instance.currentMaxHealthMultiplyer);
         int hp = Mathf.RoundToInt(normalizedHP * 100);
         
         hpText.text = hp + "";
