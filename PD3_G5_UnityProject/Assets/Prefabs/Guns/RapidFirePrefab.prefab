@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6010861365889382181}
   - component: {fileID: 4184947771254055846}
   - component: {fileID: 2086164306476858657}
+  - component: {fileID: 5690900690179264571}
   m_Layer: 0
   m_Name: RapidFirePrefab
   m_TagString: Player
@@ -144,6 +145,27 @@ MonoBehaviour:
   blessingName: 'RF: Increse Trap Charges'
   blessingDescription: Increses the amount of special shot.
   blessingType: 2
+--- !u!95 &5690900690179264571
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 244f81a403f42ff42bfa47e48182b757, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7352254666028250571
 GameObject:
   m_ObjectHideFlags: 0

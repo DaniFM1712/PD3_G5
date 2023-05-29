@@ -157,7 +157,7 @@ MonoBehaviour:
   speed: 10
   dashLength: 0.08
   dashSpeed: 60
-  dashCooldown: 1
+  dashCooldown: 5
   currentDashCharges: 0
 --- !u!114 &588255094290663183
 MonoBehaviour:
@@ -467,7 +467,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4448752421841495827}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 0.24, z: 0.46}
+  m_LocalPosition: {x: 0.114, y: 0.219, z: 0.365}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -605,7 +605,7 @@ PrefabInstance:
     - target: {fileID: 7352254665611245802, guid: de1b484802dac7e49827798adf8352ee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.067
+      value: -0.027
       objectReference: {fileID: 0}
     - target: {fileID: 7352254665611245802, guid: de1b484802dac7e49827798adf8352ee,
         type: 3}
@@ -663,6 +663,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6610077119698529702}
     m_Modifications:
+    - target: {fileID: 5690900690179264571, guid: e6ef93be3a191454c90ee5f427aa3fd6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 244f81a403f42ff42bfa47e48182b757, type: 2}
     - target: {fileID: 7352254665611245801, guid: e6ef93be3a191454c90ee5f427aa3fd6,
         type: 3}
       propertyPath: m_Name
