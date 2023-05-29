@@ -1638,6 +1638,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 299818695}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &358606454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 358606457}
+  - component: {fileID: 358606456}
+  - component: {fileID: 358606455}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &358606455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358606454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &358606456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358606454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &358606457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358606454}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &367943968
 GameObject:
   m_ObjectHideFlags: 0
@@ -3553,6 +3621,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674439022}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &690945871 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9075133619693385990, guid: d904462fecfb9ac4abdf152ce1f66314,
+    type: 3}
+  m_PrefabInstance: {fileID: 2142746019}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b9a6fe6be445443979e17abed3e143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &711926803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6168,10 +6248,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 344526270398690460, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 690945871}
+    - target: {fileID: 344526270398690460, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowSettingsUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 344526270398690460, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: buttonControllerScript, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1014340324231770293, guid: 7b076ffa3b93a644ba8934883be79fe1,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193372508900235235, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 690945871}
+    - target: {fileID: 3193372508900235235, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HideMenuUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193372508900235235, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: buttonControllerScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193372508900235235, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3773309682800077955, guid: 7b076ffa3b93a644ba8934883be79fe1,
         type: 3}
@@ -6287,6 +6402,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049428593501490886, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 690945871}
+    - target: {fileID: 9049428593501490886, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowMenuUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049428593501490886, guid: 7b076ffa3b93a644ba8934883be79fe1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: buttonControllerScript, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b076ffa3b93a644ba8934883be79fe1, type: 3}
@@ -8018,11 +8148,16 @@ MonoBehaviour:
   currentSpecialCoin: 0
   activatedBlessings: 0
   isReloading: 0
+  currentBlessings: 
+  dashDamageBlessing: 0
+  dashCooldownBlessing: 0
+  fireDOTBlessing: 0
+  killEnemyGrenadeBlessing: 0
+  killEnemyAbilityCooldownBlessing: 0
+  killEnemyDamageBuffBlessing: 0
   currentDashAbilities: 
   currentWeaponAbilities: 
   currentGrenadeAbilities: 
-  currentBlessings: 
-  dashDamageBlessing: 0
   baseFireRateMultiplyer: 1
   currentFireRateMultiplyer: 0
   baseEssenceMultiplyer: 1
@@ -8033,6 +8168,10 @@ MonoBehaviour:
   currentCriticalMultiplyer: 0
   baseMaxHealthMultiplyer: 1
   currentMaxHealthMultiplyer: 0
+  baseCurrentDamageMultiplyer: 1
+  currentDamageMultiplyer: 0
+  highHealthDamageBuff: 0
+  highHealthDamageApplied: 0
 --- !u!4 &1630741207
 Transform:
   m_ObjectHideFlags: 0
