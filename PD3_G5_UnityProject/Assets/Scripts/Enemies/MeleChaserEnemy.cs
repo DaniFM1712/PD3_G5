@@ -4,22 +4,20 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
-public class MeleChaserEnemy : MonoBehaviour
+public class MeleChaserEnemy : ParentEnemyIAScript
 {
 
-    NavMeshAgent agent;
+    
     
     [SerializeField] LayerMask obstacleMask;
     Vector3 distanceToPlayer;
     [SerializeField] UnityEvent<GameObject> objectIsDead;
-    private bool blocked = false;
 
 
 
     enum State { IDLE, CHASE, ATTACK, HIT , DIE }
     [SerializeField] State currentState;
     [SerializeField] float secondsToSetEnemy;
-    private GameObject player;
 
     [Header("IDLE")]
     State lastState;
@@ -51,9 +49,9 @@ public class MeleChaserEnemy : MonoBehaviour
         lastCheckedHealth = GetComponent<EnemyHealthScript>().GetCurrentHealth();
         currentState = State.IDLE;
     }
-    private void Start()
+    override public void Start()
     {
-        player = GameObject.Find("Player");
+        base.Start();
     }
 
     void Update()
@@ -227,39 +225,7 @@ public class MeleChaserEnemy : MonoBehaviour
         }
     }
 
-    public void StopAgent()
-    {
-        blocked = true;
-        //agent.SetDestination(transform.position);
-        agent.isStopped = true;
-
-    }
-
-    public void RestartAgent()
-    {
-        blocked = false;
-        //agent.SetDestination(player.transform.position);
-        agent.isStopped = false;
-
-
-    }
-
-    public void GetStunned(float stunTimer)
-    {
-        StartCoroutine(StunEffect(stunTimer));
-    }
-
-    IEnumerator StunEffect(float timer)
-    {
-
-        StopAgent();
-
-        yield return new WaitForSeconds(timer);
-
-        RestartAgent();
-
-
-    }
+    
 
     private void OnDrawGizmosSelected()
     {

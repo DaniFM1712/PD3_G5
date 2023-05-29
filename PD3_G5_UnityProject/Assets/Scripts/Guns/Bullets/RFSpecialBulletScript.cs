@@ -42,6 +42,15 @@ public class RFSpecialBulletScript : MonoBehaviour
             specialEffect.GetComponent<TrapScript>().SetTrapDamage(trapDamage);
             ReturnToOrigin();
         }
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            if (other.gameObject.TryGetComponent<MeleChaserEnemy>(out MeleChaserEnemy enemyIA))
+            {
+                enemyIA.GetStunned(3f);
+            }
+            other.gameObject.GetComponent<EnemyHealthScript>().TakeDamage(trapDamage);
+
+        }
     }
 
     public void SetTrapDamage(float trapDamage)

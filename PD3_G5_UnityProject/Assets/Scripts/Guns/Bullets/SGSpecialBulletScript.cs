@@ -41,6 +41,10 @@ public class SGSpecialBulletScript : MonoBehaviour
 
             if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
             {
+                if (PlayerStatsScript.instance.distanceDamageBlessing)
+                {
+                    damage *= (timeToDestroy / 2);
+                }
                 dead = enemyPart.TakeDamage(damage, gameObject);
             }
             if (dead)
@@ -48,15 +52,12 @@ public class SGSpecialBulletScript : MonoBehaviour
                 if (PlayerStatsScript.instance.killEnemyAbilityCooldownBlessing)
                 {
                     weaponScript.ResetSpecialCooldown();
-
                 }
                 if (PlayerStatsScript.instance.killEnemyDamageBuffBlessing)
                 {
                     damageBuffBlessing.StartDamageTimer();
-
                 }
             }
-
             ReturnToOrigin();
         }
     }

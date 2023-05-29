@@ -59,6 +59,7 @@ public class PlayerStatsScript : MonoBehaviour
     public bool distanceDamageBlessing = false;
 
     //RAPIDFIRE
+    public bool trappedEnemyDamageIncreasedBlessing = false;
 
     //---------ITEMS---------//
     public List<bool> currentDashAbilities;
@@ -127,6 +128,7 @@ public class PlayerStatsScript : MonoBehaviour
         killEnemyGrenadeBlessing = false;
         killEnemyAbilityCooldownBlessing = false;
         distanceDamageBlessing = false;
+        trappedEnemyDamageIncreasedBlessing = false;
 
         //---------ITEMS---------//
 
@@ -171,6 +173,7 @@ public class PlayerStatsScript : MonoBehaviour
         killEnemyGrenadeBlessing = false;
         killEnemyAbilityCooldownBlessing = false;
         distanceDamageBlessing = false;
+        trappedEnemyDamageIncreasedBlessing = false;
 
 
         /*

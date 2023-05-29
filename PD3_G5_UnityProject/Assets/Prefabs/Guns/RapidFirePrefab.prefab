@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4184947771254055846}
   - component: {fileID: 2086164306476858657}
   - component: {fileID: 5690900690179264571}
+  - component: {fileID: 5035848434588096649}
   m_Layer: 0
   m_Name: RapidFirePrefab
   m_TagString: Player
@@ -166,6 +167,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5035848434588096649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0c320d88415418418ad7cce16da3786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blessingName: 'RF: More damage on trapped enemies. '
+  blessingDescription: Trapped enemies recieve more damage form your bullets.
+  blessingType: 2
 --- !u!1 &7352254666028250571
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,17 +5,15 @@ using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.ProBuilder;
 
-public class GolemEnemyAIScript : MonoBehaviour
+public class GolemEnemyAIScript : ParentEnemyIAScript
 {
 
-    NavMeshAgent agent;
 
     [SerializeField] LayerMask obstacleMask;
     [SerializeField] GameObject bulletPrefab;
 
     Vector3 distanceToPlayer;
     [SerializeField] UnityEvent<GameObject> objectIsDead;
-    private bool blocked = false;
 
     //SHOOTING 
     [Header("Forces")]
@@ -48,7 +46,6 @@ public class GolemEnemyAIScript : MonoBehaviour
     [SerializeField] float secondsToSetEnemy;
     [SerializeField] float secondsToCDMeleeAttack;
     private bool canMeleeAttack = true;
-    private GameObject player;
 
     [Header("IDLE")]
     State lastState;
@@ -82,9 +79,10 @@ public class GolemEnemyAIScript : MonoBehaviour
         lastCheckedHealth = GetComponent<EnemyHealthScript>().GetCurrentHealth();
         currentState = State.IDLE;
     }
-    private void Start()
+    override public void Start()
     {
-        player = GameObject.Find("Player");
+        base.Start();
+
         bulletPool = new Queue<GameObject>();
         GameObject bullets = new GameObject("GolemBullets");
         for (int i = 0; i < magazineSize + 10; i++)
@@ -359,40 +357,6 @@ public class GolemEnemyAIScript : MonoBehaviour
             }
             else currentState = State.HIT;
         }
-    }
-
-    public void StopAgent()
-    {
-        blocked = true;
-        //agent.SetDestination(transform.position);
-        agent.isStopped = true;
-
-    }
-
-    public void RestartAgent()
-    {
-        blocked = false;
-        //agent.SetDestination(player.transform.position);
-        agent.isStopped = false;
-
-
-    }
-
-    public void GetStunned(float stunTimer)
-    {
-        StartCoroutine(StunEffect(stunTimer));
-    }
-
-    IEnumerator StunEffect(float timer)
-    {
-
-        StopAgent();
-
-        yield return new WaitForSeconds(timer);
-
-        RestartAgent();
-
-
     }
 
     private void OnDrawGizmosSelected()

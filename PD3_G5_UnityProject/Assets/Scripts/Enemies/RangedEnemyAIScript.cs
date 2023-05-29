@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
-public class RangedEnemyAIScript : MonoBehaviour
+public class RangedEnemyAIScript : ParentEnemyIAScript
 {
-    NavMeshAgent agent;
 
     [SerializeField] LayerMask obstacleMask;
     [SerializeField] GameObject bulletPrefab;
@@ -45,7 +44,6 @@ public class RangedEnemyAIScript : MonoBehaviour
     private bool enemySetted = false;
 
 
-    private GameObject player;
 
     [Header("IDLE")]
     [SerializeField] float maxDetectionCooldown = 2f;
@@ -77,11 +75,11 @@ public class RangedEnemyAIScript : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         currentState = State.IDLE;
     }
-    private void Start()
+    override public void Start()
     {
+        base.Start();
         lastCheckedHealth = GetComponent<EnemyHealthScript>().GetCurrentHealth();
         currentDetectionCooldown = maxDetectionCooldown;
-        player = GameObject.Find("Player");
         bulletPool = new Queue<GameObject>();
         GameObject bullets = new GameObject("RangedBullets");
         for (int i = 0; i < magazineSize + 10; i++)

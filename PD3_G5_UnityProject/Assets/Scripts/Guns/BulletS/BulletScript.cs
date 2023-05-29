@@ -7,6 +7,7 @@ public class BulletScript : MonoBehaviour
     public GameObject player;
     [SerializeField] float lifeTime = 5f;
     [SerializeField] GameObject grenadePrefab;
+    [SerializeField] float trappedDamageIncreased = 0.3f;
     float damage;
     float timeToDestroy;
     Vector3 originPosition = new Vector3(0f, 0f, 0f);
@@ -43,9 +44,9 @@ public class BulletScript : MonoBehaviour
 
             if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
             {
-                if (PlayerStatsScript.instance.distanceDamageBlessing)
+                if (PlayerStatsScript.instance.trappedEnemyDamageIncreasedBlessing)
                 {
-                    damage *= (timeToDestroy/2);
+                    damage *= (1f+trappedDamageIncreased);
                 }
                 dead = enemyPart.TakeDamage(damage, null);
             }
@@ -61,10 +62,6 @@ public class BulletScript : MonoBehaviour
                     int i = Random.Range(0,100);
                     if(i>=90)
                         Instantiate(grenadePrefab, new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y+2f, other.gameObject.transform.position.z), Quaternion.identity);
-                }
-                if (PlayerStatsScript.instance.killEnemyAbilityCooldownBlessing)
-                {
-
                 }
             }
 
