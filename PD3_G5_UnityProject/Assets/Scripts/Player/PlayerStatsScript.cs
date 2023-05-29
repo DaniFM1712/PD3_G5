@@ -56,6 +56,7 @@ public class PlayerStatsScript : MonoBehaviour
     //SHOTGUN
     public bool killEnemyAbilityCooldownBlessing = false;
     public bool killEnemyDamageBuffBlessing = false;
+    public bool distanceDamageBlessing = false;
 
     //RAPIDFIRE
 
@@ -125,6 +126,7 @@ public class PlayerStatsScript : MonoBehaviour
         dashCooldownBlessing = false;
         killEnemyGrenadeBlessing = false;
         killEnemyAbilityCooldownBlessing = false;
+        distanceDamageBlessing = false;
 
         //---------ITEMS---------//
 
@@ -168,6 +170,7 @@ public class PlayerStatsScript : MonoBehaviour
         dashCooldownBlessing = false;
         killEnemyGrenadeBlessing = false;
         killEnemyAbilityCooldownBlessing = false;
+        distanceDamageBlessing = false;
 
 
         /*

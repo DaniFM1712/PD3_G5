@@ -27,6 +27,7 @@ public class BulletScript : MonoBehaviour
             ReturnToOrigin();
             //Destroy(gameObject);
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,6 +43,10 @@ public class BulletScript : MonoBehaviour
 
             if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
             {
+                if (PlayerStatsScript.instance.distanceDamageBlessing)
+                {
+                    damage *= (timeToDestroy/2);
+                }
                 dead = enemyPart.TakeDamage(damage, null);
             }
             if (dead)
