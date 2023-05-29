@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 4781853274875488356}
   - component: {fileID: 2082958648928228346}
   - component: {fileID: 6900740338379118312}
+  - component: {fileID: 6688742230177285445}
+  - component: {fileID: 5030680122726355070}
   - component: {fileID: 322781685182346913}
   m_Layer: 0
   m_Name: ShotgunPrefab
@@ -125,8 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408fd927562b6d340b9a834414163d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blessingName: 'SG: Bullet Amount '
-  blessingDescription: Increses special shot bullet amount.
+  blessingName: 'SG: Ability bullet amount '
+  blessingDescription: Increses ability bullet amount.
   blessingType: 3
   bulletsPerTapBlessing: 10
 --- !u!114 &2082958648928228346
@@ -141,8 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed9f6311241dbf45b45503b0e530915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blessingName: 'SG: Double Shot'
-  blessingDescription: Probability of shooting your special twice.
+  blessingName: 'SG: Double Ability Shot'
+  blessingDescription: Probability of shooting your ability twice.
   blessingType: 3
   canDoubleShot: 1
 --- !u!114 &6900740338379118312
@@ -158,7 +160,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blessingName: 'SG: Reset ability cooldown on kill.'
-  blessingDescription: After killing an enemy, the ability cooldown resets.
+  blessingDescription: After killing an enemy with the ability, it's cooldown resets.
+  blessingType: 3
+--- !u!114 &6688742230177285445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0221561b4ad7ce048ad32fc00b372b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blessingName: 'SG: Damage buff on kill with ability.'
+  blessingDescription: After killing an enemy with the ability, your bullets get
+    a damage buff for 3 seconds.
+  blessingType: 3
+  damageMultiplyerIncrease: 0.3
+  totalDamageTimer: 3
+--- !u!114 &5030680122726355070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3976886103aeecd44947c4db4fe543f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blessingName: 'SG: Ability damage decreases with distance.'
+  blessingDescription: Ability bullets do more damage the less distance they travel.
   blessingType: 3
 --- !u!95 &322781685182346913
 Animator:
