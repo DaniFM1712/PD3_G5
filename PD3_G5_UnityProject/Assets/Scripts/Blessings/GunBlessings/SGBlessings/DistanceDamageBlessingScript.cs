@@ -8,7 +8,7 @@ public class DistanceDamageBlessingScript : ParentBlessing
     override public void Start()
     {
         base.Start();
-        base.blessingType = BlessingType.ShotGun;
+        blessingType = BlessingType.ShotGun;
     }
 
     private void OnEnable()
