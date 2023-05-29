@@ -6,6 +6,7 @@ public class BulletScript : MonoBehaviour
 {
     public GameObject player;
     [SerializeField] float lifeTime = 5f;
+    [SerializeField] GameObject grenadePrefab;
     float damage;
     float timeToDestroy;
     Vector3 originPosition = new Vector3(0f, 0f, 0f);
@@ -39,10 +40,22 @@ public class BulletScript : MonoBehaviour
             {
                 dead = enemyPart.TakeDamage(damage, null);
             }
-            if (dead && PlayerStatsScript.playerStatsInstance.dashCooldownBlessing)
+            if (dead)
             {
-                player.GetComponent<FPController>().reduceDashCooldown(2f);
+                if (PlayerStatsScript.playerStatsInstance.dashCooldownBlessing)
+                {
+                    player.GetComponent<FPController>().reduceDashCooldown(2f);
+
+                }
+                if (PlayerStatsScript.playerStatsInstance.killEnemyGrenadeBlessing)
+                {
+                    int i = Random.Range(0,100);
+                    if(i>=90)
+                        Instantiate(grenadePrefab, new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y+2f, other.gameObject.transform.position.z), Quaternion.identity);
+                }
             }
+
+
             ReturnToOrigin();
         }
         if (other.gameObject.CompareTag("EnergyEnemyShield"))

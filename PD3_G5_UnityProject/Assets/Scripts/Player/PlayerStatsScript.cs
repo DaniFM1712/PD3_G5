@@ -45,8 +45,10 @@ public class PlayerStatsScript : MonoBehaviour
     //--------- BLESSING---------//
     public List<bool> currentBlessings;
     public bool dashDamageBlessing = false;
-    public bool fireDOTBlessing = false;
     public bool dashCooldownBlessing = false;
+
+    public bool fireDOTBlessing = false;
+    public bool killEnemyGrenadeBlessing = false;
 
     //---------ITEMS---------//
     public List<bool> currentDashAbilities;
@@ -112,6 +114,7 @@ public class PlayerStatsScript : MonoBehaviour
         dashDamageBlessing = false;
         fireDOTBlessing = false;
         dashCooldownBlessing = false;
+        killEnemyGrenadeBlessing = false;
 
         //---------ITEMS---------//
 
@@ -153,6 +156,7 @@ public class PlayerStatsScript : MonoBehaviour
         dashDamageBlessing = false;
         fireDOTBlessing = false;
         dashCooldownBlessing = false;
+        killEnemyGrenadeBlessing = false;
 
 
         /*

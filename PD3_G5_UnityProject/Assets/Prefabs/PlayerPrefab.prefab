@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 5675935048691595221}
   - component: {fileID: 4620273999810753855}
   - component: {fileID: 8790911041028235431}
+  - component: {fileID: 141689439144725514}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -292,6 +293,21 @@ MonoBehaviour:
   blessingDescription: After killing an enemy, your dash cooldown is reduced by 0,5
     seconds.
   blessingType: 0
+--- !u!114 &141689439144725514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688068328114149645}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd5fa645aba6084db0cdedfb6f6ddd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blessingName: 'DO: Killing an enemy may spawn a grenade.'
+  blessingDescription: 10% chance to spawn a grenade when killing an enemy.
+  blessingType: 1
 --- !u!1 &3688068329095023214
 GameObject:
   m_ObjectHideFlags: 0
