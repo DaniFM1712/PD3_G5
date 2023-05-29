@@ -36,6 +36,7 @@ public class SGSpecialScript : MonoBehaviour
     private int totalBullets = 0;
 
     DoubleShotBlessingScript doubleShotBlessing;
+    KillEnemyDamageBuffBlessingScript damageBuffBlessing;
 
     // Start is called before the first frame update
     private void Start()
@@ -44,6 +45,7 @@ public class SGSpecialScript : MonoBehaviour
         baseSpecialBulletsPerTap = specialBulletsPerTap;
         cooldown = GameObject.Find("CanvasPrefab/Cooldowns").GetComponent<CooldownScript>();
         doubleShotBlessing = GetComponent<DoubleShotBlessingScript>();
+        damageBuffBlessing = GetComponent<KillEnemyDamageBuffBlessingScript>();
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         specialBulletPool = new Queue<GameObject>();
         GameObject specialBullets = new("SG Special Bullets");
@@ -127,6 +129,11 @@ public class SGSpecialScript : MonoBehaviour
         if (PlayerStatsScript.instance.killEnemyAbilityCooldownBlessing)
         {
             currentBullet.GetComponent<SGSpecialBulletScript>().weaponScript = this;
+        }
+
+        if (PlayerStatsScript.instance.killEnemyDamageBuffBlessing)
+        {
+            currentBullet.GetComponent<SGSpecialBulletScript>().damageBuffBlessing = damageBuffBlessing;
         }
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * specialShootForce, ForceMode.Impulse);

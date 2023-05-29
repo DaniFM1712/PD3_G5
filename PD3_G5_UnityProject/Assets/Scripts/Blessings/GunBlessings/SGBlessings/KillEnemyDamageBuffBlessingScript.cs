@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashIncreasesDamageBlessingScript : ParentBlessing
+public class KillEnemyDamageBuffBlessingScript : ParentBlessing
 {
     [SerializeField] float damageMultiplyerIncrease = 0.3f;
     public float totalDamageTimer = 3f;
     private bool startTimer = false;
     private float damageTimer;
 
-
+    // Start is called before the first frame update
     override public void Start()
     {
         base.Start();
         base.blessingType = BlessingType.ShotGun;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (startTimer)
@@ -31,12 +30,23 @@ public class DashIncreasesDamageBlessingScript : ParentBlessing
             }
         }
 
-        
+
     }
     public void StartDamageTimer()
     {
-        PlayerStatsScript.instance.currentDamageMultiplyer += damageMultiplyerIncrease;
         startTimer = true;
         damageTimer = totalDamageTimer;
+        PlayerStatsScript.instance.currentDamageMultiplyer += damageMultiplyerIncrease;
+    }
+
+    private void OnEnable()
+    {
+        PlayerStatsScript.instance.killEnemyDamageBuffBlessing = true;
+    }
+
+    private void OnDisable()
+    {
+        PlayerStatsScript.instance.killEnemyDamageBuffBlessing = false;
+
     }
 }

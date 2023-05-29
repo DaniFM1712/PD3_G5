@@ -6,6 +6,7 @@ public class SGSpecialBulletScript : MonoBehaviour
 {
     [SerializeField] float lifeTime = 5f;
     public SGSpecialScript weaponScript;
+    public KillEnemyDamageBuffBlessingScript damageBuffBlessing;
     float damage;
     float timeToDestroy;
     Vector3 originPosition = new Vector3(0f, 0f, 0f);
@@ -49,12 +50,9 @@ public class SGSpecialBulletScript : MonoBehaviour
                     weaponScript.ResetSpecialCooldown();
 
                 }
-            }
-            if (dead)
-            {
                 if (PlayerStatsScript.instance.killEnemyDamageBuffBlessing)
                 {
-                    weaponScript.ResetSpecialCooldown();
+                    damageBuffBlessing.StartDamageTimer();
 
                 }
             }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class KillEnemyAbilityCooldownBlessingScript : ParentBlessing
 {
     // Start is called before the first frame update
-    void Start()
+    override public void Start()
     {
         base.Start();
         base.blessingType = BlessingType.Grenade;
