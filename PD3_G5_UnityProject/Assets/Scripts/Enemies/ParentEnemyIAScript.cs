@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class ParentEnemyIAScript : MonoBehaviour
 {
-    bool isTrapped = false;
+    public bool isTrapped = false;
     protected bool blocked = false;
     protected NavMeshAgent agent;
     protected GameObject player;
@@ -19,27 +19,31 @@ public class ParentEnemyIAScript : MonoBehaviour
     {
         isTrapped = true;
         StartCoroutine(StunEffect(stunTimer));
-        isTrapped = false;
     }
 
     IEnumerator StunEffect(float timer)
     {
+        Debug.Log("START");
         StopAgent();
         yield return new WaitForSeconds(timer);
         RestartAgent();
+        isTrapped = false;
+        Debug.Log("STOP");
+
+
     }
 
     public void StopAgent()
     {
         blocked = true;
-        //agent.SetDestination(transform.position);
+        agent.SetDestination(transform.position);
         agent.isStopped = true;
     }
 
     public void RestartAgent()
     {
         blocked = false;
-        //agent.SetDestination(player.transform.position);
+        agent.SetDestination(player.transform.position);
         agent.isStopped = false;
     }
 

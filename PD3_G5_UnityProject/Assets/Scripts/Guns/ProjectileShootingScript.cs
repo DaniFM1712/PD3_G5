@@ -190,7 +190,7 @@ public class ProjectileShootingScript : MonoBehaviour
         Invoke("ReloadFinished", reloadTime);
     }
 
-    private void ReloadFinished()
+    public void ReloadFinished()
     {
         AnimatorEventConsumerScript.instance.reloading = false;
         PlayerStatsScript.instance.isReloading = false;

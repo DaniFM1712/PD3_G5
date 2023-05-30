@@ -15,10 +15,6 @@ public class FPController : MonoBehaviour
     [SerializeField]
     public KeyCode mouseLockKey = KeyCode.O;
 
-
-
-
-
     private bool angleLocked = false;
 
     float yaw = 0;
@@ -216,8 +212,15 @@ public class FPController : MonoBehaviour
                 {
                     startCooldown = true;
                     currentDashCharges = PlayerStatsScript.instance.currentMaxDashCharges;
-
                 }
+            }
+            if (PlayerStatsScript.instance.dashReloadWeaponBlessing)
+            {
+                PlayerStatsScript.instance.currentWeapon.ReloadFinished();
+            }
+            if (PlayerStatsScript.instance.dashHealBlessing)
+            {
+                GetComponent<PlayerHealthScript>().ActivateDashHeal();
             }
             
 
@@ -242,7 +245,7 @@ public class FPController : MonoBehaviour
         }
         return moved;
     }
-
+    
     void checkDash()
     {
         dashAllowed = dashing < dashLength && dashingTime < dashCooldown && dashReset && canDash ;
@@ -320,11 +323,8 @@ public class FPController : MonoBehaviour
 
     public void reduceDashCooldown(float time)
     {
-        Debug.Log("ENTRO CD");
         if (dashingTime<dashCooldown)
         {
-            Debug.Log("ENTRO BE AL CD");
-            //DashingTime<dashCooldown
             dashingTime += time;
             reduceDashCooldownEvent.Invoke(time);
         }

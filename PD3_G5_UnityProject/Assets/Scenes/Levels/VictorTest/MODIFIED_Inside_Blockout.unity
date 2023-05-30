@@ -1990,7 +1990,7 @@ PrefabInstance:
     - target: {fileID: 6654428136059557673, guid: 825c3c10342deb24f890819ef2bf8210,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6654428136059557673, guid: 825c3c10342deb24f890819ef2bf8210,
         type: 3}
@@ -2224,7 +2224,7 @@ PrefabInstance:
     - target: {fileID: 6654428136059557673, guid: 825c3c10342deb24f890819ef2bf8210,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6654428136059557673, guid: 825c3c10342deb24f890819ef2bf8210,
         type: 3}
@@ -10505,7 +10505,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh100616
+  m_Name: pb_Mesh1029194
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15045,7 +15045,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-118330
+  m_Name: pb_Mesh-1455514
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17922,99 +17922,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &625535074
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 625535076}
-  - component: {fileID: 625535075}
-  m_Layer: 0
-  m_Name: PlayerStats
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &625535075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 625535074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85353edfa2bab70439e83894f246331a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseMaxHealth: 150
-  baseMaxShield: 0
-  baseDamageBonus: 0
-  baseSpeedBonus: 0
-  baseMaxDashCharges: 1
-  baseMaxGrenadeCharges: 1
-  baseMaxTrapCharges: 1
-  maxBlessings: 8
-  currentMaxHealth: 0
-  currentMaxShield: 0
-  currentMaxDashCharges: 0
-  currentMaxGrenadeCharges: 0
-  currentMaxTrapCharges: 0
-  currentHealth: 0
-  currentShield: 0
-  currentDamageBonus: 0
-  currentSpeedBonus: 0
-  currentWeaponIndex: 0
-  currentWeapon: {fileID: 0}
-  currentNormalCoin: 0
-  currentSpecialCoin: 0
-  activatedBlessings: 0
-  isReloading: 0
-  currentBlessings: 
-  dashDamageBlessing: 0
-  dashCooldownBlessing: 0
-  fireDOTBlessing: 0
-  killEnemyGrenadeBlessing: 0
-  killEnemyAbilityCooldownBlessing: 0
-  killEnemyDamageBuffBlessing: 0
-  distanceDamageBlessing: 0
-  trappedEnemyDamageIncreasedBlessing: 0
-  currentDashAbilities: 
-  currentWeaponAbilities: 
-  currentGrenadeAbilities: 
-  baseFireRateMultiplyer: 1
-  currentFireRateMultiplyer: 0
-  baseEssenceMultiplyer: 1
-  currentEssenceMultiplyer: 0
-  baseDivinePowerMultiplyer: 1
-  currentDivinePowerMultiplyer: 0
-  baseCriticalMultiplyer: 1
-  currentCriticalMultiplyer: 0
-  baseMaxHealthMultiplyer: 1
-  currentMaxHealthMultiplyer: 0
-  baseCurrentDamageMultiplyer: 1
-  currentDamageMultiplyer: 0
-  highHealthDamageBuff: 0
-  highHealthDamageApplied: 0
---- !u!4 &625535076
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 625535074}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -87.159485, y: -62.25722, z: -243.11075}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &626524051
 GameObject:
   m_ObjectHideFlags: 0
@@ -19849,7 +19756,7 @@ Transform:
   - {fileID: 1262274261255337117}
   - {fileID: 1082540554}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &723637845
 GameObject:
@@ -28221,7 +28128,7 @@ PrefabInstance:
     - target: {fileID: 6654428136059557673, guid: 825c3c10342deb24f890819ef2bf8210,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6654428136059557673, guid: 825c3c10342deb24f890819ef2bf8210,
         type: 3}
@@ -34935,8 +34842,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191949645}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -38, y: 17.1128, z: -79.2}
-  m_LocalScale: {x: -123.51549, y: 1, z: -145.8613}
+  m_LocalPosition: {x: -38, y: 16.5, z: -79.2}
+  m_LocalScale: {x: -123.51549, y: 1.65, z: -145.8613}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 572976908}
@@ -40001,7 +39908,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh100158
+  m_Name: pb_Mesh1028736
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -41612,7 +41519,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -46900,7 +46807,7 @@ PrefabInstance:
     - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
         type: 3}
@@ -50268,6 +50175,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 242321187}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetAbilityCooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CooldownScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5301dd35a2af1245b35289bf67ebbb0, type: 3}
 --- !u!95 &1617020898 stripped
@@ -51646,7 +51588,7 @@ PrefabInstance:
     - target: {fileID: 9075133619693385991, guid: d904462fecfb9ac4abdf152ce1f66314,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 9075133619693385991, guid: d904462fecfb9ac4abdf152ce1f66314,
         type: 3}
@@ -53779,7 +53721,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-118344
+  m_Name: pb_Mesh-1455528
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

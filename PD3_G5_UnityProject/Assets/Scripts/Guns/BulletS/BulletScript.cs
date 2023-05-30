@@ -44,7 +44,7 @@ public class BulletScript : MonoBehaviour
 
             if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
             {
-                if (PlayerStatsScript.instance.trappedEnemyDamageIncreasedBlessing)
+                if (PlayerStatsScript.instance.trappedEnemyDamageIncreasedBlessing && other.gameObject.transform.parent.gameObject.GetComponent<ParentEnemyIAScript>().isTrapped)
                 {
                     damage *= (1f+trappedDamageIncreased);
                 }

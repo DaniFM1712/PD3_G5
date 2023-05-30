@@ -289,6 +289,10 @@ public class InventoryManagerScript : MonoBehaviour
             itemUI.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>().text = "";
             itemUI.SetActive(false);
         }
+        dashBlessings.text = "";
+        weaponsBlessings.text = ""; 
+        grenadeBlessings.text = "";
+
     }
 
     public void RemoveCommonItem(int slot)

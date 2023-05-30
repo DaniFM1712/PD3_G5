@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 6010861365889382181}
   - component: {fileID: 4184947771254055846}
   - component: {fileID: 2086164306476858657}
-  - component: {fileID: 5690900690179264571}
   - component: {fileID: 5035848434588096649}
+  - component: {fileID: 2955325434890317926}
+  - component: {fileID: 5690900690179264571}
   m_Layer: 0
   m_Name: RapidFirePrefab
   m_TagString: Player
@@ -110,7 +111,7 @@ MonoBehaviour:
   specialSpread: 0.2
   specialReloadTime: 0
   specialTimeBetweenShots: 0
-  specialBulletDamage: 0
+  specialBulletDamage: 5
   specialBulletsPerTap: 1
   bulletOrigin: {fileID: 7352254666028250572}
   allowInvokeSpecial: 1
@@ -130,7 +131,7 @@ MonoBehaviour:
   blessingName: 'RF: Trap Damage Incresed'
   blessingDescription: Increses trap damage.
   blessingType: 2
-  increasedTrapDamage: 100
+  increasedTrapDamage: 20
 --- !u!114 &2086164306476858657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +146,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blessingName: 'RF: Increse Trap Charges'
   blessingDescription: Increses the amount of special shot.
+  blessingType: 2
+--- !u!114 &5035848434588096649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0c320d88415418418ad7cce16da3786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blessingName: 'RF: More damage on trapped enemies. '
+  blessingDescription: Trapped enemies recieve more damage form your bullets.
+  blessingType: 2
+--- !u!114 &2955325434890317926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d8ca32e3f9169e45879fa5104d28290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blessingName: 'RF: Trap multiple enemies.'
+  blessingDescription: Traps can trap multiple targets, for less time.
   blessingType: 2
 --- !u!95 &5690900690179264571
 Animator:
@@ -167,21 +198,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5035848434588096649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7352254665611245801}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0c320d88415418418ad7cce16da3786, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blessingName: 'RF: More damage on trapped enemies. '
-  blessingDescription: Trapped enemies recieve more damage form your bullets.
-  blessingType: 2
 --- !u!1 &7352254666028250571
 GameObject:
   m_ObjectHideFlags: 0

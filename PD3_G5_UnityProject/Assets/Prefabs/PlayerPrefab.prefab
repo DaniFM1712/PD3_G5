@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 4620273999810753855}
   - component: {fileID: 8790911041028235431}
   - component: {fileID: 141689439144725514}
+  - component: {fileID: 6168365255104639644}
+  - component: {fileID: 6802118331050358614}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -309,6 +311,36 @@ MonoBehaviour:
   blessingName: 'DO: Killing an enemy may spawn a grenade.'
   blessingDescription: 10% chance to spawn a grenade when killing an enemy.
   blessingType: 1
+--- !u!114 &6168365255104639644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688068328114149645}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e6f379bfcd4634fa1392f7432a28c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blessingName: 'DA: Dash reloads your weapon.'
+  blessingDescription: Dashing fills your weapon ammo.
+  blessingType: 0
+--- !u!114 &6802118331050358614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688068328114149645}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be24cc2cab898dc4b94e58543d907fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blessingName: 'DA: Dash heals recent damage.'
+  blessingDescription: Dashing heals half the damage recived in the last three seconds.
+  blessingType: 0
 --- !u!1 &3688068329095023214
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +575,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7042139617754449410}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

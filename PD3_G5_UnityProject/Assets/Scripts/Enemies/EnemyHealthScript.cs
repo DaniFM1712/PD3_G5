@@ -44,7 +44,8 @@ public class EnemyHealthScript : MonoBehaviour
             damage *= 1.3f;
         }
         currentHealth -= damage;
-        Instantiate(damageTextPrefab, transform.position, Quaternion.identity).GetComponent<DamageTextScript>().Initialise(damage);
+        if(damage!=0)
+            Instantiate(damageTextPrefab, transform.position, Quaternion.identity).GetComponent<DamageTextScript>().Initialise(damage);
 
         if (healthBar.gameObject.activeSelf == false)
         {

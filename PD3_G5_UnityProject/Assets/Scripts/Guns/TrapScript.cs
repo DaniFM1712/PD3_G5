@@ -7,10 +7,9 @@ public class TrapScript : MonoBehaviour
 {
     [SerializeField] float lifeTime = 5f;
     [SerializeField] float freezeDuration = 5f;
-    [SerializeField] float baseTrapDamage = 10f;
+    [SerializeField] float damage = 0f;
     float timeToDestroy;
     bool damageDealt = false;
-    float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -38,32 +37,29 @@ public class TrapScript : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart) && !damageDealt)
+            if (other.gameObject.TryGetComponent(out EnemyHealthScript enemyHealth) && !damageDealt)
             {
                 Debug.Log("DAMAGE DEALT: "+damage);
                 damageDealt = true;
-                enemyPart.TakeDamage(damage, null);
+                enemyHealth.TakeDamage(damage);
             }
-            if (other.gameObject.TryGetComponent<MeleChaserEnemy>(out MeleChaserEnemy enemyIA))
+            if (other.gameObject.transform.parent.gameObject.TryGetComponent(out ParentEnemyIAScript enemyIA))
             {
+                if(PlayerStatsScript.instance.trapTrapsMultipleEnemiesBlessing)
+                    enemyIA.GetStunned(freezeDuration/3);
                 enemyIA.GetStunned(freezeDuration);
             }
-            Destroy(gameObject);
+            if(!PlayerStatsScript.instance.trapTrapsMultipleEnemiesBlessing)
+                Destroy(gameObject);
         }
 
     }
 
-    public void SetTrapDamage(float increasedDamage)
+    public void SetTrapDamage(float newDamage)
     {
-        Debug.Log("INCREASED DAMAGE: "+increasedDamage);
-        damage = increasedDamage;
-        Debug.Log("1. DAMAGE: " + damage);
-        if (increasedDamage == 0)
-            damage = baseTrapDamage;
-
-        Debug.Log("2. DAMAGE: " + damage);
-
+        damage = newDamage;
     }
+
 
 
 

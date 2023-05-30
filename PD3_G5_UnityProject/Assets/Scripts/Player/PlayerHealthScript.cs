@@ -9,10 +9,15 @@ using UnityEngine.SceneManagement;
 public class PlayerHealthScript : MonoBehaviour
 {
     private HealthUIScript healthUI;
+    private float dashHealBlessingTimer = 3f;
+    private float currentDashHealTimer = 0f;
+    private float accumulatedHeal = 0f;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        currentDashHealTimer = dashHealBlessingTimer;
         healthUI = HealthUIScript.healthUIInstance;
         if (PlayerStatsScript.instance.highHealthDamageBuff && !PlayerStatsScript.instance.highHealthDamageApplied)
         {
@@ -27,11 +32,24 @@ public class PlayerHealthScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+        if (PlayerStatsScript.instance.dashHealBlessing)
+        {
+            Debug.Log(accumulatedHeal);
+            currentDashHealTimer -= Time.deltaTime;
+            if(currentDashHealTimer <= 0)
+            {
+                currentDashHealTimer = dashHealBlessingTimer;
+                accumulatedHeal = 0;
+            }
+        }   
     }
 
     public void ModifyHealth(float modifier)
     {
+        if (PlayerStatsScript.instance.dashHealBlessing && modifier<0)
+        {
+            accumulatedHeal += (modifier*-1);
+        }
         PlayerStatsScript.instance.currentHealth += modifier;
         PlayerStatsScript.instance.currentHealth = Mathf.Clamp(PlayerStatsScript.instance.currentHealth, 0, 
             PlayerStatsScript.instance.GetCurrentMaxHealth());
@@ -70,4 +88,10 @@ public class PlayerHealthScript : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
+    public void ActivateDashHeal()
+    {
+        ModifyHealth(accumulatedHeal/2);
+        accumulatedHeal = 0;
+        currentDashHealTimer = dashHealBlessingTimer;
+    }
 }

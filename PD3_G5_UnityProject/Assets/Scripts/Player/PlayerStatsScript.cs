@@ -48,6 +48,8 @@ public class PlayerStatsScript : MonoBehaviour
     //DASH
     public bool dashDamageBlessing = false;
     public bool dashCooldownBlessing = false;
+    public bool dashReloadWeaponBlessing = false;
+    public bool dashHealBlessing = false;
 
     //GRENADE
     public bool fireDOTBlessing = false;
@@ -60,6 +62,8 @@ public class PlayerStatsScript : MonoBehaviour
 
     //RAPIDFIRE
     public bool trappedEnemyDamageIncreasedBlessing = false;
+    public bool trapDealsDamageBlessing = false;
+    public bool trapTrapsMultipleEnemiesBlessing = false;
 
     //---------ITEMS---------//
     public List<bool> currentDashAbilities;
@@ -125,10 +129,14 @@ public class PlayerStatsScript : MonoBehaviour
         dashDamageBlessing = false;
         fireDOTBlessing = false;
         dashCooldownBlessing = false;
+        dashReloadWeaponBlessing = false;
+        dashHealBlessing = false;
         killEnemyGrenadeBlessing = false;
         killEnemyAbilityCooldownBlessing = false;
         distanceDamageBlessing = false;
         trappedEnemyDamageIncreasedBlessing = false;
+        trapDealsDamageBlessing = false;
+        trapTrapsMultipleEnemiesBlessing = false;
 
         //---------ITEMS---------//
 
@@ -158,6 +166,7 @@ public class PlayerStatsScript : MonoBehaviour
         currentDamageBonus = baseDamageBonus;
         currentSpeedBonus = baseSpeedBonus;
         currentWeaponIndex = 0;
+        currentWeapon = null;
         currentNormalCoin = 0;
         currentMaxDashCharges = baseMaxDashCharges;
         currentMaxGrenadeCharges = baseMaxGrenadeCharges;
@@ -170,10 +179,15 @@ public class PlayerStatsScript : MonoBehaviour
         dashDamageBlessing = false;
         fireDOTBlessing = false;
         dashCooldownBlessing = false;
+        dashReloadWeaponBlessing = false;
+        dashHealBlessing = false;
         killEnemyGrenadeBlessing = false;
         killEnemyAbilityCooldownBlessing = false;
         distanceDamageBlessing = false;
         trappedEnemyDamageIncreasedBlessing = false;
+        trapDealsDamageBlessing = false;
+        trapTrapsMultipleEnemiesBlessing = false;
+        trapTrapsMultipleEnemiesBlessing = false;
 
 
         /*

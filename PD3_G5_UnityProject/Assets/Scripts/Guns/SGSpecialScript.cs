@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SGSpecialScript : MonoBehaviour
 {
@@ -37,6 +38,9 @@ public class SGSpecialScript : MonoBehaviour
 
     DoubleShotBlessingScript doubleShotBlessing;
     KillEnemyDamageBuffBlessingScript damageBuffBlessing;
+
+    [SerializeField] UnityEvent resetAbilityCooldownEvent;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -184,6 +188,7 @@ public class SGSpecialScript : MonoBehaviour
         if (specialInCooldown)
         {
             currentCooldownTime = 0;
+            resetAbilityCooldownEvent.Invoke();
         }
     }
 }

@@ -9,7 +9,8 @@ public class RFSpecialBulletScript : MonoBehaviour
     float damage;
     float timeToDestroy;
     Vector3 originPosition = new Vector3(0f, 0f, 0f);
-    private float trapDamage = 0;
+    private float trapDamage = 0f;
+    [SerializeField]float areaMultiplyerBlessing = 2f;
 
     private void Awake()
     {
@@ -29,33 +30,37 @@ public class RFSpecialBulletScript : MonoBehaviour
         }
     }
 
+    
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("EnergyEnemyShield"))
-        {
-            ReturnToOrigin();
-        }
-
         if (other.gameObject.CompareTag("Terrain"))
         {
             GameObject specialEffect = Instantiate(specialEffectPrefab, other.ClosestPoint(transform.position), Quaternion.identity);
+            if(PlayerStatsScript.instance.trapTrapsMultipleEnemiesBlessing)
+                specialEffect.transform.localScale *= areaMultiplyerBlessing;
             specialEffect.GetComponent<TrapScript>().SetTrapDamage(trapDamage);
-            ReturnToOrigin();
         }
         if (other.gameObject.CompareTag("Enemy"))
         {
-            if (other.gameObject.TryGetComponent<MeleChaserEnemy>(out MeleChaserEnemy enemyIA))
+            if (other.gameObject.transform.parent.gameObject.TryGetComponent(out ParentEnemyIAScript enemyIA))
             {
-                enemyIA.GetStunned(3f);
+                enemyIA.GetStunned(5f);
+                other.gameObject.transform.parent.gameObject.GetComponent<EnemyHealthScript>().TakeDamage(damage);
             }
-            other.gameObject.GetComponent<EnemyHealthScript>().TakeDamage(trapDamage);
-
         }
+        ReturnToOrigin();
+
     }
 
     public void SetTrapDamage(float trapDamage)
     {
         this.trapDamage = trapDamage;
+    }
+
+    public void SetBulletDamage(float damage)
+    {
+        this.damage = damage;
     }
 
     private void ReturnToOrigin()

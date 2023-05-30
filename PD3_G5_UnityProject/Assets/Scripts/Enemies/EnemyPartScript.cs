@@ -30,15 +30,6 @@ public class EnemyPartScript : MonoBehaviour
             currentHealth -= (damage * damageMultiplyer);
             bool dead = health.TakeDamage(damage * damageMultiplyer);
             return dead;
-
-            /*
-            if(bullet.TryGetComponent<SGSpecialBulletScript>(out SGSpecialBulletScript sgBullet))
-            {
-                if(currentHealth<= 0 && sgBullet.weaponScript != null)
-                {
-                    sgBullet.weaponScript.ResetCooldown();
-                }
-            }*/
         }
         return false;
     }

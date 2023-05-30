@@ -106,4 +106,14 @@ public class CooldownScript : MonoBehaviour
         grenadeInCD = true;
         grenadeCDImage.enabled = true;
     }
+
+    public void ResetAbilityCooldown()
+    {
+
+        if (abilityInCD)
+        {
+            abilityCDTime = 0f;
+        }
+    }
+
 }

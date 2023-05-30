@@ -56,6 +56,9 @@ public class MeleChaserEnemy : ParentEnemyIAScript
 
     void Update()
     {
+        //if (agent.hasPath)
+            //agent.acceleration = (agent.remainingDistance < 4f) ? 60f : 2f;
+
         if (enemySetted)
         {
             distanceToPlayer = player.transform.position - transform.position;

@@ -38,14 +38,16 @@ public class SGSpecialBulletScript : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Terrain"))
         {
             bool dead = false;
+            float damageMult = 1f;
 
             if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
             {
                 if (PlayerStatsScript.instance.distanceDamageBlessing)
                 {
-                    damage *= (timeToDestroy / 2);
+                    damageMult = (timeToDestroy / 2f);
                 }
-                dead = enemyPart.TakeDamage(damage, gameObject);
+                dead = enemyPart.TakeDamage(damage* damageMult, gameObject);
+
             }
             if (dead)
             {

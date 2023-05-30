@@ -917,6 +917,41 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.16
       objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 375895813}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetAbilityCooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CooldownScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5301dd35a2af1245b35289bf67ebbb0, type: 3}
 --- !u!95 &286048612 stripped

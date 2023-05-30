@@ -720,6 +720,41 @@ PrefabInstance:
       propertyPath: reduceDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 519996770}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519996770}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetAbilityCooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CooldownScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019589806021156681, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: resetAbilityCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5301dd35a2af1245b35289bf67ebbb0, type: 3}
 --- !u!1 &286048612 stripped
@@ -2311,12 +2346,16 @@ MonoBehaviour:
   currentBlessings: 
   dashDamageBlessing: 0
   dashCooldownBlessing: 0
+  dashReloadWeaponBlessing: 0
+  dashHealBlessing: 0
   fireDOTBlessing: 0
   killEnemyGrenadeBlessing: 0
   killEnemyAbilityCooldownBlessing: 0
   killEnemyDamageBuffBlessing: 0
   distanceDamageBlessing: 0
   trappedEnemyDamageIncreasedBlessing: 0
+  trapDealsDamageBlessing: 0
+  trapTrapsMultipleEnemiesBlessing: 0
   currentDashAbilities: 
   currentWeaponAbilities: 
   currentGrenadeAbilities: 
@@ -4209,6 +4248,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AnimatorController
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611715, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b3c0c6bafb38204da30922753e54e66, type: 3}
