@@ -64,6 +64,7 @@ public class PlayerStatsScript : MonoBehaviour
     public bool trappedEnemyDamageIncreasedBlessing = false;
     public bool trapDealsDamageBlessing = false;
     public bool trapTrapsMultipleEnemiesBlessing = false;
+    public bool trapSlowsBlessing = false;
 
     //---------ITEMS---------//
     public List<bool> currentDashAbilities;
@@ -137,6 +138,7 @@ public class PlayerStatsScript : MonoBehaviour
         trappedEnemyDamageIncreasedBlessing = false;
         trapDealsDamageBlessing = false;
         trapTrapsMultipleEnemiesBlessing = false;
+        trapSlowsBlessing = false;
 
         //---------ITEMS---------//
 
@@ -187,7 +189,7 @@ public class PlayerStatsScript : MonoBehaviour
         trappedEnemyDamageIncreasedBlessing = false;
         trapDealsDamageBlessing = false;
         trapTrapsMultipleEnemiesBlessing = false;
-        trapTrapsMultipleEnemiesBlessing = false;
+        trapSlowsBlessing = false;
 
 
         /*

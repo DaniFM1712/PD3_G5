@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2086164306476858657}
   - component: {fileID: 5035848434588096649}
   - component: {fileID: 2955325434890317926}
+  - component: {fileID: 3236555061251283710}
   - component: {fileID: 5690900690179264571}
   m_Layer: 0
   m_Name: RapidFirePrefab
@@ -66,7 +67,7 @@ MonoBehaviour:
     type: 3}
   shootForce: 60
   upwardForce: 0
-  timeBetweenShooting: 0.1
+  timeBetweenShooting: 0.25
   spread: 0.5
   reloadTime: 1.5
   timeBetweenShots: 0
@@ -105,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialBulletPrefab: {fileID: 3682631923943361041, guid: b4c56e34a3a267340a0b5494befcd0f6,
     type: 3}
-  specialShootForce: 60
+  specialShootForce: 50
   specialUpwardForce: 0
   specialCooldowmTime: 10
   specialSpread: 0.2
@@ -176,6 +177,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blessingName: 'RF: Trap multiple enemies.'
   blessingDescription: Traps can trap multiple targets, for less time.
+  blessingType: 2
+--- !u!114 &3236555061251283710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6346cd3120589a4292f516f74998e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blessingName: 'RF: Trap activates slow effect.'
+  blessingDescription: After a trap is activated, a slow effect appears around it.
   blessingType: 2
 --- !u!95 &5690900690179264571
 Animator:

@@ -8,6 +8,7 @@ public class TrapScript : MonoBehaviour
     [SerializeField] float lifeTime = 5f;
     [SerializeField] float freezeDuration = 5f;
     [SerializeField] float damage = 0f;
+    [SerializeField] GameObject slowPrefab;
     float timeToDestroy;
     bool damageDealt = false;
 
@@ -48,6 +49,10 @@ public class TrapScript : MonoBehaviour
                 if(PlayerStatsScript.instance.trapTrapsMultipleEnemiesBlessing)
                     enemyIA.GetStunned(freezeDuration/3);
                 enemyIA.GetStunned(freezeDuration);
+            }
+            if (PlayerStatsScript.instance.trapSlowsBlessing)
+            {
+                Instantiate(slowPrefab,transform.position,Quaternion.identity);
             }
             if(!PlayerStatsScript.instance.trapTrapsMultipleEnemiesBlessing)
                 Destroy(gameObject);

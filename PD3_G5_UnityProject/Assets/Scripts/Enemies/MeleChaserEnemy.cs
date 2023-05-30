@@ -75,9 +75,9 @@ public class MeleChaserEnemy : ParentEnemyIAScript
                     ChangeFromIdle();
                     break;
                 case State.CHASE:
-                    Vector3 targetDelta = player.transform.position - transform.position;
-                    float angleToTarget = Vector3.Angle(transform.forward, targetDelta);
-                    Vector3 turnAxis = Vector3.Cross(transform.forward, targetDelta);
+                    //Vector3 targetDelta = player.transform.position - transform.position;
+                    //float angleToTarget = Vector3.Angle(transform.forward, targetDelta);
+                    //Vector3 turnAxis = Vector3.Cross(transform.forward, targetDelta);
 
                     lastState = State.CHASE;
                     updateChase();
