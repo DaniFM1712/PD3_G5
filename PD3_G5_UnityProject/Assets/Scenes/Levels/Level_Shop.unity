@@ -919,6 +919,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5301dd35a2af1245b35289bf67ebbb0, type: 3}
+--- !u!95 &286048612 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9096726519061533379, guid: b5301dd35a2af1245b35289bf67ebbb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 286048611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &286048613 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1552392113532917903, guid: b5301dd35a2af1245b35289bf67ebbb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 286048611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &286048614 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7559685367276726625, guid: b5301dd35a2af1245b35289bf67ebbb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 286048611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &306337435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,6 +1941,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645681864}
   m_CullTransparentMesh: 1
+--- !u!1001 &759324135
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 147.9619
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -127.41635
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -189.18007
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611714, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: rocksAnimator
+      value: 
+      objectReference: {fileID: 286048612}
+    - target: {fileID: 7918904819187611714, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: shotgunAnimator
+      value: 
+      objectReference: {fileID: 286048613}
+    - target: {fileID: 7918904819187611714, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: rapidFireAnimator
+      value: 
+      objectReference: {fileID: 286048614}
+    - target: {fileID: 7918904819187611715, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_Name
+      value: AnimatorController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b3c0c6bafb38204da30922753e54e66, type: 3}
 --- !u!1 &765657909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2663,6 +2765,10 @@ MonoBehaviour:
   dashCooldownBlessing: 0
   fireDOTBlessing: 0
   killEnemyGrenadeBlessing: 0
+  killEnemyAbilityCooldownBlessing: 0
+  killEnemyDamageBuffBlessing: 0
+  distanceDamageBlessing: 0
+  trappedEnemyDamageIncreasedBlessing: 0
   currentDashAbilities: 
   currentWeaponAbilities: 
   currentGrenadeAbilities: 

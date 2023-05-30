@@ -5278,6 +5278,8 @@ MonoBehaviour:
   killEnemyGrenadeBlessing: 0
   killEnemyAbilityCooldownBlessing: 0
   killEnemyDamageBuffBlessing: 0
+  distanceDamageBlessing: 0
+  trappedEnemyDamageIncreasedBlessing: 0
   currentDashAbilities: 
   currentWeaponAbilities: 
   currentGrenadeAbilities: 
@@ -18044,6 +18046,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5301dd35a2af1245b35289bf67ebbb0, type: 3}
+--- !u!95 &1617020898 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9096726519061533379, guid: b5301dd35a2af1245b35289bf67ebbb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1617020897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1617020899 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1552392113532917903, guid: b5301dd35a2af1245b35289bf67ebbb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1617020897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1617020900 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7559685367276726625, guid: b5301dd35a2af1245b35289bf67ebbb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1617020897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1618064992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7854865275333824686, guid: d01eb276b360c66478c5cffab9c73783,
@@ -20345,6 +20365,90 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1748063628}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1754571427
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 147.9619
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -127.41635
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -189.18007
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611713, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918904819187611714, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: rocksAnimator
+      value: 
+      objectReference: {fileID: 1617020898}
+    - target: {fileID: 7918904819187611714, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: shotgunAnimator
+      value: 
+      objectReference: {fileID: 1617020899}
+    - target: {fileID: 7918904819187611714, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: rapidFireAnimator
+      value: 
+      objectReference: {fileID: 1617020900}
+    - target: {fileID: 7918904819187611715, guid: 2b3c0c6bafb38204da30922753e54e66,
+        type: 3}
+      propertyPath: m_Name
+      value: AnimatorController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b3c0c6bafb38204da30922753e54e66, type: 3}
 --- !u!4 &1767076846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9114032372482832482, guid: 7b2565f26f6bf9944b063059a6bef0d8,
