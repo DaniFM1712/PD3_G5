@@ -734,6 +734,12 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 286048611}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &286048614 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1552392113532917903, guid: b5301dd35a2af1245b35289bf67ebbb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 286048611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &315403366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1779,8 +1785,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rapidFireAnimator: {fileID: 286048613}
-  shotgunAnimator: {fileID: 0}
-  rocksAnimator: {fileID: 0}
+  shotgunAnimator: {fileID: 286048614}
+  rocksAnimator: {fileID: 2005879734}
+  shooting: 0
+  reloading: 0
   soundsAudioSource: {fileID: 0}
   musicAudioSource: {fileID: 0}
   StepGrass: {fileID: 0}
@@ -4010,6 +4018,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!95 &2005879734 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9096726519061533379, guid: b5301dd35a2af1245b35289bf67ebbb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 286048611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2097782373
 GameObject:
   m_ObjectHideFlags: 0

@@ -184,12 +184,15 @@ public class ProjectileShootingScript : MonoBehaviour
     
     private void Reload()
     {
+        AnimatorEventConsumerScript.instance.reloading = true;
+        AnimatorEventConsumerScript.instance.startReloadAnimation();
         PlayerStatsScript.instance.isReloading = true;
         Invoke("ReloadFinished", reloadTime);
     }
 
     private void ReloadFinished()
     {
+        AnimatorEventConsumerScript.instance.reloading = false;
         PlayerStatsScript.instance.isReloading = false;
         bulletsLeft = magazineSize;
         bulletCounterText.text = bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
