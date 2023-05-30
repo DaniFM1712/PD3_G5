@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class AnimatorEventConsumerScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static AnimatorEventConsumerScript instance { get; private set; }
+    [Header("Animators")]
+    [SerializeField] Animator rapidFireAnimator;
+    [SerializeField] Animator shotgunAnimator;
+    [SerializeField] Animator rocksAnimator;
+    public bool shooting = false;
+
+
+
     [SerializeField] AudioSource soundsAudioSource;
     [SerializeField] AudioSource musicAudioSource;
 
@@ -28,7 +36,13 @@ public class AnimatorEventConsumerScript : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+            Destroy(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
 
         soundsAudioSource.PlayOneShot(RestartMusic);
@@ -36,6 +50,28 @@ public class AnimatorEventConsumerScript : MonoBehaviour
         musicAudioSource.clip = BackgroundMusic;
         Soundtrack();
     }
+
+    //----------ANIMATIONS----------//
+    public void startWalkAnimation()
+    {
+        if(!shooting)
+        rapidFireAnimator.SetInteger("State", 1);
+    }
+
+    public void startIdleAnimation()
+    {
+        if(!shooting)
+        rapidFireAnimator.SetInteger("State", 0);
+    }
+
+    public void startShootAnimation()
+    {
+        rapidFireAnimator.SetInteger("State", 2);
+    }
+
+
+
+    //----------AUDIOS----------//
 
     public void Step()
     {

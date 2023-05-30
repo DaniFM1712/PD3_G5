@@ -110,7 +110,10 @@ public class ProjectileShootingScript : MonoBehaviour
                 //{
                 //    animatorConsumer.ShotGunEvent();
                 //}
+                AnimatorEventConsumerScript.instance.shooting = true;
                 Shoot();
+                AnimatorEventConsumerScript.instance.startShootAnimation();
+                AnimatorEventConsumerScript.instance.shooting = false;
             }
             else
                 Reload();

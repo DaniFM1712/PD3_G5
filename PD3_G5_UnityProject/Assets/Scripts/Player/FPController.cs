@@ -193,6 +193,8 @@ public class FPController : MonoBehaviour
         {
             currSpeed = walkSpeed + PlayerStatsScript.instance.currentSpeedBonus;
         }
+        if (direction.magnitude == 0) AnimatorEventConsumerScript.instance.startIdleAnimation();
+        else AnimatorEventConsumerScript.instance.startWalkAnimation();
 
         if (Input.GetKeyDown(jumpKey) && onGround && Time.timeScale == 1f)
         {
