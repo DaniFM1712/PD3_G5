@@ -42,7 +42,7 @@ public class TrapScript : MonoBehaviour
             {
                 Debug.Log("DAMAGE DEALT: "+damage);
                 damageDealt = true;
-                enemyHealth.TakeDamage(damage);
+                enemyHealth.TakeDamage(damage, false);
             }
             if (other.gameObject.transform.parent.gameObject.TryGetComponent(out ParentEnemyIAScript enemyIA))
             {

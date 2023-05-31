@@ -10,6 +10,7 @@ public class EnemyHealthScript : MonoBehaviour
     [SerializeField] Image healthBar;
     [SerializeField] Gradient colorGradient;
     [SerializeField] private GameObject damageTextPrefab;
+    [SerializeField] Transform damageTextPosition;
 
 
     private Canvas canvas;
@@ -36,7 +37,7 @@ public class EnemyHealthScript : MonoBehaviour
         InitialHealth += healthIncresed;
     }
 
-    public bool TakeDamage(float damage)
+    public bool TakeDamage(float damage, bool critical)
     {
         Debug.Log(currentHealth);
         if (PlayerStatsScript.instance.dashDamageBlessing)
@@ -45,7 +46,7 @@ public class EnemyHealthScript : MonoBehaviour
         }
         currentHealth -= damage;
         if(damage!=0)
-            Instantiate(damageTextPrefab, transform.position, Quaternion.identity).GetComponent<DamageTextScript>().Initialise(damage);
+            Instantiate(damageTextPrefab, damageTextPosition.position, Quaternion.identity).GetComponent<DamageTextScript>().Initialise(damage,critical);
 
         if (healthBar.gameObject.activeSelf == false)
         {

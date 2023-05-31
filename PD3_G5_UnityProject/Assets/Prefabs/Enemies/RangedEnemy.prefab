@@ -149,6 +149,7 @@ Transform:
   - {fileID: 4636849844181223820}
   - {fileID: 6859121491112800260}
   - {fileID: 2351405242071322807}
+  - {fileID: 150946669512512190}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -232,6 +233,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   damageTextPrefab: {fileID: 5019388426701568549, guid: d6df2a8aa0951f3458a9822872256e78,
     type: 3}
+  damageTextPosition: {fileID: 150946669512512190}
 --- !u!54 &3815749892923093220
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -289,6 +291,37 @@ MonoBehaviour:
   damage: 0
   fadeSpeed: 0
   enemyRenderer: {fileID: 0}
+--- !u!1 &2758124352330587635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 150946669512512190}
+  m_Layer: 0
+  m_Name: DamageTextPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &150946669512512190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2758124352330587635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.64, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1313207473817311361}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6734233224122782505
 GameObject:
   m_ObjectHideFlags: 0

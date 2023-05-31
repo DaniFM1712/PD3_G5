@@ -45,7 +45,7 @@ public class ExplosionScript : MonoBehaviour
             {
                 if (other.gameObject.TryGetComponent<EnemyHealthScript>(out EnemyHealthScript enemyHealth))
                 {
-                    enemyHealth.TakeDamage(damage);
+                    enemyHealth.TakeDamage(damage, false);
                 }
             }
         }

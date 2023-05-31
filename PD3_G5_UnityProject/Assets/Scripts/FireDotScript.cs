@@ -59,7 +59,7 @@ public class FireDotScript : MonoBehaviour
         foreach(EnemyHealthScript enemyHealth in enemies)
         {
             if(enemyHealth != null)
-                enemyHealth.TakeDamage(damage);
+                enemyHealth.TakeDamage(damage, false);
         }
     }
 

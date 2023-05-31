@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -106,13 +106,17 @@ public class SGSpecialScript : MonoBehaviour
         readyToShootSpecial = false;
 
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
-        RaycastHit hitInfo;
+        //RaycastHit hitInfo;
         Vector3 hitPoint = r.GetPoint(50);
 
-        if (Physics.Raycast(r, out hitInfo))
-            //Crec que a vegades les bales surten rares pq això detecta una bala ja disparada.
-            if(hitInfo.collider.gameObject.CompareTag("Player"))
+        //if (Physics.Raycast(r, out hitInfo, maxShootDist, shootingMask))
+
+        if (Physics.Raycast(r, out RaycastHit hitInfo))
+        {
+            //Crec que a vegades les bales surten rares pq aixï¿½ detecta una bala ja disparada.
+            if (hitInfo.collider.gameObject.CompareTag("Enemy") || hitInfo.collider.gameObject.CompareTag("Terrain"))
                 hitPoint = hitInfo.point;
+        }
 
 
 

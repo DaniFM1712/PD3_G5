@@ -28,7 +28,7 @@ public class EnemyPartScript : MonoBehaviour
         {
             currentHealth = health.GetCurrentHealth();
             currentHealth -= (damage * damageMultiplyer);
-            bool dead = health.TakeDamage(damage * damageMultiplyer);
+            bool dead = health.TakeDamage(damage * damageMultiplyer,damageMultiplyer>1f);
             return dead;
         }
         return false;

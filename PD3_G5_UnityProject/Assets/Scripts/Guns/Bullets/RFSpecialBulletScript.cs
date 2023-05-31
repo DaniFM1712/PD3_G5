@@ -49,7 +49,7 @@ public class RFSpecialBulletScript : MonoBehaviour
             if (other.gameObject.transform.parent.gameObject.TryGetComponent(out ParentEnemyIAScript enemyIA))
             {
                 enemyIA.GetStunned(5f);
-                other.gameObject.transform.parent.gameObject.GetComponent<EnemyHealthScript>().TakeDamage(damage);
+                other.gameObject.transform.parent.gameObject.GetComponent<EnemyHealthScript>().TakeDamage(damage, false);
             }
             ReturnToOrigin();
         }

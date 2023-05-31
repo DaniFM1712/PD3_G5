@@ -95,7 +95,6 @@ public class GrenadeScript : MonoBehaviour
         RaycastHit hitInfo;
         Vector3 hitPoint = r.GetPoint(50);
 
-
         if (Physics.Raycast(r, out hitInfo))
         {
             hitPoint = hitInfo.point;

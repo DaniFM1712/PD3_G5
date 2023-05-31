@@ -7,14 +7,17 @@ public class DamageTextScript : MonoBehaviour
 {
     [SerializeField] private float destroyTime;
     [SerializeField] private Vector3 offset;
-    [SerializeField] private Color damageColour;
     [SerializeField] private Vector3 randomizeOffeset;
+    [SerializeField] private Color damageColour;
+    [SerializeField] private Color criticalDamageColour;
+
 
     private TextMeshPro damageText;
 
     private void Awake()
     {
         damageText = GetComponent<TextMeshPro>();
+        damageText.color = damageColour;
         transform.localPosition += offset;
         transform.localPosition += new Vector3(
             Random.Range(-randomizeOffeset.x,randomizeOffeset.x),
@@ -23,8 +26,17 @@ public class DamageTextScript : MonoBehaviour
         Destroy(gameObject,destroyTime);
     }
 
-    public void Initialise(float damageValue)
+    public void Initialise(float damageValue, bool critical)
     {
+        if (critical)
+        {
+            damageText.color = criticalDamageColour;
+
+        }
+        else
+        {
+            damageText.color = damageColour;
+        }
         damageText.text = damageValue.ToString();
     }
 

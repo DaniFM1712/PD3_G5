@@ -99,6 +99,7 @@ Transform:
   - {fileID: 2264916898379122729}
   - {fileID: 2854670299365616931}
   - {fileID: 4249568502199949320}
+  - {fileID: 4063194522212136019}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -185,6 +186,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   damageTextPrefab: {fileID: 5019388426701568549, guid: d6df2a8aa0951f3458a9822872256e78,
     type: 3}
+  damageTextPosition: {fileID: 4063194522212136019}
 --- !u!65 &794669723146363780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -329,6 +331,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4750356070292140640}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8377543445740378814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4063194522212136019}
+  m_Layer: 0
+  m_Name: DamageTextPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4063194522212136019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8377543445740378814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.97, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4750356070292140640}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8607497988733217177
 GameObject:
