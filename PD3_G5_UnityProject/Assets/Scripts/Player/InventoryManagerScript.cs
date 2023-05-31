@@ -357,4 +357,33 @@ public class InventoryManagerScript : MonoBehaviour
             itemsInventory.SetActive(false);
         }
     }
+
+
+
+    public ConsumableAsset GetItemByName(string wantedItem)
+    {
+        ConsumableAsset asset = null;
+        foreach (ConsumableAsset item in commonItems)
+        {
+            if(item.itemName == wantedItem)
+            {
+                asset = item;
+            }
+        }
+        foreach (ConsumableAsset item in rareItems)
+        {
+            if (item.itemName == wantedItem)
+            {
+                asset = item;
+            }
+        }
+        foreach(ConsumableAsset item in legendaryItems)
+        {
+            if (item.itemName == wantedItem)
+            {
+                asset = item;
+            }
+        }
+        return asset;   
+    }
 }

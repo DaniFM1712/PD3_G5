@@ -6,7 +6,7 @@ using static ParentBlessing;
 public class FireDOTBlessingScript : ParentBlessing
 {
     // Start is called before the first frame update
-    void Start()
+    override public void Start()
     {
         base.Start();
         base.blessingType = BlessingType.Grenade;

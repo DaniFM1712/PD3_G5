@@ -77,6 +77,8 @@ public class FPController : MonoBehaviour
     private TwoChargeBlessingScript twoChargeBlessing;
     private DashIncreasesDamageBlessingScript dashIncreasesDamageBlessing;
     public int currentDashCharges;
+    public float speedBuffDuration = 3f;
+    private float speedBuffTimer;
 
     private void Awake()
     {
@@ -100,8 +102,8 @@ public class FPController : MonoBehaviour
         ChangeWeapon();
 
         PlayerStatsScript.instance.ActivateBlessings();
-        
 
+        speedBuffTimer = speedBuffDuration;
     }
 
     private void FixedUpdate()
@@ -117,6 +119,22 @@ public class FPController : MonoBehaviour
         inputUpdate();
         checkDash();
         updateLockKeyState();
+
+        if (PlayerStatsScript.instance.speedBuffAfterKilling)
+        {
+            if (PlayerStatsScript.instance.speedBuffActivated)
+            {
+                speedBuffTimer -= Time.deltaTime;
+                if(speedBuffTimer <= 0f)
+                {
+                    PlayerStatsScript.instance.speedBuffActivated = false;
+                    PlayerStatsScript.instance.currentSpeedMultiplyer = PlayerStatsScript.instance.baseSpeedMultiplyer;
+                    PlayerStatsScript.instance.currentFireRateMultiplyer = PlayerStatsScript.instance.baseFireRateMultiplyer;
+
+                    speedBuffTimer = speedBuffDuration;
+                }
+            }
+        }
     }
 
     void updateLockKeyState()
@@ -180,15 +198,11 @@ public class FPController : MonoBehaviour
         {
             direction -= forward;
         }
-        /*
-        if (Input.GetKey(runKey))
-        {
-            currSpeed = runSpeed + playerStats.currentSpeedBonus;
-        }*/
-        else
-        {
-            currSpeed = walkSpeed + PlayerStatsScript.instance.currentSpeedBonus;
-        }
+
+        currSpeed = (walkSpeed + PlayerStatsScript.instance.currentSpeedBonus)*PlayerStatsScript.instance.currentSpeedMultiplyer;
+
+        
+
         if (direction.magnitude == 0) AnimatorEventConsumerScript.instance.startIdleAnimation();
         else AnimatorEventConsumerScript.instance.startWalkAnimation();
 
