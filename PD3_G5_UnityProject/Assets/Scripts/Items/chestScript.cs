@@ -9,11 +9,12 @@ public class chestScript : MonoBehaviour
     private bool canTake = false;
     [SerializeField] Consumable consumableItem;
     [SerializeField] GameObject consumableItemGO;
-
+    [SerializeField] Animator chestAnimator;
 
     private void Start()
     {
         Canvas.SetActive(false);
+        chestAnimator = transform.GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,8 +23,14 @@ public class chestScript : MonoBehaviour
         if (canTake && Input.GetKeyDown(KeyCode.E))
         {
             consumableItemGO.SetActive(true);
+            startOpenChestAnimation();
             Destroy(gameObject);
         }
+    }
+
+    void startOpenChestAnimation()
+    {
+        chestAnimator.SetBool("open", true);
     }
 
     public void generateRandomReward()
