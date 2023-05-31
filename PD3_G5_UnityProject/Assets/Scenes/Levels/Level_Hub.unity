@@ -2807,8 +2807,14 @@ MonoBehaviour:
   currentMaxHealthMultiplyer: 0
   baseCurrentDamageMultiplyer: 1
   currentDamageMultiplyer: 0
+  baseSpeedMultiplyer: 1
+  currentSpeedMultiplyer: 0
   highHealthDamageBuff: 0
   highHealthDamageApplied: 0
+  threeShotBuff: 0
+  reloadDamageBuff: 0
+  speedBuffAfterKilling: 0
+  speedBuffActivated: 0
 --- !u!4 &1016272284
 Transform:
   m_ObjectHideFlags: 0
@@ -3348,12 +3354,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b0bebd1322bd39b4184f05b0dffebfe6, type: 2}
   - {fileID: 11400000, guid: 522218da6e5f55f44a49a31d63a11cf1, type: 2}
   - {fileID: 11400000, guid: 011bb88d3bdc2564d8ceabdb43252591, type: 2}
+  - {fileID: 11400000, guid: a943cc65569ae2c4689f1834d05fefc3, type: 2}
   rareItemPool:
   - {fileID: 11400000, guid: 9c51f12a6b3589440bbaac9f250f4974, type: 2}
   - {fileID: 11400000, guid: 4be3e609e59fdc24f8b578aafe81475e, type: 2}
   - {fileID: 11400000, guid: 6648541279c77db41a9f4bb9b8afcf2e, type: 2}
   - {fileID: 11400000, guid: a4777d14dd468cc4b879b452d26773cb, type: 2}
   - {fileID: 11400000, guid: 2920dee410ba8bd4793b568ca012a821, type: 2}
+  - {fileID: 11400000, guid: 19f5436433a34c6489435af553aaf8e7, type: 2}
+  - {fileID: 11400000, guid: e097667f98a3f304f807f251e41ad565, type: 2}
+  - {fileID: 11400000, guid: 9cda4760208ff684bbfca1d2b5a6ff32, type: 2}
   legendaryItemPool:
   - {fileID: 11400000, guid: 5477611a9cdc64445a58614653cd1d16, type: 2}
   - {fileID: 11400000, guid: 88fff0909b257a1479296b1e781ae578, type: 2}

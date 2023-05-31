@@ -71,6 +71,8 @@ public class PlayerStatsScript : MonoBehaviour
     public List<bool> currentWeaponAbilities;
     public List<bool> currentGrenadeAbilities;
 
+
+    //COMMON
     public float baseFireRateMultiplyer = 1f;
     public float currentFireRateMultiplyer;
 
@@ -80,7 +82,7 @@ public class PlayerStatsScript : MonoBehaviour
     public float baseDivinePowerMultiplyer = 1f;
     public float currentDivinePowerMultiplyer;
 
-    public float baseCriticalMultiplyer = 1f;
+    public float baseCriticalMultiplyer = 2f;
     public float currentCriticalMultiplyer;
 
     public float baseMaxHealthMultiplyer = 1f;
@@ -89,12 +91,22 @@ public class PlayerStatsScript : MonoBehaviour
     
     public float baseCurrentDamageMultiplyer = 1f;
     public float currentDamageMultiplyer;
+    
+    public float baseSpeedMultiplyer = 1f;
+    public float currentSpeedMultiplyer;
 
 
+
+    //RARE
 
     public bool highHealthDamageBuff = false;
     public bool highHealthDamageApplied = false;
+    public bool threeShotBuff = false;
+    public bool reloadDamageBuff = false;
+    public bool speedBuffAfterKilling = false;
+    public bool speedBuffActivated = false;
 
+    //LEGENDARY
 
     private void Awake()
     {
@@ -148,8 +160,13 @@ public class PlayerStatsScript : MonoBehaviour
         currentCriticalMultiplyer = baseCriticalMultiplyer;
         currentDamageMultiplyer = baseCurrentDamageMultiplyer;
         currentMaxHealthMultiplyer = baseMaxHealthMultiplyer;
+        currentSpeedMultiplyer = baseSpeedMultiplyer;
         highHealthDamageBuff = false;
         highHealthDamageApplied = false;
+        threeShotBuff = false;
+        reloadDamageBuff = false;
+        speedBuffAfterKilling = false;
+        speedBuffActivated = false;
 
     }
 
@@ -175,8 +192,12 @@ public class PlayerStatsScript : MonoBehaviour
         currentMaxTrapCharges = baseMaxTrapCharges;
         currentBlessings.Clear();
         isReloading = false;
-        highHealthDamageBuff = false;
+        highHealthDamageBuff = false; 
         highHealthDamageApplied = false;
+        threeShotBuff = false;
+        reloadDamageBuff = false;
+        speedBuffAfterKilling = false;
+        speedBuffActivated = false;
         activatedBlessings = 0;
         dashDamageBlessing = false;
         fireDOTBlessing = false;
@@ -190,6 +211,13 @@ public class PlayerStatsScript : MonoBehaviour
         trapDealsDamageBlessing = false;
         trapTrapsMultipleEnemiesBlessing = false;
         trapSlowsBlessing = false;
+        currentFireRateMultiplyer = baseFireRateMultiplyer;
+        currentEssenceMultiplyer = baseEssenceMultiplyer;
+        currentDivinePowerMultiplyer = baseDivinePowerMultiplyer;
+        currentCriticalMultiplyer = baseCriticalMultiplyer;
+        currentDamageMultiplyer = baseCurrentDamageMultiplyer;
+        currentMaxHealthMultiplyer = baseMaxHealthMultiplyer;
+        currentSpeedMultiplyer = baseSpeedMultiplyer;
 
 
         /*

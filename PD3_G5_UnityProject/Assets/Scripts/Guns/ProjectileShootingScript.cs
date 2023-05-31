@@ -24,6 +24,8 @@ public class ProjectileShootingScript : MonoBehaviour
     [SerializeField] int magazineSize;
     [SerializeField] int bulletsPerTap;
     [SerializeField] bool allowButtonHold;
+    [SerializeField] float threeShotBuffDamage = 30f;
+    [SerializeField] float reloadDamageBuff = 30f;
 
     [Header("Spawn Point")]
     private Camera cam;
@@ -45,7 +47,8 @@ public class ProjectileShootingScript : MonoBehaviour
 
     [SerializeField] private UnityEvent<float> PlayerHasShoot;
     private GameObject player;
-
+    private int shotCounter = 0;
+    private bool reloadBuff = false;
     // Start is called before the first frame update
     private void Start()
     {
@@ -112,8 +115,11 @@ public class ProjectileShootingScript : MonoBehaviour
                 //}
                 AnimatorEventConsumerScript.instance.shooting = true;
                 Shoot();
+                if (PlayerStatsScript.instance.threeShotBuff)
+                    shotCounter++;
+                else
+                    shotCounter = 0;
                 AnimatorEventConsumerScript.instance.startShootAnimation();
-                AnimatorEventConsumerScript.instance.shooting = false;
             }
             else
                 Reload();
@@ -153,7 +159,19 @@ public class ProjectileShootingScript : MonoBehaviour
         currentBullet.SetActive(true);
         currentBullet.transform.position = bulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
-        currentBullet.GetComponent<BulletScript>().SetDamage((bulletDamage+PlayerStatsScript.instance.currentDamageBonus)*PlayerStatsScript.instance.currentDamageMultiplyer);
+        float damage = (bulletDamage + PlayerStatsScript.instance.currentDamageBonus) *PlayerStatsScript.instance.currentDamageMultiplyer;
+        if (shotCounter == 2)
+        {
+            damage += threeShotBuffDamage;
+            shotCounter = 0;
+        }
+        if(reloadBuff)
+        {
+            damage += reloadDamageBuff;
+            reloadBuff = false;
+        }
+
+        currentBullet.GetComponent<BulletScript>().SetDamage(damage);
         currentBullet.GetComponent<BulletScript>().player = player;
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * upwardForce, ForceMode.Impulse);
@@ -180,8 +198,9 @@ public class ProjectileShootingScript : MonoBehaviour
     {
         readyToShoot = true;
         allowInvoke = true;
+        AnimatorEventConsumerScript.instance.shooting = false;
     }
-    
+
     private void Reload()
     {
         AnimatorEventConsumerScript.instance.reloading = true;
@@ -196,7 +215,10 @@ public class ProjectileShootingScript : MonoBehaviour
         PlayerStatsScript.instance.isReloading = false;
         bulletsLeft = magazineSize;
         bulletCounterText.text = bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
-
+        if (PlayerStatsScript.instance.reloadDamageBuff)
+        {
+            reloadBuff = true;
+        }
     }
 
     public void changeDamage(float newBulletDamage)

@@ -8,6 +8,7 @@ public class BulletScript : MonoBehaviour
     [SerializeField] float lifeTime = 5f;
     [SerializeField] GameObject grenadePrefab;
     [SerializeField] float trappedDamageIncreased = 0.3f;
+    [SerializeField] float speedBufMultiplyer= 0.15f;
     float damage;
     float timeToDestroy;
     Vector3 originPosition = new Vector3(0f, 0f, 0f);
@@ -63,8 +64,13 @@ public class BulletScript : MonoBehaviour
                     if(i>=90)
                         Instantiate(grenadePrefab, new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y+2f, other.gameObject.transform.position.z), Quaternion.identity);
                 }
+                if (PlayerStatsScript.instance.speedBuffAfterKilling)
+                {
+                    PlayerStatsScript.instance.speedBuffActivated = true;
+                    PlayerStatsScript.instance.currentFireRateMultiplyer += speedBufMultiplyer;
+                    PlayerStatsScript.instance.currentSpeedMultiplyer += speedBufMultiplyer;
+                }
             }
-
 
             ReturnToOrigin();
         }

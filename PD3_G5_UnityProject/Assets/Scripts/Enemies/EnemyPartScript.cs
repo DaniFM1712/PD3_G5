@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class EnemyPartScript : MonoBehaviour
 {
-    [SerializeField] float damageMultiplyer = 1f;
+    [SerializeField] bool isCritical = false;
     private float currentHealth = 0;
 
 
@@ -23,12 +23,15 @@ public class EnemyPartScript : MonoBehaviour
 
     public bool TakeDamage(float damage, GameObject bullet)
     {
-
+        if (isCritical)
+        {
+            damage *= PlayerStatsScript.instance.currentCriticalMultiplyer;
+        }
         if (transform.parent.gameObject.TryGetComponent<EnemyHealthScript>(out EnemyHealthScript health))
         {
             currentHealth = health.GetCurrentHealth();
-            currentHealth -= (damage * damageMultiplyer);
-            bool dead = health.TakeDamage(damage * damageMultiplyer,damageMultiplyer>1f);
+            currentHealth -= (damage);
+            bool dead = health.TakeDamage(damage,isCritical);
             return dead;
         }
         return false;
