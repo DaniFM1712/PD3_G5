@@ -34,10 +34,7 @@ public class SlowAoEScript : MonoBehaviour
         {
             if(other.gameObject.TryGetComponent(out NavMeshAgent enemyAgent))
             {
-                Debug.Log(enemyAgent.speed);
-                enemyAgent.speed /= slowMultiplyer;
-                Debug.Log(enemyAgent.speed);
-
+                enemyAgent.speed = 1.5f;
                 enemyList.Add(enemyAgent);
             }
         }
@@ -51,7 +48,7 @@ public class SlowAoEScript : MonoBehaviour
             {
                 if (enemyList.Contains(enemyAgent))
                 {
-                    enemyAgent.speed *= slowMultiplyer;
+                    enemyAgent.speed = 5f;
                     enemyList.Remove(enemyAgent);
                 }
             }
@@ -64,7 +61,7 @@ public class SlowAoEScript : MonoBehaviour
         foreach (NavMeshAgent agent in enemyList)
         {
             if(agent!=null)
-                agent.speed *= slowMultiplyer;
+                agent.speed  = 5f;
         } 
         enemyList.Clear();
     }

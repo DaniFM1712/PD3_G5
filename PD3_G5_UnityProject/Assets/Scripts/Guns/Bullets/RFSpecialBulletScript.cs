@@ -42,6 +42,7 @@ public class RFSpecialBulletScript : MonoBehaviour
             if(PlayerStatsScript.instance.trapTrapsMultipleEnemiesBlessing)
                 specialEffect.transform.localScale *= areaMultiplyerBlessing;
             specialEffect.GetComponent<TrapScript>().SetTrapDamage(trapDamage);
+            ReturnToOrigin();
         }
         if (other.gameObject.CompareTag("Enemy"))
         {
@@ -50,8 +51,9 @@ public class RFSpecialBulletScript : MonoBehaviour
                 enemyIA.GetStunned(5f);
                 other.gameObject.transform.parent.gameObject.GetComponent<EnemyHealthScript>().TakeDamage(damage);
             }
+            ReturnToOrigin();
         }
-        ReturnToOrigin();
+        
 
     }
 
