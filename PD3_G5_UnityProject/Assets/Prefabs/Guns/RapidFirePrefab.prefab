@@ -75,6 +75,8 @@ MonoBehaviour:
   magazineSize: 50
   bulletsPerTap: 1
   allowButtonHold: 1
+  threeShotBuffDamage: 30
+  reloadDamageBuff: 30
   bulletOrigin: {fileID: 7352254666028250572}
   allowInvoke: 1
   PlayerHasShoot:
@@ -264,21 +266,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6580365263789759311, guid: 486ca07244e65b940835c802fb20eea5,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 9.890148
-      objectReference: {fileID: 0}
-    - target: {fileID: 6580365263789759311, guid: 486ca07244e65b940835c802fb20eea5,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 9.890149
-      objectReference: {fileID: 0}
-    - target: {fileID: 6580365263789759311, guid: 486ca07244e65b940835c802fb20eea5,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 9.890149
-      objectReference: {fileID: 0}
-    - target: {fileID: 6580365263789759311, guid: 486ca07244e65b940835c802fb20eea5,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
@@ -351,21 +338,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5211360302648271821, guid: 8718a9ee60e140d438cd9db9712a657f,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5211360302648271821, guid: 8718a9ee60e140d438cd9db9712a657f,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.50000006
-      objectReference: {fileID: 0}
-    - target: {fileID: 5211360302648271821, guid: 8718a9ee60e140d438cd9db9712a657f,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.50000006
       objectReference: {fileID: 0}
     - target: {fileID: 5211360302648271821, guid: 8718a9ee60e140d438cd9db9712a657f,
         type: 3}
