@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6473062252246936821}
   - component: {fileID: 7961014249548161872}
   - component: {fileID: 5305173351872124826}
+  - component: {fileID: 4274195696196740976}
   m_Layer: 0
   m_Name: 8_tiles_corner
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4274195696196740976
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953547042815702607}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8735768760603912460, guid: cdd36bd4cccd1b14e888d51bb1089f5e, type: 3}

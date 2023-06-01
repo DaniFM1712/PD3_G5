@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3035147798467913003}
   - component: {fileID: 2139448703821425294}
   - component: {fileID: 4203034977767710276}
+  - component: {fileID: 4606568569098532063}
   m_Layer: 0
   m_Name: 9_barrel_vault
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4606568569098532063
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401775927467802513}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2489089191164526150, guid: 48f3209f8991aad45a3c661d57845f66, type: 3}
