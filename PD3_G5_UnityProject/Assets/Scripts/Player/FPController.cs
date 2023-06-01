@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using FMOD;
+using FMODUnity;
 
 public class FPController : MonoBehaviour
 {
@@ -80,6 +82,8 @@ public class FPController : MonoBehaviour
     public float speedBuffDuration = 3f;
     private float speedBuffTimer;
 
+    [Header("FMOD")]
+    private StudioEventEmitter dashSound;
     private void Awake()
     {
         Cursor.lockState =  CursorLockMode.Locked;
@@ -94,6 +98,7 @@ public class FPController : MonoBehaviour
 
     private void Start()
     {
+        dashSound = GetComponent<StudioEventEmitter>();
         twoChargeBlessing = GetComponent<TwoChargeBlessingScript>();
         dashIncreasesDamageBlessing = GetComponent<DashIncreasesDamageBlessingScript>();
 
@@ -213,6 +218,7 @@ public class FPController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) == true && dashAllowed && Time.timeScale == 1f)
         {
+            dashSound.Play();
             if (direction != Vector3.zero)
             {
                 if(dashIncreasesDamageBlessing.enabled)

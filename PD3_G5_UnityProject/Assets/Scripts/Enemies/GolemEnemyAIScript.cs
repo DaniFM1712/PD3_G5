@@ -45,7 +45,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
     [SerializeField] State currentState;
     [SerializeField] float secondsToSetEnemy;
     [SerializeField] float secondsToCDMeleeAttack;
-    private bool canMeleeAttack = true;
+    private bool canAttack = true;
 
     [Header("IDLE")]
     State lastState;
@@ -106,10 +106,10 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
             switch (currentState)
             {
                 case State.ATTACK:
+                    //transform.LookAt(new Vector3(player.transform.position.x, 0f, player.transform.position.z), Vector3.up);
                     lastState = State.ATTACK;
                     updateAttack();
                     ChangeFromAttack();
-                    transform.LookAt(player.transform, Vector3.up);
                     break;
                 case State.IDLE:
                     lastState = State.IDLE;
@@ -117,6 +117,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
                     ChangeFromIdle();
                     break;
                 case State.CHASE:
+                    transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z), Vector3.up);
                     lastState = State.CHASE;
                     updateChase();
                     ChangeFromChase();
@@ -199,6 +200,21 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
     private void MeleeAttack()
     {
         player.GetComponent<PlayerHealthScript>().ModifyHealth(damage);
+        Debug.Log("MELEE ATTACK");
+        Vector3 directionVector = (player.transform.position - transform.position).normalized;
+        StartCoroutine(EnemyCollision(directionVector));
+    }
+
+    IEnumerator EnemyCollision(Vector3 direction)
+    {
+        int i = 0;
+        while (i < 5f)
+        {
+            player.GetComponent<CharacterController>().Move(direction * 1f);
+            i++;
+            yield return new WaitForEndOfFrame();
+        }
+
     }
 
     private void RangedAttack()
@@ -221,17 +237,17 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
     {
         if (PlayerInMeleeRange())
         {
-            if (canMeleeAttack)
+            if (canAttack)
             {
                 MeleeAttack();
-                canMeleeAttack = false;
+                canAttack = false;
                 StartCoroutine(CooldownAttack());
             }
 
         }
         else if (PlayerInRangedRange())
         {
-            if (readyToShoot && !reloading)
+            if (readyToShoot && !reloading && canAttack)
             {
                 shooting = true;
                 RangedAttack();
@@ -247,9 +263,11 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
     IEnumerator CooldownAttack()
     {
         agent.isStopped = true;
+        agent.SetDestination(transform.position);
         yield return new WaitForSeconds(3.0f);
         agent.isStopped = false;
-        canMeleeAttack = true;
+        agent.SetDestination(player.transform.position);
+        canAttack = true;
     }
 
     void ChangeFromAttack()
