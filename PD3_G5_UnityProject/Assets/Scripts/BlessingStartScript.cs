@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using FMODUnity;
 
 public class BlessingStartScript : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class BlessingStartScript : MonoBehaviour
     private ParentBlessing blessing1;
     private ParentBlessing blessing2;
     private ParentBlessing blessing3;
-
+    [Header("FMOD")]
+    public StudioEventEmitter SelectEmitter;
 
 
     // Start is called before the first frame update
@@ -131,6 +133,7 @@ public class BlessingStartScript : MonoBehaviour
 
     private void OnDestroy()
     {
+        SelectEmitter.Play();
         Time.timeScale = 1f;
         Canvas.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;

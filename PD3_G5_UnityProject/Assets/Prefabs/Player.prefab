@@ -24,7 +24,14 @@ GameObject:
   - component: {fileID: 141689439144725514}
   - component: {fileID: 6168365255104639644}
   - component: {fileID: 6802118331050358614}
-  m_Layer: 0
+  - component: {fileID: 286048616}
+  - component: {fileID: 286048634}
+  - component: {fileID: 286048635}
+  - component: {fileID: 286048636}
+  - component: {fileID: 286048637}
+  - component: {fileID: 286048638}
+  - component: {fileID: 1064765337}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -91,6 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be7e842660bfbe84eb53e3b175018423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lowHpEmitter: {fileID: 286048638}
+  muerteEmitter: {fileID: 286048637}
+  "recibirDa\xF1oEmitter": {fileID: 286048636}
 --- !u!114 &3688068328114149651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +173,9 @@ MonoBehaviour:
   dashCooldown: 5
   currentDashCharges: 0
   speedBuffDuration: 3
+  dashEmitter: {fileID: 286048616}
+  jumpStartEmitter: {fileID: 286048635}
+  jumpEndEmitter: {fileID: 286048634}
 --- !u!114 &588255094290663183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +200,7 @@ MonoBehaviour:
   grenadeOrigin: {fileID: 6610077119698529702}
   allowInvokeGrenade: 1
   currentGrenadeCharges: 0
+  ThrowEmitter: {fileID: 1064765337}
 --- !u!114 &1267481631374456047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +356,223 @@ MonoBehaviour:
   blessingName: 'DA: Dash heals recent damage.'
   blessingDescription: Dashing heals half the damage recived in the last three seconds.
   blessingType: 0
+--- !u!114 &286048616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688068328114149645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -793499964
+      Data2: 1222434741
+      Data3: 7000707
+      Data4: 293301348
+    Path: event:/Player/Dash
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &286048634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688068328114149645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1135233876
+      Data2: 1170915681
+      Data3: -1176606309
+      Data4: 402521531
+    Path: event:/Player/Caer al suelo
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &286048635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688068328114149645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1186297390
+      Data2: 1133864863
+      Data3: -1731966538
+      Data4: 341444427
+    Path: event:/Player/Salto inicio
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &286048636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688068328114149645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1490645703
+      Data2: 1246389730
+      Data3: -1072091482
+      Data4: 1247727709
+    Path: event:/Player/Recibir damage
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &286048637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688068328114149645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1664796268
+      Data2: 1182631499
+      Data3: -570355578
+      Data4: -1264038118
+    Path: event:/Player/Muerte
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &286048638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688068328114149645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1401561011
+      Data2: 1075068805
+      Data3: 606871189
+      Data4: 864112701
+    Path: event:/Player/Low HP
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1064765337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688068328114149645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1060854446
+      Data2: 1080132576
+      Data3: 1467716518
+      Data4: 100205095
+    Path: event:/Armas GENERAL/Orbe Sagrado/Lanzamiento
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &3688068329095023214
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +582,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3688068329095023215}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PitchController
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -387,7 +618,7 @@ GameObject:
   - component: {fileID: 3688068329298052680}
   - component: {fileID: 3688068329298052682}
   - component: {fileID: -5119192689746750242}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -507,7 +738,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6610077119698529702}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

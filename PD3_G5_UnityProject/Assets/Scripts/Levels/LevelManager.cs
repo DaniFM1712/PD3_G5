@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] int PATH_LENGHT;
     static Queue <int> levelPath;
-    static List <int> allLevels = new List<int> {4,5};
+    static List <int> allLevels = new List<int> {4};
     static List<int> levelIndex;
     static int previousScene = -1;
     public static LevelManager instance { get; private set; }

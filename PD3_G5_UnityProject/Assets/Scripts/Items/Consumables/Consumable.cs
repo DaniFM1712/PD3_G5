@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using FMODUnity;
 
 public class Consumable : MonoBehaviour
 {
@@ -15,9 +16,12 @@ public class Consumable : MonoBehaviour
     [SerializeField] GameObject slotsFullText;
     private TextMeshProUGUI nameText;
     private TextMeshProUGUI descriptionText;
-    
-
     private bool canTake = false;
+    
+    [Header("FMOD")]
+    public StudioEventEmitter TakeItemEmitter;
+    public StudioEventEmitter LeaveItemEmitter;
+
     // Start is called before the first frame update
 
     private void Start()
@@ -59,12 +63,13 @@ public class Consumable : MonoBehaviour
         
         if (InventoryManagerScript.InventoryInstance.CanAddItem(_consumableAsset.rarity))
         {
-            Debug.Log("CONSUME");
+            TakeItemEmitter.Play();
             InventoryManagerScript.InventoryInstance.AddItem(_consumableAsset.rarity, _consumableAsset);
             Destroy(gameObject);
         }
         else
         {
+            LeaveItemEmitter.Play();
             slotsFullText.SetActive(true);
         }
 
@@ -73,8 +78,7 @@ public class Consumable : MonoBehaviour
 
     public void Leave()
     {
-        Debug.Log("CONSUME");
-
+        LeaveItemEmitter.Play();
         itemInfoUI.SetActive(false);
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;

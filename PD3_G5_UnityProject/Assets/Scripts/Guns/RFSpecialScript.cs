@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,6 +33,9 @@ public class RFSpecialScript : MonoBehaviour
     CooldownScript cooldown;
     TrapDealsDamageBlessingScript trapDamageIncreasedBlessing;
     public int currentTrapCharges;
+
+    [Header("FMOD")]
+    public StudioEventEmitter TrapShootEmitter;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +76,7 @@ public class RFSpecialScript : MonoBehaviour
             shootingSpecial = false;
             specialBulletsShot = 0;
             //START COOLDOWN SS
+            TrapShootEmitter.Play();
             ShootSpecial();
             if (currentTrapCharges > 1)
             {

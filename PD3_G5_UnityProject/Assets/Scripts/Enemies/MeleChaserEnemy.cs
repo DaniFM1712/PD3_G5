@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,6 +43,11 @@ public class MeleChaserEnemy : ParentEnemyIAScript
 
 
     private bool enemySetted = false;
+
+    [Header("FMOD")]
+    public StudioEventEmitter ChaseEmitter;
+    public StudioEventEmitter AttackEmitter;
+
 
     private void Awake()
     {
@@ -103,6 +109,7 @@ public class MeleChaserEnemy : ParentEnemyIAScript
         //seesPlayer() &&
         if (PlayerInChaseRange() &&!PlayerInMeleeRange())
         {
+            ChaseEmitter.Play();
             currentState = State.CHASE;
         }
         //seesPlayer() &&
@@ -165,6 +172,7 @@ public class MeleChaserEnemy : ParentEnemyIAScript
 
     private void attack()
     {
+        AttackEmitter.Play();
         player.GetComponent<PlayerHealthScript>().ModifyHealth(damage);
     }
 
@@ -185,6 +193,7 @@ public class MeleChaserEnemy : ParentEnemyIAScript
         //seesPlayer() &&
         if (!agent.isStopped && !PlayerInMeleeRange())
         {
+            ChaseEmitter.Play();
             currentState = State.CHASE;
         }
         checkHit();

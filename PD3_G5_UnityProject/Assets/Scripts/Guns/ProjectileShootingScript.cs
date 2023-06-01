@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.Events;
 using TMPro;
+using FMODUnity;
 
 public class ProjectileShootingScript : MonoBehaviour
 {
@@ -49,6 +50,13 @@ public class ProjectileShootingScript : MonoBehaviour
     private GameObject player;
     private int shotCounter = 0;
     private bool reloadBuff = false;
+
+
+    [Header("FMOD")]
+    public StudioEventEmitter ShootEmitter;
+    public StudioEventEmitter ReloadEmitter;
+
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -114,6 +122,8 @@ public class ProjectileShootingScript : MonoBehaviour
                 //    animatorConsumer.ShotGunEvent();
                 //}
                 AnimatorEventConsumerScript.instance.shooting = true;
+                ShootEmitter.Play();
+                
                 Shoot();
                 if (PlayerStatsScript.instance.threeShotBuff)
                     shotCounter++;
@@ -204,6 +214,8 @@ public class ProjectileShootingScript : MonoBehaviour
     private void Reload()
     {
         AnimatorEventConsumerScript.instance.reloading = true;
+        ReloadEmitter.Play();
+
         AnimatorEventConsumerScript.instance.startReloadAnimation();
         PlayerStatsScript.instance.isReloading = true;
         Invoke("ReloadFinished", reloadTime);

@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,9 @@ public class TrapScript : MonoBehaviour
     [SerializeField] GameObject slowPrefab;
     float timeToDestroy;
     bool damageDealt = false;
+
+    [Header("FMOD")]
+    public StudioEventEmitter TrapActiveEmitter;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +42,7 @@ public class TrapScript : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
+            TrapActiveEmitter.Play();
             if (other.gameObject.TryGetComponent(out EnemyHealthScript enemyHealth) && !damageDealt)
             {
                 Debug.Log("DAMAGE DEALT: "+damage);

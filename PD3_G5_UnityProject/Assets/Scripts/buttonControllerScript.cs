@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,11 @@ public class buttonControllerScript : MonoBehaviour
 
     [SerializeField] KeyCode menuKey = KeyCode.Escape;
     GameObject menuPause;
+
+    [Header("FMOD")]
+    public StudioEventEmitter CancelEmitter;
+    public StudioEventEmitter SelectEmitter;
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,13 +59,16 @@ public class buttonControllerScript : MonoBehaviour
     {
         menuPause.SetActive(true);
         Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.None; 
+        CancelEmitter.Play();
+        SelectEmitter.Play();
     }
     public void HideMenuUI()
     {
         menuPause.SetActive(false);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
+        CancelEmitter.Play();
     }
 
     public void ShowSettingsUI()
@@ -67,6 +76,7 @@ public class buttonControllerScript : MonoBehaviour
         menuPause.SetActive(false);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
+        SelectEmitter.Play();
     }
 
     public void GoToMainMenu()
@@ -76,7 +86,6 @@ public class buttonControllerScript : MonoBehaviour
         
         HideMenuUI();
         LevelManager.instance.RestartGame(0);
-
+        SelectEmitter.Play();
     }
-
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -40,7 +41,8 @@ public class SGSpecialScript : MonoBehaviour
     KillEnemyDamageBuffBlessingScript damageBuffBlessing;
 
     [SerializeField] UnityEvent resetAbilityCooldownEvent;
-
+    [Header("FMOD")]
+    public StudioEventEmitter SGShootEmitter;
 
     // Start is called before the first frame update
     private void Start()
@@ -103,6 +105,7 @@ public class SGSpecialScript : MonoBehaviour
 
     private void ShootSpecial()
     {
+        SGShootEmitter.Play();
         readyToShootSpecial = false;
 
         Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));

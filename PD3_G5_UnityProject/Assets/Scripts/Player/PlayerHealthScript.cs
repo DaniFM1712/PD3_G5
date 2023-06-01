@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +14,11 @@ public class PlayerHealthScript : MonoBehaviour
     private float currentDashHealTimer = 0f;
     private float accumulatedHeal = 0f;
 
-
+    [Header("FMOD")]
+    public StudioEventEmitter lowHpEmitter;
+    public StudioEventEmitter muerteEmitter;
+    public StudioEventEmitter recibirDañoEmitter;
+    bool lifeActive = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +50,10 @@ public class PlayerHealthScript : MonoBehaviour
 
     public void ModifyHealth(float modifier)
     {
+        if (modifier < 0)
+        {
+            recibirDañoEmitter.Play();
+        }
         if (PlayerStatsScript.instance.dashHealBlessing && modifier<0)
         {
             accumulatedHeal += (modifier*-1);
@@ -68,11 +77,24 @@ public class PlayerHealthScript : MonoBehaviour
         }
 
         healthUI.updateHealth();
+        if(PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth() > 0.2f || PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth() <= 0)
+        {
+            lowHpEmitter.Stop();
+        }
+        else if (PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth() < 0.2f && PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth() > 0 && !lifeActive)
+        {
+            lowHpEmitter.Play();
+            lifeActive = true;
+        }
+
 
         if (PlayerStatsScript.instance.currentHealth == 0.0f)
         {
+            muerteEmitter.Play();
+            lowHpEmitter.Stop();
             Die();
         }
+
     }
 
     public void ModifyMaxHealth(float hpMaxPoints)

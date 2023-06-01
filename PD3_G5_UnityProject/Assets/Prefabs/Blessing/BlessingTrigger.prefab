@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 5.0000606}
-  m_SizeDelta: {x: 130.59, y: 48.9714}
+  m_AnchoredPosition: {x: 0.0012336, y: 26.199995}
+  m_SizeDelta: {x: 148, y: 22.1458}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &306637032988823631
 CanvasRenderer:
@@ -171,8 +171,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: -46}
-  m_SizeDelta: {x: 130.59, y: 69.1295}
+  m_AnchoredPosition: {x: 5, y: -39.146526}
+  m_SizeDelta: {x: 130.59, y: 80.6072}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3456401946673021697
 CanvasRenderer:
@@ -387,8 +387,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: 130.59, y: 48.9714}
+  m_AnchoredPosition: {x: 0.0012484, y: 26.20001}
+  m_SizeDelta: {x: 148, y: 22.1458}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5703584254165635323
 CanvasRenderer:
@@ -639,7 +639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5703584254434762352
 RectTransform:
   m_ObjectHideFlags: 0
@@ -892,8 +892,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: -46}
-  m_SizeDelta: {x: 130.59, y: 69.1295}
+  m_AnchoredPosition: {x: 5, y: -39.146526}
+  m_SizeDelta: {x: 130.59, y: 80.6072}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5703584254710717182
 CanvasRenderer:
@@ -1295,6 +1295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5703584255940053761}
   - component: {fileID: 5703584255940053822}
+  - component: {fileID: 6717882044916022536}
   m_Layer: 0
   m_Name: BlessingTrigger
   m_TagString: Untagged
@@ -1337,6 +1338,38 @@ MonoBehaviour:
   blessingDescription1: {fileID: 5703584254710717183}
   blessingDescription2: {fileID: 1157298191072695277}
   blessingDescription3: {fileID: 7956918788290878238}
+  SelectEmitter: {fileID: 6717882044916022536}
+--- !u!114 &6717882044916022536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703584255940053823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1705520635
+      Data2: 1280966858
+      Data3: 1187373964
+      Data4: 514552591
+    Path: event:/Armas GENERAL/Orbe Sagrado/Out of charges
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &6250828422553802241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,8 +1405,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -46}
-  m_SizeDelta: {x: 130.59, y: 69.1295}
+  m_AnchoredPosition: {x: 0, y: -39.14651}
+  m_SizeDelta: {x: 130.59, y: 80.6072}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7476977154527400444
 CanvasRenderer:
@@ -1509,8 +1542,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 4.9999995}
-  m_SizeDelta: {x: 130.59, y: 48.9714}
+  m_AnchoredPosition: {x: 0.0012679, y: 26.2}
+  m_SizeDelta: {x: 148, y: 22.1458}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6949281745660133586
 CanvasRenderer:

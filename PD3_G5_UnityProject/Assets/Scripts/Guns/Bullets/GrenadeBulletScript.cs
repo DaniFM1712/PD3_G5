@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,9 @@ public class GrenadeBulletScript : MonoBehaviour
     Vector3 originPosition = new Vector3(0f, 0f, 0f);
     public bool multipleTargetsBlessing = false;
     private bool firstTarget = false;
+
+    [Header("FMOD")]
+    public StudioEventEmitter ExplosionEmitter;
 
     private void Awake()
     {
@@ -39,6 +43,7 @@ public class GrenadeBulletScript : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Terrain"))
         {
+
             firstTarget = true;
             if (other.gameObject.TryGetComponent(out EnemyPartScript enemyPart))
             {
@@ -49,7 +54,7 @@ public class GrenadeBulletScript : MonoBehaviour
                 else
                     enemyPart.TakeDamage(damage, null);
             }
-
+            ExplosionEmitter.Play();
             GameObject specialEffect = Instantiate(specialEffectPrefab,transform.position, Quaternion.identity);
             specialEffect.transform.localScale *= areaMultiplyer;
             ReturnToOrigin();

@@ -105,6 +105,9 @@ GameObject:
   - component: {fileID: 1515236647032608047}
   - component: {fileID: 1515236647032608043}
   - component: {fileID: 3731800468861943109}
+  - component: {fileID: 1260707451241268107}
+  - component: {fileID: 5541253808254627560}
+  - component: {fileID: 3275561967066558029}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -215,6 +218,7 @@ MonoBehaviour:
   damageTextPosition: {fileID: 1160314858992057730}
   ncReward: 3
   scReward: 1
+  DeathEmitter: {fileID: 3275561967066558029}
 --- !u!114 &1515236647032608043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +245,8 @@ MonoBehaviour:
   damage: -10
   fadeSpeed: 0
   enemyRenderer: {fileID: 0}
+  ChaseEmitter: {fileID: 1260707451241268107}
+  AttackEmitter: {fileID: 5541253808254627560}
 --- !u!54 &3731800468861943109
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -257,6 +263,99 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1260707451241268107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515236647032608033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 543504431
+      Data2: 1177849805
+      Data3: -634080880
+      Data4: -926215451
+    Path: "event:/Enemigos/Chill\xF3n Explosivo/Grito"
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &5541253808254627560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515236647032608033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -760101252
+      Data2: 1325192242
+      Data3: 2105636995
+      Data4: 1174300225
+    Path: "event:/Enemigos/Chill\xF3n/Ataque"
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &3275561967066558029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515236647032608033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1634257519
+      Data2: 1140657232
+      Data3: 1532439958
+      Data4: 671798987
+    Path: "event:/Enemigos/Chill\xF3n/Muerte"
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1665293334332728740
 GameObject:
   m_ObjectHideFlags: 0
