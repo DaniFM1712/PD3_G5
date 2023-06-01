@@ -110,7 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f7f0072fa1556449e02590cc8cd930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageMultiplyer: 2
   isCritical: 1
 --- !u!1 &1313207473817311360
 GameObject:
@@ -235,6 +234,8 @@ MonoBehaviour:
   damageTextPrefab: {fileID: 5019388426701568549, guid: d6df2a8aa0951f3458a9822872256e78,
     type: 3}
   damageTextPosition: {fileID: 150946669512512190}
+  ncReward: 5
+  scReward: 2
 --- !u!54 &3815749892923093220
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -555,7 +556,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f7f0072fa1556449e02590cc8cd930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageMultiplyer: 1
   isCritical: 0
 --- !u!1001 &6393642363674941423
 PrefabInstance:

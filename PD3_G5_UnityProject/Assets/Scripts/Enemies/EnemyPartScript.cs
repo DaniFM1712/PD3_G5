@@ -23,15 +23,18 @@ public class EnemyPartScript : MonoBehaviour
 
     public bool TakeDamage(float damage, GameObject bullet)
     {
+        float totalDamage = damage;
         if (isCritical)
         {
-            damage *= PlayerStatsScript.instance.currentCriticalMultiplyer;
+            Debug.Log("isCritical");
+            Debug.Log(PlayerStatsScript.instance.baseCriticalMultiplyer +"CRIT");
+            totalDamage = damage * 2f;
         }
         if (transform.parent.gameObject.TryGetComponent<EnemyHealthScript>(out EnemyHealthScript health))
         {
             currentHealth = health.GetCurrentHealth();
-            currentHealth -= (damage);
-            bool dead = health.TakeDamage(damage,isCritical);
+            currentHealth -= (totalDamage);
+            bool dead = health.TakeDamage(totalDamage, isCritical);
             return dead;
         }
         return false;

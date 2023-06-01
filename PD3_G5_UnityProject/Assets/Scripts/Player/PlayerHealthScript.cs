@@ -81,11 +81,19 @@ public class PlayerHealthScript : MonoBehaviour
         PlayerStatsScript.instance.currentMaxHealth += hpMaxPoints;
     }
 
-
     public void Die()
     {
-        Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene(3);
+        if (PlayerStatsScript.instance.secondLife)
+        {
+            PlayerStatsScript.instance.secondLife = false;
+            ModifyHealth(PlayerStatsScript.instance.GetCurrentMaxHealth());
+            LevelManager.instance.RestartLevel();
+        }
+        else
+        {
+            LevelManager.instance.GoToDeathMenu();
+        }
+
     }
 
     public void ActivateDashHeal()

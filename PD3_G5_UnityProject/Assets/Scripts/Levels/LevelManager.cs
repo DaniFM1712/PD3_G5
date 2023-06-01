@@ -13,14 +13,14 @@ public class LevelManager : MonoBehaviour
     static Queue <int> levelPath;
     static List <int> allLevels = new List<int> {4,5};
     static List<int> levelIndex;
-    static int currentLevel = 0;
-    public static LevelManager levelManagerInstance { get; private set; }
+    static int previousScene = -1;
+    public static LevelManager instance { get; private set; }
     //[SerializeField] UnityEvent<float, float> callScene;
 
     private void Awake()
     {
-        if(levelManagerInstance == null){
-            levelManagerInstance = this;
+        if(instance == null){
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -30,6 +30,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         PlayerStatsScript.instance.SaveBlessings();
+        previousScene = getCurrentSceneIndex();
         generateRandomPath();
     }
 
@@ -37,21 +38,18 @@ public class LevelManager : MonoBehaviour
     public void LoadLevel() {
         if (levelPath.Count > 0)
         {
-            currentLevel++;
             PlayerStatsScript.instance.SaveBlessings();
+            previousScene = getCurrentSceneIndex();
             SceneManager.LoadScene(levelPath.Dequeue());
         }
         else
         {
             RestartGame(1);
         }
-
-        Debug.Log("LOADING LEVEL: "+currentLevel);
     }
 
     public void generateRandomPath()
     {
-        //Generate Random Path
         levelIndex = new List<int>(allLevels);
 
         Shuffle(levelIndex);
@@ -102,6 +100,16 @@ public class LevelManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void GoToDeathMenu()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene(3);
+    }
+
+    public void RestartLevel() {
+        previousScene = getCurrentSceneIndex();
+        SceneManager.LoadScene(getCurrentSceneIndex());
+    }
     public void RestartGame(int scene)
     {
         generateRandomPath();
@@ -109,10 +117,14 @@ public class LevelManager : MonoBehaviour
         PlayerStatsScript.instance.ResetStats();
         InventoryManagerScript.InventoryInstance.ResetInventory();
         SceneManager.LoadScene(scene);
+        previousScene = getCurrentSceneIndex();
     }
 
 
-    public int getCurrentIndex() {
-        return currentLevel;
+    public int getCurrentSceneIndex() {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
+    public int getPreviousSceneIndex() {
+        return previousScene;
     }
 }

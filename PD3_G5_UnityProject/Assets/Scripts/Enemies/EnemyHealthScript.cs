@@ -11,6 +11,8 @@ public class EnemyHealthScript : MonoBehaviour
     [SerializeField] Gradient colorGradient;
     [SerializeField] private GameObject damageTextPrefab;
     [SerializeField] Transform damageTextPosition;
+    [SerializeField] float ncReward = 3;
+    [SerializeField] float scReward = 1;
 
 
     private Canvas canvas;
@@ -57,7 +59,6 @@ public class EnemyHealthScript : MonoBehaviour
         {
             currentHealth = 0;
             Die();
-            Debug.Log("RETURN BOOL");
             return true;
         }
 
@@ -83,8 +84,8 @@ public class EnemyHealthScript : MonoBehaviour
     {
         if(GetCurrentHealth() <= 0)
         {
-            CoinCounterScript.coinCounterInstance.updateNCCounter(Mathf.CeilToInt(5f * PlayerStatsScript.instance.currentEssenceMultiplyer));
-            CoinCounterScript.coinCounterInstance.updateSCCounter(Mathf.CeilToInt(1f * PlayerStatsScript.instance.currentDivinePowerMultiplyer));
+            CoinCounterScript.coinCounterInstance.updateNCCounter(Mathf.CeilToInt(ncReward * PlayerStatsScript.instance.currentEssenceMultiplyer));
+            CoinCounterScript.coinCounterInstance.updateSCCounter(Mathf.CeilToInt(scReward * PlayerStatsScript.instance.currentDivinePowerMultiplyer));
         }
     }
 

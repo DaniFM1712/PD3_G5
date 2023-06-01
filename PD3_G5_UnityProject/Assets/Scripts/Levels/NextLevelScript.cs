@@ -22,7 +22,7 @@ public class NextLevelScript : MonoBehaviour
         if (goNextLevel && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.instance.currentWeaponIndex != 0 && !stopLoad)
         {
             stopLoad = true;
-            LevelManager.levelManagerInstance.LoadLevel();
+            LevelManager.instance.LoadLevel();
             if (exitLevel != null)
                 exitLevelText.enabled = false;
         }       

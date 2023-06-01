@@ -24,11 +24,14 @@ public class BlessingStartScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        blessings = FindObjectsByType<ParentBlessing>(FindObjectsSortMode.InstanceID);
-        generateBlessings();
-        Time.timeScale = 0f;
-        Canvas.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
+        if(LevelManager.instance.getCurrentSceneIndex() != LevelManager.instance.getPreviousSceneIndex())
+        {
+            blessings = FindObjectsByType<ParentBlessing>(FindObjectsSortMode.InstanceID);
+            Time.timeScale = 0f;
+            generateBlessings();
+            Canvas.SetActive(true); 
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
     
 

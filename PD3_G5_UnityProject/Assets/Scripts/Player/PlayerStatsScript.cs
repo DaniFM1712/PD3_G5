@@ -17,6 +17,12 @@ public class PlayerStatsScript : MonoBehaviour
     public int baseMaxGrenadeCharges = 1;
     public int baseMaxTrapCharges = 1;
     public int maxBlessings = 8;
+    public bool secondLifeUnlocked = false;
+    public bool secondLife = false;
+    public List<bool> permanentUpgrades = new List<bool>();
+
+    //public IEnumerable<bool> permanentUpgrades= Enumerable.Repeat(false, 6);
+
 
     //----------MAX--STATS----------//
 
@@ -89,11 +95,13 @@ public class PlayerStatsScript : MonoBehaviour
     public float currentMaxHealthMultiplyer;
     
     
-    public float baseCurrentDamageMultiplyer = 1f;
+    public float baseDamageMultiplyer = 1f;
     public float currentDamageMultiplyer;
     
     public float baseSpeedMultiplyer = 1f;
-    public float currentSpeedMultiplyer;
+    public float currentSpeedMultiplyer;    
+    
+
 
 
 
@@ -118,6 +126,15 @@ public class PlayerStatsScript : MonoBehaviour
         else
             Destroy(gameObject);
 
+        if (secondLifeUnlocked)
+        {
+            secondLife = true;
+        }
+
+        for (int i = 0; i<6;i++)
+        {
+            permanentUpgrades.Add(false);
+        }
 
         //----------MAX--STATS----------//
         currentMaxHealth = baseMaxHealth;
@@ -126,8 +143,9 @@ public class PlayerStatsScript : MonoBehaviour
         currentMaxGrenadeCharges = baseMaxGrenadeCharges;
         currentMaxTrapCharges = baseMaxTrapCharges;
 
-        //----------CURRENT--STATS----------//
-        currentHealth = currentMaxHealth;
+
+    //----------CURRENT--STATS----------//
+    currentHealth = currentMaxHealth;
         currentShield = currentMaxShield;
         //currentDamageBonus = baseDamageBonus;
         currentSpeedBonus = baseSpeedBonus;
@@ -158,7 +176,7 @@ public class PlayerStatsScript : MonoBehaviour
         currentEssenceMultiplyer = baseEssenceMultiplyer;
         currentDivinePowerMultiplyer = baseDivinePowerMultiplyer;
         currentCriticalMultiplyer = baseCriticalMultiplyer;
-        currentDamageMultiplyer = baseCurrentDamageMultiplyer;
+        currentDamageMultiplyer = baseDamageMultiplyer;
         currentMaxHealthMultiplyer = baseMaxHealthMultiplyer;
         currentSpeedMultiplyer = baseSpeedMultiplyer;
         highHealthDamageBuff = false;
@@ -215,10 +233,13 @@ public class PlayerStatsScript : MonoBehaviour
         currentEssenceMultiplyer = baseEssenceMultiplyer;
         currentDivinePowerMultiplyer = baseDivinePowerMultiplyer;
         currentCriticalMultiplyer = baseCriticalMultiplyer;
-        currentDamageMultiplyer = baseCurrentDamageMultiplyer;
+        currentDamageMultiplyer = baseDamageMultiplyer;
         currentMaxHealthMultiplyer = baseMaxHealthMultiplyer;
         currentSpeedMultiplyer = baseSpeedMultiplyer;
-
+        if (secondLifeUnlocked)
+        {
+            secondLife = true;
+        }
 
         /*
         currentDashAbilities = Enumerable.Repeat(false, 5).ToList();
