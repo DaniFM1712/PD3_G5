@@ -38,7 +38,6 @@ public class ItemPoolManagerScript : MonoBehaviour
     {
         
     }
-
     public ConsumableAsset GetCommonItem()
     {
         ConsumableAsset asset = null;

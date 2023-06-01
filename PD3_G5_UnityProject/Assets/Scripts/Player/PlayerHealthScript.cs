@@ -34,7 +34,6 @@ public class PlayerHealthScript : MonoBehaviour
     {
         if (PlayerStatsScript.instance.dashHealBlessing)
         {
-            Debug.Log(accumulatedHeal);
             currentDashHealTimer -= Time.deltaTime;
             if(currentDashHealTimer <= 0)
             {

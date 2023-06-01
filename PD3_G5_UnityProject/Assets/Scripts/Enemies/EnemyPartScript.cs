@@ -26,9 +26,7 @@ public class EnemyPartScript : MonoBehaviour
         float totalDamage = damage;
         if (isCritical)
         {
-            Debug.Log("isCritical");
-            Debug.Log(PlayerStatsScript.instance.baseCriticalMultiplyer +"CRIT");
-            totalDamage = damage * 2f;
+            totalDamage = damage * PlayerStatsScript.instance.currentCriticalMultiplyer;
         }
         if (transform.parent.gameObject.TryGetComponent<EnemyHealthScript>(out EnemyHealthScript health))
         {

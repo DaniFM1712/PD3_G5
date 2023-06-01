@@ -119,6 +119,8 @@ public class StoreScript : MonoBehaviour
             PlayerStatsScript.instance.permanentUpgrades[0] = true;
             buttons[0].interactable = false;
             PlayerStatsScript.instance.baseDivinePowerMultiplyer += 0.3f;
+            PlayerStatsScript.instance.currentDivinePowerMultiplyer = PlayerStatsScript.instance.baseDivinePowerMultiplyer;
+
             CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[0]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
         }
@@ -131,6 +133,7 @@ public class StoreScript : MonoBehaviour
             PlayerStatsScript.instance.permanentUpgrades[1] = true;
             buttons[1].interactable = false;
             PlayerStatsScript.instance.baseEssenceMultiplyer += 0.3f;
+            PlayerStatsScript.instance.currentEssenceMultiplyer = PlayerStatsScript.instance.baseEssenceMultiplyer;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[1]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
         }
@@ -142,6 +145,7 @@ public class StoreScript : MonoBehaviour
             PlayerStatsScript.instance.permanentUpgrades[2] = true;
             buttons[2].interactable = false;
             PlayerStatsScript.instance.baseDamageMultiplyer += 0.2f;
+            PlayerStatsScript.instance.currentDamageMultiplyer = PlayerStatsScript.instance.baseDamageMultiplyer;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[2]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
         }
@@ -154,6 +158,8 @@ public class StoreScript : MonoBehaviour
             PlayerStatsScript.instance.permanentUpgrades[3] = true;
             buttons[3].interactable = false;
             PlayerStatsScript.instance.baseMaxHealthMultiplyer += 0.2f;
+            PlayerStatsScript.instance.currentMaxHealthMultiplyer = PlayerStatsScript.instance.baseMaxHealthMultiplyer;
+            PlayerStatsScript.instance.currentHealth = PlayerStatsScript.instance.GetCurrentMaxHealth();
             CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[3]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
         }
@@ -165,6 +171,7 @@ public class StoreScript : MonoBehaviour
             PlayerStatsScript.instance.permanentUpgrades[4] = true;
             buttons[4].interactable = false;
             PlayerStatsScript.instance.baseFireRateMultiplyer += 0.2f;
+            PlayerStatsScript.instance.currentFireRateMultiplyer = PlayerStatsScript.instance.baseFireRateMultiplyer;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[4]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
         }

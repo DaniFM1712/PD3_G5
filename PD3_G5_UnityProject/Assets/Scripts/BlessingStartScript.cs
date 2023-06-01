@@ -26,6 +26,8 @@ public class BlessingStartScript : MonoBehaviour
     {
         if(LevelManager.instance.getCurrentSceneIndex() != LevelManager.instance.getPreviousSceneIndex())
         {
+            Debug.Log(LevelManager.instance.getCurrentSceneIndex()+"actual");
+            Debug.Log(LevelManager.instance.getPreviousSceneIndex() + "anterior");
             blessings = FindObjectsByType<ParentBlessing>(FindObjectsSortMode.InstanceID);
             Time.timeScale = 0f;
             generateBlessings();
