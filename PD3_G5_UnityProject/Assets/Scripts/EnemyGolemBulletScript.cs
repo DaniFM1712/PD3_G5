@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,8 @@ public class EnemyGolemBulletScript : MonoBehaviour
     float timeToDestroy;
     float areaMultiplyer = 1f;
     Vector3 originPosition = new Vector3(0f, 0f, 0f);
-
+    [Header("FMOD")]
+    public StudioEventEmitter ExplosionEmitter;
     private void Awake()
     {
         timeToDestroy = lifeTime;
@@ -39,7 +41,7 @@ public class EnemyGolemBulletScript : MonoBehaviour
             {
                 playerHealth.ModifyHealth(-damage);
             }
-
+            ExplosionEmitter.Play();
             GameObject specialEffect = Instantiate(specialEffectPrefab, vector3, Quaternion.identity);
             specialEffect.transform.localScale *= areaMultiplyer;
             ReturnToOrigin();

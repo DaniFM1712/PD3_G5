@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -33,6 +34,9 @@ public class GrenadeScript : MonoBehaviour
     MultipleTargetsDamageBuffBlessingScript multipleTargetsDamageBuffBlessing;
     public int currentGrenadeCharges;
     private Vector3 explosionScale;
+
+    [Header("FMOD")]
+    public StudioEventEmitter ThrowEmitter;
 
     // Start is called before the first frame update
     void Start()
@@ -76,6 +80,7 @@ public class GrenadeScript : MonoBehaviour
             shootingGrenade = false;
             grenadesShot = 0;
             //START COOLDOWN SS
+            ThrowEmitter.Play();
             ShootGrenade();
             if (currentGrenadeCharges > 1)
             {

@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -73,6 +74,10 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
     private bool enemySetted = false;
 
+
+    [Header("FMOD")]
+    public StudioEventEmitter AttackRangedEmitter;
+    public StudioEventEmitter AttackMeleeEmitter;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -226,6 +231,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
             {
                 shootingPoint = player.transform.position;
                 agent.isStopped = true;
+                AttackRangedEmitter.Play();
                 Shoot();
             }
             else
@@ -239,6 +245,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
         {
             if (canAttack)
             {
+                AttackMeleeEmitter.Play();
                 MeleeAttack();
                 canAttack = false;
                 StartCoroutine(CooldownAttack());

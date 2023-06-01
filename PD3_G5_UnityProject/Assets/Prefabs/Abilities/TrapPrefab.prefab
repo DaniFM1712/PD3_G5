@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4874736437493127701}
   - component: {fileID: 7239331966242512898}
   - component: {fileID: 8374956100958509197}
+  - component: {fileID: 6311578007050007090}
   m_Layer: 0
   m_Name: TrapPrefab
   m_TagString: Bullet
@@ -115,3 +116,35 @@ MonoBehaviour:
   damage: 0
   slowPrefab: {fileID: 388991674222089354, guid: 2f5b0200ecce0f547be300e3d71e723f,
     type: 3}
+  TrapActiveEmitter: {fileID: 6311578007050007090}
+--- !u!114 &6311578007050007090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388991674222089354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 672072602
+      Data2: 1315053415
+      Data3: 680464310
+      Data4: 1381431788
+    Path: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Estasis"
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

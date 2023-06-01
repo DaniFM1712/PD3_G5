@@ -125,6 +125,8 @@ GameObject:
   - component: {fileID: 1313207473817311374}
   - component: {fileID: 3815749892923093220}
   - component: {fileID: 1348630334212165141}
+  - component: {fileID: 2142105837298122599}
+  - component: {fileID: 1166356204926614126}
   m_Layer: 0
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -236,6 +238,7 @@ MonoBehaviour:
   damageTextPosition: {fileID: 150946669512512190}
   ncReward: 5
   scReward: 2
+  DeathEmitter: {fileID: 1166356204926614126}
 --- !u!54 &3815749892923093220
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -293,6 +296,69 @@ MonoBehaviour:
   damage: 0
   fadeSpeed: 0
   enemyRenderer: {fileID: 0}
+  AttackEmitter: {fileID: 2142105837298122599}
+--- !u!114 &2142105837298122599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313207473817311360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1480603300
+      Data2: 1144670439
+      Data3: -1565525340
+      Data4: 417193917
+    Path: "event:/Enemigos/Arlequ\xEDn/Ataque"
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1166356204926614126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313207473817311360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 923473836
+      Data2: 1302592409
+      Data3: -1895928952
+      Data4: 110151964
+    Path: "event:/Enemigos/Arlequ\xEDn/Muerte"
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2758124352330587635
 GameObject:
   m_ObjectHideFlags: 0

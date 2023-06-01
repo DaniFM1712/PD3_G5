@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,6 +11,9 @@ public class chestScript : MonoBehaviour
     [SerializeField] Consumable consumableItem;
     [SerializeField] GameObject consumableItemGO;
     [SerializeField] Animator chestAnimator;
+
+    [Header("FMOD")]
+    public StudioEventEmitter OpenChestEmitter;
 
     private void Start()
     {
@@ -31,6 +35,8 @@ public class chestScript : MonoBehaviour
     void startOpenChestAnimation()
     {
         chestAnimator.SetBool("open", true);
+        OpenChestEmitter.Play();
+        StartCoroutine(ChestItemAppear());
     }
 
     public void generateRandomReward()
@@ -52,7 +58,16 @@ public class chestScript : MonoBehaviour
         consumableItem.SetConsumableItem(asset);
     }
 
-
+    IEnumerator ChestItemAppear()
+    {
+        int i = 0;
+        while (i < 10f)
+        {
+            consumableItemGO.transform.position = new Vector3(consumableItemGO.transform.position.x, consumableItemGO.transform.position.y+1f, consumableItemGO.transform.position.z);
+            yield return new WaitForEndOfFrame();
+            i++;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {

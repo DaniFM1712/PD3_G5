@@ -18,7 +18,10 @@ GameObject:
   - component: {fileID: 2955325434890317926}
   - component: {fileID: 3236555061251283710}
   - component: {fileID: 5690900690179264571}
-  m_Layer: 0
+  - component: {fileID: 284800969665753905}
+  - component: {fileID: 2395317908347767234}
+  - component: {fileID: 7810060998003408949}
+  m_Layer: 7
   m_Name: RapidFirePrefab
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -94,6 +97,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  ShootEmitter: {fileID: 284800969665753905}
+  ReloadEmitter: {fileID: 2395317908347767234}
 --- !u!114 &6010861365889382181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +124,7 @@ MonoBehaviour:
   bulletOrigin: {fileID: 7352254666028250572}
   allowInvokeSpecial: 1
   currentTrapCharges: 0
+  TrapShootEmitter: {fileID: 7810060998003408949}
 --- !u!114 &4184947771254055846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +222,99 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &284800969665753905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -692339284
+      Data2: 1157045455
+      Data3: 1690383745
+      Data4: 586270934
+    Path: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Disparo"
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2395317908347767234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1722355880
+      Data2: 1317352538
+      Data3: -871790707
+      Data4: -4896499
+    Path: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Recarga"
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &7810060998003408949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352254665611245801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -68698712
+      Data2: 1336558888
+      Data3: 1655196291
+      Data4: -2100261745
+    Path: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Activada"
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7352254666028250571
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7352254666028250572}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Dummy
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -254,10 +353,80 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7352254665611245802}
     m_Modifications:
+    - target: {fileID: 852997998538223916, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050302659618787076, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793887347628524951, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3091740046222570654, guid: 486ca07244e65b940835c802fb20eea5,
         type: 3}
       propertyPath: m_Name
       value: Inferior Zone Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091740046222570654, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232876959682280461, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328560940373943619, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3972769313822129224, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130326694204853139, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201269472583721220, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470331345435239621, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552668119263288358, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387528439862205713, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143852521209993137, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6315195909292222114, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6580365263789759311, guid: 486ca07244e65b940835c802fb20eea5,
         type: 3}
@@ -314,6 +483,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7293621967888513495, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464604871403150662, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560692908267964951, guid: 486ca07244e65b940835c802fb20eea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 486ca07244e65b940835c802fb20eea5, type: 3}
 --- !u!4 &4093412894704367872 stripped
@@ -329,6 +513,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7352254665611245802}
     m_Modifications:
+    - target: {fileID: 3664452920505303734, guid: 8718a9ee60e140d438cd9db9712a657f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4941312201049449469, guid: 8718a9ee60e140d438cd9db9712a657f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094586834590997637, guid: 8718a9ee60e140d438cd9db9712a657f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5211360302648271810, guid: 8718a9ee60e140d438cd9db9712a657f,
         type: 3}
       propertyPath: m_Name
@@ -388,6 +587,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6963611416827594032, guid: 8718a9ee60e140d438cd9db9712a657f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175425174854728080, guid: 8718a9ee60e140d438cd9db9712a657f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765292688116628072, guid: 8718a9ee60e140d438cd9db9712a657f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822726826955219034, guid: 8718a9ee60e140d438cd9db9712a657f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733822620742538528, guid: 8718a9ee60e140d438cd9db9712a657f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022308786057539550, guid: 8718a9ee60e140d438cd9db9712a657f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8718a9ee60e140d438cd9db9712a657f, type: 3}

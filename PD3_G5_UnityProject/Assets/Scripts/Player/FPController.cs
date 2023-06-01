@@ -52,6 +52,7 @@ public class FPController : MonoBehaviour
     [SerializeField] float jumpTime;
     [SerializeField] bool onGround;
     bool onCeiling;
+    bool jumping = false;
 
     [Header("Weapons")]
     [SerializeField] GameObject weaponParent;
@@ -83,7 +84,10 @@ public class FPController : MonoBehaviour
     private float speedBuffTimer;
 
     [Header("FMOD")]
-    private StudioEventEmitter dashSound;
+    public StudioEventEmitter dashEmitter;
+    public StudioEventEmitter jumpStartEmitter;
+    public StudioEventEmitter jumpEndEmitter;
+
     private void Awake()
     {
         Cursor.lockState =  CursorLockMode.Locked;
@@ -98,7 +102,7 @@ public class FPController : MonoBehaviour
 
     private void Start()
     {
-        dashSound = GetComponent<StudioEventEmitter>();
+        dashEmitter = GetComponent<StudioEventEmitter>();
         twoChargeBlessing = GetComponent<TwoChargeBlessingScript>();
         dashIncreasesDamageBlessing = GetComponent<DashIncreasesDamageBlessingScript>();
 
@@ -165,7 +169,6 @@ public class FPController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, yaw, 0);
         pitchController.localRotation = Quaternion.Euler(pitch, 0, 0);
     }
-
     void move()
     {
         verticalSpeed += gravity * Time.deltaTime;
@@ -178,7 +181,15 @@ public class FPController : MonoBehaviour
         onGround = (colFlags & CollisionFlags.Below) != 0;
         onCeiling = (colFlags & CollisionFlags.Above) != 0;
 
+
+
         if (onGround || onCeiling) verticalSpeed = gravity * Time.deltaTime;
+
+        if (jumping && onGround)
+        {
+            jumping = false;
+            jumpEndEmitter.Play();
+        }
 
     }
 
@@ -213,12 +224,16 @@ public class FPController : MonoBehaviour
 
         if (Input.GetKeyDown(jumpKey) && onGround && Time.timeScale == 1f)
         {
+            jumping = true;
+            jumpStartEmitter.Play();
             verticalSpeed = jumpSpeed;
         }
 
+
         if (Input.GetKeyDown(KeyCode.LeftShift) == true && dashAllowed && Time.timeScale == 1f)
         {
-            dashSound.Play();
+            dashEmitter.Play();
+
             if (direction != Vector3.zero)
             {
                 if(dashIncreasesDamageBlessing.enabled)

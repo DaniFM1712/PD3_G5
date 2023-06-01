@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -69,6 +70,8 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
     [SerializeField] float fadeSpeed;
     [SerializeField] MeshRenderer enemyRenderer;
 
+    [Header("FMOD")]
+    public StudioEventEmitter AttackEmitter;
 
     private void Awake()
     {
@@ -204,6 +207,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
             {
                 shootingPoint = player.transform.position;
                 agent.isStopped = true;
+                AttackEmitter.Play();
                 Shoot();
             }
             else

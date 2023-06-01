@@ -73,6 +73,10 @@ GameObject:
   - component: {fileID: 6379223510045939995}
   - component: {fileID: 794669723146363780}
   - component: {fileID: 2070484513136213079}
+  - component: {fileID: 990431528054503064}
+  - component: {fileID: 4092275220598890830}
+  - component: {fileID: 5177946799898952598}
+  - component: {fileID: 376068209032824728}
   m_Layer: 0
   m_Name: GolemEnemy
   m_TagString: Enemy
@@ -187,6 +191,7 @@ MonoBehaviour:
   damageTextPosition: {fileID: 4063194522212136019}
   ncReward: 10
   scReward: 5
+  DeathEmitter: {fileID: 376068209032824728}
 --- !u!65 &794669723146363780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -242,6 +247,130 @@ MonoBehaviour:
   damage: -40
   fadeSpeed: 0
   enemyRenderer: {fileID: 0}
+--- !u!114 &990431528054503064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100608988851071974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -50866815
+      Data2: 1195259098
+      Data3: -2139196247
+      Data4: 714608501
+    Path: "event:/Enemigos/Chill\xF3n Explosivo/Explosi\xF3n1"
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &4092275220598890830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100608988851071974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 463749534
+      Data2: 1082172707
+      Data3: -405098621
+      Data4: 922516265
+    Path: event:/Enemigos/Golem/Ataque2
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &5177946799898952598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100608988851071974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2023020610
+      Data2: 1165343350
+      Data3: -425003612
+      Data4: 2101852702
+    Path: event:/Enemigos/Golem de fuego/Proyectil de fuego
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &376068209032824728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100608988851071974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1610943244
+      Data2: 1206067514
+      Data3: -351623516
+      Data4: 22608975
+    Path: event:/Enemigos/Golem/Muerte
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4803716996045623164
 GameObject:
   m_ObjectHideFlags: 0

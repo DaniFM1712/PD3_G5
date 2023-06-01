@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5443440975620991859}
   - component: {fileID: 7183507938940125613}
   - component: {fileID: 4688680933261538570}
+  - component: {fileID: 2834095446893564537}
   m_Layer: 0
   m_Name: GrenadeBulletPrefab
   m_TagString: Bullet
@@ -131,6 +132,39 @@ MonoBehaviour:
   specialEffectPrefab: {fileID: 388991674222089354, guid: 07f2df4e45807034da33b8d3b2cff9b1,
     type: 3}
   lifeTime: 5
+  multipleTargetsBlessing: 0
+  ExplosionEmitter: {fileID: 2834095446893564537}
+--- !u!114 &2834095446893564537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682631923943361041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2141182584
+      Data2: 1150821866
+      Data3: -1070622555
+      Data4: 1539727541
+    Path: "event:/Enemigos/Chill\xF3n Explosivo/Explosi\xF3n3"
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &3845913895874993135
 PrefabInstance:
   m_ObjectHideFlags: 0

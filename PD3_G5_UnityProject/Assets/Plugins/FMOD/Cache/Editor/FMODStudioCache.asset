@@ -26,7 +26,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 995
+  Length: 730
 --- !u!114 &-8887793535221963392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +108,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 297
+--- !u!114 &-8279808240380435997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Enemigos/Chill\xF3n Explosivo/Explosi\xF3n3"
+  m_EditorClassIdentifier: 
+  Path: "event:/Enemigos/Chill\xF3n Explosivo/Explosi\xF3n3"
+  Guid:
+    Data1: 2141182584
+    Data2: 1150821866
+    Data3: -1070622555
+    Data4: 1539727541
+  Banks:
+  - {fileID: 4571533692720063406}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1950
 --- !u!114 &-7946187319177671652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +242,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 6510
+  Length: 2000
 --- !u!114 &-7282854968294029216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +296,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2004
+  Length: 640
 --- !u!114 &-6463640985638205932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,10 +420,10 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Master.bank"
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638212534647398315
+  lastModified: 638212659017639399
   FileSizes:
   - Name: Desktop
-    Value: 1036
+    Value: 2376
   Exists: 1
 --- !u!114 &-5571223957561550229
 MonoBehaviour:
@@ -532,7 +559,34 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2004
+  Length: 340
+--- !u!114 &-4534203815909173002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Enemigos/Chill\xF3n Explosivo/Explosi\xF3n1"
+  m_EditorClassIdentifier: 
+  Path: "event:/Enemigos/Chill\xF3n Explosivo/Explosi\xF3n1"
+  Guid:
+    Data1: -50866815
+    Data2: 1195259098
+    Data3: -2139196247
+    Data4: 714608501
+  Banks:
+  - {fileID: -1473265737604153609}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2129
 --- !u!114 &-3956070756914436589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,7 +602,7 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/ShotGun.bank"
   Name: ShotGun
   StudioPath: bank:/ShotGun
-  lastModified: 638212520522263568
+  lastModified: 638212615602519397
   FileSizes:
   - Name: Desktop
     Value: 48864
@@ -676,10 +730,10 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Golem.bank"
   Name: Golem
   StudioPath: bank:/Golem
-  lastModified: 638212520525032333
+  lastModified: 638212626240316902
   FileSizes:
   - Name: Desktop
-    Value: 124000
+    Value: 160352
   Exists: 1
 --- !u!114 &-1261931330524741983
 MonoBehaviour:
@@ -734,7 +788,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1866
+  Length: 480
 --- !u!114 &-991723380469174531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,11 +804,38 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/RapidFire.bank"
   Name: RapidFire
   StudioPath: bank:/RapidFire
-  lastModified: 638212520522896704
+  lastModified: 638212659017950924
   FileSizes:
   - Name: Desktop
     Value: 86368
   Exists: 1
+--- !u!114 &-711890506907048681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/sad
+  m_EditorClassIdentifier: 
+  Path: event:/sad
+  Guid:
+    Data1: 2031583092
+    Data2: 1088740262
+    Data3: 2101553580
+    Data4: 1774166670
+  Banks:
+  - {fileID: -5672961261113282306}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-465853660677451723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,7 +889,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 19563
+  Length: 110
 --- !u!114 &-407468154611058234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -824,7 +905,7 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Arlequin.bank"
   Name: Arlequin
   StudioPath: bank:/Arlequin
-  lastModified: 638212520528581286
+  lastModified: 638212615603705862
   FileSizes:
   - Name: Desktop
     Value: 184032
@@ -844,38 +925,11 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Chillon.bank"
   Name: Chillon
   StudioPath: bank:/Chillon
-  lastModified: 638212520526901900
+  lastModified: 638212626240737779
   FileSizes:
   - Name: Desktop
-    Value: 216384
+    Value: 230624
   Exists: 1
---- !u!114 &-10064526246779339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Muerte/PlayerMuerte
-  m_EditorClassIdentifier: 
-  Path: event:/Muerte/PlayerMuerte
-  Guid:
-    Data1: 965858961
-    Data2: 1161691031
-    Data3: 570285703
-    Data4: 1481785808
-  Banks:
-  - {fileID: 2635776434573947557}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-8510571034687522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -902,7 +956,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 3000
+  Length: 1650
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,13 +1030,18 @@ MonoBehaviour:
   - {fileID: 1521442731984357632}
   - {fileID: -2307154999717595833}
   - {fileID: -3477026265787132420}
-  - {fileID: -10064526246779339}
+  - {fileID: -8279808240380435997}
+  - {fileID: 2819925503499301915}
+  - {fileID: -4534203815909173002}
+  - {fileID: 6070430651529086406}
+  - {fileID: -711890506907048681}
+  - {fileID: 5421453780524510312}
   EditorParameters: []
   MasterBanks:
   - {fileID: -5672961261113282306}
   StringsBanks:
   - {fileID: 8991795112511548679}
-  cacheTime: 638212534647658540
+  cacheTime: 638212659017950924
   cacheVersion: 131603
 --- !u!114 &126879127080487655
 MonoBehaviour:
@@ -1215,10 +1274,10 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Environment.bank"
   Name: Environment
   StudioPath: bank:/Environment
-  lastModified: 638212520521530129
+  lastModified: 638212615602095201
   FileSizes:
   - Name: Desktop
-    Value: 1487712
+    Value: 1487840
   Exists: 1
 --- !u!114 &2486676908954908347
 MonoBehaviour:
@@ -1235,7 +1294,7 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Menu.bank"
   Name: Menu
   StudioPath: bank:/Menu
-  lastModified: 638212520521847099
+  lastModified: 638212615602310741
   FileSizes:
   - Name: Desktop
     Value: 26976
@@ -1255,11 +1314,38 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Player.bank"
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 638212534647658540
+  lastModified: 638212615601838020
   FileSizes:
   - Name: Desktop
-    Value: 291040
+    Value: 290368
   Exists: 1
+--- !u!114 &2819925503499301915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Enemigos/Chill\xF3n Explosivo/Grito"
+  m_EditorClassIdentifier: 
+  Path: "event:/Enemigos/Chill\xF3n Explosivo/Grito"
+  Guid:
+    Data1: 543504431
+    Data2: 1177849805
+    Data3: -634080880
+    Data4: -926215451
+  Banks:
+  - {fileID: -324710334801837898}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1668
 --- !u!114 &3189983674464105723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1286,7 +1372,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1184
+  Length: 844
 --- !u!114 &3937532064943918010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1329,10 +1415,10 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Grenade.bank"
   Name: Grenade
   StudioPath: bank:/Grenade
-  lastModified: 638212520523319562
+  lastModified: 638212615603452778
   FileSizes:
   - Name: Desktop
-    Value: 39136
+    Value: 64768
   Exists: 1
 --- !u!114 &5223580909055840961
 MonoBehaviour:
@@ -1361,6 +1447,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1046
+--- !u!114 &5421453780524510312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Mapa/A
+  m_EditorClassIdentifier: 
+  Path: event:/Mapa/A
+  Guid:
+    Data1: -1716741227
+    Data2: 1274904219
+    Data3: -356630619
+    Data4: 1576976421
+  Banks:
+  - {fileID: -5672961261113282306}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6070430651529086406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemigos/Golem de fuego/Proyectil de fuego
+  m_EditorClassIdentifier: 
+  Path: event:/Enemigos/Golem de fuego/Proyectil de fuego
+  Guid:
+    Data1: -2023020610
+    Data2: 1165343350
+    Data3: -425003612
+    Data4: 2101852702
+  Banks:
+  - {fileID: -1473265737604153609}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2373
 --- !u!114 &6930730064722239912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1437,11 +1577,11 @@ MonoBehaviour:
   - {fileID: 2378276613565893876}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 15000
+  Length: 13800
 --- !u!114 &7819635492490948106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1585,10 +1725,10 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Master.strings.bank"
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638212534647418323
+  lastModified: 638212659017654113
   FileSizes:
   - Name: Desktop
-    Value: 3540
+    Value: 3796
   Exists: 1
 --- !u!114 &9135384835184281317
 MonoBehaviour:

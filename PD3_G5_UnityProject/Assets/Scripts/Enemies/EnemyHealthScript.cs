@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,9 +14,9 @@ public class EnemyHealthScript : MonoBehaviour
     [SerializeField] Transform damageTextPosition;
     [SerializeField] float ncReward = 3;
     [SerializeField] float scReward = 1;
-
-
     private Canvas canvas;
+    [Header("FMOD")]
+    public StudioEventEmitter DeathEmitter;
 
     private void Awake()
     {
@@ -69,6 +70,7 @@ public class EnemyHealthScript : MonoBehaviour
     {
         //ANIMATION
         //SOUND
+        DeathEmitter.Play();
         Destroy(healthBar.gameObject);
         Destroy(gameObject);
 
