@@ -189,6 +189,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
     {
         if (PlayerInRange())
         {
+            agent.SetDestination(transform.position);
             currentState = State.ATTACK;
         }
         CheckHit();
@@ -285,7 +286,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
         if (!PlayerInRange())
         {
             agent.isStopped = false;
-            currentState = State.IDLE;
+            currentState = State.CHASE;
         }
         CheckHit();
     }
