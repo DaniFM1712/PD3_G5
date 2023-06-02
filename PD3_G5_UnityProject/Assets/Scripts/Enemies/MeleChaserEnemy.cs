@@ -14,6 +14,11 @@ public class MeleChaserEnemy : ParentEnemyIAScript
     Vector3 distanceToPlayer;
     [SerializeField] UnityEvent<GameObject> objectIsDead;
 
+    [Header("DASH")]
+    [SerializeField] GameObject detectionArea;
+    private float dashCooldown = 10f;
+    private float dashTimer;
+    private bool dashInCooldown = false;
 
 
     enum State { IDLE, CHASE, ATTACK, HIT , DIE }
@@ -63,8 +68,18 @@ public class MeleChaserEnemy : ParentEnemyIAScript
     void Update()
     {
         //if (agent.hasPath)
-            //agent.acceleration = (agent.remainingDistance < 4f) ? 60f : 2f;
+        //agent.acceleration = (agent.remainingDistance < 4f) ? 60f : 2f;
 
+        if (dashInCooldown)
+        {
+            dashTimer -= Time.deltaTime;
+
+            if(dashTimer <= 0)
+            {
+                detectionArea.SetActive(true);
+                dashTimer = dashCooldown;
+            }
+        }
         if (enemySetted)
         {
             distanceToPlayer = player.transform.position - transform.position;
@@ -260,4 +275,23 @@ public class MeleChaserEnemy : ParentEnemyIAScript
         enemySetted = true;
     }
 
+    public void BulletDetected(bool dir)
+    {
+        StartCoroutine(ExecuteDash(dir));
+    }
+
+    IEnumerator ExecuteDash(bool dir)
+    {
+        Vector3 direction;
+        direction = dir == true ? Vector3.right : Vector3.left;
+
+        int i = 0;
+        while (i < 5f)
+        {
+            player.GetComponent<CharacterController>().Move(direction * 1f);
+            i++;
+            yield return new WaitForEndOfFrame();
+        }
+    }
+   
 }

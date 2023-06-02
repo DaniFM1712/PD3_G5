@@ -206,12 +206,12 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
     {
         player.GetComponent<PlayerHealthScript>().ModifyHealth(damage);
         Debug.Log("MELEE ATTACK");
-        Vector3 directionVector = (player.transform.position - transform.position).normalized;
-        StartCoroutine(EnemyCollision(directionVector));
+        StartCoroutine(EnemyCollision());
     }
 
-    IEnumerator EnemyCollision(Vector3 direction)
+    IEnumerator EnemyCollision()
     {
+        Vector3 direction = (player.transform.position - transform.position).normalized;
         int i = 0;
         while (i < 5f)
         {

@@ -30,6 +30,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
     [SerializeField] bool allowButtonHold;
 
 
+
     int bulletsLeft, bulletsShot;
 
     bool shooting, readyToShoot, reloading;
@@ -37,11 +38,17 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
     Queue<GameObject> bulletPool;
     Vector3 shootingPoint;
 
+    [Header("SpecialShoot")]
+    [SerializeField] float specialShootCooldown = 6f;
+    [SerializeField] float timeBetweenSpecialShooting;
+    private float specialShootTimer;
+    private bool specialShootInCooldown = true;
+    private bool specialShoot = false;
 
-
-    enum State { IDLE, CHASE, ATTACK, HIT, DIE }
+    [Header("IA")]
     [SerializeField] State currentState;
     [SerializeField] public float secondsToSetEnemy;
+    enum State { IDLE, CHASE, ATTACK, HIT, DIE }
     private bool enemySetted = false;
 
 
@@ -73,6 +80,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
     [Header("FMOD")]
     public StudioEventEmitter AttackEmitter;
 
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -81,6 +89,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
     override public void Start()
     {
         base.Start();
+        specialShootTimer = specialShootCooldown;
         lastCheckedHealth = GetComponent<EnemyHealthScript>().GetCurrentHealth();
         currentDetectionCooldown = maxDetectionCooldown;
         bulletPool = new Queue<GameObject>();
@@ -142,7 +151,13 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
         {
             detecting = true;
             if(currentDetectionCooldown <= 0)
+            {
+                specialShootInCooldown = true;
+                specialShoot = false;
+                specialShootTimer = specialShootCooldown;
                 currentState = State.ATTACK;
+            }
+
         }
         if(detecting && !PlayerInRange())
         {
@@ -193,6 +208,9 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
         if (PlayerInRange())
         {
             agent.SetDestination(transform.position);
+            specialShootInCooldown = true;
+            specialShoot = false;
+            specialShootTimer = specialShootCooldown;
             currentState = State.ATTACK;
         }
         CheckHit();
@@ -207,8 +225,27 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
             {
                 shootingPoint = player.transform.position;
                 agent.isStopped = true;
-                AttackEmitter.Play();
-                Shoot();
+                
+                float chooseAttack = Random.Range(0, 100);
+
+                if (specialShoot && chooseAttack > 50f)
+                {
+                    specialShoot = false;
+                    specialShootInCooldown = true;
+                    int i = 0;
+                    while (i < 3)
+                    {
+                        SpecialShoot();
+                        i++;
+                    }
+
+                }
+                else
+                {
+                    AttackEmitter.Play();
+                    Shoot();
+                }
+
             }
             else
                 Reload();
@@ -255,6 +292,46 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
         }
     }
 
+    private void SpecialShoot()
+    {
+        //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(player.transform.position), Time.deltaTime * turnRate);
+        //transform.LookAt(player.GetComponent<Transform>(), Vector3.up);
+        
+        readyToShoot = false;
+        Vector3 directionWithoutSpread = shootingPoint - bulletOrigin.position;
+
+        float xSpread = Random.Range(-spread, +spread);
+        float ySpread = Random.Range(-spread, +spread);
+        float zSpread = Random.Range(-spread, +spread);
+
+
+        directionWithoutSpread += new Vector3(xSpread, ySpread, zSpread);
+
+        GameObject currentBullet = bulletPool.Dequeue();
+        currentBullet.SetActive(true);
+        currentBullet.transform.position = bulletOrigin.position;
+        currentBullet.transform.forward = directionWithoutSpread.normalized;
+        currentBullet.GetComponent<EnemyBulletScript>().SetDamage(bulletDamage);
+
+        currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * shootForce, ForceMode.Impulse);
+        currentBullet.GetComponent<Rigidbody>().AddForce(transform.up * upwardForce, ForceMode.Impulse);
+
+        bulletPool.Enqueue(currentBullet);
+
+        bulletsLeft--;
+        bulletsShot++;
+
+        if (allowInvoke)
+        {
+            Invoke("ResetShot", timeBetweenSpecialShooting);
+            allowInvoke = false;
+        }
+        if (bulletsShot < bulletsPerTap && bulletsLeft > 0)
+        {
+            Invoke("Shoot", timeBetweenShots);
+        }
+    }
+
     private void ResetShot()
     {
         readyToShoot = true;
@@ -275,13 +352,30 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
 
     void updateAttack()
     {
+
+
         if (PlayerInRange() && readyToShoot && !reloading)
         {
+            if (specialShootInCooldown)
+            {
+                specialShootTimer -= Time.deltaTime;
+                if (specialShootTimer <= 0)
+                {
+                    specialShootInCooldown = false;
+                    specialShoot = true;
+                    specialShootTimer = specialShootCooldown;
+                }
+            }
             shooting = true;
             attack();
         }
         else
+        {
             shooting = false;
+            specialShootInCooldown = false;
+            specialShoot = false;
+            specialShootTimer = specialShootCooldown;
+        }
     }
 
     void ChangeFromAttack()

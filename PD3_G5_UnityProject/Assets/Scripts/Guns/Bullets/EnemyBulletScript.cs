@@ -25,7 +25,7 @@ public class EnemyBulletScript : MonoBehaviour
             ReturnToOrigin();
         }
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Terrain"))
