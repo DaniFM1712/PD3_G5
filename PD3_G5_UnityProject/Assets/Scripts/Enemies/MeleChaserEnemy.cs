@@ -63,6 +63,7 @@ public class MeleChaserEnemy : ParentEnemyIAScript
     override public void Start()
     {
         base.Start();
+        detectionArea.SetActive(true);
     }
 
     void Update()
@@ -77,6 +78,7 @@ public class MeleChaserEnemy : ParentEnemyIAScript
             if(dashTimer <= 0)
             {
                 detectionArea.SetActive(true);
+                dashInCooldown = false;
                 dashTimer = dashCooldown;
             }
         }
@@ -277,6 +279,8 @@ public class MeleChaserEnemy : ParentEnemyIAScript
 
     public void BulletDetected(bool dir)
     {
+        dashInCooldown = true;
+        detectionArea.SetActive(false);
         StartCoroutine(ExecuteDash(dir));
     }
 
