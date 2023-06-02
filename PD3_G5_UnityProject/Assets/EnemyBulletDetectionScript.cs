@@ -18,9 +18,24 @@ public class EnemyBulletDetectionScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.CompareTag("Bullet"))
         {
+            bool dir = false;
+            if (Vector3.Dot(other.transform.position, Vector3.forward) == 0)
+            {
+                Vector3 cross = Vector3.Cross(Vector3.forward, other.transform.position);
+                if (cross.y > 0)
+                { // right
+                    dir = true;
+                }
+                else
+                { // left
+                    dir = false;
+                }
+            }
 
+            transform.parent.gameObject.GetComponent<MeleChaserEnemy>().BulletDetected(dir);
         }
     }
 }
