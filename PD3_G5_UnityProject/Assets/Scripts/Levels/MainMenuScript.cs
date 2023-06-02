@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +11,16 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] GameObject displayOptions;
     [SerializeField] GameObject ControlsOptions;
 
+    [Header("FMOD")]
+    public StudioEventEmitter SelectEmitter;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
     }
     public void onStartGame()
     {
+        SelectEmitter.Play();
         SceneManager.LoadScene(1);
     }
 
@@ -31,6 +36,7 @@ public class MainMenuScript : MonoBehaviour
             displayOptions.SetActive(false);
         if (ControlsOptions.activeSelf == true)
             ControlsOptions.SetActive(false);
+        SelectEmitter.Play();
     }
 
 
@@ -38,18 +44,24 @@ public class MainMenuScript : MonoBehaviour
     {
         options.SetActive(false);
         volumeOptions.SetActive(true);
+        SelectEmitter.Play();
+
     }
 
     public void onDisplaySettings()
     {
         options.SetActive(false);
         displayOptions.SetActive(true);
+        SelectEmitter.Play();
+
     }
 
     public void onControllerSettings()
     {
         options.SetActive(false);
         ControlsOptions.SetActive(true);
+        SelectEmitter.Play();
+
     }
 
 
