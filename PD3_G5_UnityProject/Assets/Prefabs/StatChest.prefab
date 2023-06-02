@@ -146,7 +146,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4291329724047641680}
   - component: {fileID: 5938393168900559936}
-  - component: {fileID: 2114747946832058938}
   m_Layer: 0
   m_Name: ChestInteractArea_1
   m_TagString: Untagged
@@ -182,22 +181,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7121258, y: 0.8168592, z: 1.1589882}
   m_Center: {x: -0.0074936603, y: -0.09156934, z: -0.0464227}
---- !u!114 &2114747946832058938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3127695637183215866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d40c3bb1bae79a49a12c86adf2c6d7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Canvas: {fileID: 6420856971562882552}
-  consumableItem: {fileID: 4868041599595016249}
-  consumableItemGO: {fileID: 4868041599595016248}
-  chestAnimator: {fileID: 0}
 --- !u!1 &6420856970709628285
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +192,7 @@ GameObject:
   - component: {fileID: 6420856970709628282}
   - component: {fileID: 6420856970709628283}
   - component: {fileID: 6420856970709628280}
+  - component: {fileID: 6833456712202367188}
   m_Layer: 0
   m_Name: ChestInteractArea
   m_TagString: Untagged
@@ -260,6 +244,38 @@ MonoBehaviour:
   consumableItem: {fileID: 4868041599595016249}
   consumableItemGO: {fileID: 4868041599595016248}
   chestAnimator: {fileID: 0}
+  OpenChestEmitter: {fileID: 6833456712202367188}
+--- !u!114 &6833456712202367188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6420856970709628285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1390540400
+      Data2: 1272595023
+      Data3: 75184318
+      Data4: 445241795
+    Path: event:/Mapa/Abrir cofre
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &6420856971389309747
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,57 +473,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3904008270588357124}
     m_Modifications:
-    - target: {fileID: 8081819407383001383, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 8490892352067185174, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126843320158596, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1616673045, guid: cc94d775a6411244e9a2bc3b92ac5e53,
-        type: 3}
-    - target: {fileID: 8980126843320158597, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5.8917303
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126843320158597, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.268809
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126843320158598, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126843657226716, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126843744062555, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126844327563236, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126844537449222, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 72
-      objectReference: {fileID: 0}
     - target: {fileID: 8980126844607102093, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
         type: 3}
       propertyPath: m_RootOrder
@@ -521,7 +486,7 @@ PrefabInstance:
     - target: {fileID: 8980126844607102093, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2399998
+      value: 2.166
       objectReference: {fileID: 0}
     - target: {fileID: 8980126844607102093, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
         type: 3}
@@ -567,78 +532,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ConsumableObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126844607102095, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126844607102095, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126844683924661, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126844806155682, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126844833022107, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126844833022107, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126845030169573, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_text
-      value: "Press E \nto take item!\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126845030169573, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 94203f831c6495344be7f7e8c8e66c4a,
-        type: 2}
-    - target: {fileID: 8980126845030169573, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_fontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126845030169573, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -957002722425998511, guid: 94203f831c6495344be7f7e8c8e66c4a,
-        type: 2}
-    - target: {fileID: 8980126845030169573, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126845030169573, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126845030169575, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980126845203676061, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b202ad6ee9780b14aa5af4ec54a7bf46, type: 3}
