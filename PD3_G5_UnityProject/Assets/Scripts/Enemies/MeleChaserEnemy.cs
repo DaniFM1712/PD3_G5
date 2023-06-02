@@ -321,10 +321,10 @@ public class MeleChaserEnemy : ParentEnemyIAScript
 
         agent.SetDestination(player.transform.position);
 
-
-        yield return new WaitForSeconds(0f);
-
         isDashing = false;
+
+
+
     }
 
 }
