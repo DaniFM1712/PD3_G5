@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class StoreScript : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class StoreScript : MonoBehaviour
     [SerializeField] List<int> prices = new List<int>();
     private bool canShop = false;
     private int itemSelected = 0;
+
+    [Header("FMOD")]
+    public StudioEventEmitter SelectEmitter;
+    public StudioEventEmitter BuyEmitter;
+    public StudioEventEmitter CloseEmitter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +76,7 @@ public class StoreScript : MonoBehaviour
                 itemDescription.text = "Unlocks a second life. Once for run, if you die the current level will restart.";
                 break;
         }
+        SelectEmitter.Play();
         itemPrice.text ="Cost: " + prices[index - 1];
         buttons[6].interactable = true;
     }
@@ -104,10 +112,6 @@ public class StoreScript : MonoBehaviour
                 BuySecondLifeUpgrade();
                 break;
         }
-        buttons[6].interactable = false;
-        itemDescription.text = "";
-        itemPrice.text = "Cost: ";
-
     }
 
 
@@ -120,7 +124,10 @@ public class StoreScript : MonoBehaviour
             buttons[0].interactable = false;
             PlayerStatsScript.instance.baseDivinePowerMultiplyer += 0.3f;
             PlayerStatsScript.instance.currentDivinePowerMultiplyer = PlayerStatsScript.instance.baseDivinePowerMultiplyer;
-
+            BuyEmitter.Play();
+            buttons[6].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
             CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[0]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
         }
@@ -136,6 +143,10 @@ public class StoreScript : MonoBehaviour
             PlayerStatsScript.instance.currentEssenceMultiplyer = PlayerStatsScript.instance.baseEssenceMultiplyer;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[1]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            BuyEmitter.Play();
+            buttons[6].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
         }
     }
     private void BuyBaseDamageDealedUpgrade()
@@ -148,6 +159,10 @@ public class StoreScript : MonoBehaviour
             PlayerStatsScript.instance.currentDamageMultiplyer = PlayerStatsScript.instance.baseDamageMultiplyer;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[2]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            BuyEmitter.Play();
+            buttons[6].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
         }
     }
     private void BuyBaseHealthUpgrade()
@@ -162,6 +177,10 @@ public class StoreScript : MonoBehaviour
             PlayerStatsScript.instance.currentHealth = PlayerStatsScript.instance.GetCurrentMaxHealth();
             CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[3]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            BuyEmitter.Play();
+            buttons[6].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
         }
     }
     private void BuyBaseFirerateUpgrade()
@@ -174,6 +193,10 @@ public class StoreScript : MonoBehaviour
             PlayerStatsScript.instance.currentFireRateMultiplyer = PlayerStatsScript.instance.baseFireRateMultiplyer;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[4]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            BuyEmitter.Play();
+            buttons[6].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
         }
     }
     private void BuySecondLifeUpgrade()
@@ -186,11 +209,16 @@ public class StoreScript : MonoBehaviour
             PlayerStatsScript.instance.secondLife = true;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[5]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            BuyEmitter.Play();
+            buttons[6].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
         }
     }
 
     public void CloseStore()
     {
+        CloseEmitter.Play();
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         storeCanvas.SetActive(false);

@@ -14268,7 +14268,7 @@ PrefabInstance:
     - target: {fileID: 5703584255940053823, guid: 5fb776493bf9b14419a90a20c5d8aad6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb776493bf9b14419a90a20c5d8aad6, type: 3}
@@ -19144,6 +19144,26 @@ PrefabInstance:
         type: 3}
       propertyPath: startDashCooldown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartDashCooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 637529933}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: reduceDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 637529933}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: startDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartDashCooldown
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688068328114149651, guid: b5301dd35a2af1245b35289bf67ebbb0,
+        type: 3}
+      propertyPath: reduceDashCooldownEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReduceDashCooldown
       objectReference: {fileID: 0}
     - target: {fileID: 3688068329298052683, guid: b5301dd35a2af1245b35289bf67ebbb0,
         type: 3}

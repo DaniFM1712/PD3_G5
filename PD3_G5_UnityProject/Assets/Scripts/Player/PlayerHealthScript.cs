@@ -77,11 +77,12 @@ public class PlayerHealthScript : MonoBehaviour
         }
 
         healthUI.updateHealth();
-        if(PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth() > 0.2f || PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth() <= 0)
+        if(((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0.2f) || (PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) <= 0)
         {
+            Debug.Log("ENTRO VIDA");
             lowHpEmitter.Stop();
         }
-        else if (PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth() < 0.2f && PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth() > 0 && !lifeActive)
+        else if (((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) < 0.2f) && ((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0) && !lifeActive)
         {
             lowHpEmitter.Play();
             lifeActive = true;

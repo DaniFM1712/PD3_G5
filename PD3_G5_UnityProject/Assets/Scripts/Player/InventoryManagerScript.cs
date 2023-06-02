@@ -178,6 +178,9 @@ public class InventoryManagerScript : MonoBehaviour
     public void UpdateBlessingsUI()
     {
         ParentBlessing[] blessings = FindObjectsByType<ParentBlessing>(FindObjectsSortMode.InstanceID);
+        dashBlessings.text = "";
+        grenadeBlessings.text = "";
+        weaponsBlessings.text = "";
         foreach (ParentBlessing blessing in blessings)
         {
 

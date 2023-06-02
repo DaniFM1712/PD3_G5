@@ -47,5 +47,4 @@ public class HealthUIScript : MonoBehaviour
         healthAmount.fillAmount = normalizedHP;
 
     }
-    
 }

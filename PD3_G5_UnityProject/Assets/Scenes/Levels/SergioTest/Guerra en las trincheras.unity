@@ -3300,7 +3300,7 @@ PrefabInstance:
     - target: {fileID: 5703584255940053823, guid: 5fb776493bf9b14419a90a20c5d8aad6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb776493bf9b14419a90a20c5d8aad6, type: 3}
@@ -8144,6 +8144,9 @@ MonoBehaviour:
   baseMaxGrenadeCharges: 1
   baseMaxTrapCharges: 1
   maxBlessings: 8
+  secondLifeUnlocked: 0
+  secondLife: 0
+  permanentUpgrades: 
   currentMaxHealth: 0
   currentMaxShield: 0
   currentMaxDashCharges: 0
@@ -8186,10 +8189,16 @@ MonoBehaviour:
   currentCriticalMultiplyer: 0
   baseMaxHealthMultiplyer: 1
   currentMaxHealthMultiplyer: 0
-  baseCurrentDamageMultiplyer: 1
+  baseDamageMultiplyer: 1
   currentDamageMultiplyer: 0
+  baseSpeedMultiplyer: 1
+  currentSpeedMultiplyer: 0
   highHealthDamageBuff: 0
   highHealthDamageApplied: 0
+  threeShotBuff: 0
+  reloadDamageBuff: 0
+  speedBuffAfterKilling: 0
+  speedBuffActivated: 0
 --- !u!4 &1630741207
 Transform:
   m_ObjectHideFlags: 0

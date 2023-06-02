@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using FMODUnity;
 
 public class RunStoreScript : MonoBehaviour
 {
@@ -32,6 +33,10 @@ public class RunStoreScript : MonoBehaviour
     private ConsumableAsset rareItem;
     private ConsumableAsset legendaryItem;
 
+    [Header("FMOD")]
+    public StudioEventEmitter BuyEmitter;
+    public StudioEventEmitter CloseEmitter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,14 +61,14 @@ public class RunStoreScript : MonoBehaviour
 
     public void BuyHealth()
     {
-        if (PlayerStatsScript.instance.currentNormalCoin >= healthCost && PlayerStatsScript.instance.currentHealth < PlayerStatsScript.instance.currentMaxHealth * PlayerStatsScript.instance.currentMaxHealthMultiplyer)
+        if (PlayerStatsScript.instance.currentNormalCoin >= healthCost && PlayerStatsScript.instance.currentHealth < PlayerStatsScript.instance.GetCurrentMaxHealth())
         {
 
             player.GetComponent<PlayerHealthScript>().ModifyHealth(healthValue);
 
             CoinCounterScript.coinCounterInstance.updateNCCounter(-healthCost);
             NCText.text = "NC: " + PlayerStatsScript.instance.currentNormalCoin;
-
+            BuyEmitter.Play();
         }
     }
     public void BuyRandomItem()
@@ -80,6 +85,8 @@ public class RunStoreScript : MonoBehaviour
 
                 CoinCounterScript.coinCounterInstance.updateNCCounter(-randomItemCost);
                 NCText.text = "NC: " + PlayerStatsScript.instance.currentNormalCoin;
+                BuyEmitter.Play();
+
             }
 
         }
@@ -100,6 +107,7 @@ public class RunStoreScript : MonoBehaviour
 
                 CoinCounterScript.coinCounterInstance.updateNCCounter(-randomRareCost);
                 NCText.text = "NC: " + PlayerStatsScript.instance.currentNormalCoin;
+                BuyEmitter.Play();
 
             }
 
@@ -121,6 +129,7 @@ public class RunStoreScript : MonoBehaviour
 
                 CoinCounterScript.coinCounterInstance.updateNCCounter(-randomLegendaryCost);
                 NCText.text = "NC: " + PlayerStatsScript.instance.currentNormalCoin;
+                BuyEmitter.Play();
 
             }
 
@@ -134,6 +143,7 @@ public class RunStoreScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         invFullText.enabled = false;
         storeCanvas.SetActive(false);
+        CloseEmitter.Play();
     }
 
     private void GenerateRandomItem()
