@@ -1,32 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9118948353303756714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Armas GENERAL/Orbe Sagrado/Lanzamiento
-  m_EditorClassIdentifier: 
-  Path: event:/Armas GENERAL/Orbe Sagrado/Lanzamiento
-  Guid:
-    Data1: 1060854446
-    Data2: 1080132576
-    Data3: 1467716518
-    Data4: 100205095
-  Banks:
-  - {fileID: 4571533692720063406}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 730
 --- !u!114 &-8887793535221963392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,10 +393,10 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Master.bank"
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638212688076918238
+  lastModified: 638212699163150311
   FileSizes:
   - Name: Desktop
-    Value: 3668
+    Value: 2376
   Exists: 1
 --- !u!114 &-5571223957561550229
 MonoBehaviour:
@@ -607,6 +580,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 48864
   Exists: 1
+--- !u!114 &-3649653852444835900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/asd
+  m_EditorClassIdentifier: 
+  Path: event:/asd
+  Guid:
+    Data1: 1607062314
+    Data2: 1167550320
+    Data3: -1960862814
+    Data4: 240821086
+  Banks:
+  - {fileID: -5672961261113282306}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3477026265787132420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,6 +715,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 832
+--- !u!114 &-1505979063957588466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/armas GENERAL/Orbe Sagrado/Out of charges
+  m_EditorClassIdentifier: 
+  Path: event:/armas GENERAL/Orbe Sagrado/Out of charges
+  Guid:
+    Data1: 1705520635
+    Data2: 1280966858
+    Data3: 1187373964
+    Data4: 514552591
+  Banks:
+  - {fileID: 4571533692720063406}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 152
 --- !u!114 &-1473265737604153609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -735,33 +762,6 @@ MonoBehaviour:
   - Name: Desktop
     Value: 160352
   Exists: 1
---- !u!114 &-1459389275339600364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/AA
-  m_EditorClassIdentifier: 
-  Path: event:/AA
-  Guid:
-    Data1: 988760452
-    Data2: 1134991764
-    Data3: -1986288742
-    Data4: -2039765064
-  Banks:
-  - {fileID: -5672961261113282306}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-1261931330524741983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,60 +836,6 @@ MonoBehaviour:
   - Name: Desktop
     Value: 86368
   Exists: 1
---- !u!114 &-711890506907048681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/sad
-  m_EditorClassIdentifier: 
-  Path: event:/sad
-  Guid:
-    Data1: 2031583092
-    Data2: 1088740262
-    Data3: 2101553580
-    Data4: 1774166670
-  Banks:
-  - {fileID: -5672961261113282306}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-465853660677451723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Armas GENERAL/Orbe Sagrado/Out of charges
-  m_EditorClassIdentifier: 
-  Path: event:/Armas GENERAL/Orbe Sagrado/Out of charges
-  Guid:
-    Data1: 1705520635
-    Data2: 1280966858
-    Data3: 1187373964
-    Data4: 514552591
-  Banks:
-  - {fileID: 4571533692720063406}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 152
 --- !u!114 &-432162379734176923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,7 +898,7 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Chillon.bank"
   Name: Chillon
   StudioPath: bank:/Chillon
-  lastModified: 638212688077500213
+  lastModified: 638212699163889986
   FileSizes:
   - Name: Desktop
     Value: 230624
@@ -1029,10 +975,6 @@ MonoBehaviour:
   - {fileID: 2189014740426130727}
   - {fileID: 9135384835184281317}
   - {fileID: 3937532064943918010}
-  - {fileID: 3189983674464105723}
-  - {fileID: 8378259725549607564}
-  - {fileID: -9118948353303756714}
-  - {fileID: -465853660677451723}
   - {fileID: -3443049571731142727}
   - {fileID: 1477082449549811775}
   - {fileID: -6402220799888125114}
@@ -1061,16 +1003,18 @@ MonoBehaviour:
   - {fileID: 2819925503499301915}
   - {fileID: -4534203815909173002}
   - {fileID: 6070430651529086406}
-  - {fileID: -711890506907048681}
   - {fileID: 5421453780524510312}
-  - {fileID: 2004316744987781760}
-  - {fileID: -1459389275339600364}
+  - {fileID: 5765506121921391622}
+  - {fileID: 7550589558967637474}
+  - {fileID: 3289449640701863153}
+  - {fileID: -1505979063957588466}
+  - {fileID: -3649653852444835900}
   EditorParameters: []
   MasterBanks:
   - {fileID: -5672961261113282306}
   StringsBanks:
   - {fileID: 8991795112511548679}
-  cacheTime: 638212688077696388
+  cacheTime: 638212699163889986
   cacheVersion: 131603
 --- !u!114 &126879127080487655
 MonoBehaviour:
@@ -1261,33 +1205,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 75
---- !u!114 &2004316744987781760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/A
-  m_EditorClassIdentifier: 
-  Path: event:/A
-  Guid:
-    Data1: -1453227350
-    Data2: 1304505202
-    Data3: 313425579
-    Data4: 2022629325
-  Banks:
-  - {fileID: -5672961261113282306}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &2189014740426130727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1350,7 +1267,7 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Menu.bank"
   Name: Menu
   StudioPath: bank:/Menu
-  lastModified: 638212686859015773
+  lastModified: 638212699163417173
   FileSizes:
   - Name: Desktop
     Value: 26976
@@ -1402,7 +1319,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1668
---- !u!114 &3189983674464105723
+--- !u!114 &3289449640701863153
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1412,14 +1329,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/Armas GENERAL/Orbe Sagrado/Explosi\xF3n1"
+  m_Name: event:/armas GENERAL/Orbe Sagrado/Lanzamiento
   m_EditorClassIdentifier: 
-  Path: "event:/Armas GENERAL/Orbe Sagrado/Explosi\xF3n1"
+  Path: event:/armas GENERAL/Orbe Sagrado/Lanzamiento
   Guid:
-    Data1: 783904343
-    Data2: 1214694049
-    Data3: 1889350580
-    Data4: 1713720120
+    Data1: 1060854446
+    Data2: 1080132576
+    Data3: 1467716518
+    Data4: 100205095
   Banks:
   - {fileID: 4571533692720063406}
   IsStream: 0
@@ -1428,7 +1345,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 844
+  Length: 730
 --- !u!114 &3937532064943918010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1471,7 +1388,7 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Grenade.bank"
   Name: Grenade
   StudioPath: bank:/Grenade
-  lastModified: 638212686859627566
+  lastModified: 638212699163644311
   FileSizes:
   - Name: Desktop
     Value: 64768
@@ -1530,6 +1447,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5765506121921391622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/armas GENERAL/Orbe Sagrado/Explosi\xF3n1"
+  m_EditorClassIdentifier: 
+  Path: "event:/armas GENERAL/Orbe Sagrado/Explosi\xF3n1"
+  Guid:
+    Data1: 783904343
+    Data2: 1214694049
+    Data3: 1889350580
+    Data4: 1713720120
+  Banks:
+  - {fileID: 4571533692720063406}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 844
 --- !u!114 &6070430651529086406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1611,6 +1555,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 23793
+--- !u!114 &7550589558967637474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/armas GENERAL/Orbe Sagrado/Explosi\xF3n2"
+  m_EditorClassIdentifier: 
+  Path: "event:/armas GENERAL/Orbe Sagrado/Explosi\xF3n2"
+  Guid:
+    Data1: -505671270
+    Data2: 1331687909
+    Data3: 1423325844
+    Data4: 1153824409
+  Banks:
+  - {fileID: 4571533692720063406}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1664
 --- !u!114 &7805362946447065244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1719,33 +1690,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 253
---- !u!114 &8378259725549607564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/Armas GENERAL/Orbe Sagrado/Explosi\xF3n2"
-  m_EditorClassIdentifier: 
-  Path: "event:/Armas GENERAL/Orbe Sagrado/Explosi\xF3n2"
-  Guid:
-    Data1: -505671270
-    Data2: 1331687909
-    Data3: 1423325844
-    Data4: 1153824409
-  Banks:
-  - {fileID: 4571533692720063406}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1664
 --- !u!114 &8710481637753380006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,10 +1725,10 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Master.strings.bank"
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638212688076928251
+  lastModified: 638212699163170303
   FileSizes:
   - Name: Desktop
-    Value: 3870
+    Value: 3806
   Exists: 1
 --- !u!114 &9135384835184281317
 MonoBehaviour:
