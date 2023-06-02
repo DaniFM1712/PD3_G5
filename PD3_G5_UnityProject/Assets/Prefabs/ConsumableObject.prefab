@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 72
   m_IsActive: 1
 --- !u!4 &817902607097613620
 Transform:
@@ -99,7 +99,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 72
   m_IsActive: 0
 --- !u!224 &7495174896255467953
 RectTransform:
@@ -236,7 +236,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 72
   m_IsActive: 1
 --- !u!224 &8980126843320158597
 RectTransform:
@@ -247,7 +247,7 @@ RectTransform:
   m_GameObject: {fileID: 8980126843320158598}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.1872706, y: 3.1214688, z: 1.0044326}
+  m_LocalScale: {x: 5.8917303, y: 3.268809, z: 1.0044326}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8980126844833022106}
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 691989707, guid: 70aa1628688eea240b667d826248ef3d, type: 3}
+  m_Sprite: {fileID: 1616673045, guid: cc94d775a6411244e9a2bc3b92ac5e53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -313,7 +313,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 72
   m_IsActive: 1
 --- !u!224 &8980126843657226707
 RectTransform:
@@ -446,7 +446,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 72
   m_IsActive: 1
 --- !u!224 &8980126843744062554
 RectTransform:
@@ -585,7 +585,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 72
   m_IsActive: 1
 --- !u!224 &8980126844327563163
 RectTransform:
@@ -687,7 +687,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 72
   m_IsActive: 1
 --- !u!224 &8980126844537449221
 RectTransform:
@@ -816,12 +816,14 @@ GameObject:
   - component: {fileID: 8980126844607102094}
   - component: {fileID: 8980126844607102092}
   - component: {fileID: 1775732332357464786}
+  - component: {fileID: 5748752932171556816}
+  - component: {fileID: 5740639297089343153}
   m_Layer: 0
   m_Name: ConsumableObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 72
   m_IsActive: 0
 --- !u!4 &8980126844607102093
 Transform:
@@ -859,6 +861,8 @@ MonoBehaviour:
   descriptionUI: {fileID: 8980126844683924661}
   backgroundUI: {fileID: 8980126843320158598}
   slotsFullText: {fileID: 8490892352067185174}
+  TakeItemEmitter: {fileID: 5748752932171556816}
+  LeaveItemEmitter: {fileID: 5740639297089343153}
 --- !u!65 &8980126844607102092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -914,6 +918,68 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5748752932171556816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980126844607102095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 162415121
+      Data2: 1306129427
+      Data3: -1611690590
+      Data4: 39841834
+    Path: event:/Mapa/Comprar objeto en la tienda
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &5740639297089343153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980126844607102095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1684769319
+      Data2: 1255504016
+      Data3: -476710264
+      Data4: 58478693
+    Path: "event:/Men\xFA/Cancel1"
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8980126844683924661
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +996,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 72
   m_IsActive: 1
 --- !u!224 &8980126844683924660
 RectTransform:
@@ -1068,7 +1134,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 72
   m_IsActive: 1
 --- !u!224 &8980126844806155681
 RectTransform:
@@ -1202,7 +1268,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 72
   m_IsActive: 0
 --- !u!224 &8980126844833022106
 RectTransform:
@@ -1246,7 +1312,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 72
   m_IsActive: 1
 --- !u!224 &8980126845030169574
 RectTransform:
@@ -1296,12 +1362,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press E to take item!
-
-'
+  m_text: "Press E \nto take item!\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 94203f831c6495344be7f7e8c8e66c4a, type: 2}
+  m_sharedMaterial: {fileID: -957002722425998511, guid: 94203f831c6495344be7f7e8c8e66c4a,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1331,9 +1396,9 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1383,7 +1448,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 72
   m_IsActive: 1
 --- !u!224 &8980126845203676060
 RectTransform:

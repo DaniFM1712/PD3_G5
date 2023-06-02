@@ -26,7 +26,7 @@ public class chestScript : MonoBehaviour
     {
         if (canTake && Input.GetKeyDown(KeyCode.E))
         {
-            consumableItemGO.SetActive(true);
+            StartCoroutine(ChestItemAppear());
             startOpenChestAnimation();
             Destroy(gameObject);
         }
@@ -36,7 +36,6 @@ public class chestScript : MonoBehaviour
     {
         chestAnimator.SetBool("open", true);
         OpenChestEmitter.Play();
-        StartCoroutine(ChestItemAppear());
     }
 
     public void generateRandomReward()
@@ -60,13 +59,9 @@ public class chestScript : MonoBehaviour
 
     IEnumerator ChestItemAppear()
     {
-        int i = 0;
-        while (i < 10f)
-        {
-            consumableItemGO.transform.position = new Vector3(consumableItemGO.transform.position.x, consumableItemGO.transform.position.y+1f, consumableItemGO.transform.position.z);
-            yield return new WaitForEndOfFrame();
-            i++;
-        }
+        consumableItemGO.SetActive(true);
+        yield return new WaitForSeconds(0f);
+
     }
 
     private void OnTriggerEnter(Collider other)
