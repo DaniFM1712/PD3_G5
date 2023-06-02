@@ -10476,6 +10476,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PATH_LENGHT: 3
+  manualLevelPath: 06000000
+  randomPath: 0
 --- !u!4 &461158423
 Transform:
   m_ObjectHideFlags: 0
@@ -45318,6 +45320,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 730033383023910196, guid: 8b0af6a7e7572a34f95294bdeb2eebb8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6430013694274951434, guid: 8b0af6a7e7572a34f95294bdeb2eebb8,
         type: 3}
       propertyPath: m_RootOrder

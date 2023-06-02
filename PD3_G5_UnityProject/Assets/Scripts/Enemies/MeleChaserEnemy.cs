@@ -16,9 +16,12 @@ public class MeleChaserEnemy : ParentEnemyIAScript
 
     [Header("DASH")]
     [SerializeField] GameObject detectionArea;
+    [SerializeField] Transform leftPos;
+    [SerializeField] Transform rightPos;
     private float dashCooldown = 10f;
     private float dashTimer;
     private bool dashInCooldown = false;
+    private bool isDashing = false;
 
 
     enum State { IDLE, CHASE, ATTACK, HIT , DIE }
@@ -168,11 +171,16 @@ public class MeleChaserEnemy : ParentEnemyIAScript
 
     void updateChase()
     {
-        if (agent.isStopped) 
-            agent.isStopped = !agent.isStopped;
+        if (agent.enabled && !isDashing)
+        {
+            if ( agent.isStopped)
+                agent.isStopped = !agent.isStopped;
+
+            if (!blocked)
+                agent.SetDestination(player.transform.position);
+        }
+
         
-        if(!blocked)
-            agent.SetDestination(player.transform.position);
     }
 
     void ChangeFromChase()
@@ -286,16 +294,37 @@ public class MeleChaserEnemy : ParentEnemyIAScript
 
     IEnumerator ExecuteDash(bool dir)
     {
-        Vector3 direction;
-        direction = dir == true ? Vector3.right : Vector3.left;
+        isDashing = true;
+        Vector3 destination;
+        if (dir)
+            destination = rightPos.position;
+        else
+            destination = leftPos.position;
 
-        int i = 0;
-        while (i < 5f)
-        {
-            player.GetComponent<CharacterController>().Move(direction * 1f);
-            i++;
-            yield return new WaitForEndOfFrame();
-        }
+        float prevSpeed = agent.speed;
+        float prevAngularSpeed = agent.angularSpeed;
+        float prevAcceleration = agent.acceleration;
+
+        agent.speed = prevSpeed * 10f;
+        agent.angularSpeed = prevAngularSpeed * 10f;
+        agent.acceleration = prevAcceleration * 10f;
+
+        agent.SetDestination(destination);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Debug.Log("arribo?");
+
+        agent.speed = prevSpeed;
+        agent.angularSpeed = prevAngularSpeed;
+        agent.acceleration = prevAcceleration;
+
+        agent.SetDestination(player.transform.position);
+
+
+        yield return new WaitForSeconds(0f);
+
+        isDashing = false;
     }
-   
+
 }

@@ -227,8 +227,9 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
                 agent.isStopped = true;
                 
                 float chooseAttack = Random.Range(0, 100);
-
-                if (specialShoot && chooseAttack > 50f)
+                Debug.Log("ss: " + specialShoot);
+                //specialShoot = true;
+                if (specialShoot && chooseAttack >= 0f)
                 {
                     specialShoot = false;
                     specialShootInCooldown = true;
@@ -283,6 +284,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
 
         if (allowInvoke)
         {
+            timeBetweenShooting = 1f;
             Invoke("ResetShot", timeBetweenShooting);
             allowInvoke = false;
         }
@@ -296,7 +298,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
     {
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(player.transform.position), Time.deltaTime * turnRate);
         //transform.LookAt(player.GetComponent<Transform>(), Vector3.up);
-        
+        Debug.Log("SPECIAL SHOOT");
         readyToShoot = false;
         Vector3 directionWithoutSpread = shootingPoint - bulletOrigin.position;
 

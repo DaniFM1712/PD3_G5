@@ -10,10 +10,12 @@ using Random = UnityEngine.Random;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] int PATH_LENGHT;
-    static Queue <int> levelPath;
-    static List <int> allLevels = new List<int> {4,5,6};
-    static List<int> levelIndex;
-    static int previousScene = -1;
+    public Queue <int> levelPath;
+    public List <int> manualLevelPath;
+    private List <int> allLevels = new List<int> {4,5,6};
+    private List<int> levelIndex;
+    private int previousScene = -1;
+    public bool randomPath = true;
     public static LevelManager instance { get; private set; }
     //[SerializeField] UnityEvent<float, float> callScene;
 
@@ -31,7 +33,10 @@ public class LevelManager : MonoBehaviour
     {
         PlayerStatsScript.instance.SaveBlessings();
         previousScene = getCurrentSceneIndex();
-        generateRandomPath();
+        if(randomPath)
+            generateRandomPath();
+        else
+            levelPath = new Queue<int>(manualLevelPath);
     }
 
 
@@ -71,6 +76,7 @@ public class LevelManager : MonoBehaviour
         {
             Debug.Log(k);
         }
+
 
 
         levelPath = new Queue<int>(levelIndex);
