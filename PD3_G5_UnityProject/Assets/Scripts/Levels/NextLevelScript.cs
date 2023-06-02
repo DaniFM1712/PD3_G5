@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using FMODUnity;
 
 public class NextLevelScript : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class NextLevelScript : MonoBehaviour
     private bool stopLoad = false;
     private TextMeshProUGUI exitLevelText;
     [SerializeField] GameObject exitLevel;
+    [Header("FMOD")]
+    public StudioEventEmitter ExitLevelEmitter;
     private void Start()
     {
         if(exitLevel != null)
@@ -21,6 +24,8 @@ public class NextLevelScript : MonoBehaviour
     {
         if (goNextLevel && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.instance.currentWeaponIndex != 0 && !stopLoad)
         {
+
+            ExitLevelEmitter.Play();
             stopLoad = true;
             LevelManager.instance.LoadLevel();
             if (exitLevel != null)

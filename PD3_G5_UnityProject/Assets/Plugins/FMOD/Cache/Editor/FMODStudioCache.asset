@@ -189,7 +189,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 613
---- !u!114 &-7351873364773463944
+--- !u!114 &-6934417585818177713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,63 +199,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Recarga"
+  m_Name: event:/armas GENERAL/Escopeta Purgadora de Demonios/Disparo
   m_EditorClassIdentifier: 
-  Path: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Recarga"
-  Guid:
-    Data1: -1722355880
-    Data2: 1317352538
-    Data3: -871790707
-    Data4: -4896499
-  Banks:
-  - {fileID: -991723380469174531}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2000
---- !u!114 &-7282854968294029216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Activada"
-  m_EditorClassIdentifier: 
-  Path: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Activada"
-  Guid:
-    Data1: -68698712
-    Data2: 1336558888
-    Data3: 1655196291
-    Data4: -2100261745
-  Banks:
-  - {fileID: -991723380469174531}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 522
---- !u!114 &-6994457987023446646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Armas GENERAL/Escopeta Purgadora de Demonios/Disparo
-  m_EditorClassIdentifier: 
-  Path: event:/Armas GENERAL/Escopeta Purgadora de Demonios/Disparo
+  Path: event:/armas GENERAL/Escopeta Purgadora de Demonios/Disparo
   Guid:
     Data1: -1362085486
     Data2: 1335980349
@@ -393,10 +339,10 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Master.bank"
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638212699163150311
+  lastModified: 638212718310228965
   FileSizes:
   - Name: Desktop
-    Value: 2376
+    Value: 4314
   Exists: 1
 --- !u!114 &-5571223957561550229
 MonoBehaviour:
@@ -506,33 +452,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 83
---- !u!114 &-4668509997085456035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Disparo"
-  m_EditorClassIdentifier: 
-  Path: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Disparo"
-  Guid:
-    Data1: -692339284
-    Data2: 1157045455
-    Data3: 1690383745
-    Data4: 586270934
-  Banks:
-  - {fileID: -991723380469174531}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 340
 --- !u!114 &-4534203815909173002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,11 +494,38 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/ShotGun.bank"
   Name: ShotGun
   StudioPath: bank:/ShotGun
-  lastModified: 638212686859217237
+  lastModified: 638212705992288553
   FileSizes:
   - Name: Desktop
     Value: 48864
   Exists: 1
+--- !u!114 &-3821207445305714413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/armas GENERAL/Escopeta Purgadora de Demonios/Disparo concentrado
+  m_EditorClassIdentifier: 
+  Path: event:/armas GENERAL/Escopeta Purgadora de Demonios/Disparo concentrado
+  Guid:
+    Data1: 1337115597
+    Data2: 1177897357
+    Data3: -1382292302
+    Data4: 584788067
+  Banks:
+  - {fileID: -3956070756914436589}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 480
 --- !u!114 &-3649653852444835900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,6 +607,87 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 528
+--- !u!114 &-3071338191893494425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/armas GENERAL/Escopeta Purgadora de Demonios/Recarga
+  m_EditorClassIdentifier: 
+  Path: event:/armas GENERAL/Escopeta Purgadora de Demonios/Recarga
+  Guid:
+    Data1: 301302359
+    Data2: 1170358789
+    Data3: 1770502545
+    Data4: 1771821446
+  Banks:
+  - {fileID: -3956070756914436589}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1749
+--- !u!114 &-3002064249570586673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Recarga"
+  m_EditorClassIdentifier: 
+  Path: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Recarga"
+  Guid:
+    Data1: -1722355880
+    Data2: 1317352538
+    Data3: -871790707
+    Data4: -4896499
+  Banks:
+  - {fileID: -991723380469174531}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &-2329328249220859426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/zcxvcxz
+  m_EditorClassIdentifier: 
+  Path: event:/zcxvcxz
+  Guid:
+    Data1: -1385945813
+    Data2: 1248451374
+    Data3: 2025046962
+    Data4: -167021238
+  Banks:
+  - {fileID: -5672961261113282306}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2307154999717595833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,6 +715,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2355
+--- !u!114 &-2217191360456977044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Disparo"
+  m_EditorClassIdentifier: 
+  Path: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Disparo"
+  Guid:
+    Data1: -692339284
+    Data2: 1157045455
+    Data3: 1690383745
+    Data4: 586270934
+  Banks:
+  - {fileID: -991723380469174531}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 340
 --- !u!114 &-1896517140556576323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,6 +769,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 832
+--- !u!114 &-1749900860357719190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Activada"
+  m_EditorClassIdentifier: 
+  Path: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Activada"
+  Guid:
+    Data1: -68698712
+    Data2: 1336558888
+    Data3: 1655196291
+    Data4: -2100261745
+  Banks:
+  - {fileID: -991723380469174531}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 522
 --- !u!114 &-1505979063957588466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -757,7 +838,7 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Golem.bank"
   Name: Golem
   StudioPath: bank:/Golem
-  lastModified: 638212686859846076
+  lastModified: 638212705992949220
   FileSizes:
   - Name: Desktop
     Value: 160352
@@ -789,33 +870,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 85885
---- !u!114 &-1123467005938782199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Armas GENERAL/Escopeta Purgadora de Demonios/Disparo concentrado
-  m_EditorClassIdentifier: 
-  Path: event:/Armas GENERAL/Escopeta Purgadora de Demonios/Disparo concentrado
-  Guid:
-    Data1: 1337115597
-    Data2: 1177897357
-    Data3: -1382292302
-    Data4: 584788067
-  Banks:
-  - {fileID: -3956070756914436589}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 480
 --- !u!114 &-991723380469174531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,7 +885,7 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/RapidFire.bank"
   Name: RapidFire
   StudioPath: bank:/RapidFire
-  lastModified: 638212686859428572
+  lastModified: 638212716767176735
   FileSizes:
   - Name: Desktop
     Value: 86368
@@ -878,7 +932,7 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Arlequin.bank"
   Name: Arlequin
   StudioPath: bank:/Arlequin
-  lastModified: 638212688077696388
+  lastModified: 638212705993359463
   FileSizes:
   - Name: Desktop
     Value: 184032
@@ -898,7 +952,7 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Chillon.bank"
   Name: Chillon
   StudioPath: bank:/Chillon
-  lastModified: 638212699163889986
+  lastModified: 638212705993151780
   FileSizes:
   - Name: Desktop
     Value: 230624
@@ -989,13 +1043,6 @@ MonoBehaviour:
   - {fileID: -6145734457583137662}
   - {fileID: -5821724143918382559}
   - {fileID: -8544672968151357364}
-  - {fileID: -7351873364773463944}
-  - {fileID: 641421716415980413}
-  - {fileID: -7282854968294029216}
-  - {fileID: -4668509997085456035}
-  - {fileID: 789964660863997518}
-  - {fileID: -6994457987023446646}
-  - {fileID: -1123467005938782199}
   - {fileID: 1521442731984357632}
   - {fileID: -2307154999717595833}
   - {fileID: -3477026265787132420}
@@ -1009,12 +1056,22 @@ MonoBehaviour:
   - {fileID: 3289449640701863153}
   - {fileID: -1505979063957588466}
   - {fileID: -3649653852444835900}
+  - {fileID: 3873219022248954162}
+  - {fileID: -3002064249570586673}
+  - {fileID: 4463461160615895189}
+  - {fileID: -1749900860357719190}
+  - {fileID: -2217191360456977044}
+  - {fileID: -3071338191893494425}
+  - {fileID: -6934417585818177713}
+  - {fileID: -3821207445305714413}
+  - {fileID: 7921933621594874333}
+  - {fileID: -2329328249220859426}
   EditorParameters: []
   MasterBanks:
   - {fileID: -5672961261113282306}
   StringsBanks:
   - {fileID: 8991795112511548679}
-  cacheTime: 638212699163889986
+  cacheTime: 638212718310494189
   cacheVersion: 131603
 --- !u!114 &126879127080487655
 MonoBehaviour:
@@ -1070,60 +1127,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3000
---- !u!114 &641421716415980413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Estasis"
-  m_EditorClassIdentifier: 
-  Path: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Estasis"
-  Guid:
-    Data1: 672072602
-    Data2: 1315053415
-    Data3: 680464310
-    Data4: 1381431788
-  Banks:
-  - {fileID: -991723380469174531}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 970
---- !u!114 &789964660863997518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Armas GENERAL/Escopeta Purgadora de Demonios/Recarga
-  m_EditorClassIdentifier: 
-  Path: event:/Armas GENERAL/Escopeta Purgadora de Demonios/Recarga
-  Guid:
-    Data1: 301302359
-    Data2: 1170358789
-    Data3: 1770502545
-    Data4: 1771821446
-  Banks:
-  - {fileID: -3956070756914436589}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1749
 --- !u!114 &1008434442702278509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1247,10 +1250,10 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Environment.bank"
   Name: Environment
   StudioPath: bank:/Environment
-  lastModified: 638212686858797950
+  lastModified: 638212718310494189
   FileSizes:
   - Name: Desktop
-    Value: 1487840
+    Value: 1488128
   Exists: 1
 --- !u!114 &2486676908954908347
 MonoBehaviour:
@@ -1267,7 +1270,7 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Menu.bank"
   Name: Menu
   StudioPath: bank:/Menu
-  lastModified: 638212699163417173
+  lastModified: 638212705992098834
   FileSizes:
   - Name: Desktop
     Value: 26976
@@ -1287,7 +1290,7 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Player.bank"
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 638212688077179730
+  lastModified: 638212705991624355
   FileSizes:
   - Name: Desktop
     Value: 290368
@@ -1346,6 +1349,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 730
+--- !u!114 &3873219022248954162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ccc
+  m_EditorClassIdentifier: 
+  Path: event:/ccc
+  Guid:
+    Data1: 1746533327
+    Data2: 1337290403
+    Data3: -43220853
+    Data4: 24338572
+  Banks:
+  - {fileID: -5672961261113282306}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &3937532064943918010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1373,6 +1403,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1530
+--- !u!114 &4463461160615895189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Estasis"
+  m_EditorClassIdentifier: 
+  Path: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Estasis"
+  Guid:
+    Data1: 672072602
+    Data2: 1315053415
+    Data3: 680464310
+    Data4: 1381431788
+  Banks:
+  - {fileID: -991723380469174531}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 970
 --- !u!114 &4571533692720063406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1388,7 +1445,7 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Grenade.bank"
   Name: Grenade
   StudioPath: bank:/Grenade
-  lastModified: 638212699163644311
+  lastModified: 638212705992708476
   FileSizes:
   - Name: Desktop
     Value: 64768
@@ -1603,7 +1660,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 2378276613565893876}
   IsStream: 1
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
@@ -1663,6 +1720,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3088
+--- !u!114 &7921933621594874333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/vc
+  m_EditorClassIdentifier: 
+  Path: event:/vc
+  Guid:
+    Data1: 1679467723
+    Data2: 1136245343
+    Data3: 1478153869
+    Data4: 243563879
+  Banks:
+  - {fileID: -5672961261113282306}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &7986370681176614126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1725,10 +1809,10 @@ MonoBehaviour:
   Path: "C:/Users/Marc/Desktop/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Master.strings.bank"
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638212699163170303
+  lastModified: 638212718310238925
   FileSizes:
   - Name: Desktop
-    Value: 3806
+    Value: 3912
   Exists: 1
 --- !u!114 &9135384835184281317
 MonoBehaviour:

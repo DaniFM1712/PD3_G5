@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5443440975620991859}
   - component: {fileID: 7183507938940125613}
   - component: {fileID: 2983986078954411148}
+  - component: {fileID: 6904653660787510868}
   m_Layer: 0
   m_Name: EnemyGolemBullet
   m_TagString: Bullet
@@ -130,3 +131,35 @@ MonoBehaviour:
   specialEffectPrefab: {fileID: 388991674222089354, guid: 24233bc8775f4914cb8724e14808b23c,
     type: 3}
   lifeTime: 10
+  ExplosionEmitter: {fileID: 6904653660787510868}
+--- !u!114 &6904653660787510868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682631923943361041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2023020610
+      Data2: 1165343350
+      Data3: -425003612
+      Data4: 2101852702
+    Path: event:/Enemigos/Golem de fuego/Proyectil de fuego
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

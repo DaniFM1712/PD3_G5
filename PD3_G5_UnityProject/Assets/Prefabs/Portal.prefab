@@ -287,6 +287,8 @@ GameObject:
   - component: {fileID: 2956021030293207295}
   - component: {fileID: 2956021030293207289}
   - component: {fileID: 2956021030293207294}
+  - component: {fileID: 7801077963830247476}
+  - component: {fileID: 3358356736420228618}
   m_Layer: 0
   m_Name: NextLevel
   m_TagString: Untagged
@@ -335,6 +337,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitLevel: {fileID: 2587089470798426155}
+  PortalEmitter: {fileID: 7801077963830247476}
+  ExitLevelEmitter: {fileID: 3358356736420228618}
+--- !u!114 &7801077963830247476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2956021030293207292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -970949609
+      Data2: 1331835085
+      Data3: -104474468
+      Data4: -693715647
+    Path: event:/Mapa/Portal activo
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &3358356736420228618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2956021030293207292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1483297409
+      Data2: 1122260939
+      Data3: -1701125728
+      Data4: -1683127971
+    Path: event:/Mapa/Completar nivel
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2956021030759330595
 GameObject:
   m_ObjectHideFlags: 0
