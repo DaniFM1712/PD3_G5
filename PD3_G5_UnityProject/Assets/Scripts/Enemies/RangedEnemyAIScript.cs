@@ -41,9 +41,11 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
     [Header("SpecialShoot")]
     [SerializeField] float specialShootCooldown = 6f;
     [SerializeField] float timeBetweenSpecialShooting;
+    [SerializeField] float timeBetweenSpecialShots = 0.6f;
+    [SerializeField] int specialbulletsPerTap;
     private float specialShootTimer;
-    private bool specialShootInCooldown = true;
-    private bool specialShoot = false;
+    public bool specialShootInCooldown = false;
+    private bool specialShoot = true;
 
     [Header("IA")]
     [SerializeField] State currentState;
@@ -152,8 +154,8 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
             detecting = true;
             if(currentDetectionCooldown <= 0)
             {
-                specialShootInCooldown = true;
-                specialShoot = false;
+                specialShootInCooldown = false;
+                specialShoot = true;
                 specialShootTimer = specialShootCooldown;
                 currentState = State.ATTACK;
             }
@@ -208,10 +210,46 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
         if (PlayerInRange())
         {
             agent.SetDestination(transform.position);
-            specialShootInCooldown = true;
-            specialShoot = false;
+            specialShootInCooldown = false;
+            specialShoot = true;
             specialShootTimer = specialShootCooldown;
             currentState = State.ATTACK;
+        }
+        CheckHit();
+    }
+    void updateAttack()
+    {
+        if (PlayerInRange() && readyToShoot && !reloading)
+        {
+            if (specialShootInCooldown)
+            {
+                specialShootTimer -= Time.deltaTime;
+                if (specialShootTimer <= 0)
+                {
+                    specialShootInCooldown = false;
+                    specialShoot = true;
+                    specialShootTimer = specialShootCooldown;
+                }
+            }
+            shooting = true;
+            attack();
+        }
+        else
+        {
+            shooting = false;
+            specialShootInCooldown = false;
+            specialShoot = false;
+            specialShootTimer = specialShootCooldown;
+        }
+    }
+
+    void ChangeFromAttack()
+    {
+        //seesPlayer() &&
+        if (!PlayerInRange())
+        {
+            agent.isStopped = false;
+            currentState = State.CHASE;
         }
         CheckHit();
     }
@@ -228,7 +266,6 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
                 
                 float chooseAttack = Random.Range(0, 100);
                 Debug.Log("ss: " + specialShoot);
-                //specialShoot = true;
                 if (specialShoot && chooseAttack >= 0f)
                 {
                     specialShoot = false;
@@ -325,12 +362,12 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
 
         if (allowInvoke)
         {
-            Invoke("ResetShot", timeBetweenSpecialShooting);
+            Invoke("ResetShot", timeBetweenShooting);
             allowInvoke = false;
         }
         if (bulletsShot < bulletsPerTap && bulletsLeft > 0)
         {
-            Invoke("Shoot", timeBetweenShots);
+            Invoke("SpecialShoot", timeBetweenSpecialShots);
         }
     }
 
@@ -350,45 +387,6 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
     {
         bulletsLeft = magazineSize;
         reloading = false;
-    }
-
-    void updateAttack()
-    {
-
-
-        if (PlayerInRange() && readyToShoot && !reloading)
-        {
-            if (specialShootInCooldown)
-            {
-                specialShootTimer -= Time.deltaTime;
-                if (specialShootTimer <= 0)
-                {
-                    specialShootInCooldown = false;
-                    specialShoot = true;
-                    specialShootTimer = specialShootCooldown;
-                }
-            }
-            shooting = true;
-            attack();
-        }
-        else
-        {
-            shooting = false;
-            specialShootInCooldown = false;
-            specialShoot = false;
-            specialShootTimer = specialShootCooldown;
-        }
-    }
-
-    void ChangeFromAttack()
-    {
-        //seesPlayer() &&
-        if (!PlayerInRange())
-        {
-            agent.isStopped = false;
-            currentState = State.CHASE;
-        }
-        CheckHit();
     }
 
     void updateHit()

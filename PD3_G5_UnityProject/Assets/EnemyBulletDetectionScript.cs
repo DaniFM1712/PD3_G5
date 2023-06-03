@@ -21,7 +21,7 @@ public class EnemyBulletDetectionScript : MonoBehaviour
 
         if (other.gameObject.CompareTag("Bullet"))
         {
-            bool dir = false;
+            /*
             if (Vector3.Dot(other.transform.position, Vector3.forward) == 0)
             {
                 Vector3 cross = Vector3.Cross(Vector3.forward, other.transform.position);
@@ -33,9 +33,9 @@ public class EnemyBulletDetectionScript : MonoBehaviour
                 { // left
                     dir = false;
                 }
-            }
+            }*/
 
-            transform.parent.gameObject.GetComponent<MeleChaserEnemy>().BulletDetected(dir);
+            transform.parent.gameObject.GetComponent<MeleChaserEnemy>().BulletDetected();
         }
     }
 }

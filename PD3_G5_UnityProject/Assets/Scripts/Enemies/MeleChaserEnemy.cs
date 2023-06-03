@@ -62,11 +62,11 @@ public class MeleChaserEnemy : ParentEnemyIAScript
         agent = GetComponent<NavMeshAgent>();
         lastCheckedHealth = GetComponent<EnemyHealthScript>().GetCurrentHealth();
         currentState = State.IDLE;
+        dashTimer = dashCooldown;
     }
     override public void Start()
     {
         base.Start();
-        detectionArea.SetActive(true);
     }
 
     void Update()
@@ -80,7 +80,7 @@ public class MeleChaserEnemy : ParentEnemyIAScript
 
             if(dashTimer <= 0)
             {
-                detectionArea.SetActive(true);
+                detectionArea.GetComponent<Collider>().enabled = true;
                 dashInCooldown = false;
                 dashTimer = dashCooldown;
             }
@@ -173,7 +173,7 @@ public class MeleChaserEnemy : ParentEnemyIAScript
     {
         if (agent.enabled && !isDashing)
         {
-            if ( agent.isStopped)
+            if (agent.isStopped)
                 agent.isStopped = !agent.isStopped;
 
             if (!blocked)
@@ -285,43 +285,50 @@ public class MeleChaserEnemy : ParentEnemyIAScript
         enemySetted = true;
     }
 
-    public void BulletDetected(bool dir)
+    public void BulletDetected()
     {
-        dashInCooldown = true;
-        detectionArea.SetActive(false);
-        StartCoroutine(ExecuteDash(dir));
+        detectionArea.GetComponent<Collider>().enabled = false;
+        int random = Random.Range(0,100);
+        if(random <= 70)
+            StartCoroutine(ExecuteDash());
     }
 
-    IEnumerator ExecuteDash(bool dir)
+    IEnumerator ExecuteDash()
     {
         isDashing = true;
         Vector3 destination;
-        if (dir)
-            destination = rightPos.position;
-        else
-            destination = leftPos.position;
+        int random = Random.Range(0, 2);
+
+        destination = random > 0 ? rightPos.position : leftPos.position;
 
         float prevSpeed = agent.speed;
         float prevAngularSpeed = agent.angularSpeed;
         float prevAcceleration = agent.acceleration;
 
+        agent.SetDestination(destination);
         agent.speed = prevSpeed * 10f;
         agent.angularSpeed = prevAngularSpeed * 10f;
         agent.acceleration = prevAcceleration * 10f;
 
-        agent.SetDestination(destination);
+        float dist = agent.remainingDistance; 
+        
+        while(agent.remainingDistance >= 0.1)
+        {
+            yield return new WaitForEndOfFrame();
+        }
 
+        agent.isStopped = true;
         yield return new WaitForSeconds(0.5f);
 
         Debug.Log("arribo?");
-
+        agent.isStopped = false;
+        agent.SetDestination(player.transform.position);
         agent.speed = prevSpeed;
         agent.angularSpeed = prevAngularSpeed;
         agent.acceleration = prevAcceleration;
 
-        agent.SetDestination(player.transform.position);
-
         isDashing = false;
+        dashInCooldown = true;
 
 
 
