@@ -13,6 +13,7 @@ public class PlayerHealthScript : MonoBehaviour
     private float dashHealBlessingTimer = 3f;
     private float currentDashHealTimer = 0f;
     private float accumulatedHeal = 0f;
+    [SerializeField] GameObject pitchController;
 
     [Header("FMOD")]
     public StudioEventEmitter lowHpEmitter;
@@ -53,15 +54,11 @@ public class PlayerHealthScript : MonoBehaviour
                 currentDashHealTimer = dashHealBlessingTimer;
                 accumulatedHeal = 0;
             }
-        }   
+        }
     }
 
     public void ModifyHealth(float modifier)
     {
-        if (modifier < 0)
-        {
-            recibirDañoEmitter.Play();
-        }
         if (PlayerStatsScript.instance.dashHealBlessing && modifier<0)
         {
             accumulatedHeal += (modifier*-1);
@@ -87,6 +84,7 @@ public class PlayerHealthScript : MonoBehaviour
         {
             recibirDañoEmitter.Play();
             healthUI.updateHealth(true);
+            StartCoroutine(Shake(0.15f, 0.4f));
         }
         else 
             healthUI.updateHealth(false);
@@ -137,4 +135,24 @@ public class PlayerHealthScript : MonoBehaviour
         accumulatedHeal = 0;
         currentDashHealTimer = dashHealBlessingTimer;
     }
+
+    public IEnumerator Shake(float duration, float magnitude)
+    {
+        Vector3 orignalPosition = pitchController.transform.localPosition;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float random = UnityEngine.Random.Range(-0.5f, 0.5f);
+            float x = (pitchController.transform.localPosition.x + random) * magnitude;
+            float y = orignalPosition.y;
+            float z = orignalPosition.z;
+
+            pitchController.transform.localPosition = new Vector3(x, y, z);
+            elapsed += Time.deltaTime;
+            yield return 0;
+        }
+        pitchController.transform.localPosition = orignalPosition;
+    }
+
 }
