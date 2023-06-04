@@ -14,16 +14,17 @@ public class RunStoreScript : MonoBehaviour
 
     [SerializeField] Button randomItemBtn;
     [SerializeField] Button rareItemBtn;
-    [SerializeField] Button legendaryItemBtn;
+    [SerializeField] Button commonItemBtn;
 
     [SerializeField] int healthCost = 20;
     [SerializeField] int healthValue = 20;
     [SerializeField] int randomItemCost = 40;
     [SerializeField] int randomRareCost = 50;
-    [SerializeField] int randomLegendaryCost = 60;
+    [SerializeField] int randomCommonCost = 60;
 
     private GameObject player;
     private bool canShop = false;
+    private bool randomItemBought = false;
 
     [SerializeField] List<ConsumableAsset> commonItemPool;
     [SerializeField] List<ConsumableAsset> rareItemPool;
@@ -31,7 +32,7 @@ public class RunStoreScript : MonoBehaviour
 
     private ConsumableAsset randomItem;
     private ConsumableAsset rareItem;
-    private ConsumableAsset legendaryItem;
+    private ConsumableAsset commonItem;
 
     [Header("FMOD")]
     public StudioEventEmitter BuyEmitter;
@@ -43,7 +44,7 @@ public class RunStoreScript : MonoBehaviour
         player = GameObject.Find("Player");
         GenerateRandomItem();
         GenerateRareItem();
-        GenerateLegendaryItem();
+        GenerateCommonItem();
     }
 
     // Update is called once per frame
@@ -77,8 +78,9 @@ public class RunStoreScript : MonoBehaviour
         if (PlayerStatsScript.instance.currentNormalCoin >= randomItemCost)
         {
 
-            if(InventoryManagerScript.InventoryInstance.CanAddItem(randomItem.rarity))
+            if(InventoryManagerScript.InventoryInstance.CanAddItem(randomItem.rarity) && !randomItemBought)
             {
+                randomItemBought = true;
                 randomItemBtn.interactable = false;
 
                 InventoryManagerScript.InventoryInstance.AddItem(randomItem.rarity, randomItem);
@@ -115,19 +117,19 @@ public class RunStoreScript : MonoBehaviour
 
     }
 
-    public void BuyLegendaryItem()
+    public void BuyCommonItem()
     {
 
-        if (PlayerStatsScript.instance.currentNormalCoin >= randomLegendaryCost)
+        if (PlayerStatsScript.instance.currentNormalCoin >= randomCommonCost)
         {
 
-            if (InventoryManagerScript.InventoryInstance.CanAddItem(legendaryItem.rarity))
+            if (InventoryManagerScript.InventoryInstance.CanAddItem(commonItem.rarity))
             {
-                legendaryItemBtn.interactable = false;
+                commonItemBtn.interactable = false;
 
-                InventoryManagerScript.InventoryInstance.AddItem(legendaryItem.rarity, legendaryItem);
+                InventoryManagerScript.InventoryInstance.AddItem(commonItem.rarity, commonItem);
 
-                CoinCounterScript.coinCounterInstance.updateNCCounter(-randomLegendaryCost);
+                CoinCounterScript.coinCounterInstance.updateNCCounter(-randomCommonCost);
                 NCText.text = "NC: " + PlayerStatsScript.instance.currentNormalCoin;
                 BuyEmitter.Play();
 
@@ -152,114 +154,40 @@ public class RunStoreScript : MonoBehaviour
         int randomNumber = Random.Range(0, 100);
         if (randomNumber <= 60)
         {
-            int itemType = Random.Range(0, 4);
-            switch (itemType)
-            {
-                case 0:
-                    asset = commonItemPool[0];
-                    break;
-                case 1:
-                    asset = commonItemPool[1];
-                    break;
-                case 2:
-                    asset = commonItemPool[2];
-                    break;
-                case 3:
-                    asset = commonItemPool[3];
-                    break;
-            }
+            int itemType = Random.Range(0, commonItemPool.Count);
+            asset = commonItemPool[itemType];
         }
         else if (randomNumber <= 90)
         {
-            int itemType = Random.Range(0, 4);
-            switch (itemType)
-            {
-                case 0:
-                    asset = rareItemPool[0];
-                    break;
-                case 1:
-                    asset = rareItemPool[1];
-                    break;
-                case 2:
-                    asset = rareItemPool[2];
-                    break;
-                case 3:
-                    asset = rareItemPool[3];
-                    break;
-            }
+            int itemType = Random.Range(0, rareItemPool.Count);
+            asset = rareItemPool[itemType];
         }
         else
         {
-            int itemType = Random.Range(0, 4);
-            switch (itemType)
-            {
-                case 0:
-                    asset = legendaryItemPool[0];
-                    break;
-                case 1:
-                    asset = legendaryItemPool[1];
-                    break;
-                case 2:
-                    asset = legendaryItemPool[2];
-                    break;
-                case 3:
-                    asset = legendaryItemPool[3];
-                    break;
-            }
+            int itemType = Random.Range(0, legendaryItemPool.Count);
+            asset = legendaryItemPool[itemType];
         }
 
         randomItem = asset;
-        randomItemBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "RANDOM COM ITEM\n" + randomItem.itemDescription + "\nCOST: "+randomItemCost+"NC";
+        randomItemBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "RANDOM ITEM\n" + randomItem.itemDescription + "\nCOST: "+randomItemCost+"NC";
     }
 
     private void GenerateRareItem()
     {
         ConsumableAsset asset = null;
-        int itemType = Random.Range(0, 4);
-        switch (itemType)
-        {
-            case 0:
-                asset =  rareItemPool[0];
-                break;
-            case 1:
-                asset = rareItemPool[1];
-                break;
-            case 2:
-                asset = rareItemPool[2];
-                break;
-            case 3:
-                asset = rareItemPool[3];
-                break;
-        }
-
+        int itemType = Random.Range(0, rareItemPool.Count);
+        asset = rareItemPool[itemType];
         rareItem = asset;
         rareItemBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "RANDOM RARE ITEM\n" + rareItem.itemDescription + "\nCOST: "+randomRareCost+"NC";
-
     }
 
-    private void GenerateLegendaryItem()
+    private void GenerateCommonItem()
     {
         ConsumableAsset asset = null;
-        int itemType = Random.Range(0, 4);
-        switch (itemType)
-        {
-            case 0:
-                asset = legendaryItemPool[0];
-                break;
-            case 1:
-                asset = legendaryItemPool[1];
-                break;
-            case 2:
-                asset = legendaryItemPool[2];
-                break;
-            case 3:
-                asset = legendaryItemPool[3];
-                break;
-        }
-        legendaryItem = asset;
-        legendaryItemBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "RANDOM LEG ITEM\n" + legendaryItem.itemDescription + "\nCOST: " + randomLegendaryCost + "NC";
-
-
+        int itemType = Random.Range(0, commonItemPool.Count);
+        asset = commonItemPool[itemType];
+        commonItem = asset;
+        commonItemBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "RANDOM COM ITEM\n" + commonItem.itemDescription + "\nCOST: " + randomCommonCost + "NC";
     }
 
 

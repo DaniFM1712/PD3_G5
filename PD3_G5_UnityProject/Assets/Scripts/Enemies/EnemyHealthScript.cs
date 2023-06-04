@@ -16,6 +16,8 @@ public class EnemyHealthScript : MonoBehaviour
     [SerializeField] Transform damageTextPosition;
     [SerializeField] float ncReward = 3;
     [SerializeField] float scReward = 1;
+    [SerializeField] GameObject healthOrbPrefab;
+    [SerializeField] int healthOrbPrefabAmount;
     private Canvas canvas;
     private GameObject hitMarker;
     [Header("FMOD")]
@@ -71,6 +73,7 @@ public class EnemyHealthScript : MonoBehaviour
     {
         //ANIMATION
         //SOUND
+
         DeathEmitter.Play();
         Destroy(healthBar.gameObject);
         Destroy(gameObject);
@@ -89,6 +92,17 @@ public class EnemyHealthScript : MonoBehaviour
         {
             CoinCounterScript.coinCounterInstance.updateNCCounter(Mathf.CeilToInt(ncReward * PlayerStatsScript.instance.currentEssenceMultiplyer));
             CoinCounterScript.coinCounterInstance.updateSCCounter(Mathf.CeilToInt(scReward * PlayerStatsScript.instance.currentDivinePowerMultiplyer));
+            int i = 0;
+            while(healthOrbPrefabAmount > i)
+            {
+                int random = Random.Range(0, 100);
+                if(random > 50)
+                {
+                    Instantiate(healthOrbPrefab, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity);
+                }
+                i++;
+                //MODO NOCTIS - PROB
+            }
         }
     }
 

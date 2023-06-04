@@ -1,6 +1,7 @@
 using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -18,8 +19,8 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
     //SHOOTING 
     [Header("Forces")]
-    [SerializeField] float shootForce;
-    [SerializeField] float upwardForce;
+    [SerializeField] float maxShootForce;
+    [SerializeField] float maxUpwardForce;
     [SerializeField] Transform bulletOrigin;
 
     [Header("Stats")]
@@ -326,7 +327,12 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
 
         directionWithoutSpread += new Vector3(xSpread, ySpread, zSpread);
-
+        float normalizedPos = Mathf.InverseLerp(0, maxShootForce, Vector3.Distance(player.transform.position, transform.position)/2.2f);
+        float shootForce = Mathf.Lerp(0, maxShootForce, normalizedPos);
+        normalizedPos = Mathf.InverseLerp(0, maxUpwardForce, Vector3.Distance(player.transform.position, transform.position) / 2.2f);
+        float upwardForce = Mathf.Lerp(0, maxUpwardForce, normalizedPos);
+        Debug.Log("sf" + shootForce);
+        Debug.Log("uf" + upwardForce);
         GameObject currentBullet = bulletPool.Dequeue();
         currentBullet.SetActive(true);
         currentBullet.transform.position = bulletOrigin.position;

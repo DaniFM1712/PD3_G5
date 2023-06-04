@@ -191,6 +191,9 @@ MonoBehaviour:
   damageTextPosition: {fileID: 4063194522212136019}
   ncReward: 10
   scReward: 5
+  healthOrbPrefab: {fileID: 5035788950964770640, guid: 1d9c0bd96c284e0439c616df7a242379,
+    type: 3}
+  healthOrbPrefabAmount: 3
   DeathEmitter: {fileID: 376068209032824728}
 --- !u!65 &794669723146363780
 BoxCollider:
@@ -226,8 +229,8 @@ MonoBehaviour:
   objectIsDead:
     m_PersistentCalls:
       m_Calls: []
-  shootForce: 10
-  upwardForce: 10
+  maxShootForce: 10
+  maxUpwardForce: 10
   bulletOrigin: {fileID: 2854670299365616931}
   timeBetweenShooting: 2
   spread: 0.2

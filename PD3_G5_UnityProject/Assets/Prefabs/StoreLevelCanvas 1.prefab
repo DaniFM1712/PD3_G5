@@ -238,8 +238,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2382878517645252627}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00003406577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -249,7 +249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 386.66, y: -172.35}
+  m_AnchoredPosition: {x: 1050.48, y: -172.35004}
   m_SizeDelta: {x: 463.8353, y: 273.7554}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &2382878517645252623
@@ -501,7 +501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2382878518479686947
 RectTransform:
   m_ObjectHideFlags: 0
@@ -869,7 +869,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 386.66003, y: 175.89627}
+  m_AnchoredPosition: {x: 386.66003, y: 174.51}
   m_SizeDelta: {x: 463.8353, y: 273.7554}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &2382878518996029651
@@ -979,7 +979,7 @@ GameObject:
   - component: {fileID: 2382878518997350918}
   - component: {fileID: 2382878518997350917}
   m_Layer: 0
-  m_Name: RndmItemBtn
+  m_Name: RndmCommonBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -992,8 +992,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2382878518997350923}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00003406577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1003,7 +1003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -869.52, y: 174.51}
+  m_AnchoredPosition: {x: -1533.3401, y: -172.35004}
   m_SizeDelta: {x: 463.8353, y: 273.7554}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &2382878518997350919
@@ -1090,7 +1090,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RunStoreScript, Assembly-CSharp
-        m_MethodName: BuyRandomItem
+        m_MethodName: BuyCommonItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1252,7 +1252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2382878519297361680
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1412,10 +1412,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'RANDOM LEG ITEM
+  m_text: 'RANDOM  ITEM
 
 
-    COST: 60NC'
+    COST: 40NC'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 94203f831c6495344be7f7e8c8e66c4a, type: 2}
   m_sharedMaterial: {fileID: -957002722425998511, guid: 94203f831c6495344be7f7e8c8e66c4a,
@@ -1498,7 +1498,7 @@ GameObject:
   - component: {fileID: 2382878519599369533}
   - component: {fileID: 2382878519599369532}
   m_Layer: 0
-  m_Name: RndmLegendaryBtn
+  m_Name: RndmItemBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1522,7 +1522,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -869.52, y: -172.35}
+  m_AnchoredPosition: {x: -869.52, y: 174.51}
   m_SizeDelta: {x: 463.8353, y: 273.7554}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &2382878519599369534
@@ -1609,7 +1609,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RunStoreScript, Assembly-CSharp
-        m_MethodName: BuyLegendaryItem
+        m_MethodName: BuyRandomItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1962,7 +1962,7 @@ MonoBehaviour:
   m_text: 'RANDOM COM ITEM
 
 
-    COST: 40NC'
+    COST: 20NC'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 94203f831c6495344be7f7e8c8e66c4a, type: 2}
   m_sharedMaterial: {fileID: -957002722425998511, guid: 94203f831c6495344be7f7e8c8e66c4a,
