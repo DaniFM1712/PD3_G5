@@ -40,30 +40,46 @@ public class HealthUIScript : MonoBehaviour
     {
         if (damageFeedback)
         {
-            foreach (GameObject obj in damageFeedbackContainer)
+            float prevFill = 1;
+            float currFill = 0;
+            if (prevFill > 0)
             {
-                float prevFill = obj.GetComponent<Image>().fillAmount;
-                float currFill = (float)prevFill/ 1;
-                if (currFill > prevFill) prevFill = Mathf.Min(prevFill + fillSmoothness, currFill);
-                else if (currFill < prevFill) prevFill = Mathf.Max(prevFill - fillSmoothness, currFill);
-                obj.GetComponent<Image>().fillAmount = prevFill;
+                foreach (GameObject obj in damageFeedbackContainer)
+                {
+                    prevFill = obj.GetComponent<Image>().fillAmount;
+                    if (currFill > prevFill) prevFill = Mathf.Min(prevFill + fillSmoothness, currFill);
+                    else if (currFill < prevFill) prevFill = Mathf.Max(prevFill - fillSmoothness, currFill);
+                    obj.GetComponent<Image>().fillAmount = prevFill;
+                }
             }
-            damageFeedback = false;
+            else
+            {
+                damageFeedback = false;
+            }
 
         }
     }
 
     public void updateHealth(bool isDamage)
     {
-        if(isDamage)
-            damageFeedback = true;
+        if (isDamage && damageFeedbackContainer[0].GetComponent<Image>().fillAmount == 0)
+        {
+            StartCoroutine(ShowDamage());
+        }
         float normalizedHP = PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth();
         float hp = PlayerStatsScript.instance.currentHealth;
         
         hpText.text = hp + "";
         healthAmount.fillAmount = normalizedHP;
-
     }
 
-
+    IEnumerator ShowDamage()
+    {
+        foreach (GameObject obj in damageFeedbackContainer)
+        {
+            obj.GetComponent<Image>().fillAmount = 1;
+        }
+        yield return new WaitForSeconds(2f);
+        damageFeedback = true;
+    }
 }
