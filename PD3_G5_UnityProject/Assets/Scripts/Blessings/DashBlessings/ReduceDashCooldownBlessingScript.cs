@@ -5,9 +5,10 @@ using UnityEngine;
 public class ReduceDashCooldownBlessingScript : ParentBlessing
 {
     // Start is called before the first frame update
-    void Start()
+    override public void Start()
     {
-        
+        base.Start();
+        blessingType = BlessingType.Dash;
     }
 
     // Update is called once per frame

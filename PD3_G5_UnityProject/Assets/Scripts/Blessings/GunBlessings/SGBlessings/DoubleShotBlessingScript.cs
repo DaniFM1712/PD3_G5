@@ -5,24 +5,21 @@ using UnityEngine;
 
 public class DoubleShotBlessingScript : ParentBlessing
 {
-    public bool canDoubleShot = true;
 
     // Start is called before the first frame update
-    void Start()
+    override public void Start()
     {
-        
+        base.Start();
+        base.blessingType = BlessingType.ShotGun;
+    }
+    private void OnEnable()
+    {
+        PlayerStatsScript.instance.doubleShotBlessing = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
-    }
-
-    public bool DoubleShot()
-    {
-        return UnityEngine.Random.Range(1, 100) > 50;
-
+        PlayerStatsScript.instance.doubleShotBlessing = false;
     }
 
 }

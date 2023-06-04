@@ -5,10 +5,12 @@ using UnityEngine;
 public class TwoGrenadeChargesBlessingScript : ParentBlessing
 {
     // Start is called before the first frame update
-    void Start()
+    override public void Start()
     {
         base.Start();
+        base.blessingType = BlessingType.Grenade;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -18,6 +20,7 @@ public class TwoGrenadeChargesBlessingScript : ParentBlessing
 
     private void OnEnable()
     {
+        PlayerStatsScript.instance.twoGrenadesBlessing = true;
         PlayerStatsScript.instance.currentMaxGrenadeCharges = 2;
         grenadeController = GetComponent<GrenadeScript>();
         grenadeController.currentGrenadeCharges = PlayerStatsScript.instance.currentMaxGrenadeCharges;
@@ -25,8 +28,8 @@ public class TwoGrenadeChargesBlessingScript : ParentBlessing
 
     private void OnDisable()
     {
+        PlayerStatsScript.instance.twoGrenadesBlessing = false;
         PlayerStatsScript.instance.currentMaxGrenadeCharges = PlayerStatsScript.instance.baseMaxGrenadeCharges;
-
     }
 
 }

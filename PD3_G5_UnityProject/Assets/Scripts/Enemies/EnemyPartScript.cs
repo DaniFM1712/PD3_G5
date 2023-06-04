@@ -24,7 +24,8 @@ public class EnemyPartScript : MonoBehaviour
     public bool TakeDamage(float damage, GameObject bullet)
     {
         float totalDamage = damage;
-        if (isCritical)
+        bool chance = Random.Range(0, 100) > 79;
+        if (isCritical || (PlayerStatsScript.instance.criticalBuff && chance))
         {
             totalDamage = damage * PlayerStatsScript.instance.currentCriticalMultiplyer;
         }

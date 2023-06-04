@@ -61,6 +61,9 @@ public class PlayerStatsScript : MonoBehaviour
     //GRENADE
     public bool fireDOTBlessing = false;
     public bool killEnemyGrenadeBlessing = false;
+    public bool multipleTargetsGrenadeBlessing = false;
+    public bool doubleAOEGrenadeBlessing = false;
+    public bool twoGrenadesBlessing = false;
 
 
 
@@ -68,6 +71,8 @@ public class PlayerStatsScript : MonoBehaviour
     public bool killEnemyAbilityCooldownBlessing = false;
     public bool killEnemyDamageBuffBlessing = false;
     public bool distanceDamageBlessing = false;
+    public bool doubleShotBlessing = false;
+    public bool bulletsShotAmountBlessing = false;
 
 
 
@@ -76,6 +81,7 @@ public class PlayerStatsScript : MonoBehaviour
     public bool trapDealsDamageBlessing = false;
     public bool trapTrapsMultipleEnemiesBlessing = false;
     public bool trapSlowsBlessing = false;
+    public bool twoTrapChargesBlessing = false;
 
 
     //---------ITEMS---------//
@@ -121,6 +127,8 @@ public class PlayerStatsScript : MonoBehaviour
     public bool speedBuffActivated = false;
 
     //LEGENDARY
+    public bool criticalBuff = false;
+
 
     private void Awake()
     {
@@ -170,12 +178,18 @@ public class PlayerStatsScript : MonoBehaviour
         dashHealBlessing = false;
         dashDoubleChargesBlessing = false;
         killEnemyGrenadeBlessing = false;
+        multipleTargetsGrenadeBlessing = false;
+        doubleAOEGrenadeBlessing = false;
+        twoGrenadesBlessing = false;
         killEnemyAbilityCooldownBlessing = false;
         distanceDamageBlessing = false;
+        doubleShotBlessing = false;
+        bulletsShotAmountBlessing = false;
         trappedEnemyDamageIncreasedBlessing = false;
         trapDealsDamageBlessing = false;
         trapTrapsMultipleEnemiesBlessing = false;
         trapSlowsBlessing = false;
+        twoTrapChargesBlessing = false;
 
         //---------ITEMS---------//
 
@@ -192,6 +206,7 @@ public class PlayerStatsScript : MonoBehaviour
         reloadDamageBuff = false;
         speedBuffAfterKilling = false;
         speedBuffActivated = false;
+        criticalBuff = false;
 
     }
 
@@ -223,6 +238,7 @@ public class PlayerStatsScript : MonoBehaviour
         reloadDamageBuff = false;
         speedBuffAfterKilling = false;
         speedBuffActivated = false;
+        criticalBuff = false;
         activatedBlessings = 0;
         dashDamageBlessing = false;
         fireDOTBlessing = false;
@@ -231,12 +247,18 @@ public class PlayerStatsScript : MonoBehaviour
         dashHealBlessing = false;
         dashDoubleChargesBlessing = false;
         killEnemyGrenadeBlessing = false;
+        multipleTargetsGrenadeBlessing = false;
+        doubleAOEGrenadeBlessing = false;
+        twoGrenadesBlessing = false;
         killEnemyAbilityCooldownBlessing = false;
+        doubleShotBlessing = false;
+        bulletsShotAmountBlessing = false;
         distanceDamageBlessing = false;
         trappedEnemyDamageIncreasedBlessing = false;
         trapDealsDamageBlessing = false;
         trapTrapsMultipleEnemiesBlessing = false;
         trapSlowsBlessing = false;
+        twoTrapChargesBlessing = false;
         currentFireRateMultiplyer = baseFireRateMultiplyer;
         currentEssenceMultiplyer = baseEssenceMultiplyer;
         currentDivinePowerMultiplyer = baseDivinePowerMultiplyer;

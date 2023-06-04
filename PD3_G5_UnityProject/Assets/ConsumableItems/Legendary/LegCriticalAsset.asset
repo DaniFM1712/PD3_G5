@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56ce20a047d22af4d87c2d1ddbc5b4a3, type: 3}
-  m_Name: LegDivinePower
+  m_Script: {fileID: 11500000, guid: 286528e556e134749bc8e3191fa2cbaf, type: 3}
+  m_Name: LegCriticalAsset
   m_EditorClassIdentifier: 
-  itemName: Legendary Divine Power
-  itemDescription: Increases Divine Power obtained by 80%
+  itemName: Legendary Critical Buff
+  itemDescription: 20% chance of critical damage on any enemy part and 25% of increased
+    critical damage.
   rarity: 2
   repeatable: 1
   spawned: 0
-  divinePowerMultiplyer: 0.8
+  criticalMultiplyerIncrease: 0.25

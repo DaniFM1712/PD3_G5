@@ -9,7 +9,7 @@ public class TwoChargeBlessingScript : ParentBlessing
     override public void Start()
     {
         base.Start();
-        
+        blessingType = BlessingType.Dash;
     }
 
     // Update is called once per frame
@@ -20,6 +20,7 @@ public class TwoChargeBlessingScript : ParentBlessing
 
     private void OnEnable()
     {
+        PlayerStatsScript.instance.dashDoubleChargesBlessing = true;
         PlayerStatsScript.instance.currentMaxDashCharges = 2;
         fPController = GetComponent<FPController>();
         fPController.currentDashCharges = PlayerStatsScript.instance.currentMaxDashCharges;
@@ -28,7 +29,7 @@ public class TwoChargeBlessingScript : ParentBlessing
     private void OnDisable()
     {
         PlayerStatsScript.instance.currentMaxDashCharges = PlayerStatsScript.instance.baseMaxDashCharges;
-
+        PlayerStatsScript.instance.dashDoubleChargesBlessing = false;
     }
 
 }

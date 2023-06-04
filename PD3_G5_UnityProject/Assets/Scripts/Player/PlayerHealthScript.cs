@@ -83,9 +83,15 @@ public class PlayerHealthScript : MonoBehaviour
                 PlayerStatsScript.instance.highHealthDamageApplied = false;
             }
         }
+        if (modifier < 0)
+        {
+            recibirDañoEmitter.Play();
+            healthUI.updateHealth(true);
+        }
+        else 
+            healthUI.updateHealth(false);
 
-        healthUI.updateHealth();
-        if(((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0.2f) || (PlayerStatsScript.instance.currentHealth  <= 0))
+        if (((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0.2f) || (PlayerStatsScript.instance.currentHealth  <= 0))
         {
             lowHpEmitter.Stop();
         }

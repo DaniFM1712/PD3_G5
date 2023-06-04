@@ -13,7 +13,7 @@ public class DashIncreasesDamageBlessingScript : ParentBlessing
     override public void Start()
     {
         base.Start();
-        blessingType = BlessingType.ShotGun;
+        blessingType = BlessingType.Dash;
     }
 
     // Update is called once per frame

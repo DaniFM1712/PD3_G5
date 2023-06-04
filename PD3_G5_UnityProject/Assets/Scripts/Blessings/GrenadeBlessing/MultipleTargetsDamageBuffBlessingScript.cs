@@ -5,7 +5,7 @@ using UnityEngine;
 public class MultipleTargetsDamageBuffBlessingScript : ParentBlessing
 {
     // Start is called before the first frame update
-    void Start()
+    override public void Start()
     {
         base.Start();
         base.blessingType = BlessingType.Grenade;
@@ -19,15 +19,11 @@ public class MultipleTargetsDamageBuffBlessingScript : ParentBlessing
 
     private void OnEnable()
     {
-        /*
-        PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges = 2;
-        grenadeController = GetComponent<GrenadeScript>();
-        grenadeController.currentGrenadeCharges = PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges;*/
+        PlayerStatsScript.instance.multipleTargetsGrenadeBlessing = true;
     }
 
     private void OnDisable()
     {
-        //PlayerStatsScript.playerStatsInstance.currentMaxGrenadeCharges = PlayerStatsScript.playerStatsInstance.baseMaxGrenadeCharges;
-
+        PlayerStatsScript.instance.multipleTargetsGrenadeBlessing = false;
     }
 }

@@ -6,24 +6,23 @@ public class BAmmountBlessingScript : ParentBlessing
 {
     [SerializeField] int bulletsPerTapBlessing = 10;
     // Start is called before the first frame update
-    void Start()
+    override public void Start()
     {
-        
+        base.Start();
+        blessingType = BlessingType.ShotGun;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     private void OnEnable()
     {
+        PlayerStatsScript.instance.bulletsShotAmountBlessing = true;
         GetComponent<SGSpecialScript>().SetSBulletsPerTap(bulletsPerTapBlessing);
     }
 
     private void OnDisable()
     {
+        PlayerStatsScript.instance.bulletsShotAmountBlessing = false;
         GetComponent<SGSpecialScript>().SetSBulletsPerTap(0);
     }
 }

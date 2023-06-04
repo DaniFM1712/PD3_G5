@@ -36,8 +36,10 @@ public class SGSpecialScript : MonoBehaviour
     CooldownScript cooldown;
 
     private int totalBullets = 0;
+    private bool canDoubleShot = true;
 
-    DoubleShotBlessingScript doubleShotBlessing;
+
+
     KillEnemyDamageBuffBlessingScript damageBuffBlessing;
 
     [SerializeField] UnityEvent resetAbilityCooldownEvent;
@@ -50,7 +52,6 @@ public class SGSpecialScript : MonoBehaviour
         currentCooldownTime = specialCooldownTime;
         baseSpecialBulletsPerTap = specialBulletsPerTap;
         cooldown = GameObject.Find("CanvasPrefab/Cooldowns").GetComponent<CooldownScript>();
-        doubleShotBlessing = GetComponent<DoubleShotBlessingScript>();
         damageBuffBlessing = GetComponent<KillEnemyDamageBuffBlessingScript>();
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         specialBulletPool = new Queue<GameObject>();
@@ -166,9 +167,10 @@ public class SGSpecialScript : MonoBehaviour
         }
         else
         {
-            if (doubleShotBlessing.enabled && doubleShotBlessing.DoubleShot() && doubleShotBlessing.canDoubleShot)
+            bool random =  Random.Range(1, 100) > 50;
+            if (PlayerStatsScript.instance.doubleShotBlessing && random && canDoubleShot)
             {
-                doubleShotBlessing.canDoubleShot = false;
+                canDoubleShot = false;
                 specialBulletsShot = 0;
                 Invoke(nameof(ShootSpecial), 0.5f);
             }
@@ -179,7 +181,7 @@ public class SGSpecialScript : MonoBehaviour
     {
         readyToShootSpecial = true;
         allowInvokeSpecial = true;
-        doubleShotBlessing.canDoubleShot = true;
+        canDoubleShot = true;
     }
 
     public void SetSBulletsPerTap(int bPerTap)

@@ -77,7 +77,6 @@ public class FPController : MonoBehaviour
     private bool dashAllowed = false;
     private Vector3 moved = new Vector3(0, 0, 0);
     //----------DASH----------//
-    private TwoChargeBlessingScript twoChargeBlessing;
     private DashIncreasesDamageBlessingScript dashIncreasesDamageBlessing;
     public int currentDashCharges;
     public float speedBuffDuration = 3f;
@@ -99,11 +98,9 @@ public class FPController : MonoBehaviour
 
         initialRotation = transform.rotation;
     }
-
     private void Start()
     {
         dashEmitter = GetComponent<StudioEventEmitter>();
-        twoChargeBlessing = GetComponent<TwoChargeBlessingScript>();
         dashIncreasesDamageBlessing = GetComponent<DashIncreasesDamageBlessingScript>();
 
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
