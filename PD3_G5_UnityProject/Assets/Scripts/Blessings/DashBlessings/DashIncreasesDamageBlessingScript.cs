@@ -39,4 +39,16 @@ public class DashIncreasesDamageBlessingScript : ParentBlessing
         startTimer = true;
         damageTimer = totalDamageTimer;
     }
+
+    private void OnEnable()
+    {
+        PlayerStatsScript.instance.dashDamageBlessing = true;
+    }
+
+    private void OnDisable()
+    {
+        PlayerStatsScript.instance.dashDamageBlessing = false;
+
+    }
+
 }

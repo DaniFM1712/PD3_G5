@@ -26,15 +26,19 @@ public class BlessingStartScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(LevelManager.instance.getCurrentSceneIndex() != LevelManager.instance.getPreviousSceneIndex())
+        Debug.Log(LevelManager.instance.getCurrentSceneIndex() + "actual");
+        Debug.Log(LevelManager.instance.getPreviousSceneIndex() + "anterior");
+        if (LevelManager.instance.getCurrentSceneIndex() != LevelManager.instance.getPreviousSceneIndex())
         {
-            Debug.Log(LevelManager.instance.getCurrentSceneIndex()+"actual");
-            Debug.Log(LevelManager.instance.getPreviousSceneIndex() + "anterior");
             blessings = FindObjectsByType<ParentBlessing>(FindObjectsSortMode.InstanceID);
             Time.timeScale = 0f;
             generateBlessings();
             Canvas.SetActive(true); 
             Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Canvas.SetActive(false);
         }
     }
     

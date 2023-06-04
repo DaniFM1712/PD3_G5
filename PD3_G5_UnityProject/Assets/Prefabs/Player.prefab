@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grenadePrefab: {fileID: 3682631923943361041, guid: 456834752b0b19b4eb669375375c6915,
     type: 3}
-  grenadeShootForce: 10
+  grenadeShootForce: 40
   grenadeUpwardForce: 0
   grenadeCooldown: 10
   grenadeSpread: 0.2
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c952355df4398241a8c5f4ac1aa68e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blessingName: Increses Dash Charges
+  blessingName: Increses Dash charges.
   blessingDescription: Grants an extra dash charge.
   blessingType: 0
 --- !u!114 &1425451561130305447
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acf31c5333245f439e72c734305260f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blessingName: Damage Buff
+  blessingName: Damage buff after dashing.
   blessingDescription: Grants a damage buff after dashing for 3 seconds.
   blessingType: 0
   damageMultiplyerIncrease: 0.3
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c9c400ec9f62545bc1ea4e81102d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blessingName: Increses Divine Orb Charges
+  blessingName: Increses Divine Orb charges.
   blessingDescription: Grants an extra charge of the Divine Orb.
   blessingType: 1
 --- !u!114 &2688424487243589265
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6645e705960ff4b87675b76f9177b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blessingName: Double Explosion Size
+  blessingName: Double explosion size.
   blessingDescription: Doubles the size of the orb explosion.
   blessingType: 1
   areaMultiplyer: 2
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec04b33d7e22e942b60c908bc379e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blessingName: Increased damage on multiple targets.
+  blessingName: Buff on multiple targets.
   blessingDescription: +30% of damage if explosion affects multiples enemies.
   blessingType: 1
 --- !u!114 &4620273999810753855
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5715133014478e4cb14c234bc0ad2ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blessingName: Creates fire DoT area after explosion.
+  blessingName: Leaves fire after explosion.
   blessingDescription: After grenade explotes, it leaves a fire area that damages
     enemies every two seconds, for eight seconds.
   blessingType: 1
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd5fa645aba6084db0cdedfb6f6ddd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blessingName: Killing an enemy may spawn a grenade.
+  blessingName: Killing reduces cooldown.
   blessingDescription: 10% chance to spawn a grenade when killing an enemy.
   blessingType: 1
 --- !u!114 &6168365255104639644

@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 8844394782859392368}
   - component: {fileID: 6125852182770069435}
   - component: {fileID: 538249713231055750}
+  - component: {fileID: 9215662570856855729}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 42990139505182b4ca14cb52e9e17bda, type: 3}
+  m_Sprite: {fileID: 797886703, guid: b90978e2d48a4f5448da3edb3face44c, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -122,6 +123,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1515236647032608032}
   offset: {x: 0, y: 1.5, z: 0}
+--- !u!114 &9215662570856855729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517287935515597953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520805e9c8a949c4cae3d250a8cbd201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
 --- !u!1 &1515236647032608033
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,8 +194,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.2602171, z: 0.56204224}
-  m_Center: {x: 0, y: 0.58631235, z: -0.018844604}
+  m_Size: {x: 1, y: 1.330845, z: 0.56204224}
+  m_Center: {x: 0, y: 0.6216263, z: -0.018844604}
 --- !u!195 &1515236647032608042
 NavMeshAgent:
   m_ObjectHideFlags: 0

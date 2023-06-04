@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class AnimatorEventConsumerScript : MonoBehaviour
 {
@@ -9,13 +10,9 @@ public class AnimatorEventConsumerScript : MonoBehaviour
     [SerializeField] Animator rapidFireAnimator;
     [SerializeField] Animator shotgunAnimator;
     [SerializeField] Animator rocksAnimator;
+    FMOD.Studio.Bus master;
     public bool shooting = false;
     public bool reloading = false;
-
-
-
-
-
 
 
     /*[Header("Particles")]
@@ -39,6 +36,27 @@ public class AnimatorEventConsumerScript : MonoBehaviour
 
 
     }
+
+    private void Start()
+    {
+        master = FMODUnity.RuntimeManager.GetBus("bus:/Master Bus");
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("pujo");
+            IncreaseVolume();
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Debug.Log("baixo");
+            DecreaseVolume();
+        }
+    }
+
 
     //----------ANIMATIONS----------//
     public void startWalkAnimation()
@@ -103,6 +121,20 @@ public class AnimatorEventConsumerScript : MonoBehaviour
             shotgunAnimator.SetInteger("State", 3);
             rocksAnimator.SetInteger("State", 3);
         }
+    }
+
+
+
+    public void IncreaseVolume()
+    {
+        master.getVolume(out float volume);
+        master.setVolume(volume + 10f);
+    }
+    
+    public void DecreaseVolume()
+    {
+        master.getVolume(out float volume);
+        master.setVolume(volume - 10f);
     }
 
 }

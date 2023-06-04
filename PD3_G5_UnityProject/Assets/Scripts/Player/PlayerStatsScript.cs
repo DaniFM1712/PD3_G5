@@ -56,21 +56,27 @@ public class PlayerStatsScript : MonoBehaviour
     public bool dashCooldownBlessing = false;
     public bool dashReloadWeaponBlessing = false;
     public bool dashHealBlessing = false;
+    public bool dashDoubleChargesBlessing = false;
 
     //GRENADE
     public bool fireDOTBlessing = false;
     public bool killEnemyGrenadeBlessing = false;
+
+
 
     //SHOTGUN
     public bool killEnemyAbilityCooldownBlessing = false;
     public bool killEnemyDamageBuffBlessing = false;
     public bool distanceDamageBlessing = false;
 
+
+
     //RAPIDFIRE
     public bool trappedEnemyDamageIncreasedBlessing = false;
     public bool trapDealsDamageBlessing = false;
     public bool trapTrapsMultipleEnemiesBlessing = false;
     public bool trapSlowsBlessing = false;
+
 
     //---------ITEMS---------//
     public List<bool> currentDashAbilities;
@@ -162,6 +168,7 @@ public class PlayerStatsScript : MonoBehaviour
         dashCooldownBlessing = false;
         dashReloadWeaponBlessing = false;
         dashHealBlessing = false;
+        dashDoubleChargesBlessing = false;
         killEnemyGrenadeBlessing = false;
         killEnemyAbilityCooldownBlessing = false;
         distanceDamageBlessing = false;
@@ -222,6 +229,7 @@ public class PlayerStatsScript : MonoBehaviour
         dashCooldownBlessing = false;
         dashReloadWeaponBlessing = false;
         dashHealBlessing = false;
+        dashDoubleChargesBlessing = false;
         killEnemyGrenadeBlessing = false;
         killEnemyAbilityCooldownBlessing = false;
         distanceDamageBlessing = false;

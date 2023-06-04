@@ -247,7 +247,7 @@ public class InventoryManagerScript : MonoBehaviour
         }
 
         asset.consume();
-        HealthUIScript.healthUIInstance.updateHealth();
+        HealthUIScript.instance.updateHealth();
         UpdateItemsUI();
     }
 
@@ -308,7 +308,7 @@ public class InventoryManagerScript : MonoBehaviour
 
         commonItems.RemoveAt(slot - 1);
 
-        HealthUIScript.healthUIInstance.updateHealth();
+        HealthUIScript.instance.updateHealth();
         UpdateItemsUI();
     }
 
@@ -321,7 +321,7 @@ public class InventoryManagerScript : MonoBehaviour
 
         rareItems.RemoveAt(slot - 1);
 
-        HealthUIScript.healthUIInstance.updateHealth();
+        HealthUIScript.instance.updateHealth();
         UpdateItemsUI();
 
     }
@@ -335,7 +335,7 @@ public class InventoryManagerScript : MonoBehaviour
 
         legendaryItems.Clear();
 
-        HealthUIScript.healthUIInstance.updateHealth();
+        HealthUIScript.instance.updateHealth();
         UpdateItemsUI();
     }
 

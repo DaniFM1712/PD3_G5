@@ -1,7 +1,9 @@
 using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class EnemyHealthScript : MonoBehaviour
@@ -15,8 +17,10 @@ public class EnemyHealthScript : MonoBehaviour
     [SerializeField] float ncReward = 3;
     [SerializeField] float scReward = 1;
     private Canvas canvas;
+    private GameObject hitMarker;
     [Header("FMOD")]
     public StudioEventEmitter DeathEmitter;
+    private bool hitMarkerActive = false; 
 
     private void Awake()
     {
@@ -25,6 +29,7 @@ public class EnemyHealthScript : MonoBehaviour
     private void Start()
     {
         canvas = GameObject.Find("EnemyHealthCanvas").GetComponent<Canvas>();
+        hitMarker = GameObject.Find("CanvasPrefab/HitMarker");
         healthBar.gameObject.transform.SetParent(canvas.transform);
         healthBar.GetComponent<EnemyHealthBarScript>().target = transform; 
     }
@@ -42,11 +47,7 @@ public class EnemyHealthScript : MonoBehaviour
 
     public bool TakeDamage(float damage, bool critical)
     {
-        Debug.Log(currentHealth);
-        if (PlayerStatsScript.instance.dashDamageBlessing)
-        {
-            damage *= 1.3f;
-        }
+        StartCoroutine(showHitMarker());
         currentHealth -= damage;
         if(damage!=0)
             Instantiate(damageTextPrefab, damageTextPosition.position, Quaternion.identity).GetComponent<DamageTextScript>().Initialise(damage,critical);
@@ -59,7 +60,7 @@ public class EnemyHealthScript : MonoBehaviour
         if(currentHealth <= 0)
         {
             currentHealth = 0;
-            Die();
+            StartCoroutine(deathHitMarker());
             return true;
         }
 
@@ -90,5 +91,33 @@ public class EnemyHealthScript : MonoBehaviour
             CoinCounterScript.coinCounterInstance.updateSCCounter(Mathf.CeilToInt(scReward * PlayerStatsScript.instance.currentDivinePowerMultiplyer));
         }
     }
+
+
+    IEnumerator showHitMarker()
+    {
+        hitMarkerActive = true;
+        hitMarker.GetComponent<Image>().enabled = true;
+        if (hitMarkerActive)
+        {
+            hitMarkerActive = false;
+            yield return new WaitForSeconds(0.25f);
+            if (!hitMarkerActive && hitMarker.GetComponent<Image>().enabled)
+            {
+                hitMarker.GetComponent<Image>().enabled = false;
+            }
+        }
+    }
+    IEnumerator deathHitMarker()
+    {
+        Debug.Log(gameObject);
+        GetComponent<NavMeshAgent>().isStopped = true;
+        GetComponent<NavMeshAgent>().SetDestination(transform.position);
+        hitMarker.GetComponent<Image>().enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        hitMarker.GetComponent<Image>().enabled = false;
+        Die();
+    }
+
+
 
 }

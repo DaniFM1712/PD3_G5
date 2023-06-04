@@ -114,6 +114,8 @@ public class LevelManager : MonoBehaviour
 
     public void RestartLevel() {
         previousScene = getCurrentSceneIndex();
+        PlayerStatsScript.instance.currentHealth = PlayerStatsScript.instance.GetCurrentMaxHealth();
+        HealthUIScript.instance.updateHealth();
         SceneManager.LoadScene(getCurrentSceneIndex());
     }
     public void RestartGame(int scene)

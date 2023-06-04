@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class HealthUIScript : MonoBehaviour
 {
-    public static HealthUIScript healthUIInstance { get; private set; }
+    public static HealthUIScript instance { get; private set; }
 
     [SerializeField] Image healthAmount;
     [SerializeField] GameObject hpCounter;
@@ -16,9 +16,9 @@ public class HealthUIScript : MonoBehaviour
 
     private void Awake()
     {
-        if (healthUIInstance == null)
+        if (instance == null)
         {
-            healthUIInstance = this;
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else

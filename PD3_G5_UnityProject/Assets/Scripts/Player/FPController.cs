@@ -236,7 +236,7 @@ public class FPController : MonoBehaviour
 
             if (direction != Vector3.zero)
             {
-                if(dashIncreasesDamageBlessing.enabled)
+                if (PlayerStatsScript.instance.dashDamageBlessing)
                     dashIncreasesDamageBlessing.StartDamageTimer();
 
                 dashReset = currentDashCharges > 1;

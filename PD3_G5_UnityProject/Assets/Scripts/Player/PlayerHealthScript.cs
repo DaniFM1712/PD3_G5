@@ -22,8 +22,16 @@ public class PlayerHealthScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0.2f) || (PlayerStatsScript.instance.currentHealth <= 0))
+        {
+            lowHpEmitter.Stop();
+        }
+        else if (((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) < 0.2f) && ((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0))
+        {
+            lowHpEmitter.Play();
+        }
         currentDashHealTimer = dashHealBlessingTimer;
-        healthUI = HealthUIScript.healthUIInstance;
+        healthUI = HealthUIScript.instance;
         if (PlayerStatsScript.instance.highHealthDamageBuff && !PlayerStatsScript.instance.highHealthDamageApplied)
         {
             if (PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth() >= 0.9)
@@ -77,9 +85,8 @@ public class PlayerHealthScript : MonoBehaviour
         }
 
         healthUI.updateHealth();
-        if(((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0.2f) || (PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) <= 0)
+        if(((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0.2f) || (PlayerStatsScript.instance.currentHealth  <= 0))
         {
-            Debug.Log("ENTRO VIDA");
             lowHpEmitter.Stop();
         }
         else if (((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) < 0.2f) && ((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0) && !lifeActive)
