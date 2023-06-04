@@ -50,6 +50,9 @@ public class ProjectileShootingScript : MonoBehaviour
     private GameObject player;
     private int shotCounter = 0;
     private bool reloadBuff = false;
+    [SerializeField] float ammoBuffCooldown = 20f;
+    private float ammoBuffTimer;
+    private bool ammoBuffInCooldown;
 
 
     [Header("FMOD")]
@@ -60,17 +63,16 @@ public class ProjectileShootingScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-      
+        ammoBuffTimer = ammoBuffCooldown;
         //animatorConsumer = GameObject.Find("AnimatorConsumerPrefab").GetComponent<AnimatorEventConsumerScript>();
         baseTimeBetweenShooting = timeBetweenShooting;
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         bulletCounterText = GameObject.Find("CanvasPrefab/Bullets/BulletCounter").GetComponent<TextMeshProUGUI>();
 
-
         bulletPool = new Queue<GameObject>();
         GameObject bullets = new("Bullets");
 
-        for (int i = 0; i < magazineSize + 20; i++)
+        for (int i = 0; i < (int)(magazineSize * PlayerStatsScript.instance.currentAmmoMultiplyer) + 20; i++)
         {
             GameObject bullet = Instantiate(bulletPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
             bullet.SetActive(false);
@@ -78,8 +80,8 @@ public class ProjectileShootingScript : MonoBehaviour
             bullet.transform.parent = bullets.transform;
         }
 
-        bulletsLeft = magazineSize;
-        bulletCounterText.text = bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
+        bulletsLeft = (int) (magazineSize * PlayerStatsScript.instance.currentAmmoMultiplyer);
+        bulletCounterText.text = bulletsLeft / bulletsPerTap + " / " + (int)(magazineSize * PlayerStatsScript.instance.currentAmmoMultiplyer) / bulletsPerTap;
 
         readyToShoot = true;
         shooting = false;
@@ -95,6 +97,15 @@ public class ProjectileShootingScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (ammoBuffInCooldown)
+        {
+            ammoBuffTimer -= Time.deltaTime;
+            if(ammoBuffTimer < 0){
+                ammoBuffInCooldown = false;
+                ammoBuffTimer = ammoBuffCooldown;
+
+            }
+        }
         CheckInput();
     }
 
@@ -105,7 +116,7 @@ public class ProjectileShootingScript : MonoBehaviour
         else
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !PlayerStatsScript.instance.isReloading)
+        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < (int)(magazineSize * PlayerStatsScript.instance.currentAmmoMultiplyer) && !PlayerStatsScript.instance.isReloading)
             Reload();
 
         if(readyToShoot && shooting && !PlayerStatsScript.instance.isReloading && Time.timeScale == 1f)
@@ -191,7 +202,7 @@ public class ProjectileShootingScript : MonoBehaviour
         bulletsLeft--;
         bulletsShot++;
 
-        bulletCounterText.text = bulletsLeft/bulletsPerTap + " / " + magazineSize/ bulletsPerTap;
+        bulletCounterText.text = bulletsLeft/bulletsPerTap + " / " + (int)(magazineSize * PlayerStatsScript.instance.currentAmmoMultiplyer) / bulletsPerTap;
 
         if (allowInvoke)
         {
@@ -213,20 +224,29 @@ public class ProjectileShootingScript : MonoBehaviour
 
     private void Reload()
     {
-        AnimatorEventConsumerScript.instance.reloading = true;
-        ReloadEmitter.Play();
+        if ((PlayerStatsScript.instance.ammoBuff && ammoBuffInCooldown) || !PlayerStatsScript.instance.ammoBuff)
+        {
+            AnimatorEventConsumerScript.instance.reloading = true;
+            ReloadEmitter.Play();
+            AnimatorEventConsumerScript.instance.startReloadAnimation();
+            PlayerStatsScript.instance.isReloading = true;
+            Invoke(nameof(ReloadFinished), reloadTime);
+        }
+        else if(PlayerStatsScript.instance.ammoBuff && !ammoBuffInCooldown)
+        {
+            ammoBuffInCooldown = true;
+            ReloadEmitter.Play();
+            ReloadFinished();
+        }
 
-        AnimatorEventConsumerScript.instance.startReloadAnimation();
-        PlayerStatsScript.instance.isReloading = true;
-        Invoke("ReloadFinished", reloadTime);
     }
 
     public void ReloadFinished()
     {
         AnimatorEventConsumerScript.instance.reloading = false;
         PlayerStatsScript.instance.isReloading = false;
-        bulletsLeft = magazineSize;
-        bulletCounterText.text = bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
+        bulletsLeft = (int)(magazineSize * PlayerStatsScript.instance.currentAmmoMultiplyer);
+        bulletCounterText.text = bulletsLeft / bulletsPerTap + " / " + (int)(magazineSize * PlayerStatsScript.instance.currentAmmoMultiplyer) / bulletsPerTap;
         if (PlayerStatsScript.instance.reloadDamageBuff)
         {
             reloadBuff = true;
@@ -253,7 +273,7 @@ public class ProjectileShootingScript : MonoBehaviour
         {
             if (PlayerStatsScript.instance.currentWeaponIndex != 0)
             {
-                bulletCounterText.text = bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
+                bulletCounterText.text = bulletsLeft / bulletsPerTap + " / " + (int)(magazineSize * PlayerStatsScript.instance.currentAmmoMultiplyer) / bulletsPerTap;
             }
         } catch (Exception e) {
 

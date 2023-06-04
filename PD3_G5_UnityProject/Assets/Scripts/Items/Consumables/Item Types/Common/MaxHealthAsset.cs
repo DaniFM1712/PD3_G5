@@ -8,11 +8,13 @@ public class MaxHealthAsset : ConsumableAsset {
     override public void consume()
     {
         PlayerStatsScript.instance.currentMaxHealthMultiplyer += maxHealthMultiplyer;
+        HealthUIScript.instance.updateHealth(false);
     }
 
     public override void drop()
     {
         PlayerStatsScript.instance.currentMaxHealthMultiplyer -= maxHealthMultiplyer;
+        HealthUIScript.instance.updateHealth(false);
     }
 }
 

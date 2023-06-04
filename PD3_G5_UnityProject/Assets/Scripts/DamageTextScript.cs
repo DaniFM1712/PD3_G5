@@ -37,7 +37,11 @@ public class DamageTextScript : MonoBehaviour
         {
             damageText.color = damageColour;
         }
-        damageText.text = damageValue.ToString();
+        damageText.text = Round(damageValue,2).ToString();
     }
-
+    public static float Round(float value, int digits)
+    {
+        float mult = Mathf.Pow(10.0f, (float)digits);
+        return Mathf.Round(value * mult) / mult;
+    }
 }

@@ -51,6 +51,16 @@ public class BulletScript : MonoBehaviour
                 }
                 dead = enemyPart.TakeDamage(damage, null);
             }
+
+            if (PlayerStatsScript.instance.spawnGrenadeOnShoot)
+            {
+                if(Random.Range(0,100) >= 89)
+                {
+                    GameObject grenade =  Instantiate(grenadePrefab, new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y + 2f, other.gameObject.transform.position.z), Quaternion.identity);
+                    grenade.GetComponent<GrenadeBulletScript>().doubleDamage = true;
+                }
+            }
+
             if (dead)
             {
                 if (PlayerStatsScript.instance.dashCooldownBlessing)

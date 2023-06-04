@@ -11,6 +11,8 @@ public class CoinCounterScript : MonoBehaviour
     private TextMeshProUGUI ncText;
     private TextMeshProUGUI scText;
     private PlayerStatsScript playerStats;
+    private int fifties = 0;
+    private int accumulatedFifties = 0;
 
 
     private void Awake()
@@ -47,6 +49,17 @@ public class CoinCounterScript : MonoBehaviour
     {
         playerStats.currentNormalCoin += amount;
         ncText.text = " " + playerStats.currentNormalCoin.ToString();
+        if (PlayerStatsScript.instance.moneyIsPower)
+        {
+            if (accumulatedFifties < (int)(PlayerStatsScript.instance.currentNormalCoin / 50f))
+            {
+                fifties = (int)(PlayerStatsScript.instance.currentNormalCoin / 50f) - accumulatedFifties;
+                accumulatedFifties += fifties;
+            }
+            float accumulatedDamage = 0.1f * fifties;
+            PlayerStatsScript.instance.currentDamageMultiplyer += accumulatedDamage;
+        }
+
     }
     public void updateSCCounter(int amount)
     {
@@ -58,6 +71,11 @@ public class CoinCounterScript : MonoBehaviour
     {
         playerStats.currentNormalCoin = 0;
         ncText.text = " " + playerStats.currentNormalCoin.ToString();
+    }
+
+    public void resetMoneyIsPower()
+    {
+        PlayerStatsScript.instance.currentDamageMultiplyer -= 0.1f * accumulatedFifties;
     }
 
 

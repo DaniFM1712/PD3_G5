@@ -5,9 +5,11 @@ using UnityEngine;
 public class ExplosionScript : MonoBehaviour
 {
     [SerializeField] float lifeTime = 5f;
-    [SerializeField] float damage = 50f;
+    [SerializeField] float baseDamage = 50f;
     [SerializeField] GameObject fireDOTPrefab;
     float timeToDestroy;
+    private bool firstTarget = false;
+    public bool doubleDamage = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,8 +45,17 @@ public class ExplosionScript : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Enemy"))
             {
+                float damage = baseDamage * PlayerStatsScript.instance.currentGrenadeDamageMultiplyer;
+                firstTarget = true;
                 if (other.gameObject.TryGetComponent<EnemyHealthScript>(out EnemyHealthScript enemyHealth))
                 {
+                    if (firstTarget && PlayerStatsScript.instance.multipleTargetsGrenadeBlessing)
+                    {
+                        damage *= 1.3f;
+                    }
+                    if (doubleDamage && PlayerStatsScript.instance.spawnGrenadeOnShoot) { 
+                        damage *= 2f;
+                    }
                     enemyHealth.TakeDamage(damage, false);
                 }
             }
@@ -55,14 +66,13 @@ public class ExplosionScript : MonoBehaviour
             {
                 if (other.gameObject.TryGetComponent<PlayerHealthScript>(out PlayerHealthScript player))
                 {
-                    player.ModifyHealth(-damage);
+                    player.ModifyHealth(-baseDamage);
                 }
             }
-        }
-
-        
-   
+        }   
     }
+    
+
     /*
     private void OnTriggerExit(Collider other)
     {

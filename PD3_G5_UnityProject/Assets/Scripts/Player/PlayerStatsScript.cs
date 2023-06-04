@@ -125,9 +125,19 @@ public class PlayerStatsScript : MonoBehaviour
     public bool reloadDamageBuff = false;
     public bool speedBuffAfterKilling = false;
     public bool speedBuffActivated = false;
+    public bool vitalityBuff = false;
+    public float baseHealingMultiplyer = 1f;
+    public float currentHealingMultiplyer;    
+    public bool ammoBuff = false;
+    public float baseAmmoMultiplyer = 1f;
+    public float currentAmmoMultiplyer;
 
     //LEGENDARY
     public bool criticalBuff = false;
+    public bool spawnGrenadeOnShoot = false;
+    public float baseGrenadeDamageMultiplyer = 1f;
+    public float currentGrenadeDamageMultiplyer;
+    public bool moneyIsPower = false;
 
 
     private void Awake()
@@ -207,6 +217,13 @@ public class PlayerStatsScript : MonoBehaviour
         speedBuffAfterKilling = false;
         speedBuffActivated = false;
         criticalBuff = false;
+        spawnGrenadeOnShoot = false;
+        currentGrenadeDamageMultiplyer = baseGrenadeDamageMultiplyer;
+        vitalityBuff = false;
+        moneyIsPower = false;
+        currentHealingMultiplyer = baseHealingMultiplyer;        
+        ammoBuff = false;
+        currentAmmoMultiplyer = baseAmmoMultiplyer;
 
     }
 
@@ -238,7 +255,17 @@ public class PlayerStatsScript : MonoBehaviour
         reloadDamageBuff = false;
         speedBuffAfterKilling = false;
         speedBuffActivated = false;
+        vitalityBuff = false;
+        moneyIsPower = false;
+        currentHealingMultiplyer = baseHealingMultiplyer;
         criticalBuff = false;
+        spawnGrenadeOnShoot = false;
+        currentGrenadeDamageMultiplyer = baseGrenadeDamageMultiplyer;
+        ammoBuff = false;
+        currentAmmoMultiplyer = baseAmmoMultiplyer;
+
+
+        //BLESSINGS
         activatedBlessings = 0;
         dashDamageBlessing = false;
         fireDOTBlessing = false;

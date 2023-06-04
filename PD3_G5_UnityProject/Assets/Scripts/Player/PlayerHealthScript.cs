@@ -63,6 +63,12 @@ public class PlayerHealthScript : MonoBehaviour
         {
             accumulatedHeal += (modifier*-1);
         }
+
+        if (PlayerStatsScript.instance.vitalityBuff && modifier > 0)
+        {
+            modifier *= PlayerStatsScript.instance.currentHealingMultiplyer;
+        }
+
         PlayerStatsScript.instance.currentHealth += modifier;
         PlayerStatsScript.instance.currentHealth = Mathf.Clamp(PlayerStatsScript.instance.currentHealth, 0, 
             PlayerStatsScript.instance.GetCurrentMaxHealth());

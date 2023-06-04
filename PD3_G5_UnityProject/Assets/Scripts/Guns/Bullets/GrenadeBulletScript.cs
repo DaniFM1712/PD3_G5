@@ -7,12 +7,10 @@ public class GrenadeBulletScript : MonoBehaviour
 {
     [SerializeField] GameObject specialEffectPrefab;
     [SerializeField] float lifeTime = 5f;
-    float damage;
+    public bool doubleDamage;
     float timeToDestroy;
     float areaMultiplyer = 1f;
     Vector3 originPosition = new Vector3(0f, 0f, 0f);
-    public bool multipleTargetsBlessing = false;
-    private bool firstTarget = false;
 
     [Header("FMOD")]
     public StudioEventEmitter ExplosionEmitter;
@@ -43,19 +41,9 @@ public class GrenadeBulletScript : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Terrain"))
         {
-
-            firstTarget = true;
-            if (other.gameObject.TryGetComponent(out EnemyPartScript enemyPart))
-            {
-                if(firstTarget && multipleTargetsBlessing)
-                {
-                    enemyPart.TakeDamage(damage*1.3f, null);
-                }
-                else
-                    enemyPart.TakeDamage(damage, null);
-            }
             ExplosionEmitter.Play();
-            GameObject specialEffect = Instantiate(specialEffectPrefab,transform.position, Quaternion.identity);
+            GameObject specialEffect = Instantiate(specialEffectPrefab,transform.position, Quaternion.identity);         
+            specialEffect.GetComponent<ExplosionScript>().doubleDamage = doubleDamage;
             specialEffect.transform.localScale *= areaMultiplyer;
             ReturnToOrigin();
         }   

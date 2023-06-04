@@ -120,8 +120,7 @@ public class GrenadeScript : MonoBehaviour
         currentGrenade.transform.forward = directionWithoutSpread.normalized;
         if (PlayerStatsScript.instance.doubleAOEGrenadeBlessing)
             currentGrenade.GetComponent<GrenadeBulletScript>().SetAreaMulitplier(doubleAOEBlessing.areaMultiplyer);
-        if(PlayerStatsScript.instance.multipleTargetsGrenadeBlessing)
-            currentGrenade.GetComponent<GrenadeBulletScript>().multipleTargetsBlessing = true;
+
 
         currentGrenade.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * grenadeShootForce, ForceMode.Impulse);
         currentGrenade.GetComponent<Rigidbody>().AddForce(cam.transform.up * grenadeUpwardForce, ForceMode.Impulse);
