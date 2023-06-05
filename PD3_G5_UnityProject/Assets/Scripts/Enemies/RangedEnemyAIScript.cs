@@ -83,10 +83,13 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
     public StudioEventEmitter AttackEmitter;
 
 
+    [Header("Animator")] 
+    [SerializeField] private Animator enemyAnimator; 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         currentState = State.IDLE;
+        enemyAnimator.SetBool("Idle", true);
     }
     override public void Start()
     {
@@ -144,7 +147,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
     }
 
 
-    void updateIdle() { }
+    void updateIdle() { enemyAnimator.SetBool("Idle", true);}
 
     void ChangeFromIdle()
     {
@@ -157,6 +160,8 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
                 specialShootInCooldown = false;
                 specialShoot = true;
                 specialShootTimer = specialShootCooldown;
+                enemyAnimator.SetBool("Idle", false);
+                enemyAnimator.SetBool("Chase", true);
                 currentState = State.ATTACK;
             }
 
@@ -256,6 +261,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
 
     private void attack()
     {
+        
         if (readyToShoot && shooting && !reloading)
         {
             bulletsShot = 0;
@@ -263,9 +269,9 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
             {
                 shootingPoint = player.transform.position;
                 agent.isStopped = true;
-                
-                float chooseAttack = Random.Range(0, 100);
-                Debug.Log("ss: " + specialShoot);
+
+                float chooseAttack = -1f;//Random.Range(0, 0);
+                //Debug.Log("ss: " + specialShoot);
                 if (specialShoot && chooseAttack >= 0f)
                 {
                     specialShoot = false;
@@ -273,6 +279,9 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
                     int i = 0;
                     while (i < 3)
                     {
+                        //Add animator bool
+                        enemyAnimator.SetBool("TripleShoot", true);
+                        enemyAnimator.SetBool("Chase", false);
                         SpecialShoot();
                         i++;
                     }
@@ -280,8 +289,11 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
                 }
                 else
                 {
-                    AttackEmitter.Play();
-                    Shoot();
+                    //AttackEmitter.Play();
+                    //add animator bool
+                    enemyAnimator.SetTrigger("Shoot");
+                    enemyAnimator.SetBool("Chase", false);
+                    //Shoot();
                 }
 
             }
@@ -290,11 +302,12 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
         }
     }
 
-    private void Shoot()
+    public void Shoot()
     {
+        print("-------------Arlequín Shooting-------------");
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(player.transform.position), Time.deltaTime * turnRate);
         //transform.LookAt(player.GetComponent<Transform>(), Vector3.up);
-        
+        AttackEmitter.Play();
         readyToShoot = false;
         Vector3 directionWithoutSpread = shootingPoint - bulletOrigin.position;
 
@@ -379,6 +392,11 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
 
     private void Reload()
     {
+        enemyAnimator.SetBool("Chase", false);
+        enemyAnimator.SetBool("Shoot", false);
+        enemyAnimator.SetBool("TripleShoot", false);
+        //enemyAnimator.SetBool("Idle", true);
+
         reloading = true;
         Invoke("ReloadFinished", reloadTime);
     }
@@ -400,10 +418,13 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
         if (lastCheckedHealth <= 0)
         {
             currentState = State.DIE;
+            enemyAnimator.SetTrigger("Death");
         }
         else
         {
             currentState = State.CHASE;
+            enemyAnimator.SetBool("Shoot", false);
+            enemyAnimator.SetBool("Chase", true);
         }
     }
 
