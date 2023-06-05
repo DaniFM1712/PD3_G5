@@ -57,6 +57,9 @@ public class MeleChaserEnemy : ParentEnemyIAScript
     public StudioEventEmitter AttackEmitter;
 
 
+    [Header("Animator")] 
+    [SerializeField] private Animator enemyAnimator;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -122,7 +125,11 @@ public class MeleChaserEnemy : ParentEnemyIAScript
     }
 
 
-    void updateIdle(){}
+    void updateIdle()
+    {
+        enemyAnimator.SetBool("Idle", true);
+        enemyAnimator.SetBool("Chase", false); 
+    }
 
     void ChangeFromIdle()
     {
@@ -131,11 +138,14 @@ public class MeleChaserEnemy : ParentEnemyIAScript
         {
             ChaseEmitter.Play();
             currentState = State.CHASE;
+            enemyAnimator.SetBool("Idle", false);
+            enemyAnimator.SetBool("Chase", true); 
         }
         //seesPlayer() &&
         else if(PlayerInMeleeRange())
         {
             currentState = State.ATTACK;
+            enemyAnimator.SetTrigger("Attack");
         }
         checkHit();
     }
@@ -187,15 +197,16 @@ public class MeleChaserEnemy : ParentEnemyIAScript
     {
         if (PlayerInMeleeRange())
         {
+            enemyAnimator.SetTrigger("Attack");
             currentState = State.ATTACK;
-            attack();
+            //attack();
             if(!blocked)
                 StartCoroutine(CooldownAttack());
         }
         checkHit();
     }
 
-    private void attack()
+    public void attack()
     {
         AttackEmitter.Play();
         player.GetComponent<PlayerHealthScript>().ModifyHealth(damage);
@@ -208,9 +219,14 @@ public class MeleChaserEnemy : ParentEnemyIAScript
 
     IEnumerator CooldownAttack()
     {
+        enemyAnimator.SetBool("Chase", false);
+        enemyAnimator.SetBool("Idle", true);
         agent.isStopped = true;
         yield return new WaitForSeconds(3.0f);
         agent.isStopped = false;
+        enemyAnimator.SetBool("Idle", false);
+        enemyAnimator.SetBool("Chase", true);
+        
     }
 
     void ChangeFromAttack()

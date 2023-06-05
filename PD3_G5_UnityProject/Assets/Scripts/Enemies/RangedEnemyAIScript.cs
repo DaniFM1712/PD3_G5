@@ -304,7 +304,6 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
 
     public void Shoot()
     {
-        print("-------------Arlequín Shooting-------------");
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(player.transform.position), Time.deltaTime * turnRate);
         //transform.LookAt(player.GetComponent<Transform>(), Vector3.up);
         AttackEmitter.Play();

@@ -10,8 +10,14 @@ public class AnimationEventTranslator : MonoBehaviour
     
     
     //Chillón
-    
-    
+    public void ChillonMeleeAttack()
+    {
+        IA_GO.GetComponent<MeleChaserEnemy>().attack();
+    }
+    public void ChillonDeathEnd()
+    {
+        
+    }
     
     
     //Arlequín
