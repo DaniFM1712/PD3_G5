@@ -79,16 +79,20 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
     [Header("FMOD")]
     public StudioEventEmitter AttackRangedEmitter;
     public StudioEventEmitter AttackMeleeEmitter;
+
+    [Header("Animator")] 
+    [SerializeField] private Animator enemyAnimator;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         lastCheckedHealth = GetComponent<EnemyHealthScript>().GetCurrentHealth();
         currentState = State.IDLE;
+        
     }
     override public void Start()
     {
         base.Start();
-
+        enemyAnimator.SetBool("Idle", true);
         bulletPool = new Queue<GameObject>();
         GameObject bullets = new GameObject("GolemBullets");
         for (int i = 0; i < magazineSize + 10; i++)
@@ -149,6 +153,8 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
         if (PlayerInChaseRange())
         {
             currentState = State.CHASE;
+            enemyAnimator.SetBool("Idle", false);
+            enemyAnimator.SetBool("Chase", true);
         }
         CheckHit();
     }
@@ -247,7 +253,9 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
             if (canAttack)
             {
                 AttackMeleeEmitter.Play();
-                MeleeAttack();
+                
+                enemyAnimator.SetTrigger("MeleeAttack");
+                //MeleeAttack();
                 canAttack = false;
                 StartCoroutine(CooldownAttack());
             }
@@ -258,7 +266,9 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
             if (readyToShoot && !reloading && canAttack)
             {
                 shooting = true;
-                RangedAttack();
+                
+                enemyAnimator.SetTrigger("RangedAttack");
+                //RangedAttack();
             }
 
         }
@@ -270,12 +280,19 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
     IEnumerator CooldownAttack()
     {
+        enemyAnimator.SetBool("Chase", false);
+        enemyAnimator.SetBool("Idle", true);
+        
         agent.isStopped = true;
         agent.SetDestination(transform.position);
         yield return new WaitForSeconds(3.0f);
         agent.isStopped = false;
         agent.SetDestination(player.transform.position);
         canAttack = true;
+        
+        enemyAnimator.SetBool("Idle", false);
+        enemyAnimator.SetBool("Chase", true);
+        
     }
 
     void ChangeFromAttack()
