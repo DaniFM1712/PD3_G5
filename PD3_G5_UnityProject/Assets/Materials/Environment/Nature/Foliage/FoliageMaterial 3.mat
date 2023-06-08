@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FoliageMaterial 3
-  m_Shader: {fileID: -6465566751694194690, guid: 31da66f4afaf7c94782dd3e26de81b8f,
+  m_Shader: {fileID: -6465566751694194690, guid: 17745c05fcd39b94d986a65c0176f664,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -34,12 +34,28 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BaseColourMap:
+        m_Texture: {fileID: 2800000, guid: 211be1e659b10264aa132600ecfdf6ba, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissiveMap:
+        m_Texture: {fileID: 2800000, guid: 94b609851ede1f642887dab0ace4f5bb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissiveTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
         m_Texture: {fileID: 2800000, guid: 211be1e659b10264aa132600ecfdf6ba, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicMap:
+        m_Texture: {fileID: 2800000, guid: 2ba731a54606259418c341fe87896d19, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 2de0c6e520c581e4ea3acbad5693e17e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_79196763dda742ee8dafc880473bce34_Texture_1:
@@ -61,6 +77,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaCutoff: 0.5
+    - _EmissiveNoiseScale: 0.18
+    - _EmissiveNoiseSpeed: 100
     - _NoiseScale: 1
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -69,6 +87,8 @@ Material:
     - _WindSpeed: 5
     - _WindStrength: -0.34
     m_Colors:
+    - _BaseColour: {r: 0.9716981, g: 0.937844, b: 0.40792987, a: 0}
+    - _EmissiveColour: {r: 4, g: 3.403922, b: 1.301961, a: 0}
     - _MainColour: {r: 0.7311321, g: 1, b: 0.9002408, a: 0}
     - _WindDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
