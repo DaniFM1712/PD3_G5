@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FoliageMaterial 3
-  m_Shader: {fileID: -6465566751694194690, guid: 17745c05fcd39b94d986a65c0176f664,
+  m_Name: EnemyBaseSoul
+  m_Shader: {fileID: -6465566751694194690, guid: 66029b18d3a545f47b04f30acb5eb37e,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -35,7 +35,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseColourMap:
-        m_Texture: {fileID: 2800000, guid: 211be1e659b10264aa132600ecfdf6ba, type: 3}
+        m_Texture: {fileID: 2800000, guid: bc593afbd72d915449d0fae477326fde, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissiveMap:
@@ -47,7 +47,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 211be1e659b10264aa132600ecfdf6ba, type: 3}
+        m_Texture: {fileID: 2800000, guid: bc593afbd72d915449d0fae477326fde, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicMap:
@@ -79,20 +79,20 @@ Material:
     - _AlphaCutoff: 0.5
     - _Emissive2ndVoronoiCellDensity: 4.05
     - _Emissive2ndVoronoiSpeed: 1.17
-    - _EmissiveNoiseScale: 0.18
-    - _EmissiveNoiseSpeed: 100
+    - _EmissiveNoiseScale: 100
+    - _EmissiveNoiseSpeed: 0.18
     - _EmissiveVoronoiCellDensity: 4.12
     - _EmissiveVoronoiSpeed: 7
-    - _NoiseScale: 1
+    - _NoiseScale: 7.4
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _UVWindSpeed: 0
-    - _VertexWindSpeed: 6.74
+    - _UVWindSpeed: 2.05
+    - _VertexWindSpeed: 0
     - _WindSpeed: 5
-    - _WindStrength: 0.35
+    - _WindStrength: 0.04
     m_Colors:
-    - _BaseColour: {r: 0.9716981, g: 0.937844, b: 0.40792987, a: 0}
-    - _EmissiveColour: {r: 4, g: 3.403922, b: 1.301961, a: 0}
-    - _MainColour: {r: 0.7311321, g: 1, b: 0.9002408, a: 0}
-    - _WindDirection: {r: 1, g: 0, b: 0, a: 0}
+    - _BaseColour: {r: 0.9150943, g: 0.6863207, b: 0.6885419, a: 0}
+    - _EmissiveColour: {r: 16, g: 6.462745, b: 6.462745, a: 0}
+    - _MainColour: {r: 0.972549, g: 0.454902, b: 0.7078375, a: 0}
+    - _WindDirection: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
