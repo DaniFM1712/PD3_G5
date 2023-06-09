@@ -139,6 +139,8 @@ public class PlayerStatsScript : MonoBehaviour
     public float currentGrenadeDamageMultiplyer;
     public bool moneyIsPower = false;
 
+    //UNLOCKS
+    public int[] unlocks = { 0, 0, 0, 0, 0, 0}; 
 
     private void Awake()
     {
@@ -169,7 +171,7 @@ public class PlayerStatsScript : MonoBehaviour
 
 
     //----------CURRENT--STATS----------//
-    currentHealth = currentMaxHealth;
+        currentHealth = currentMaxHealth;
         currentShield = currentMaxShield;
         //currentDamageBonus = baseDamageBonus;
         currentSpeedBonus = baseSpeedBonus;

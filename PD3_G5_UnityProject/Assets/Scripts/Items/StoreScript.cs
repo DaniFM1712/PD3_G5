@@ -8,11 +8,29 @@ using FMODUnity;
 public class StoreScript : MonoBehaviour
 {
     [SerializeField] GameObject storeCanvas;
+
+    [Header ("Tabs")]
+    [SerializeField] List<GameObject> tabs;
+    private int currentTab = 0;
+
+    [Header("Button Tabs")]
+    [SerializeField] GameObject toolsButton;
+    [SerializeField] GameObject inventoryButton;
+    [SerializeField] GameObject statsButton;
+    [SerializeField] GameObject gamemodesButton;
+    [SerializeField] GameObject loreButton;
+    
+    
+    
+    [Header("StatsInfo")]
+    [SerializeField] List<Button> buttons = new List<Button>();
+    [SerializeField] List<int> prices = new List<int>();
+    [SerializeField] List<GameObject> unlockStep = new List<GameObject>();
     [SerializeField] TextMeshProUGUI scCounter;
     [SerializeField] TextMeshProUGUI itemDescription;
     [SerializeField] TextMeshProUGUI itemPrice;
-    [SerializeField] List<Button> buttons = new List<Button>();
-    [SerializeField] List<int> prices = new List<int>();
+
+
     private bool canShop = false;
     private int itemSelected = 0;
 
@@ -120,16 +138,24 @@ public class StoreScript : MonoBehaviour
     {
         if (PlayerStatsScript.instance.currentSpecialCoin >= prices[0])
         {
-            PlayerStatsScript.instance.permanentUpgrades[0] = true;
-            buttons[0].interactable = false;
-            PlayerStatsScript.instance.baseDivinePowerMultiplyer += 0.3f;
-            PlayerStatsScript.instance.currentDivinePowerMultiplyer = PlayerStatsScript.instance.baseDivinePowerMultiplyer;
-            BuyEmitter.Play();
-            buttons[6].interactable = false;
-            itemDescription.text = "";
-            itemPrice.text = "Cost: ";
-            CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[0]);
-            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            if (PlayerStatsScript.instance.unlocks[0] < 5) {
+                PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
+                PlayerStatsScript.instance.baseDivinePowerMultiplyer += 0.3f / 5;
+                PlayerStatsScript.instance.currentDivinePowerMultiplyer = PlayerStatsScript.instance.baseDivinePowerMultiplyer;
+                BuyEmitter.Play();
+
+                CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[0]);
+                scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+                unlockStep[0].GetComponent<TextMeshProUGUI>().text = PlayerStatsScript.instance.unlocks[0] + " / 5";
+            }
+            if(PlayerStatsScript.instance.unlocks[0] == 5)
+            {
+                buttons[6].interactable = false;
+                itemDescription.text = "";
+                itemPrice.text = "Cost: ";
+                PlayerStatsScript.instance.permanentUpgrades[0] = true;
+                buttons[0].interactable = false;
+            }
         }
     }
 
@@ -137,32 +163,49 @@ public class StoreScript : MonoBehaviour
     {
         if (PlayerStatsScript.instance.currentSpecialCoin >= prices[1])
         {
-            PlayerStatsScript.instance.permanentUpgrades[1] = true;
-            buttons[1].interactable = false;
-            PlayerStatsScript.instance.baseEssenceMultiplyer += 0.3f;
-            PlayerStatsScript.instance.currentEssenceMultiplyer = PlayerStatsScript.instance.baseEssenceMultiplyer;
-            CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[1]);
-            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
-            BuyEmitter.Play();
-            buttons[6].interactable = false;
-            itemDescription.text = "";
-            itemPrice.text = "Cost: ";
+            if (PlayerStatsScript.instance.unlocks[1] < 5) {
+                PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
+                PlayerStatsScript.instance.baseEssenceMultiplyer += 0.3f/5;
+                PlayerStatsScript.instance.currentEssenceMultiplyer = PlayerStatsScript.instance.baseEssenceMultiplyer;
+                CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[1]);
+                scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+                BuyEmitter.Play();
+                unlockStep[1].GetComponent<TextMeshProUGUI>().text = PlayerStatsScript.instance.unlocks[1] + " / 5";
+
+            }
+            if (PlayerStatsScript.instance.unlocks[1] == 5)
+            {
+                itemDescription.text = "";
+                itemPrice.text = "Cost: ";
+                buttons[6].interactable = false;
+                buttons[1].interactable = false;
+                PlayerStatsScript.instance.permanentUpgrades[1] = true;
+            }
+
         }
     }
     private void BuyBaseDamageDealedUpgrade()
     {
         if (PlayerStatsScript.instance.currentSpecialCoin >= prices[2])
         {
-            PlayerStatsScript.instance.permanentUpgrades[2] = true;
-            buttons[2].interactable = false;
-            PlayerStatsScript.instance.baseDamageMultiplyer += 0.2f;
-            PlayerStatsScript.instance.currentDamageMultiplyer = PlayerStatsScript.instance.baseDamageMultiplyer;
-            CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[2]);
-            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
-            BuyEmitter.Play();
-            buttons[6].interactable = false;
-            itemDescription.text = "";
-            itemPrice.text = "Cost: ";
+            if (PlayerStatsScript.instance.unlocks[2] < 5) {
+                PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
+                PlayerStatsScript.instance.baseDamageMultiplyer += 0.2f / 5;
+                PlayerStatsScript.instance.currentDamageMultiplyer = PlayerStatsScript.instance.baseDamageMultiplyer;
+                CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[2]);
+                scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+                BuyEmitter.Play();
+                unlockStep[2].GetComponent<TextMeshProUGUI>().text = PlayerStatsScript.instance.unlocks[2] + " / 5";
+            }
+            if (PlayerStatsScript.instance.unlocks[2] == 5)
+            {
+                buttons[6].interactable = false;
+                itemDescription.text = "";
+                itemPrice.text = "Cost: ";
+                PlayerStatsScript.instance.permanentUpgrades[2] = true;
+                buttons[2].interactable = false;
+            }
+            
         }
     }
     private void BuyBaseHealthUpgrade()
@@ -170,39 +213,58 @@ public class StoreScript : MonoBehaviour
 
         if (PlayerStatsScript.instance.currentSpecialCoin >= prices[3])
         {
-            PlayerStatsScript.instance.permanentUpgrades[3] = true;
-            buttons[3].interactable = false;
-            PlayerStatsScript.instance.baseMaxHealthMultiplyer += 0.2f;
-            PlayerStatsScript.instance.currentMaxHealthMultiplyer = PlayerStatsScript.instance.baseMaxHealthMultiplyer;
-            PlayerStatsScript.instance.currentHealth = PlayerStatsScript.instance.GetCurrentMaxHealth();
-            CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[3]);
-            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
-            BuyEmitter.Play();
-            buttons[6].interactable = false;
-            itemDescription.text = "";
-            itemPrice.text = "Cost: ";
+            if (PlayerStatsScript.instance.unlocks[3] < 5)
+            {
+                PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
+                PlayerStatsScript.instance.baseMaxHealthMultiplyer += 0.2f / 5;
+                PlayerStatsScript.instance.currentMaxHealthMultiplyer = PlayerStatsScript.instance.baseMaxHealthMultiplyer;
+                PlayerStatsScript.instance.currentHealth = PlayerStatsScript.instance.GetCurrentMaxHealth();
+                CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[3]);
+                scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+                BuyEmitter.Play();
+                unlockStep[3].GetComponent<TextMeshProUGUI>().text = PlayerStatsScript.instance.unlocks[3] + " / 5";
+            }
+            if (PlayerStatsScript.instance.unlocks[3] == 5)
+            {
+                buttons[6].interactable = false;
+                itemDescription.text = "";
+                itemPrice.text = "Cost: ";
+                PlayerStatsScript.instance.permanentUpgrades[3] = true;
+                buttons[3].interactable = false;
+            }
+            
         }
     }
     private void BuyBaseFirerateUpgrade()
     {
         if (PlayerStatsScript.instance.currentSpecialCoin >= prices[4])
         {
-            PlayerStatsScript.instance.permanentUpgrades[4] = true;
-            buttons[4].interactable = false;
-            PlayerStatsScript.instance.baseFireRateMultiplyer += 0.2f;
-            PlayerStatsScript.instance.currentFireRateMultiplyer = PlayerStatsScript.instance.baseFireRateMultiplyer;
-            CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[4]);
-            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
-            BuyEmitter.Play();
-            buttons[6].interactable = false;
-            itemDescription.text = "";
-            itemPrice.text = "Cost: ";
+            if (PlayerStatsScript.instance.unlocks[4] < 5)
+            {
+                PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
+                PlayerStatsScript.instance.baseFireRateMultiplyer += 0.2f / 5;
+                PlayerStatsScript.instance.currentFireRateMultiplyer = PlayerStatsScript.instance.baseFireRateMultiplyer;
+                CoinCounterScript.coinCounterInstance.updateSCCounter(-prices[4]);
+                scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+                BuyEmitter.Play();
+                unlockStep[4].GetComponent<TextMeshProUGUI>().text = PlayerStatsScript.instance.unlocks[4] + " / 5";
+            }
+            if(PlayerStatsScript.instance.unlocks[4] == 5)
+            {
+                buttons[6].interactable = false;
+                itemDescription.text = "";
+                itemPrice.text = "Cost: ";
+                PlayerStatsScript.instance.permanentUpgrades[4] = true;
+                buttons[4].interactable = false;
+            }
+
         }
     }
     private void BuySecondLifeUpgrade()
     {
         if (PlayerStatsScript.instance.currentSpecialCoin >= prices[5])
         {
+            PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
             PlayerStatsScript.instance.permanentUpgrades[5] = true;
             buttons[5].interactable = false;
             PlayerStatsScript.instance.secondLifeUnlocked = true;
@@ -215,6 +277,18 @@ public class StoreScript : MonoBehaviour
             itemPrice.text = "Cost: ";
         }
     }
+
+    
+    
+    
+    public void changeTab(int tab)
+    {
+        tabs[currentTab].SetActive(false);
+        tabs[tab].SetActive(true);
+        currentTab = tab;
+    }
+
+
 
     public void CloseStore()
     {
