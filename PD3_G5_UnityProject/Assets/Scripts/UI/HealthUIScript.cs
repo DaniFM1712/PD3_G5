@@ -15,7 +15,9 @@ public class HealthUIScript : MonoBehaviour
     private TextMeshProUGUI hpText;
     private bool damageFeedback = false;
 
-    private float maxHealth;
+    private float screenDamageCooldown = 2f;
+    private float screenDamageTimer;
+    private bool screenDamageOnScreen = false;
 
     private void Awake()
     {
@@ -31,13 +33,26 @@ public class HealthUIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        screenDamageTimer = screenDamageCooldown;
         hpText = hpCounter.GetComponent<TextMeshProUGUI>();
-        updateHealth(false); 
+        updateHealth(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (screenDamageOnScreen)
+        {
+            screenDamageTimer -= Time.deltaTime;
+
+            if(screenDamageTimer <= 0)
+            {
+                screenDamageOnScreen = false;
+                damageFeedback = true;
+                screenDamageTimer = screenDamageCooldown;
+            }
+        }
+
         if (damageFeedback)
         {
             float prevFill = 1;
@@ -62,10 +77,19 @@ public class HealthUIScript : MonoBehaviour
 
     public void updateHealth(bool isDamage)
     {
+
+        if (isDamage)
+        {
+            ResetScreenDamage();
+            screenDamageTimer = screenDamageCooldown;
+            screenDamageOnScreen = true;
+        }
+        /*
         if (isDamage && damageFeedbackContainer[0].GetComponent<Image>().fillAmount == 0)
         {
             StartCoroutine(ShowDamage());
-        }
+        }*/
+
         float normalizedHP = PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth();
         float hp = PlayerStatsScript.instance.currentHealth;
         
@@ -73,6 +97,16 @@ public class HealthUIScript : MonoBehaviour
         healthAmount.fillAmount = normalizedHP;
     }
 
+    private void ResetScreenDamage()
+    {
+        damageFeedback = false;
+        foreach (GameObject obj in damageFeedbackContainer)
+        {
+            obj.GetComponent<Image>().fillAmount = 1;
+        }
+    }
+
+    /*
     IEnumerator ShowDamage()
     {
         foreach (GameObject obj in damageFeedbackContainer)
@@ -82,4 +116,5 @@ public class HealthUIScript : MonoBehaviour
         yield return new WaitForSeconds(2f);
         damageFeedback = true;
     }
+    */
 }

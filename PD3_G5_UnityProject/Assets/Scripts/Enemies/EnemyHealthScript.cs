@@ -153,12 +153,11 @@ public class EnemyHealthScript : MonoBehaviour
     }*/
     IEnumerator deathHitMarker()
     {
-        Debug.Log(gameObject);
+        hitMarkerActive = true;
+        hitMarkerTimer = 0.30f;
         GetComponent<NavMeshAgent>().isStopped = true;
         GetComponent<NavMeshAgent>().SetDestination(transform.position);
-        hitMarker.GetComponent<Image>().enabled = true;
-        yield return new WaitForSeconds(0.25f);
-        hitMarker.GetComponent<Image>().enabled = false;
+        yield return new WaitForSeconds(0.3f);
         Die();
     }
 
