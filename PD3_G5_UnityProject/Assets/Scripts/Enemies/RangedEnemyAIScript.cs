@@ -369,7 +369,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
 
         bulletPool.Enqueue(currentBullet);
 
-        bulletsLeft--;
+        //bulletsLeft--;
         bulletsShot++;
 
         if (allowInvoke)

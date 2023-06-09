@@ -13,6 +13,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
     [SerializeField] LayerMask obstacleMask;
     [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject previewPrefab;
 
     Vector3 distanceToPlayer;
     [SerializeField] UnityEvent<GameObject> objectIsDead;
@@ -21,7 +22,13 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
     [Header("Forces")]
     [SerializeField] float maxShootForce;
     [SerializeField] float maxUpwardForce;
+    float shootForce;
+    float upwardForce;
     [SerializeField] Transform bulletOrigin;
+    Vector3 directionWithoutSpread;
+    float xSpread;
+    float ySpread;
+    float zSpread;
 
     [Header("Stats")]
     [SerializeField] float timeBetweenShooting;
@@ -29,17 +36,17 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
     [SerializeField] float reloadTime;
     [SerializeField] float timeBetweenShots;
     [SerializeField] float bulletDamage;
-    [SerializeField] int magazineSize;
     [SerializeField] int bulletsPerTap;
     [SerializeField] bool allowButtonHold;
 
 
     int bulletsLeft, bulletsShot;
 
-    bool shooting, readyToShoot, reloading;
+    bool shooting, readyToShoot;
     [SerializeField] bool allowInvoke;
     Queue<GameObject> bulletPool;
     Vector3 shootingPoint;
+    GameObject previewBullet;
 
 
 
@@ -92,10 +99,11 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
     override public void Start()
     {
         base.Start();
+        previewBullet = Instantiate(previewPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
         enemyAnimator.SetBool("Idle", true);
         bulletPool = new Queue<GameObject>();
         GameObject bullets = new GameObject("GolemBullets");
-        for (int i = 0; i < magazineSize + 10; i++)
+        for (int i = 0; i < 10; i++)
         {
             GameObject bullet = Instantiate(bulletPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
             bullet.SetActive(false);
@@ -103,7 +111,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
             bullet.transform.parent = bullets.transform;
         }
 
-        bulletsLeft = magazineSize;
+        bulletsLeft = 10;
         readyToShoot = true;
         shooting = false;
     }
@@ -120,6 +128,9 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
                     lastState = State.ATTACK;
                     updateAttack();
                     ChangeFromAttack();
+                    break;
+                case State.SHOOTING:
+                    lastState = State.SHOOTING;
                     break;
                 case State.IDLE:
                     lastState = State.IDLE;
@@ -209,12 +220,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
         CheckHit();
     }
 
-    private void MeleeAttack()
-    {
-        player.GetComponent<PlayerHealthScript>().ModifyHealth(damage);
-        Debug.Log("MELEE ATTACK");
-        StartCoroutine(EnemyCollision());
-    }
+
 
     IEnumerator EnemyCollision()
     {
@@ -229,23 +235,6 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
     }
 
-    private void RangedAttack()
-    {
-        if (readyToShoot && shooting && !reloading)
-        {
-            bulletsShot = 0;
-            if (bulletsLeft > 0)
-            {
-                shootingPoint = player.transform.position;
-                agent.isStopped = true;
-                AttackRangedEmitter.Play();
-                Shoot();
-            }
-            else
-                Reload();
-        }
-    }
-
     void updateAttack()
     {
         if (PlayerInMeleeRange())
@@ -257,17 +246,20 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
                 enemyAnimator.SetTrigger("MeleeAttack");
                 //MeleeAttack();
                 canAttack = false;
+                transform.LookAt(player.GetComponent<Transform>(), Vector3.up);
                 StartCoroutine(CooldownAttack());
             }
 
         }
         else if (PlayerInRangedRange())
         {
-            if (readyToShoot && !reloading && canAttack)
+            if (readyToShoot && canAttack)
             {
                 shooting = true;
-                
-                enemyAnimator.SetTrigger("RangedAttack");
+                //enemyAnimator.SetTrigger("RangedAttack");
+                currentState = State.SHOOTING;
+                shootingPoint = player.transform.position;
+                StartCoroutine(RangedShoot());
                 //RangedAttack();
             }
 
@@ -275,6 +267,38 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
         else
         {
             shooting = false;
+        }
+    }
+
+    public void MeleeAttack()
+    {
+        player.GetComponent<PlayerHealthScript>().ModifyHealth(damage);
+        Debug.Log("MELEE ATTACK");
+        StartCoroutine(EnemyCollision());
+    }
+    IEnumerator RangedShoot()
+    {
+        agent.isStopped = true;
+        PreviewShoot();
+        yield return new WaitForSeconds(2f);
+        enemyAnimator.SetTrigger("RangedAttack");
+        Shoot();
+        currentState = State.ATTACK;
+        agent.isStopped = true;
+
+    }
+
+
+    public void RangedAttack()
+    {
+        if (readyToShoot && shooting)
+        {
+            bulletsShot = 0;
+            shootingPoint = player.transform.position;
+            agent.isStopped = true;
+            AttackRangedEmitter.Play();
+            Shoot();
+
         }
     }
 
@@ -333,35 +357,23 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
     private void Shoot()
     {
-        transform.LookAt(player.GetComponent<Transform>(), Vector3.up);
+        Debug.Log("RANGE SHOT");
 
         readyToShoot = false;
-        Vector3 directionWithoutSpread = shootingPoint - bulletOrigin.position;
-
-        float xSpread = Random.Range(-spread, +spread);
-        float ySpread = Random.Range(-spread, +spread);
-        float zSpread = Random.Range(-spread, +spread);
 
 
-        directionWithoutSpread += new Vector3(xSpread, ySpread, zSpread);
-        float normalizedPos = Mathf.InverseLerp(0, maxShootForce, Vector3.Distance(player.transform.position, transform.position)/2.2f);
-        float shootForce = Mathf.Lerp(0, maxShootForce, normalizedPos);
-        normalizedPos = Mathf.InverseLerp(0, maxUpwardForce, Vector3.Distance(player.transform.position, transform.position) / 2.2f);
-        float upwardForce = Mathf.Lerp(0, maxUpwardForce, normalizedPos);
-        Debug.Log("sf" + shootForce);
-        Debug.Log("uf" + upwardForce);
         GameObject currentBullet = bulletPool.Dequeue();
         currentBullet.SetActive(true);
         currentBullet.transform.position = bulletOrigin.position;
         currentBullet.transform.forward = directionWithoutSpread.normalized;
         currentBullet.GetComponent<EnemyGolemBulletScript>().SetDamage(bulletDamage);
+        currentBullet.GetComponent<EnemyGolemBulletScript>().previewBullet = this.previewBullet;
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(transform.up * upwardForce, ForceMode.Impulse);
 
         bulletPool.Enqueue(currentBullet);
 
-        bulletsLeft--;
         bulletsShot++;
 
         if (allowInvoke)
@@ -375,25 +387,39 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
         }
     }
 
+
+
+    private void PreviewShoot()
+    {
+        Debug.Log("PREVIEW");
+        directionWithoutSpread = shootingPoint - bulletOrigin.position;
+
+        xSpread = Random.Range(-spread, +spread);
+        ySpread = Random.Range(-spread, +spread);
+        zSpread = Random.Range(-spread, +spread);
+
+
+        directionWithoutSpread += new Vector3(xSpread, ySpread, zSpread);
+        float normalizedPos = Mathf.InverseLerp(0, maxShootForce, Vector3.Distance(player.transform.position, transform.position) / 2.2f);
+        shootForce = Mathf.Lerp(0, maxShootForce, normalizedPos);
+        
+        normalizedPos = Mathf.InverseLerp(0, maxUpwardForce, Vector3.Distance(player.transform.position, transform.position) / 2.2f);
+        upwardForce = Mathf.Lerp(0, maxUpwardForce, normalizedPos);
+
+        previewBullet.SetActive(true);
+        previewBullet.transform.position = bulletOrigin.position;
+        previewBullet.transform.forward = directionWithoutSpread.normalized;
+
+        previewBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * shootForce, ForceMode.Impulse);
+        previewBullet.GetComponent<Rigidbody>().AddForce(transform.up * upwardForce, ForceMode.Impulse);
+    }
+
+
     private void ResetShot()
     {
         readyToShoot = true;
         allowInvoke = true;
     }
-
-    private void Reload()
-    {
-        reloading = true;
-        Invoke("ReloadFinished", reloadTime);
-    }
-
-    private void ReloadFinished()
-    {
-        bulletsLeft = magazineSize;
-        reloading = false;
-    }
-
-
 
     private void CheckHit()
     {

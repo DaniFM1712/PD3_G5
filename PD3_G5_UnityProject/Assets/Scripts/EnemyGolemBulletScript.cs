@@ -7,10 +7,13 @@ public class EnemyGolemBulletScript : MonoBehaviour
 {
     [SerializeField] GameObject specialEffectPrefab;
     [SerializeField] float lifeTime = 5f;
+    public GameObject previewBullet;
+
     float damage;
     float timeToDestroy;
     float areaMultiplyer = 1f;
     Vector3 originPosition = new Vector3(0f, 0f, 0f);
+
     [Header("FMOD")]
     public StudioEventEmitter ExplosionEmitter;
     private void Awake()
@@ -35,6 +38,7 @@ public class EnemyGolemBulletScript : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Terrain"))
         {
+            previewBullet.GetComponent<PreviewBulletScript>().HidePreview();
             Vector3 vector3 = transform.position;
 
             if (other.gameObject.TryGetComponent<PlayerHealthScript>(out PlayerHealthScript playerHealth))
@@ -48,10 +52,6 @@ public class EnemyGolemBulletScript : MonoBehaviour
         }
     }
 
-    public void SetAreaMulitplier(float areaMultiplyer)
-    {
-        this.areaMultiplyer = areaMultiplyer;
-    }
 
     public void SetDamage(float bulletDamage)
     {

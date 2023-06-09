@@ -226,6 +226,8 @@ MonoBehaviour:
     m_Bits: 0
   bulletPrefab: {fileID: 3682631923943361041, guid: 3544da6cd7e2ec1499b1993120b485c8,
     type: 3}
+  previewPrefab: {fileID: 3682631923943361041, guid: 91594e03249090442afdf57b118f08bd,
+    type: 3}
   objectIsDead:
     m_PersistentCalls:
       m_Calls: []
@@ -237,7 +239,6 @@ MonoBehaviour:
   reloadTime: 2
   timeBetweenShots: 0
   bulletDamage: 15
-  magazineSize: 10
   bulletsPerTap: 1
   allowButtonHold: 0
   allowInvoke: 1
@@ -252,6 +253,7 @@ MonoBehaviour:
   enemyRenderer: {fileID: 0}
   AttackRangedEmitter: {fileID: 990431528054503064}
   AttackMeleeEmitter: {fileID: 4092275220598890830}
+  enemyAnimator: {fileID: 757935326170101189}
 --- !u!114 &990431528054503064
 MonoBehaviour:
   m_ObjectHideFlags: 0
