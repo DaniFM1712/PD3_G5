@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 using TMPro;
 using FMODUnity;
 
@@ -22,6 +23,8 @@ public class Consumable : MonoBehaviour
     public StudioEventEmitter TakeItemEmitter;
     public StudioEventEmitter LeaveItemEmitter;
 
+    [Header("Particles")]
+    [SerializeField] VisualEffect particles;
     // Start is called before the first frame update
 
     private void Start()
@@ -30,6 +33,7 @@ public class Consumable : MonoBehaviour
         takeItemUI.SetActive(false);
         nameText = nameUI.GetComponent<TextMeshProUGUI>();
         descriptionText = descriptionUI.GetComponent<TextMeshProUGUI>();
+        particles.Play();
     }
 
     void Update()
