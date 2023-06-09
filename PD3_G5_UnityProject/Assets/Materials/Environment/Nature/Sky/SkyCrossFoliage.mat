@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2409276417234346450
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SkyCrossFoliage
+  m_Shader: {fileID: -6465566751694194690, guid: c9c15b557521d5742942abe9a1dfce72,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseColourMap:
+        m_Texture: {fileID: 2800000, guid: 7122b9c3b5985f5419d6588889a1c921, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissiveMap:
+        m_Texture: {fileID: 2800000, guid: ec61ada154303a64ab824b76bccf32c6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissiveTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 2800000, guid: 211be1e659b10264aa132600ecfdf6ba, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicMap:
+        m_Texture: {fileID: 2800000, guid: 97c7c33235bf4d847896d1b11185d52a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 37898837eea99a7418205c81e842f67f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_79196763dda742ee8dafc880473bce34_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 016b269b24101c64fac68fac055a9b44, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_e8e5bac8e6b64ecb84ae914121b1e493_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 42990139505182b4ca14cb52e9e17bda, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _Emissive2ndVoronoiCellDensity: 4.05
+    - _Emissive2ndVoronoiSpeed: 1.17
+    - _EmissiveBaseAmount: 0.287
+    - _EmissiveNoiseScale: 0.18
+    - _EmissiveNoiseSpeed: 100
+    - _EmissiveVoronoiCellDensity: 4.12
+    - _EmissiveVoronoiSpeed: 7
+    - _NoiseScale: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _UVWindSpeed: 0
+    - _VertexWindSpeed: 6.9
+    - _WindSpeed: 5
+    - _WindStrength: 19.8
+    m_Colors:
+    - _BaseColour: {r: 1, g: 0.96647257, b: 0.58018863, a: 0.90588236}
+    - _EmissiveColour: {r: 3.9999995, g: 3.4136121, b: 1.3193716, a: 0}
+    - _MainColour: {r: 0.7311321, g: 1, b: 0.9002408, a: 0}
+    - _WindDirection: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
