@@ -54,7 +54,7 @@ public class RunStoreScript : MonoBehaviour
         {
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
-            NCText.text = "NC: "+ PlayerStatsScript.instance.currentNormalCoin;
+            NCText.text = ""+ PlayerStatsScript.instance.currentNormalCoin;
             NCText.enabled = true;
             storeCanvas.SetActive(true);
         }
@@ -68,7 +68,7 @@ public class RunStoreScript : MonoBehaviour
             player.GetComponent<PlayerHealthScript>().ModifyHealth(healthValue);
 
             CoinCounterScript.coinCounterInstance.updateNCCounter(-healthCost);
-            NCText.text = "NC: " + PlayerStatsScript.instance.currentNormalCoin;
+            NCText.text = "" + PlayerStatsScript.instance.currentNormalCoin;
             BuyEmitter.Play();
         }
     }
@@ -86,7 +86,7 @@ public class RunStoreScript : MonoBehaviour
                 InventoryManagerScript.InventoryInstance.AddItem(randomItem.rarity, randomItem);
 
                 CoinCounterScript.coinCounterInstance.updateNCCounter(-randomItemCost);
-                NCText.text = "NC: " + PlayerStatsScript.instance.currentNormalCoin;
+                NCText.text = "" + PlayerStatsScript.instance.currentNormalCoin;
                 BuyEmitter.Play();
 
             }
@@ -108,7 +108,7 @@ public class RunStoreScript : MonoBehaviour
                 InventoryManagerScript.InventoryInstance.AddItem(rareItem.rarity, rareItem);
 
                 CoinCounterScript.coinCounterInstance.updateNCCounter(-randomRareCost);
-                NCText.text = "NC: " + PlayerStatsScript.instance.currentNormalCoin;
+                NCText.text = "" + PlayerStatsScript.instance.currentNormalCoin;
                 BuyEmitter.Play();
 
             }
@@ -130,7 +130,7 @@ public class RunStoreScript : MonoBehaviour
                 InventoryManagerScript.InventoryInstance.AddItem(commonItem.rarity, commonItem);
 
                 CoinCounterScript.coinCounterInstance.updateNCCounter(-randomCommonCost);
-                NCText.text = "NC: " + PlayerStatsScript.instance.currentNormalCoin;
+                NCText.text = "" + PlayerStatsScript.instance.currentNormalCoin;
                 BuyEmitter.Play();
 
             }
@@ -169,7 +169,7 @@ public class RunStoreScript : MonoBehaviour
         }
 
         randomItem = asset;
-        randomItemBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "RANDOM ITEM\n" + randomItem.itemDescription + "\nCOST: "+randomItemCost+"NC";
+        randomItemBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "RANDOM ITEM\n" + randomItem.itemDescription + "\nCOST: "+randomItemCost+"ES";
     }
 
     private void GenerateRareItem()
@@ -178,7 +178,7 @@ public class RunStoreScript : MonoBehaviour
         int itemType = Random.Range(0, rareItemPool.Count);
         asset = rareItemPool[itemType];
         rareItem = asset;
-        rareItemBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "RANDOM RARE ITEM\n" + rareItem.itemDescription + "\nCOST: "+randomRareCost+"NC";
+        rareItemBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "RANDOM RARE ITEM\n" + rareItem.itemDescription + "\nCOST: "+randomRareCost+"ES";
     }
 
     private void GenerateCommonItem()
@@ -187,7 +187,7 @@ public class RunStoreScript : MonoBehaviour
         int itemType = Random.Range(0, commonItemPool.Count);
         asset = commonItemPool[itemType];
         commonItem = asset;
-        commonItemBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "RANDOM COM ITEM\n" + commonItem.itemDescription + "\nCOST: " + randomCommonCost + "NC";
+        commonItemBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "RANDOM COM ITEM\n" + commonItem.itemDescription + "\nCOST: " + randomCommonCost + "ES";
     }
 
 

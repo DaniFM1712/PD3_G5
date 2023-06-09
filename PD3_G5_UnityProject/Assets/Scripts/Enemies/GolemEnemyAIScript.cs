@@ -43,7 +43,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
 
 
-    enum State { IDLE, CHASE, ATTACK, HIT, DIE }
+    enum State { IDLE, CHASE, ATTACK, SHOOTING, HIT, DIE }
     [SerializeField] State currentState;
     [SerializeField] float secondsToSetEnemy;
     [SerializeField] float secondsToCDMeleeAttack;
