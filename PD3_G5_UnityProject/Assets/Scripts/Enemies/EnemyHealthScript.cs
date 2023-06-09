@@ -22,7 +22,9 @@ public class EnemyHealthScript : MonoBehaviour
     private GameObject hitMarker;
     [Header("FMOD")]
     public StudioEventEmitter DeathEmitter;
-    private bool hitMarkerActive = false; 
+    private bool hitMarkerActive = false;
+
+    private float hitMarkerTimer = 0f;
 
     private void Awake()
     {
@@ -39,6 +41,21 @@ public class EnemyHealthScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hitMarkerActive)
+        {
+            hitMarkerTimer -= Time.deltaTime;
+            if (hitMarkerTimer > 0)
+            {
+                hitMarker.GetComponent<Image>().enabled = true;
+
+            }
+            else if (hitMarkerTimer <= 0)
+            {
+                hitMarkerActive = false;
+                hitMarkerTimer = 0f;
+                hitMarker.GetComponent<Image>().enabled = false;
+            }
+        }
 
     }
 
@@ -49,7 +66,11 @@ public class EnemyHealthScript : MonoBehaviour
 
     public bool TakeDamage(float damage, bool critical)
     {
-        StartCoroutine(showHitMarker());
+        hitMarkerActive = true;
+        hitMarkerTimer = 0.30f;
+            //StopCoroutine(showHitMarker());
+
+        //StartCoroutine(showHitMarker());
         currentHealth -= damage;
         if(damage!=0)
             Instantiate(damageTextPrefab, damageTextPosition.position, Quaternion.identity).GetComponent<DamageTextScript>().Initialise(damage,critical);
@@ -101,12 +122,21 @@ public class EnemyHealthScript : MonoBehaviour
                     Instantiate(healthOrbPrefab, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity);
                 }
                 i++;
-                //MODO NOCTIS - PROB
+                //MODO NOCHE - PROB
             }
         }
     }
 
+    IEnumerator showHitMarker()
+    {
+        hitMarkerActive = true;
+        hitMarker.GetComponent<Image>().enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        hitMarkerActive = false;
+        hitMarker.GetComponent<Image>().enabled = false;
+    }
 
+    /*
     IEnumerator showHitMarker()
     {
         hitMarkerActive = true;
@@ -120,7 +150,7 @@ public class EnemyHealthScript : MonoBehaviour
                 hitMarker.GetComponent<Image>().enabled = false;
             }
         }
-    }
+    }*/
     IEnumerator deathHitMarker()
     {
         Debug.Log(gameObject);

@@ -14,6 +14,7 @@ public class PreviewBulletScript : MonoBehaviour
     private void Start()
     {
         specialEffect = Instantiate(specialEffectPrefab, originPosition, Quaternion.identity);
+        specialEffect.SetActive(false);
     }
 
 
