@@ -7,12 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FogMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 6650287b201cf8c4bb14f2ab33154063,
+  m_Name: RippleSkyMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 6349f78598e5f9545934cabda8495349,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -21,7 +21,11 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _FogImage:
+    - _EmissiveMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexture:
         m_Texture: {fileID: 2800000, guid: 283896452ee14cf48a43b0ce197e974f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -39,26 +43,28 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude: 0.02
-    - _FogDensity: 0.79
-    - _FogNoise: 20
-    - _FogSpeed: 0.01
-    - _Frequency: 0
+    - _Amplitude: 0.3
+    - _EdgeBlend: 0.759
+    - _EffectRadius: 5.91
+    - _Frequency: 0.45
+    - _GradientEdge: 2.63
+    - _MainTextureColourGlow: 1.9
+    - _MainTextureInvert: 0
+    - _MainTextureOpacity: 21.64
+    - _MainTextureOpacityDark: 0.863
+    - _NoiseScale: 20
+    - _NoiseSpeed: 0.01
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _RippleAmplitude: 0.07
-    - _RippleDensity: 8
-    - _RippleEdgeBlend: 0.5
-    - _RippleEffectRadius: 1
-    - _RippleFrequency: 0.3
-    - _RippleNoiseSpeed: 0.01
+    - _RippleDensity: 8.38
+    - _TwirlStrength: 3
     m_Colors:
-    - _FogColour: {r: 1.7207954, g: 1.216269, b: 0.5946204, a: 0.57254905}
-    - _FogImageScale: {r: 4, g: 4, b: 0, a: 0}
-    - _FogRemapStrength: {r: 0.64, g: 1, b: 0, a: 0}
-    - _RippleOrigin: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissiveColour: {r: 0.06666667, g: 0.11372549, b: 0.09803922, a: 0}
+    - _GradientColour: {r: 0.1433848, g: 1.3041189, b: 0.6076785, a: 0}
+    - _MainTextureColour: {r: 1, g: 0.79152215, b: 0.6273585, a: 0}
+    - _RippleOrigin: {r: 0, g: 0.5, b: -0.55, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &1293547620130111839
+--- !u!114 &3003004464622309189
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
