@@ -31,7 +31,6 @@ public class GrenadeScript : MonoBehaviour
     Queue<GameObject> grenadePool;
     CooldownScript cooldown;
     DoubleAOEBlessingScript doubleAOEBlessing;
-    public int currentGrenadeCharges;
     private Vector3 explosionScale;
 
     [Header("FMOD")]
@@ -45,7 +44,7 @@ public class GrenadeScript : MonoBehaviour
         doubleAOEBlessing = GetComponent<DoubleAOEBlessingScript>();
         grenadePool = new Queue<GameObject>();
         GameObject grenades = new("Grenades");
-        currentGrenadeCharges = PlayerStatsScript.instance.currentMaxGrenadeCharges;
+        PlayerStatsScript.instance.currentGrenadeCharges = PlayerStatsScript.instance.currentMaxGrenadeCharges;
 
 
         for (int i = 0; i < grenadesPerTap + 5; i++)
@@ -80,14 +79,14 @@ public class GrenadeScript : MonoBehaviour
             //START COOLDOWN SS
             ThrowEmitter.Play();
             ShootGrenade();
-            if (currentGrenadeCharges > 1)
+            if (PlayerStatsScript.instance.currentGrenadeCharges > 1)
             {
-                currentGrenadeCharges--;
+                PlayerStatsScript.instance.currentGrenadeCharges--;
             }
             else
             {
                 cooldown.StartGrenadeCooldown(grenadeCooldown);
-                currentGrenadeCharges = PlayerStatsScript.instance.currentMaxGrenadeCharges;
+                PlayerStatsScript.instance.currentGrenadeCharges = PlayerStatsScript.instance.currentMaxGrenadeCharges;
             }
         }
     }
@@ -129,7 +128,7 @@ public class GrenadeScript : MonoBehaviour
 
         grenadesShot++;
 
-        if (currentGrenadeCharges <= 1)
+        if (PlayerStatsScript.instance.currentGrenadeCharges <= 1)
         {
             allowInvokeGrenade = false;
             readyToShootGrenade = false;

@@ -78,7 +78,6 @@ public class FPController : MonoBehaviour
     private Vector3 moved = new Vector3(0, 0, 0);
     //----------DASH----------//
     private DashIncreasesDamageBlessingScript dashIncreasesDamageBlessing;
-    public int currentDashCharges;
     public float speedBuffDuration = 3f;
     private float speedBuffTimer;
 
@@ -104,7 +103,7 @@ public class FPController : MonoBehaviour
         dashIncreasesDamageBlessing = GetComponent<DashIncreasesDamageBlessingScript>();
 
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
-        currentDashCharges = PlayerStatsScript.instance.currentMaxDashCharges;
+        PlayerStatsScript.instance.currentDashCharges = PlayerStatsScript.instance.currentMaxDashCharges;
         ChangeWeapon();
 
         PlayerStatsScript.instance.ActivateBlessings();
@@ -236,14 +235,14 @@ public class FPController : MonoBehaviour
                 if (PlayerStatsScript.instance.dashDamageBlessing)
                     dashIncreasesDamageBlessing.StartDamageTimer();
 
-                dashReset = currentDashCharges > 1;
+                dashReset = PlayerStatsScript.instance.currentDashCharges > 1;
 
                 if (dashReset)
-                    currentDashCharges--;
+                    PlayerStatsScript.instance.currentDashCharges--;
                 else
                 {
                     startCooldown = true;
-                    currentDashCharges = PlayerStatsScript.instance.currentMaxDashCharges;
+                    PlayerStatsScript.instance.currentDashCharges = PlayerStatsScript.instance.currentMaxDashCharges;
                 }
             }
             if (PlayerStatsScript.instance.dashReloadWeaponBlessing)

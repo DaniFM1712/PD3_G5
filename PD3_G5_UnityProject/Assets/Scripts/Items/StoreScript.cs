@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using FMODUnity;
+using UnityEngine.Events;
 
 public class StoreScript : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class StoreScript : MonoBehaviour
     [SerializeField] List<Button> toolsButtons = new List<Button>();
     [SerializeField] List<int> toolsPrices = new List<int>();
 
+    [Header("InventoryInfo")]
+    [SerializeField] List<Button> inventoryButtons = new List<Button>();
+    [SerializeField] List<int> inventoryPrices = new List<int>();
+
 
     [Header("StatsInfo")]
     [SerializeField] List<Button> statsButtons = new List<Button>();
@@ -37,6 +42,8 @@ public class StoreScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI scCounter;
     private bool canShop = false;
     private int itemSelected = 0;
+    public UnityEvent shotgunActive;
+
 
     [Header("FMOD")]
     public StudioEventEmitter SelectEmitter;
@@ -137,8 +144,8 @@ public class StoreScript : MonoBehaviour
                         itemDescription.text = "Unlocks a second life. Once for run, if you die the current level will restart.";
                         break;
                 }
-                itemPrice.text = "Cost: " + statsPrices[index - 1];
-                statsButtons[6].interactable = true;
+                itemPrice.text = "Cost: " + inventoryPrices[index - 1];
+                inventoryButtons[3].interactable = true;
                 break;
             case 2:
                 switch (itemSelected)
@@ -189,10 +196,10 @@ public class StoreScript : MonoBehaviour
                         BuyGrenadeUnlock();
                         break;
                     case 4:
-                        BuyBaseHealthUpgrade();
+                        BuyGrenadehUpgradeUnlock();
                         break;
                     case 5:
-                        BuyBaseFirerateUpgrade();
+                        BuyShotgunUnlock();
                         break;
                     case 6:
                         BuySecondLifeUpgrade();
@@ -200,6 +207,18 @@ public class StoreScript : MonoBehaviour
                 }
                 break;
             case 1:
+                switch (itemSelected)
+                {
+                    case 1:
+                        BuyCommonSlot();
+                        break;
+                    case 2:
+                        BuyRareSlot();
+                        break;
+                    case 3:
+                        BuyLegendarySlot();
+                        break;
+                }
                 break;
             case 2:
                 switch (itemSelected)
@@ -259,6 +278,8 @@ public class StoreScript : MonoBehaviour
         {
 
             PlayerStatsScript.instance.currentMaxDashCharges++;
+            PlayerStatsScript.instance.baseMaxDashCharges++;
+            PlayerStatsScript.instance.currentDashCharges = PlayerStatsScript.instance.currentMaxDashCharges;
             toolsButtons[1].interactable = false;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-toolsPrices[1]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
@@ -286,7 +307,90 @@ public class StoreScript : MonoBehaviour
         }
     }
 
+    private void BuyGrenadehUpgradeUnlock()
+    {
+        if (PlayerStatsScript.instance.currentSpecialCoin >= toolsPrices[3])
+        {
 
+            PlayerStatsScript.instance.currentMaxGrenadeCharges++;
+            PlayerStatsScript.instance.baseMaxGrenadeCharges++;
+            PlayerStatsScript.instance.currentGrenadeCharges = PlayerStatsScript.instance.currentMaxGrenadeCharges;
+            toolsButtons[3].interactable = false;
+            CoinCounterScript.coinCounterInstance.updateSCCounter(-toolsPrices[3]);
+            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            toolsButtons[6].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
+            BuyEmitter.Play();
+            PlayerStatsScript.instance.toolsUpgrades[3] = true;
+        }
+    }
+
+    private void BuyShotgunUnlock()
+    {
+        if (PlayerStatsScript.instance.currentSpecialCoin >= toolsPrices[4])
+        {
+            PlayerStatsScript.instance.shotgunUnlocked = true;
+            toolsButtons[4].interactable = false;
+            CoinCounterScript.coinCounterInstance.updateSCCounter(-toolsPrices[4]);
+            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            toolsButtons[6].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
+            BuyEmitter.Play();
+            PlayerStatsScript.instance.toolsUpgrades[4] = true;
+
+        }
+    }
+
+
+    //INVENTORY BUYS
+
+    private void BuyCommonSlot()
+    {
+        if (PlayerStatsScript.instance.currentSpecialCoin >= inventoryPrices[0])
+        {
+            PlayerStatsScript.instance.commonSlots++;
+            inventoryButtons[0].interactable = false;
+            CoinCounterScript.coinCounterInstance.updateSCCounter(-inventoryPrices[0]);
+            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            inventoryButtons[3].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
+            BuyEmitter.Play();
+            PlayerStatsScript.instance.inventroyUpgrades[0] = true;
+        }
+    }
+    private void BuyRareSlot()
+    {
+        if (PlayerStatsScript.instance.currentSpecialCoin >= inventoryPrices[1])
+        {
+            PlayerStatsScript.instance.rareSlots++;
+            inventoryButtons[0].interactable = false;
+            CoinCounterScript.coinCounterInstance.updateSCCounter(-inventoryPrices[1]);
+            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            inventoryButtons[3].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
+            BuyEmitter.Play();
+            PlayerStatsScript.instance.inventroyUpgrades[1] = true;
+        }
+    }
+    private void BuyLegendarySlot()
+    {
+        if (PlayerStatsScript.instance.currentSpecialCoin >= inventoryPrices[2])
+        {
+            PlayerStatsScript.instance.legendarySlots++;
+            inventoryButtons[2].interactable = false;
+            CoinCounterScript.coinCounterInstance.updateSCCounter(-inventoryPrices[2]);
+            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            inventoryButtons[3].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
+            BuyEmitter.Play();
+            PlayerStatsScript.instance.inventroyUpgrades[2] = true;
+        }
+    }
 
     //STATS BUYS
 
@@ -388,7 +492,7 @@ public class StoreScript : MonoBehaviour
                 PlayerStatsScript.instance.statsUpgrades[3] = true;
                 statsButtons[3].interactable = false;
             }
-            
+            HealthUIScript.instance.updateHealth(false);
         }
     }
     private void BuyBaseFirerateUpgrade()
@@ -451,6 +555,10 @@ public class StoreScript : MonoBehaviour
 
 
     private void updateToolsTab()
+    {
+
+    }
+    private void updateInvetoryTab()
     {
 
     }

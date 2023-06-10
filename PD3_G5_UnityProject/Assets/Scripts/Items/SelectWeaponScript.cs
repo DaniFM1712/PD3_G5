@@ -1,7 +1,9 @@
 using FMODUnity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectWeaponScript : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class SelectWeaponScript : MonoBehaviour
     [SerializeField] GameObject weaponPosition;
     [SerializeField] GameObject Canvas;
     [SerializeField] GameObject weaponCanvas;
+    [SerializeField] GameObject shotgunButton;
     GameObject player;
 
     private bool canChangeWeapon = false;
@@ -19,6 +22,16 @@ public class SelectWeaponScript : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        if (!PlayerStatsScript.instance.shotgunUnlocked)
+        {
+            shotgunButton.GetComponent<Button>().interactable = false;
+            shotGun.SetActive(false);
+        }
+        else
+        {
+            shotGun.SetActive(true);
+            shotgunButton.GetComponent<Button>().interactable = true;
+        }
     }
 
     // Update is called once per frame
@@ -35,7 +48,11 @@ public class SelectWeaponScript : MonoBehaviour
     public void selectRapidFire()
     {
         rapidFire.SetActive(false);
-        shotGun.SetActive(true);
+        if (PlayerStatsScript.instance.shotgunUnlocked)
+        {
+            shotGun.SetActive(true);
+            shotgunButton.GetComponent<Button>().interactable = true;
+        }
         PlayerStatsScript.instance.currentWeaponIndex = 1;
         player.GetComponent<FPController>().ChangeWeapon();
         Time.timeScale = 1;
@@ -61,6 +78,15 @@ public class SelectWeaponScript : MonoBehaviour
         PlayerStatsScript.instance.ActivateBlessings();
         SelectEmitter.Play();
     }
+
+
+    public void activeShotGunElements()
+    {
+        Debug.Log("ENTRO AL EVENTO");
+        shotGun.SetActive(true);
+        shotgunButton.GetComponent<Button>().interactable = true;
+    }
+
 
 
     private void OnTriggerEnter(Collider other)

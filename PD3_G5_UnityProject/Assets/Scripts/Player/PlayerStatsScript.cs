@@ -20,6 +20,7 @@ public class PlayerStatsScript : MonoBehaviour
     public bool secondLifeUnlocked = false;
     public bool secondLife = false;
     public List<bool> toolsUpgrades = new List<bool>();
+    public List<bool> inventroyUpgrades = new List<bool>();
     public List<bool> statsUpgrades = new List<bool>();
 
     //public IEnumerable<bool> permanentUpgrades= Enumerable.Repeat(false, 6);
@@ -39,6 +40,8 @@ public class PlayerStatsScript : MonoBehaviour
     public float currentShield;
     public float currentDamageBonus;
     public float currentSpeedBonus;
+    public int currentDashCharges;
+    public int currentGrenadeCharges;
     public int currentWeaponIndex;
     public ProjectileShootingScript currentWeapon;
     public int currentNormalCoin;
@@ -145,6 +148,9 @@ public class PlayerStatsScript : MonoBehaviour
     public bool grenadeUnlocked = false;
     public bool shotgunUnlocked = false;
         //INVENTORY
+    public int commonSlots = 1;
+    public int rareSlots = 1;
+    public int legendarySlots = 0;
         //STATS
     public int[] unlocks = { 0, 0, 0, 0, 0, 0}; 
         
@@ -168,7 +174,14 @@ public class PlayerStatsScript : MonoBehaviour
         for (int i = 0; i<6;i++)
         {
             toolsUpgrades.Add(false);
-            statsUpgrades.Add(false);
+            if (i < 3)
+            {
+                inventroyUpgrades.Add(false);
+                statsUpgrades.Add(false);
+            }
+            if (i<5)
+                statsUpgrades.Add(false);
+
         }
 
         //----------MAX--STATS----------//
