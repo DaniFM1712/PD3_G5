@@ -13,6 +13,9 @@ public class InventoryManagerScript : MonoBehaviour
     private List<ConsumableAsset> rareItems;
     private List<ConsumableAsset> legendaryItems;
 
+    [SerializeField] GameObject inventory;
+    [SerializeField] RectTransform openInvPosition;
+    [SerializeField] RectTransform closeInvPosition;
     [SerializeField] GameObject itemsInventory;
     [SerializeField] GameObject blessingsInventory;
 
@@ -57,16 +60,17 @@ public class InventoryManagerScript : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Tab) && !itemsInventory.activeSelf && Time.timeScale == 1f)
+        if (Input.GetKeyDown(KeyCode.Tab) && /*!itemsInventory.activeSelf &&*/ Time.timeScale == 1f)
         {
-            ShowInventoryUI();
-            Time.timeScale = 0f;
-            Cursor.lockState = CursorLockMode.None;
+            LeanTween.moveLocal(inventory, openInvPosition.position, 0.5f).setOnComplete(ShowInventoryUI);
+            //ShowInventoryUI();
+
         }
 
-        else if(Input.GetKeyDown(KeyCode.Tab) && (itemsInventory.activeSelf || blessingsInventory.activeSelf))
+        else if(Input.GetKeyDown(KeyCode.Tab) /*&&(itemsInventory.activeSelf || blessingsInventory.activeSelf)*/)
         {
-            HideInventoryUI();
+            LeanTween.moveLocal(inventory, closeInvPosition.position, 0.5f);
+            //HideInventoryUI();
             Time.timeScale = 1f;
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -74,6 +78,8 @@ public class InventoryManagerScript : MonoBehaviour
 
     private void ShowInventoryUI()
     {
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
         itemsInventory.SetActive(true);
 
         int index = 0;
@@ -100,6 +106,7 @@ public class InventoryManagerScript : MonoBehaviour
 
     private void HideInventoryUI()
     {
+        /*
         foreach (GameObject itemUI in commonItemsSlots)
         {
             itemUI.SetActive(false);
@@ -113,7 +120,7 @@ public class InventoryManagerScript : MonoBehaviour
         foreach (GameObject itemUI in legendaryItemsSlots)
         {
             itemUI.SetActive(false);
-        }
+        }*/
         itemsInventory.SetActive(false);
         blessingsInventory.SetActive(false);
     }
