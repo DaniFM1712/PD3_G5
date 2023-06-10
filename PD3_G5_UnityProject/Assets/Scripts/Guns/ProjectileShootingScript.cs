@@ -32,7 +32,7 @@ public class ProjectileShootingScript : MonoBehaviour
     private Camera cam;
     private TextMeshProUGUI bulletCounterText;
     [SerializeField] Transform bulletOrigin;
-    [SerializeField] ParticleSystem particles;
+    [SerializeField] ParticleSystem[] particles;
 
     [Header("Debug")]
     [SerializeField] bool allowInvoke;
@@ -135,8 +135,12 @@ public class ProjectileShootingScript : MonoBehaviour
                 //}
                 AnimatorEventConsumerScript.instance.shooting = true;
                 ShootEmitter.Play();
-                if (particles != null)
-                    particles.Play();
+                for (int i = 0; i < particles.Length; i++)
+                {
+                    if (particles[i] != null)
+                        particles[i].Play();
+                }
+                    
                 Shoot();
                 if (PlayerStatsScript.instance.threeShotBuff)
                     shotCounter++;
