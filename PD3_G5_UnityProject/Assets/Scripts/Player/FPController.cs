@@ -227,7 +227,7 @@ public class FPController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) == true && dashAllowed && Time.timeScale == 1f)
+        if (Input.GetKeyDown(KeyCode.LeftShift) == true && dashAllowed && Time.timeScale == 1f && PlayerStatsScript.instance.dashUnlocked)
         {
             dashEmitter.Play();
 

@@ -55,7 +55,16 @@ public class StoreScript : MonoBehaviour
         if (canShop && Input.GetKeyDown(KeyCode.E))
         {
             int i = 0;
-            foreach (bool boolean in PlayerStatsScript.instance.permanentUpgrades)
+            foreach (bool boolean in PlayerStatsScript.instance.toolsUpgrades)
+            {
+                if (boolean)
+                {
+                    toolsButtons[i].interactable = false;
+                }
+                i++;
+            }
+            i = 0;
+            foreach (bool boolean in PlayerStatsScript.instance.statsUpgrades)
             {
                 if (boolean)
                 {
@@ -65,6 +74,7 @@ public class StoreScript : MonoBehaviour
             }
 
             statsButtons[6].interactable = false;
+
             itemDescription.text = "";
             itemPrice.text = "Cost: ";
             itemSelected = 0;
@@ -84,26 +94,26 @@ public class StoreScript : MonoBehaviour
                 switch (itemSelected)
                 {
                     case 1:
-                        itemDescription.text = "Unlock Dash: a short and fast movement towards the direction you're looking.";
+                        itemDescription.text = "Unlock Dash [LShift]: a short and fast movement towards the direction you're looking.";
                         break;
                     case 2:
-                        itemDescription.text = "Increase Essence obtanied by 30%.";
+                        itemDescription.text = "+1 Dash charges.";
                         break;
                     case 3:
-                        itemDescription.text = "Increase damage dealt by 20%";
+                        itemDescription.text = "Unlock Divine Orb [F]: a projectile that creates an explosion upon impact.";
                         break;
                     case 4:
-                        itemDescription.text = "Increase base max health by 20%";
+                        itemDescription.text = "+1 Divine Orb charges.";
                         break;
                     case 5:
-                        itemDescription.text = "Increase firerate by 20%";
+                        itemDescription.text = "Unlock Demon Purger: a weapon with high damage, high spread and low range.";
                         break;
                     case 6:
-                        itemDescription.text = "Unlocks a second life. Once for run, if you die the current level will restart.";
+                        itemDescription.text = "¿mejora comun de las dos armas?";
                         break;
                 }
                 itemPrice.text = "Cost: " + toolsPrices[index - 1];
-                statsButtons[6].interactable = true;
+                toolsButtons[6].interactable = true;
                 break;
             case 1:
                 switch (itemSelected)
@@ -164,36 +174,121 @@ public class StoreScript : MonoBehaviour
 
     public void BuySelectedItem()
     {
-        switch (itemSelected)
+        switch (currentTab)
         {
+            case 0:
+                switch (itemSelected)
+                {
+                    case 1:
+                        BuyDashUnlock();
+                        break;
+                    case 2:
+                        BuyDashUpgradeUnlock();
+                        break;
+                    case 3:
+                        BuyGrenadeUnlock();
+                        break;
+                    case 4:
+                        BuyBaseHealthUpgrade();
+                        break;
+                    case 5:
+                        BuyBaseFirerateUpgrade();
+                        break;
+                    case 6:
+                        BuySecondLifeUpgrade();
+                        break;
+                }
+                break;
             case 1:
-                Debug.Log("BUY ITEM 1");
-                BuyDivinePowerUpgrade();
                 break;
             case 2:
-                Debug.Log("BUY ITEM 2");
-                BuyEssenceUpgrade();
+                switch (itemSelected)
+                {
+                    case 1:
+                        BuyDivinePowerUpgrade();
+                        break;
+                    case 2:
+                        BuyEssenceUpgrade();
+                        break;
+                    case 3:
+                        BuyBaseDamageDealedUpgrade();
+                        break;
+                    case 4:
+                        BuyBaseHealthUpgrade();
+                        break;
+                    case 5:
+                        BuyBaseFirerateUpgrade();
+                        break;
+                    case 6:
+                        BuySecondLifeUpgrade();
+                        break;
+                }
                 break;
             case 3:
-                Debug.Log("BUY ITEM 3");
-                BuyBaseDamageDealedUpgrade();
                 break;
             case 4:
-                Debug.Log("BUY ITEM 4");
-                BuyBaseHealthUpgrade();
                 break;
-            case 5:
-                Debug.Log("BUY ITEM 5");
-                BuyBaseFirerateUpgrade();
-                break;
-            case 6:
-                Debug.Log("BUY ITEM 6");
-                BuySecondLifeUpgrade();
-                break;
+
+        }    
+        
+
+
+
+
+    }
+
+    //TOOLS BUYS
+    private void BuyDashUnlock()
+    {
+        if (PlayerStatsScript.instance.currentSpecialCoin >= toolsPrices[0])
+        {
+            PlayerStatsScript.instance.dashUnlocked = true;
+            toolsButtons[0].interactable = false;
+            CoinCounterScript.coinCounterInstance.updateSCCounter(-toolsPrices[0]);
+            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            toolsButtons[6].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
+            BuyEmitter.Play();
+            PlayerStatsScript.instance.toolsUpgrades[0] = true;
+        }
+    }
+    private void BuyDashUpgradeUnlock()
+    {
+        if (PlayerStatsScript.instance.currentSpecialCoin >= toolsPrices[1])
+        {
+
+            PlayerStatsScript.instance.currentMaxDashCharges++;
+            toolsButtons[1].interactable = false;
+            CoinCounterScript.coinCounterInstance.updateSCCounter(-toolsPrices[1]);
+            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            toolsButtons[6].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
+            BuyEmitter.Play();
+            PlayerStatsScript.instance.toolsUpgrades[1] = true;
+        }
+    }
+
+    private void BuyGrenadeUnlock()
+    {
+        if (PlayerStatsScript.instance.currentSpecialCoin >= toolsPrices[2])
+        {
+            PlayerStatsScript.instance.grenadeUnlocked = true;
+            toolsButtons[2].interactable = false;
+            CoinCounterScript.coinCounterInstance.updateSCCounter(-toolsPrices[2]);
+            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            toolsButtons[6].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
+            BuyEmitter.Play();
+            PlayerStatsScript.instance.toolsUpgrades[2] = true;
         }
     }
 
 
+
+    //STATS BUYS
 
     private void BuyDivinePowerUpgrade()
     {
@@ -214,7 +309,7 @@ public class StoreScript : MonoBehaviour
                 statsButtons[6].interactable = false;
                 itemDescription.text = "";
                 itemPrice.text = "Cost: ";
-                PlayerStatsScript.instance.permanentUpgrades[0] = true;
+                PlayerStatsScript.instance.statsUpgrades[0] = true;
                 statsButtons[0].interactable = false;
             }
         }
@@ -240,7 +335,7 @@ public class StoreScript : MonoBehaviour
                 itemPrice.text = "Cost: ";
                 statsButtons[6].interactable = false;
                 statsButtons[1].interactable = false;
-                PlayerStatsScript.instance.permanentUpgrades[1] = true;
+                PlayerStatsScript.instance.statsUpgrades[1] = true;
             }
 
         }
@@ -263,7 +358,7 @@ public class StoreScript : MonoBehaviour
                 statsButtons[6].interactable = false;
                 itemDescription.text = "";
                 itemPrice.text = "Cost: ";
-                PlayerStatsScript.instance.permanentUpgrades[2] = true;
+                PlayerStatsScript.instance.statsUpgrades[2] = true;
                 statsButtons[2].interactable = false;
             }
             
@@ -290,7 +385,7 @@ public class StoreScript : MonoBehaviour
                 statsButtons[6].interactable = false;
                 itemDescription.text = "";
                 itemPrice.text = "Cost: ";
-                PlayerStatsScript.instance.permanentUpgrades[3] = true;
+                PlayerStatsScript.instance.statsUpgrades[3] = true;
                 statsButtons[3].interactable = false;
             }
             
@@ -315,7 +410,7 @@ public class StoreScript : MonoBehaviour
                 statsButtons[6].interactable = false;
                 itemDescription.text = "";
                 itemPrice.text = "Cost: ";
-                PlayerStatsScript.instance.permanentUpgrades[4] = true;
+                PlayerStatsScript.instance.statsUpgrades[4] = true;
                 statsButtons[4].interactable = false;
             }
 
@@ -326,7 +421,7 @@ public class StoreScript : MonoBehaviour
         if (PlayerStatsScript.instance.currentSpecialCoin >= statsPrices[5])
         {
             PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
-            PlayerStatsScript.instance.permanentUpgrades[5] = true;
+            PlayerStatsScript.instance.statsUpgrades[5] = true;
             statsButtons[5].interactable = false;
             PlayerStatsScript.instance.secondLifeUnlocked = true;
             PlayerStatsScript.instance.secondLife = true;
@@ -338,22 +433,8 @@ public class StoreScript : MonoBehaviour
             itemPrice.text = "Cost: ";
         }
     }
-    private void buyDashUnlock()
-    {
-        if (PlayerStatsScript.instance.currentSpecialCoin >= statsPrices[5])
-        {
-            PlayerStatsScript.instance.dashUnlocked = true;
-            statsButtons[5].interactable = false;
-            PlayerStatsScript.instance.secondLifeUnlocked = true;
-            PlayerStatsScript.instance.secondLife = true;
-            CoinCounterScript.coinCounterInstance.updateSCCounter(-statsPrices[5]);
-            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
-            BuyEmitter.Play();
-            statsButtons[6].interactable = false;
-            itemDescription.text = "";
-            itemPrice.text = "Cost: ";
-        }
-    }
+
+
 
     
     
@@ -366,7 +447,10 @@ public class StoreScript : MonoBehaviour
     }
 
 
+    private void updateToolsTab()
+    {
 
+    }
     private void updateStatsTab()
     {
         int index = 0;

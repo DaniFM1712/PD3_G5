@@ -19,7 +19,8 @@ public class PlayerStatsScript : MonoBehaviour
     public int maxBlessings = 8;
     public bool secondLifeUnlocked = false;
     public bool secondLife = false;
-    public List<bool> permanentUpgrades = new List<bool>();
+    public List<bool> toolsUpgrades = new List<bool>();
+    public List<bool> statsUpgrades = new List<bool>();
 
     //public IEnumerable<bool> permanentUpgrades= Enumerable.Repeat(false, 6);
 
@@ -31,7 +32,6 @@ public class PlayerStatsScript : MonoBehaviour
     public int currentMaxDashCharges;
     public int currentMaxGrenadeCharges;
     public int currentMaxTrapCharges;
-
 
     //----------CURRENT--STATS----------//
 
@@ -167,7 +167,8 @@ public class PlayerStatsScript : MonoBehaviour
 
         for (int i = 0; i<6;i++)
         {
-            permanentUpgrades.Add(false);
+            toolsUpgrades.Add(false);
+            statsUpgrades.Add(false);
         }
 
         //----------MAX--STATS----------//

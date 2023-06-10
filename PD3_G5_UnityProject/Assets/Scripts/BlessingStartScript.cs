@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 using FMODUnity;
+using UnityEngine.UI;
 
 public class BlessingStartScript : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class BlessingStartScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI blessingDescription1;
     [SerializeField] TextMeshProUGUI blessingDescription2;
     [SerializeField] TextMeshProUGUI blessingDescription3;
+    [SerializeField] GameObject blessingBut1;
+    [SerializeField] GameObject blessingBut2;
     private ParentBlessing blessing1;
     private ParentBlessing blessing2;
     private ParentBlessing blessing3;
@@ -53,25 +56,34 @@ public class BlessingStartScript : MonoBehaviour
         Debug.Log("BLESSINGS LENGTH: "+blessings.Length);
         if (PlayerStatsScript.instance.activatedBlessings < PlayerStatsScript.instance.maxBlessings)
         {
-            blessingIndex = Random.Range(0, blessings.Length );
-            while (blessings[blessingIndex].enabled || blessings[blessingIndex].blessingType != ParentBlessing.BlessingType.Dash
-                || usedIndexes.Contains(blessingIndex))
-            {
-                blessingIndex = Random.Range(0, blessings.Length);
-                //Hem d'evitar aixo si totes les blessings ja estan activades
+            if (PlayerStatsScript.instance.dashUnlocked) { 
+                blessingIndex = Random.Range(0, blessings.Length );
+                while (blessings[blessingIndex].enabled || blessings[blessingIndex].blessingType != ParentBlessing.BlessingType.Dash
+                    || usedIndexes.Contains(blessingIndex))
+                {
+                    blessingIndex = Random.Range(0, blessings.Length);
+                    //Hem d'evitar aixo si totes les blessings ja estan activades
+                }
+                usedIndexes.Add(blessingIndex);
+                blessing1 = blessings[blessingIndex];
             }
-            usedIndexes.Add(blessingIndex);
-            blessing1 = blessings[blessingIndex];
+            else
+            {
+                //parafernalias
+            }
 
-            blessingIndex = Random.Range(0, blessings.Length );
-            while (blessings[blessingIndex].enabled || blessings[blessingIndex].blessingType != ParentBlessing.BlessingType.Grenade
-                || usedIndexes.Contains(blessingIndex))
+            if (PlayerStatsScript.instance.grenadeUnlocked)
             {
                 blessingIndex = Random.Range(0, blessings.Length);
-                //Hem d'evitar aixo si totes les blessings ja estan activades
+                while (blessings[blessingIndex].enabled || blessings[blessingIndex].blessingType != ParentBlessing.BlessingType.Grenade
+                    || usedIndexes.Contains(blessingIndex))
+                {
+                    blessingIndex = Random.Range(0, blessings.Length);
+                    //Hem d'evitar aixo si totes les blessings ja estan activades
+                }
+                usedIndexes.Add(blessingIndex);
+                blessing2 = blessings[blessingIndex];
             }
-            usedIndexes.Add(blessingIndex);
-            blessing2 = blessings[blessingIndex];
 
             blessingIndex = Random.Range(0, blessings.Length );
             if(PlayerStatsScript.instance.currentWeaponIndex == 1)
@@ -99,13 +111,20 @@ public class BlessingStartScript : MonoBehaviour
             //blessings[blessingIndex].enabled = true;
             //PlayerStatsScript.playerStatsInstance.activatedBlessings++;
         }
+        if(blessing1 != null)
+        {
+            blessingName1.text = blessing1.blessingName;
+            blessingDescription1.text = blessing1.blessingDescription;
+            blessingBut1.GetComponent<Button>().interactable = true;
+            //blessingBut1.transform.localScale = new Vector3(blessingBut1.transform.localScale.x/2 , blessingBut1.transform.localScale.y / 2, blessingBut1.transform.localScale.z / 2);
+        }
+        if(blessing2 != null)
+        {
+            blessingName2.text = blessing2.blessingName;
+            blessingDescription2.text = blessing2.blessingDescription;
+            blessingBut2.GetComponent<Button>().interactable = true;
+        }
 
-        blessingName1.text = blessing1.blessingName;
-        blessingDescription1.text = blessing1.blessingDescription;
-       
-        blessingName2.text = blessing2.blessingName;
-        blessingDescription2.text = blessing2.blessingDescription;
-        
         blessingName3.text = blessing3.blessingName;
         blessingDescription3.text = blessing3.blessingDescription;
 
