@@ -11,6 +11,7 @@ public class chestScript : MonoBehaviour
     [SerializeField] Consumable consumableItem;
     [SerializeField] GameObject consumableItemGO;
     [SerializeField] Animator chestAnimator;
+    [SerializeField] ChangeConsumableParticles consumableParticles;
 
     [Header("FMOD")]
     public StudioEventEmitter OpenChestEmitter;
@@ -44,15 +45,18 @@ public class chestScript : MonoBehaviour
         int randomNumber = Random.Range(0, 100);
         if(randomNumber <= 60)
         {
-            asset = ItemPoolManagerScript.instance.GetCommonItem(); 
+            asset = ItemPoolManagerScript.instance.GetCommonItem();
+            consumableParticles.setItemCommon();
         }
         else if (randomNumber <= 90)
         {
             asset = ItemPoolManagerScript.instance.GetRareItem();
+            consumableParticles.setItemRare();
         }
         else
         {
             asset = ItemPoolManagerScript.instance.GetLegendaryItem();
+            consumableParticles.setItemLegendary();
         }
         consumableItem.SetConsumableItem(asset);
     }

@@ -818,6 +818,7 @@ GameObject:
   - component: {fileID: 1775732332357464786}
   - component: {fileID: 5748752932171556816}
   - component: {fileID: 5740639297089343153}
+  - component: {fileID: 6539633548090793976}
   m_Layer: 0
   m_Name: ConsumableObject
   m_TagString: Untagged
@@ -864,7 +865,6 @@ MonoBehaviour:
   slotsFullText: {fileID: 8490892352067185174}
   TakeItemEmitter: {fileID: 5748752932171556816}
   LeaveItemEmitter: {fileID: 5740639297089343153}
-  particles: {fileID: 7947709013974659443}
 --- !u!65 &8980126844607102092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -982,6 +982,27 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &6539633548090793976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980126844607102095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f9b5716b3bd6d43ac5f6b5eadc0650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 7947709013974659443}
+  colorloot: {r: 0, g: 0, b: 0, a: 0}
+  particlesRate: 0
+  flareSize: {x: 0, y: 0, z: 0}
+  flareRate: 0
+  circleMeshRate: 0
+  circleMeshLife: 0
+  circleMeshSize: 0
+  circleMeshVelocity: 0
 --- !u!1 &8980126844683924661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,16 +1644,37 @@ VisualEffect:
       - m_Value: 1
         m_Name: Height
         m_Overridden: 1
-      - m_Value: 80
+      - m_Value: 120
         m_Name: PartcilesRate
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: FlareRate
+        m_Overridden: 1
+      - m_Value: 3
+        m_Name: CircleMeshRate
+        m_Overridden: 1
+      - m_Value: 10
+        m_Name: CircleMeshSize
+        m_Overridden: 1
+      - m_Value: 0.6
+        m_Name: CircleMeshVelocity
+        m_Overridden: 1
+      - m_Value: 5
+        m_Name: CircleMeshLife
+        m_Overridden: 1
+      - m_Value: 120
+        m_Name: ParticlesRate
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 1.5, y: 0.2, z: 1}
+        m_Name: FlareSize
+        m_Overridden: 1
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 4, y: 2.7764707, z: 0, w: 0}
+      - m_Value: {x: 5.992157, y: 4.454902, z: 0, w: 0}
         m_Name: ColorLoot
         m_Overridden: 1
     m_Uint:
