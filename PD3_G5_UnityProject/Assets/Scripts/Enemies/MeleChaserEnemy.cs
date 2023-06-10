@@ -184,8 +184,10 @@ public class MeleChaserEnemy : ParentEnemyIAScript
         if (agent.enabled && !isDashing)
         {
             if (agent.isStopped)
+            {
                 agent.isStopped = !agent.isStopped;
-
+                agent.SetDestination(agent.transform.position);
+            }
             if (!blocked)
                 agent.SetDestination(player.transform.position);
         }
@@ -252,6 +254,8 @@ public class MeleChaserEnemy : ParentEnemyIAScript
         if (lastCheckedHealth <= 0)
         {
             currentState = State.DIE;
+            agent.isStopped = true;
+            agent.SetDestination(agent.transform.position);
         }
         else
         {

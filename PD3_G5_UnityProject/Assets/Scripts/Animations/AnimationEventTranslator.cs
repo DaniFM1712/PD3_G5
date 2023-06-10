@@ -7,6 +7,16 @@ public class AnimationEventTranslator : MonoBehaviour
 {
 
     [SerializeField] private GameObject IA_GO;
+
+    [SerializeField] private EnemyHealthScript IA_Health;
+    
+    
+    //General
+
+    public void DestroyEnemy()
+    {
+        IA_Health.DestroyObject();
+    }
     
     
     //Chillón

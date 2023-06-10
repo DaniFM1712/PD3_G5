@@ -1299,7 +1299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756044266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.76116323, y: 1.86, z: 21.2}
+  m_LocalPosition: {x: 1.343, y: 2.231, z: 6.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1433,17 +1433,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4000823254984ab409e34bebc11d56a4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.65
+      value: -1.41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4000823254984ab409e34bebc11d56a4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.74
+      value: 3.49
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4000823254984ab409e34bebc11d56a4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.12
+      value: 19.46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4000823254984ab409e34bebc11d56a4,
         type: 3}
@@ -1503,7 +1503,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4000823254984ab409e34bebc11d56a4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1148839615976302782, guid: 4000823254984ab409e34bebc11d56a4,
         type: 3}
@@ -2301,7 +2301,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918185642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.512, y: 3.320039, z: 19.819}
+  m_LocalPosition: {x: -2.512, y: 5.04, z: 19.819}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2341,6 +2341,37 @@ Transform:
   - {fileID: 1844088216}
   m_Father: {fileID: 0}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1960222312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1960222313}
+  m_Layer: 0
+  m_Name: DeathDecalsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1960222313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960222312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.26255944, y: 2.8523695, z: 6.7339935}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2007732502
 GameObject:

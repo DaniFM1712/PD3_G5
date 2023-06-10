@@ -282,7 +282,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
         PreviewShoot();
         yield return new WaitForSeconds(2f);
         enemyAnimator.SetTrigger("RangedAttack");
-        Shoot();
+        //Shoot();
         currentState = State.ATTACK;
         agent.isStopped = true;
 
@@ -355,7 +355,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
 
 
-    private void Shoot()
+    public void Shoot()
     {
         Debug.Log("RANGE SHOT");
 

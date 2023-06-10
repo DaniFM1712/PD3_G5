@@ -26,6 +26,8 @@ public class EnemyHealthScript : MonoBehaviour
 
     private float hitMarkerTimer = 0f;
 
+    [Header("Animator")] 
+    [SerializeField] private Animator enemyAnimator;
     private void Awake()
     {
         currentHealth = InitialHealth;
@@ -66,26 +68,29 @@ public class EnemyHealthScript : MonoBehaviour
 
     public bool TakeDamage(float damage, bool critical)
     {
-        hitMarkerActive = true;
-        hitMarkerTimer = 0.30f;
-
-        currentHealth -= damage;
-        if(damage!=0)
-            Instantiate(damageTextPrefab, damageTextPosition.position, Quaternion.identity).GetComponent<DamageTextScript>().Initialise(damage,critical);
-
-        if (healthBar.gameObject.activeSelf == false)
+        if (currentHealth > 0)
         {
-            healthBar.gameObject.SetActive(true);
-        }
-        healthBar.fillAmount = currentHealth/InitialHealth;
-        if(currentHealth <= 0)
-        {
-            hitMarkerActive = false;
-            currentHealth = 0;
-            StartCoroutine(deathHitMarker());
-            return true;
-        }
+            hitMarkerActive = true;
+            hitMarkerTimer = 0.30f;
 
+            currentHealth -= damage;
+            if(damage!=0)
+                Instantiate(damageTextPrefab, damageTextPosition.position, Quaternion.identity).GetComponent<DamageTextScript>().Initialise(damage,critical);
+
+            if (healthBar.gameObject.activeSelf == false)
+            {
+                healthBar.gameObject.SetActive(true);
+            }
+            healthBar.fillAmount = currentHealth/InitialHealth;
+            if(currentHealth <= 0)
+            {
+                hitMarkerActive = false;
+                currentHealth = 0;
+                StartCoroutine(deathHitMarker());
+                return true;
+            }  
+        }
+        
         return false;
     }
 
@@ -95,9 +100,16 @@ public class EnemyHealthScript : MonoBehaviour
         //SOUND
 
         DeathEmitter.Play();
+        enemyAnimator.SetTrigger("Die");
+        //Destroy(healthBar.gameObject);
+        //Destroy(gameObject);
+
+    }
+
+    public void DestroyObject()
+    {
         Destroy(healthBar.gameObject);
         Destroy(gameObject);
-
     }
 
 
