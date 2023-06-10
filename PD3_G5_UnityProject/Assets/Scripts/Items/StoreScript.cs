@@ -351,14 +351,17 @@ public class StoreScript : MonoBehaviour
         if (PlayerStatsScript.instance.currentSpecialCoin >= inventoryPrices[0])
         {
             PlayerStatsScript.instance.commonSlots++;
-            inventoryButtons[0].interactable = false;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-inventoryPrices[0]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
             inventoryButtons[3].interactable = false;
             itemDescription.text = "";
             itemPrice.text = "Cost: ";
             BuyEmitter.Play();
-            PlayerStatsScript.instance.inventroyUpgrades[0] = true;
+            if(PlayerStatsScript.instance.commonSlots == 3)
+            {
+                inventoryButtons[0].interactable = false;
+                PlayerStatsScript.instance.inventroyUpgrades[0] = true;
+            }
         }
     }
     private void BuyRareSlot()
