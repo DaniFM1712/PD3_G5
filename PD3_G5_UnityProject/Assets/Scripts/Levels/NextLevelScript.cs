@@ -14,10 +14,13 @@ public class NextLevelScript : MonoBehaviour
     [SerializeField] GameObject exitLevel;
     [Header("FMOD")]
     public StudioEventEmitter ExitLevelEmitter;
+    [Header("Particles")]
+    [SerializeField] ParticleSystem particles;
     private void Start()
     {
         if(exitLevel != null)
             exitLevelText = exitLevel.GetComponent<TextMeshProUGUI>();
+        particles.Play();
     }
 
     private void Update()
