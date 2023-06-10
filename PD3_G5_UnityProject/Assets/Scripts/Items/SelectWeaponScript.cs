@@ -13,6 +13,7 @@ public class SelectWeaponScript : MonoBehaviour
     [SerializeField] GameObject Canvas;
     [SerializeField] GameObject weaponCanvas;
     [SerializeField] GameObject shotgunButton;
+    [SerializeField] GameObject ammoCounter;
     GameObject player;
 
     private bool canChangeWeapon = false;
@@ -54,9 +55,20 @@ public class SelectWeaponScript : MonoBehaviour
             shotgunButton.GetComponent<Button>().interactable = true;
         }
         PlayerStatsScript.instance.currentWeaponIndex = 1;
-        player.GetComponent<FPController>().ChangeWeapon();
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
+        if (shotGun.activeSelf)
+        {
+            LeanTween.moveLocal(ammoCounter, new Vector3(265, 0, 0), 0.25f).setOnComplete(() => {
+                player.GetComponent<FPController>().ChangeWeapon();
+                LeanTween.moveLocal(ammoCounter, new Vector3(0, 0, 0), 0.25f);
+            });
+        }
+        else
+        {
+            player.GetComponent<FPController>().ChangeWeapon();
+            LeanTween.moveLocal(ammoCounter, new Vector3(0, 0, 0), 0.25f);
+        }
         weaponCanvas.SetActive(false);
         PlayerStatsScript.instance.currentBlessings.Clear();
         PlayerStatsScript.instance.SaveBlessings();
@@ -69,9 +81,20 @@ public class SelectWeaponScript : MonoBehaviour
         shotGun.SetActive(false);
         rapidFire.SetActive(true);
         PlayerStatsScript.instance.currentWeaponIndex = 2;
-        player.GetComponent<FPController>().ChangeWeapon();
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
+        if (rapidFire.activeSelf)
+        {
+            LeanTween.moveLocal(ammoCounter, new Vector3(265, 0, 0), 0.25f).setOnComplete(() => {
+                player.GetComponent<FPController>().ChangeWeapon();
+                LeanTween.moveLocal(ammoCounter, new Vector3(0, 0, 0), 0.25f);
+            });
+        }
+        else
+        {
+            player.GetComponent<FPController>().ChangeWeapon();
+            LeanTween.moveLocal(ammoCounter, new Vector3(0, 0, 0), 0.25f);
+        }
         weaponCanvas.SetActive(false);
         PlayerStatsScript.instance.currentBlessings.Clear();
         PlayerStatsScript.instance.SaveBlessings();

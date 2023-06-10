@@ -13,6 +13,7 @@ public class InventoryManagerScript : MonoBehaviour
     private List<ConsumableAsset> rareItems;
     private List<ConsumableAsset> legendaryItems;
     public bool inventoryOpen = false;
+    private bool canOpen = true;
 
     [SerializeField] GameObject inventory;
     [SerializeField] RectTransform openInvPosition;
@@ -61,25 +62,27 @@ public class InventoryManagerScript : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Tab) && !inventoryOpen /*!itemsInventory.activeSelf*/ && Time.timeScale == 1f)
+        if (Input.GetKeyDown(KeyCode.Tab) && !inventoryOpen && canOpen/*!itemsInventory.activeSelf*/ && Time.timeScale == 1f)
         {
-            inventoryOpen = true;
+            canOpen = false;
             //ShowInventoryUI();
-           
             LeanTween.moveLocal(inventory, openInvPosition.position, 0.5f).setOnStart(() => {
                 ShowInventoryUI();
             }).setOnComplete(() => {
+                inventoryOpen = true;
                 Time.timeScale = 0f;
             });
 
         }
 
-        else if(Input.GetKeyDown(KeyCode.Tab) && inventoryOpen/*(itemsInventory.activeSelf || blessingsInventory.activeSelf)*/)
+        else if(Input.GetKeyDown(KeyCode.Tab) && inventoryOpen && !canOpen/*(itemsInventory.activeSelf || blessingsInventory.activeSelf)*/)
         {
-            inventoryOpen = false;
+            canOpen = true;
             LeanTween.moveLocal(inventory, closeInvPosition.position, 0.5f).setOnStart(()=>{
                 Time.timeScale = 1f;
                 Cursor.lockState = CursorLockMode.Locked;
+            }).setOnComplete(() => {
+                inventoryOpen = false;
             });
 
             //HideInventoryUI();

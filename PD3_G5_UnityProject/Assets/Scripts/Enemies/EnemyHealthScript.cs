@@ -68,9 +68,7 @@ public class EnemyHealthScript : MonoBehaviour
     {
         hitMarkerActive = true;
         hitMarkerTimer = 0.30f;
-            //StopCoroutine(showHitMarker());
 
-        //StartCoroutine(showHitMarker());
         currentHealth -= damage;
         if(damage!=0)
             Instantiate(damageTextPrefab, damageTextPosition.position, Quaternion.identity).GetComponent<DamageTextScript>().Initialise(damage,critical);
@@ -82,6 +80,7 @@ public class EnemyHealthScript : MonoBehaviour
         healthBar.fillAmount = currentHealth/InitialHealth;
         if(currentHealth <= 0)
         {
+            hitMarkerActive = false;
             currentHealth = 0;
             StartCoroutine(deathHitMarker());
             return true;
@@ -127,37 +126,13 @@ public class EnemyHealthScript : MonoBehaviour
         }
     }
 
-    IEnumerator showHitMarker()
-    {
-        hitMarkerActive = true;
-        hitMarker.GetComponent<Image>().enabled = true;
-        yield return new WaitForSeconds(0.25f);
-        hitMarkerActive = false;
-        hitMarker.GetComponent<Image>().enabled = false;
-    }
-
-    /*
-    IEnumerator showHitMarker()
-    {
-        hitMarkerActive = true;
-        hitMarker.GetComponent<Image>().enabled = true;
-        if (hitMarkerActive)
-        {
-            hitMarkerActive = false;
-            yield return new WaitForSeconds(0.25f);
-            if (!hitMarkerActive && hitMarker.GetComponent<Image>().enabled)
-            {
-                hitMarker.GetComponent<Image>().enabled = false;
-            }
-        }
-    }*/
     IEnumerator deathHitMarker()
     {
-        hitMarkerActive = true;
-        hitMarkerTimer = 0.30f;
+        hitMarker.GetComponent<Image>().enabled = true;
         GetComponent<NavMeshAgent>().isStopped = true;
         GetComponent<NavMeshAgent>().SetDestination(transform.position);
         yield return new WaitForSeconds(0.3f);
+        hitMarker.GetComponent<Image>().enabled = false;
         Die();
     }
 

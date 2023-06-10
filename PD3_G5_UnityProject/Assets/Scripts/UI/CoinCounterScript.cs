@@ -7,6 +7,8 @@ public class CoinCounterScript : MonoBehaviour
 {
     [SerializeField] GameObject ncCounter;
     [SerializeField] GameObject scCounter;
+    [SerializeField] GameObject ncGO;
+    [SerializeField] GameObject scGO;
     public static CoinCounterScript coinCounterInstance { get; private set; }
     private TextMeshProUGUI ncText;
     private TextMeshProUGUI scText;
@@ -47,8 +49,8 @@ public class CoinCounterScript : MonoBehaviour
 
     public void updateNCCounter(int amount)
     {
-        playerStats.currentNormalCoin += amount;
-        ncText.text = " " + playerStats.currentNormalCoin.ToString();
+        StartCoroutine(CounterShake(amount, true));
+
         if (PlayerStatsScript.instance.moneyIsPower)
         {
             if (accumulatedFifties < (int)(PlayerStatsScript.instance.currentNormalCoin / 50f))
@@ -63,12 +65,43 @@ public class CoinCounterScript : MonoBehaviour
     }
     public void updateSCCounter(int amount)
     {
-        playerStats.currentSpecialCoin += amount;
-        scText.text = " " + playerStats.currentSpecialCoin.ToString();
+        StartCoroutine(CounterShake(amount, false));
+    }
+
+    IEnumerator CounterShake(int amount, bool counter)
+    {
+        if (counter)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                LeanTween.moveLocal(ncGO, new Vector3(10, 0, 0), 0.1f).setOnComplete(() =>
+                {
+                    playerStats.currentNormalCoin++;
+                    ncText.text = " " + playerStats.currentNormalCoin.ToString();
+                    LeanTween.moveLocal(ncGO, new Vector3(0, 0, 0), 0.2f);
+                });
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                LeanTween.moveLocal(scGO, new Vector3(10, 0, 0), 0.1f).setOnComplete(() =>
+                {
+                    playerStats.currentSpecialCoin++; ;
+                    scText.text = " " + playerStats.currentSpecialCoin.ToString();
+                    LeanTween.moveLocal(scGO, new Vector3(0, 0, 0), 0.2f);
+                });
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+
     }
 
     public void resetNCCounter()
     {
+
         playerStats.currentNormalCoin = 0;
         ncText.text = " " + playerStats.currentNormalCoin.ToString();
     }
