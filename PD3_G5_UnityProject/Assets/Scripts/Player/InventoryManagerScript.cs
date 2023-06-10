@@ -12,6 +12,7 @@ public class InventoryManagerScript : MonoBehaviour
     private List<ConsumableAsset> commonItems;
     private List<ConsumableAsset> rareItems;
     private List<ConsumableAsset> legendaryItems;
+    public bool inventoryOpen = false;
 
     [SerializeField] GameObject inventory;
     [SerializeField] RectTransform openInvPosition;
@@ -60,28 +61,36 @@ public class InventoryManagerScript : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Tab) && /*!itemsInventory.activeSelf &&*/ Time.timeScale == 1f)
+        if (Input.GetKeyDown(KeyCode.Tab) && !inventoryOpen /*!itemsInventory.activeSelf*/ && Time.timeScale == 1f)
         {
-            LeanTween.moveLocal(inventory, openInvPosition.position, 0.5f).setOnComplete(ShowInventoryUI);
+            inventoryOpen = true;
             //ShowInventoryUI();
+           
+            LeanTween.moveLocal(inventory, openInvPosition.position, 0.5f).setOnStart(() => {
+                ShowInventoryUI();
+            }).setOnComplete(() => {
+                Time.timeScale = 0f;
+            });
 
         }
 
-        else if(Input.GetKeyDown(KeyCode.Tab) /*&&(itemsInventory.activeSelf || blessingsInventory.activeSelf)*/)
+        else if(Input.GetKeyDown(KeyCode.Tab) && inventoryOpen/*(itemsInventory.activeSelf || blessingsInventory.activeSelf)*/)
         {
-            LeanTween.moveLocal(inventory, closeInvPosition.position, 0.5f);
+            inventoryOpen = false;
+            LeanTween.moveLocal(inventory, closeInvPosition.position, 0.5f).setOnStart(()=>{
+                Time.timeScale = 1f;
+                Cursor.lockState = CursorLockMode.Locked;
+            });
+
             //HideInventoryUI();
-            Time.timeScale = 1f;
-            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
     private void ShowInventoryUI()
     {
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
-        itemsInventory.SetActive(true);
 
+        //itemsInventory.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
         int index = 0;
         foreach (ConsumableAsset item in commonItems)
         {
@@ -121,8 +130,10 @@ public class InventoryManagerScript : MonoBehaviour
         {
             itemUI.SetActive(false);
         }*/
-        itemsInventory.SetActive(false);
-        blessingsInventory.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1f;
+        //itemsInventory.SetActive(false);
+        //blessingsInventory.SetActive(false);
     }
 
     public void UpdateItemsUI()
@@ -219,13 +230,13 @@ public class InventoryManagerScript : MonoBehaviour
         switch (rarity)
         {
             case ConsumableAsset.Rarity.Common:
-                return commonItems.Count < 3;
+                return commonItems.Count < PlayerStatsScript.instance.commonSlots;
 
             case ConsumableAsset.Rarity.Rare:
-                return rareItems.Count < 2;
+                return rareItems.Count < PlayerStatsScript.instance.rareSlots;
 
             case ConsumableAsset.Rarity.Legendary:
-                return legendaryItems.Count < 1;
+                return legendaryItems.Count < PlayerStatsScript.instance.legendarySlots - 1;
 
             default:
                 return false;
@@ -348,7 +359,8 @@ public class InventoryManagerScript : MonoBehaviour
 
     public bool IsInventoryFull()
     {
-        return commonItems.Count == 3 && rareItems.Count == 2 && legendaryItems.Count == 1;
+        return commonItems.Count == PlayerStatsScript.instance.commonSlots && rareItems.Count == PlayerStatsScript.instance.rareSlots && 
+            legendaryItems.Count == PlayerStatsScript.instance.legendarySlots;
     }
 
     public void switchInventoryTabsToInv()

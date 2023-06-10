@@ -83,6 +83,9 @@ public class HealthUIScript : MonoBehaviour
             ResetScreenDamage();
             screenDamageTimer = screenDamageCooldown;
             screenDamageOnScreen = true;
+            LeanTween.moveLocal(gameObject, new Vector3(-734.79f, -500, -2.005508f), 0.2f).setOnComplete(()=> {
+                LeanTween.moveLocal(gameObject, new Vector3(-734.79f, -479, -2.005508f), 0.1f);
+            });
         }
         /*
         if (isDamage && damageFeedbackContainer[0].GetComponent<Image>().fillAmount == 0)
