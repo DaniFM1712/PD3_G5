@@ -140,7 +140,15 @@ public class PlayerStatsScript : MonoBehaviour
     public bool moneyIsPower = false;
 
     //UNLOCKS
+        //TOOLS
+    public bool dashUnlocked = false;
+    public bool grenadeUnlocked = false;
+    public bool shotgunUnlocked = false;
+        //INVENTORY
+        //STATS
     public int[] unlocks = { 0, 0, 0, 0, 0, 0}; 
+        
+
 
     private void Awake()
     {

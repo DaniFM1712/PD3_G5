@@ -117,7 +117,7 @@ public class EnemyHealthScript : MonoBehaviour
             while(healthOrbPrefabAmount > i)
             {
                 int random = Random.Range(0, 100);
-                if(random > 50)
+                if(random > 40)
                 {
                     Instantiate(healthOrbPrefab, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity);
                 }
