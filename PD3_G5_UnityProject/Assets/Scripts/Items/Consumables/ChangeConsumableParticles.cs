@@ -8,19 +8,15 @@ public class ChangeConsumableParticles : MonoBehaviour
     [Header("Particles")]
     [SerializeField] VisualEffect particles;
 
-    [SerializeField] Color colorloot;
-    [SerializeField] float particlesRate;
-    [SerializeField] Vector3 flareSize;
-    [SerializeField] float flareRate;
-    [SerializeField] float circleMeshRate;
-    [SerializeField] float circleMeshLife;
-    [SerializeField] float circleMeshSize;
-    [SerializeField] float circleMeshVelocity;
+    Color colorloot;
+    float particlesRate;
+    Vector3 flareSize;
+    float flareRate;
+    float circleMeshRate;
+    float circleMeshLife;
+    float circleMeshSize;
+    float circleMeshVelocity;
 
-    private void Start()
-    {
-        particles.Play();
-    }
     public void setItemCommon()
     {
         colorloot = new Color(0, 2.7f, 4, 0);
@@ -65,7 +61,7 @@ public class ChangeConsumableParticles : MonoBehaviour
 
     void setStats()
     {
-        particles.SetVector4("ColorLoot", colorloot); //new Vector4(colorloot.r, colorloot.g, colorloot.b, colorloot.a));
+        particles.SetVector4("ColorLoot", colorloot);
         particles.SetFloat("ParticlesRate", particlesRate);
         particles.SetVector3("FlareSize", flareSize);
         particles.SetFloat("FlareRate", flareRate);
@@ -73,5 +69,6 @@ public class ChangeConsumableParticles : MonoBehaviour
         particles.SetFloat("CircleMeshLife", circleMeshLife);
         particles.SetFloat("CircleMeshSize", circleMeshSize);
         particles.SetFloat("CircleMeshVelocity", circleMeshVelocity);
+        particles.Play();
     }
 }

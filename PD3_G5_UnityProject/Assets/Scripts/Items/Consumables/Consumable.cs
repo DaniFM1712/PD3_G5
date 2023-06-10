@@ -23,6 +23,10 @@ public class Consumable : MonoBehaviour
     public StudioEventEmitter TakeItemEmitter;
     public StudioEventEmitter LeaveItemEmitter;
 
+    [Header("Particles")]
+    [SerializeField] ChangeConsumableParticles consumableParticles;
+
+
     // Start is called before the first frame update
 
     private void Start()
@@ -31,6 +35,21 @@ public class Consumable : MonoBehaviour
         takeItemUI.SetActive(false);
         nameText = nameUI.GetComponent<TextMeshProUGUI>();
         descriptionText = descriptionUI.GetComponent<TextMeshProUGUI>();
+        Debug.Log(_consumableAsset.rarity.ToString());
+        switch (_consumableAsset.rarity)
+        {
+            case ConsumableAsset.Rarity.Common:
+                consumableParticles.setItemCommon();
+                break;
+
+            case ConsumableAsset.Rarity.Rare:
+                consumableParticles.setItemRare();
+                break;
+            case ConsumableAsset.Rarity.Legendary:
+                consumableParticles.setItemLegendary();
+                break;
+        }
+
     }
 
     void Update()
