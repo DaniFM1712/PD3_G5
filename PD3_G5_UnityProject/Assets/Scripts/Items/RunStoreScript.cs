@@ -11,7 +11,8 @@ public class RunStoreScript : MonoBehaviour
     [SerializeField] GameObject storeCanvas;
     [SerializeField] TextMeshProUGUI invFullText;
     [SerializeField] TextMeshProUGUI NCText;
-
+    
+    [SerializeField] Button healthBtn;
     [SerializeField] Button randomItemBtn;
     [SerializeField] Button rareItemBtn;
     [SerializeField] Button commonItemBtn;
@@ -25,6 +26,7 @@ public class RunStoreScript : MonoBehaviour
     private GameObject player;
     private bool canShop = false;
     private bool randomItemBought = false;
+    private int healthBought = 0;
 
     [SerializeField] List<ConsumableAsset> commonItemPool;
     [SerializeField] List<ConsumableAsset> rareItemPool;
@@ -66,10 +68,15 @@ public class RunStoreScript : MonoBehaviour
         {
 
             player.GetComponent<PlayerHealthScript>().ModifyHealth(healthValue);
-
             CoinCounterScript.coinCounterInstance.updateNCCounter(-healthCost);
             NCText.text = "" + PlayerStatsScript.instance.currentNormalCoin;
             BuyEmitter.Play();
+
+            healthBought++;
+            if (healthBought >= 5)
+            {
+                healthBtn.interactable = false;
+            }
         }
     }
     public void BuyRandomItem()

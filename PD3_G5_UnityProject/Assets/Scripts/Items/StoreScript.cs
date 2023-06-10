@@ -441,6 +441,9 @@ public class StoreScript : MonoBehaviour
     
     public void changeTab(int tab)
     {
+        statsButtons[6].interactable = false;
+        itemDescription.text = "";
+        itemPrice.text = "Cost: ";
         tabs[currentTab].SetActive(false);
         tabs[tab].SetActive(true);
         currentTab = tab;

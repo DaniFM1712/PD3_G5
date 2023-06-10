@@ -61,7 +61,7 @@ public class Consumable : MonoBehaviour
             switch (_consumableAsset.rarity)
             {
                 case ConsumableAsset.Rarity.Common:
-                    backgroundUI.GetComponent<Image>().color = Color.blue;
+                    backgroundUI.GetComponent<Image>().color = new Color32(0, 164, 255, 255);
                     break;
 
                 case ConsumableAsset.Rarity.Rare:
@@ -69,7 +69,7 @@ public class Consumable : MonoBehaviour
                     break;
 
                 case ConsumableAsset.Rarity.Legendary:
-                    backgroundUI.GetComponent<Image>().color = Color.yellow;
+                    backgroundUI.GetComponent<Image>().color = new Color32(255, 182, 0, 255);
                     break;
 
             }

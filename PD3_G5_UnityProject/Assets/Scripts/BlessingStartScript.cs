@@ -152,7 +152,10 @@ public class BlessingStartScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-
+    public void closeBlessingsMenu()
+    {
+        Destroy(gameObject);
+    }
 
     private void OnDestroy()
     {
