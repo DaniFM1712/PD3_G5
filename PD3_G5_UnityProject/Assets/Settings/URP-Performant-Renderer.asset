@@ -29,8 +29,8 @@ MonoBehaviour:
     enableWrite: 1
     stencilSettings:
       overrideStencilState: 1
-      stencilReference: 1
-      stencilCompareFunction: 6
+      stencilReference: 15
+      stencilCompareFunction: 4
       passOperation: 0
       failOperation: 0
       zFailOperation: 0
@@ -124,11 +124,11 @@ MonoBehaviour:
     overrideMaterialPassIndex: 0
     overrideDepthState: 0
     depthCompareFunction: 4
-    enableWrite: 1
+    enableWrite: 0
     stencilSettings:
       overrideStencilState: 1
-      stencilReference: 1
-      stencilCompareFunction: 8
+      stencilReference: 15
+      stencilCompareFunction: 3
       passOperation: 2
       failOperation: 0
       zFailOperation: 0
