@@ -86,9 +86,8 @@ public class LevelManager : MonoBehaviour
                     RestartGame(1);
                 }
                 break;
-
         }
-        
+        CoinCounterScript.coinCounterInstance.updateSCCounter(0);
     }
 
     public void generateRandomPath()

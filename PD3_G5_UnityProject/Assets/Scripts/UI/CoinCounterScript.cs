@@ -53,7 +53,10 @@ public class CoinCounterScript : MonoBehaviour
             StartCoroutine(CounterShake(amount, true));
 
         else
-            playerStats.currentNormalCoin+= amount;
+        {
+            playerStats.currentNormalCoin += amount;
+            ncText.text = " " + playerStats.currentNormalCoin.ToString();
+        }
 
         if (PlayerStatsScript.instance.moneyIsPower)
         {
@@ -72,7 +75,10 @@ public class CoinCounterScript : MonoBehaviour
         if(amount>0)
             StartCoroutine(CounterShake(amount, false));
         else
+        {
             playerStats.currentSpecialCoin += amount;
+            scText.text = " " + playerStats.currentSpecialCoin.ToString();
+        }
     }
 
     IEnumerator CounterShake(int amount, bool normalCoin)
