@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DarkEnvNeonFilling
-  m_Shader: {fileID: -6465566751694194690, guid: 4edcaedd6ea07404ebb4dac3cb19586c,
+  m_Shader: {fileID: -6465566751694194690, guid: 5b7decb242339b94b81e1171c3787a54,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -49,6 +49,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 5f812dea64962214593e54c4bcfbf79c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _GeneralEmissionTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -67,6 +71,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_6ed443757f7940a0b84ff175942fd8d7_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 42990139505182b4ca14cb52e9e17bda, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_f19d1e18e0854066a0e6972f99add342_Texture_1:
@@ -103,8 +111,15 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+    - _ErasureValue: 0
     - _Fill: 20
     - _FillRotation: 0
+    - _GeneralEmissionNoiseScale: 10
+    - _GeneralEmissionNoiseSpeed: 0.2
+    - _GeneralEmissionOpacity: 1
+    - _GeneralEmissionSpeed: 0.1
+    - _GeneralEmissionTwirlSpeed: 3
+    - _GeneralEmissionUVDistortionlSpeed: 3
     - _GeneralOpacity: 0.596
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -113,6 +128,7 @@ Material:
     - _NoiseScale: 300
     - _NoiseSpeed: 0.012
     - _OcclusionStrength: 1
+    - _OverAll: 0
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -129,9 +145,12 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DarkenColour: {r: 0.7264151, g: 0.2775453, b: 0.34867695, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 0.5943396, g: 0.08130119, b: 0.17183746, a: 1}
     - _FillDirection: {r: 0, g: 0, b: 0, a: 0}
+    - _GeneralEmissionTextureScale: {r: 2, g: 2, b: 0, a: 0}
+    - _NoiseDirection: {r: 1, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6397173730072223511
