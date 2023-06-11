@@ -35,7 +35,7 @@ public class RFSpecialBulletScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other);
-
+        
         if (other.gameObject.CompareTag("Terrain"))
         {
             GameObject specialEffect = Instantiate(specialEffectPrefab, other.ClosestPoint(transform.position), Quaternion.identity);
@@ -48,7 +48,7 @@ public class RFSpecialBulletScript : MonoBehaviour
         {
             if (other.gameObject.transform.parent.gameObject.TryGetComponent(out ParentEnemyIAScript enemyIA))
             {
-                enemyIA.GetStunned(5f);
+                enemyIA.GetStunned(2f);
                 other.gameObject.transform.parent.gameObject.GetComponent<EnemyHealthScript>().TakeDamage(damage, false);
             }
             ReturnToOrigin();
