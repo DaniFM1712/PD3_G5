@@ -257,7 +257,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
             if (readyToShoot && canAttack)
             {
                 shooting = true;
-                //enemyAnimator.SetTrigger("RangedAttack");
+                enemyAnimator.SetTrigger("RangedAttack");
                 currentState = State.SHOOTING;
                 shootingPoint = player.transform.position;
                 StartCoroutine(RangedShoot());
@@ -282,7 +282,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
         agent.isStopped = true;
         PreviewShoot();
         yield return new WaitForSeconds(2f);
-        enemyAnimator.SetTrigger("RangedAttack");
+        enemyAnimator.SetTrigger("DistanceAttack");
         //Shoot();
         currentState = State.ATTACK;
         agent.isStopped = true;
@@ -413,6 +413,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
         previewBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * shootForce, ForceMode.Impulse);
         previewBullet.GetComponent<Rigidbody>().AddForce(transform.up * upwardForce, ForceMode.Impulse);
+        //enemyAnimator.SetTrigger("DistanceAttack");
     }
 
 
