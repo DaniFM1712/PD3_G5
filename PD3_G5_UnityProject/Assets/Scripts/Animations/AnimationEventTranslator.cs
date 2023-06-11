@@ -9,6 +9,7 @@ public class AnimationEventTranslator : MonoBehaviour
     [SerializeField] private GameObject IA_GO;
 
     [SerializeField] private EnemyHealthScript IA_Health;
+    [SerializeField] private EnemyDesintegrationController IA_Desintegration;
     
     
     //General
@@ -17,16 +18,16 @@ public class AnimationEventTranslator : MonoBehaviour
     {
         IA_Health.DestroyObject();
     }
-    
+
+    public void StartDesintegration()
+    {
+        IA_Desintegration.StartEnemyDesintegration();
+    }
     
     //Chillón
     public void ChillonMeleeAttack()
     {
         IA_GO.GetComponent<MeleChaserEnemy>().attack();
-    }
-    public void ChillonDeathEnd()
-    {
-        
     }
     
     
@@ -36,11 +37,7 @@ public class AnimationEventTranslator : MonoBehaviour
     {
         IA_GO.GetComponent<RangedEnemyAIScript>().Shoot();
     }
-
-    public void ArlequinDeathEnd()
-    {
-        
-    }
+    
 
     public void SpecialShoot()
     {
