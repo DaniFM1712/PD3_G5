@@ -100,6 +100,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
     {
         base.Start();
         previewBullet = Instantiate(previewPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
+        previewBullet.SetActive(false);
         enemyAnimator.SetBool("Idle", true);
         bulletPool = new Queue<GameObject>();
         GameObject bullets = new GameObject("GolemBullets");
@@ -207,7 +208,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
         if (agent.isStopped)
             agent.isStopped = !agent.isStopped;
 
-        if (!blocked)
+        if (!isTrapped)
             agent.SetDestination(player.transform.position);
     }
 
@@ -237,7 +238,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
     void updateAttack()
     {
-        if (PlayerInMeleeRange())
+        if (PlayerInMeleeRange() && !isTrapped)
         {
             if (canAttack)
             {
@@ -251,7 +252,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
             }
 
         }
-        else if (PlayerInRangedRange())
+        else if (PlayerInRangedRange() && !isTrapped)
         {
             if (readyToShoot && canAttack)
             {
@@ -332,7 +333,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
     void updateHit()
     {
         lastCheckedHealth = GetComponent<EnemyHealthScript>().GetCurrentHealth();
-        if (!blocked)
+        if (!isTrapped)
             agent.isStopped = true;
     }
 

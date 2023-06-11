@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class ParentEnemyIAScript : MonoBehaviour
 {
     public bool isTrapped = false;
-    protected bool blocked = false;
     protected NavMeshAgent agent;
     protected GameObject player;
 
@@ -35,14 +34,12 @@ public class ParentEnemyIAScript : MonoBehaviour
 
     public void StopAgent()
     {
-        blocked = true;
         agent.SetDestination(transform.position);
         agent.isStopped = true;
     }
 
     public void RestartAgent()
     {
-        blocked = false;
         agent.SetDestination(player.transform.position);
         agent.isStopped = false;
     }

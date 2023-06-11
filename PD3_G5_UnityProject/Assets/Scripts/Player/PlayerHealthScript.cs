@@ -130,6 +130,7 @@ public class PlayerHealthScript : MonoBehaviour
         }
         else
         {
+            PlayerStatsScript.instance.currentSpecialCoin /= 2;
             LevelManager.instance.GoToDeathMenu();
         }
 

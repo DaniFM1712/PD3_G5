@@ -224,7 +224,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
     }
     void updateAttack()
     {
-        if (PlayerInRange() && readyToShoot && !reloading)
+        if (PlayerInRange() && readyToShoot && !reloading && !isTrapped)
         {
             if (specialShootInCooldown)
             {

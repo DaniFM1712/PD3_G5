@@ -87,14 +87,9 @@ public class HealthUIScript : MonoBehaviour
                 LeanTween.moveLocal(gameObject, new Vector3(-734.79f, -480, -2.005508f), 0.2f);
             });
         }
-        /*
-        if (isDamage && damageFeedbackContainer[0].GetComponent<Image>().fillAmount == 0)
-        {
-            StartCoroutine(ShowDamage());
-        }*/
 
         float normalizedHP = PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth();
-        float hp = PlayerStatsScript.instance.currentHealth;
+        int hp = (int)Mathf.Round(PlayerStatsScript.instance.currentHealth);
         
         hpText.text = hp + "";
         healthAmount.fillAmount = normalizedHP;
@@ -108,16 +103,4 @@ public class HealthUIScript : MonoBehaviour
             obj.GetComponent<Image>().fillAmount = 1;
         }
     }
-
-    /*
-    IEnumerator ShowDamage()
-    {
-        foreach (GameObject obj in damageFeedbackContainer)
-        {
-            obj.GetComponent<Image>().fillAmount = 1;
-        }
-        yield return new WaitForSeconds(2f);
-        damageFeedback = true;
-    }
-    */
 }

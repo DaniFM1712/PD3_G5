@@ -42,14 +42,18 @@ public class CoinCounterScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.V))
         {
-            updateNCCounter(50);
-            updateSCCounter(10);
+            updateNCCounter(100);
+            updateSCCounter(100);
         }
     }
 
     public void updateNCCounter(int amount)
     {
-        StartCoroutine(CounterShake(amount, true));
+        if(amount > 0)
+            StartCoroutine(CounterShake(amount, true));
+
+        else
+            playerStats.currentNormalCoin+= amount;
 
         if (PlayerStatsScript.instance.moneyIsPower)
         {
@@ -65,12 +69,15 @@ public class CoinCounterScript : MonoBehaviour
     }
     public void updateSCCounter(int amount)
     {
-        StartCoroutine(CounterShake(amount, false));
+        if(amount>0)
+            StartCoroutine(CounterShake(amount, false));
+        else
+            playerStats.currentSpecialCoin += amount;
     }
 
-    IEnumerator CounterShake(int amount, bool counter)
+    IEnumerator CounterShake(int amount, bool normalCoin)
     {
-        if (counter)
+        if (normalCoin)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -96,7 +103,6 @@ public class CoinCounterScript : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
             }
         }
-
     }
 
     public void resetNCCounter()

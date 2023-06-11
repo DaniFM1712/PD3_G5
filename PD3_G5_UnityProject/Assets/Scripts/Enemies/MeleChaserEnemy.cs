@@ -40,6 +40,7 @@ public class MeleChaserEnemy : ParentEnemyIAScript
     [Header("ATTACK")]
     [SerializeField] float damage;
     float lastTimeCollisioned;
+    bool attackInCooldown = false;
 
 
     [Header("HIT")]
@@ -188,7 +189,7 @@ public class MeleChaserEnemy : ParentEnemyIAScript
                 agent.isStopped = !agent.isStopped;
                 agent.SetDestination(agent.transform.position);
             }
-            if (!blocked)
+            if (!isTrapped)
                 agent.SetDestination(player.transform.position);
         }
 
@@ -199,11 +200,7 @@ public class MeleChaserEnemy : ParentEnemyIAScript
     {
         if (PlayerInMeleeRange())
         {
-            enemyAnimator.SetTrigger("Attack");
             currentState = State.ATTACK;
-            //attack();
-            if(!blocked)
-                StartCoroutine(CooldownAttack());
         }
         checkHit();
     }
@@ -216,7 +213,15 @@ public class MeleChaserEnemy : ParentEnemyIAScript
 
     void updateAttack()
     {
-
+        if (!attackInCooldown && !isTrapped)
+        {
+            attackInCooldown = true;
+            enemyAnimator.SetTrigger("Attack");
+            //attack();
+            if (!isTrapped)
+                StartCoroutine(CooldownAttack());
+        }
+        checkHit();
     }
 
     IEnumerator CooldownAttack()
@@ -224,7 +229,8 @@ public class MeleChaserEnemy : ParentEnemyIAScript
         enemyAnimator.SetBool("Chase", false);
         enemyAnimator.SetBool("Idle", true);
         agent.isStopped = true;
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(2.0f);
+        attackInCooldown = false;
         agent.isStopped = false;
         enemyAnimator.SetBool("Idle", false);
         enemyAnimator.SetBool("Chase", true);
@@ -245,7 +251,7 @@ public class MeleChaserEnemy : ParentEnemyIAScript
     void updateHit()
     {
         lastCheckedHealth = GetComponent<EnemyHealthScript>().GetCurrentHealth();
-        if(!blocked)
+        if(!isTrapped)
             agent.isStopped = true;
     }
 
