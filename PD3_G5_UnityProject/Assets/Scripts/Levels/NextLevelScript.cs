@@ -7,7 +7,6 @@ using FMODUnity;
 
 public class NextLevelScript : MonoBehaviour
 {
-
     private bool goNextLevel = false;
     private bool stopLoad = false;
     private TextMeshProUGUI exitLevelText;

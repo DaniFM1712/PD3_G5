@@ -152,8 +152,10 @@ public class PlayerStatsScript : MonoBehaviour
     public int rareSlots = 1;
     public int legendarySlots = 0;
         //STATS
-    public int[] unlocks = { 0, 0, 0, 0, 0, 0}; 
-        
+    public int[] unlocks = { 0, 0, 0, 0, 0, 0};
+        //GAMEMODES
+    public bool nocturnalUnlocked = false;
+    public bool caoticUnlocked = false;
 
 
     private void Awake()

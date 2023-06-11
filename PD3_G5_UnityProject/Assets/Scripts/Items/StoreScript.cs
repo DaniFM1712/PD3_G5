@@ -30,12 +30,14 @@ public class StoreScript : MonoBehaviour
     [SerializeField] List<Button> inventoryButtons = new List<Button>();
     [SerializeField] List<int> inventoryPrices = new List<int>();
 
-
     [Header("StatsInfo")]
     [SerializeField] List<Button> statsButtons = new List<Button>();
     [SerializeField] List<int> statsPrices = new List<int>();
     [SerializeField] List<GameObject> unlockStep = new List<GameObject>();
 
+    [Header("GameModesInfo")]
+    [SerializeField] List<Button> gamemodeButtons = new List<Button>();
+    [SerializeField] List<int> gamemodePrices = new List<int>();
 
     [SerializeField] TextMeshProUGUI itemDescription;
     [SerializeField] TextMeshProUGUI itemPrice;
@@ -126,22 +128,13 @@ public class StoreScript : MonoBehaviour
                 switch (itemSelected)
                 {
                     case 1:
-                        itemDescription.text = "Increase Divine Power obtanied by 30%.";
+                        itemDescription.text = "Buy common inventory slot.";
                         break;
                     case 2:
-                        itemDescription.text = "Increase Essence obtanied by 30%.";
+                        itemDescription.text = "Buy rare inventory slot.";
                         break;
                     case 3:
-                        itemDescription.text = "Increase damage dealt by 20%";
-                        break;
-                    case 4:
-                        itemDescription.text = "Increase base max health by 20%";
-                        break;
-                    case 5:
-                        itemDescription.text = "Increase firerate by 20%";
-                        break;
-                    case 6:
-                        itemDescription.text = "Unlocks a second life. Once for run, if you die the current level will restart.";
+                        itemDescription.text = "Buy legendary inventory slot.";
                         break;
                 }
                 itemPrice.text = "Cost: " + inventoryPrices[index - 1];
@@ -171,6 +164,19 @@ public class StoreScript : MonoBehaviour
                 }
                 itemPrice.text = "Cost: " + statsPrices[index - 1];
                 statsButtons[6].interactable = true;
+                break;
+            case 3:
+                switch (itemSelected)
+                {
+                    case 1:
+                        itemDescription.text = "Buy new Nocturnal GameMode.";
+                        break;
+                    case 2:
+                        itemDescription.text = "Buy new Caotic GameMode.";
+                        break;
+                }
+                itemPrice.text = "Cost: " + gamemodePrices[index - 1];
+                gamemodeButtons[2].interactable = true;
                 break;
         }
         
@@ -244,6 +250,15 @@ public class StoreScript : MonoBehaviour
                 }
                 break;
             case 3:
+                switch (itemSelected)
+                {
+                    case 1:
+                        BuyNocturnalMode();
+                        break;
+                    case 2:
+                        BuyCaoticMode();
+                        break;
+                }
                 break;
             case 4:
                 break;
@@ -263,6 +278,7 @@ public class StoreScript : MonoBehaviour
         {
             PlayerStatsScript.instance.dashUnlocked = true;
             toolsButtons[0].interactable = false;
+            toolsButtons[1].interactable = true;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-toolsPrices[0]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
             toolsButtons[6].interactable = false;
@@ -297,6 +313,7 @@ public class StoreScript : MonoBehaviour
         {
             PlayerStatsScript.instance.grenadeUnlocked = true;
             toolsButtons[2].interactable = false;
+            toolsButtons[3].interactable = true;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-toolsPrices[2]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
             toolsButtons[6].interactable = false;
@@ -369,7 +386,7 @@ public class StoreScript : MonoBehaviour
         if (PlayerStatsScript.instance.currentSpecialCoin >= inventoryPrices[1])
         {
             PlayerStatsScript.instance.rareSlots++;
-            inventoryButtons[0].interactable = false;
+            inventoryButtons[1].interactable = false;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-inventoryPrices[1]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
             inventoryButtons[3].interactable = false;
@@ -541,11 +558,37 @@ public class StoreScript : MonoBehaviour
         }
     }
 
+    //GAMEMODES
+    private void BuyNocturnalMode()
+    {
+        if (PlayerStatsScript.instance.currentSpecialCoin >= gamemodePrices[0])
+        {
+            PlayerStatsScript.instance.nocturnalUnlocked = true;
+            gamemodeButtons[0].interactable = false;
+            CoinCounterScript.coinCounterInstance.updateSCCounter(-gamemodePrices[0]);
+            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            BuyEmitter.Play();
+            gamemodeButtons[2].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
+        }
+    }
+    private void BuyCaoticMode()
+    {
+        if (PlayerStatsScript.instance.currentSpecialCoin >= gamemodePrices[1])
+        {
+            PlayerStatsScript.instance.nocturnalUnlocked = true;
+            gamemodeButtons[1].interactable = false;
+            CoinCounterScript.coinCounterInstance.updateSCCounter(-gamemodePrices[1]);
+            scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
+            BuyEmitter.Play();
+            gamemodeButtons[2].interactable = false;
+            itemDescription.text = "";
+            itemPrice.text = "Cost: ";
+        }
+    }
 
 
-    
-    
-    
     public void changeTab(int tab)
     {
         statsButtons[6].interactable = false;

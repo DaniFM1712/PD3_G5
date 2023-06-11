@@ -10,10 +10,17 @@ using Random = UnityEngine.Random;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] int PATH_LENGHT;
-    public Queue <int> levelPath;
+    public int currentGameMode = 0;
+    public Queue <int> levelDiurnalPath;
+    public Queue <int> levelNocturnalPath;
+    public Queue <int> levelCaoticPath;
     public List <int> manualLevelPath;
-    private List <int> allLevels = new List<int> {4,5,6};
-    private List<int> levelIndex;
+    private List <int> diurnalLevels = new List<int> {4,5,6};
+    private List <int> nocturnalLevels = new List<int> {8,9,10};
+    private List <int> caoticLevels = new List<int> {6};
+    private List<int> levelDiurnalIndex;
+    private List<int> levelNocturnalIndex;
+    private List<int> levelCaoticIndex;
     private int previousScene = -1;
     public bool randomPath = true;
     public static LevelManager instance { get; private set; }
@@ -36,31 +43,67 @@ public class LevelManager : MonoBehaviour
         if(randomPath)
             generateRandomPath();
         else
-            levelPath = new Queue<int>(manualLevelPath);
+            levelDiurnalPath = new Queue<int>(manualLevelPath);
     }
 
 
     public void LoadLevel() {
-        if (levelPath.Count > 0)
+        switch (currentGameMode)
         {
-            PlayerStatsScript.instance.SaveBlessings();
-            previousScene = getCurrentSceneIndex();
-            SceneManager.LoadScene(levelPath.Dequeue());
+            case 0:
+                if (levelDiurnalPath.Count > 0)
+                {
+                    PlayerStatsScript.instance.SaveBlessings();
+                    previousScene = getCurrentSceneIndex();
+                    SceneManager.LoadScene(levelDiurnalPath.Dequeue());
+                }
+                else
+                {
+                    RestartGame(1);
+                }
+                break;
+            case 1:
+                if (levelNocturnalPath.Count > 0)
+                {
+                    PlayerStatsScript.instance.SaveBlessings();
+                    previousScene = getCurrentSceneIndex();
+                    SceneManager.LoadScene(levelNocturnalPath.Dequeue());
+                }
+                else
+                {
+                    RestartGame(1);
+                }
+                break;
+            case 2:
+                if (levelCaoticPath.Count > 0)
+                {
+                    PlayerStatsScript.instance.SaveBlessings();
+                    previousScene = getCurrentSceneIndex();
+                    SceneManager.LoadScene(levelCaoticPath.Dequeue());
+                }
+                else
+                {
+                    RestartGame(1);
+                }
+                break;
+
         }
-        else
-        {
-            RestartGame(1);
-        }
+        
     }
 
     public void generateRandomPath()
     {
-        levelIndex = new List<int>(allLevels);
+        levelDiurnalIndex = new List<int>(diurnalLevels);
+        levelNocturnalIndex = new List<int>(nocturnalLevels);
+        levelCaoticIndex = new List<int>(caoticLevels);
 
-        Shuffle(levelIndex);
-        for (int i = 0; i < allLevels.Count - PATH_LENGHT; i++)
+        Shuffle(levelDiurnalIndex);
+        Shuffle(levelNocturnalIndex);
+        Shuffle(levelCaoticIndex);
+        
+        for (int i = 0; i < caoticLevels.Count - PATH_LENGHT; i++)
         {
-            levelIndex.RemoveAt(0);
+            levelCaoticIndex.RemoveAt(0);
         }
         /////PARA TESTEAR/////
         //levelIndex.Insert(0, 2);
@@ -68,23 +111,31 @@ public class LevelManager : MonoBehaviour
 
 
         //Add Random Store
-        int storePos = Random.Range(1, levelIndex.Count-1);
-        levelIndex.Insert(storePos, 2);
+        int storePos = Random.Range(1, levelDiurnalIndex.Count-1);
+        levelDiurnalIndex.Insert(storePos, 2);
+        levelNocturnalIndex.Insert(storePos, 2);
+        levelCaoticIndex.Insert(storePos, 2);
 
-
+        /*
         foreach(int k in levelIndex)
         {
             Debug.Log(k);
         }
+        */
 
 
 
-        levelPath = new Queue<int>(levelIndex);
+        levelDiurnalPath = new Queue<int>(levelDiurnalIndex);
+        levelNocturnalPath = new Queue<int>(levelNocturnalIndex);
+        levelCaoticPath = new Queue<int>(levelCaoticIndex);
+        
+        /*
         foreach (int k in levelPath)
         {
             Debug.Log("LP: "+k);
         }
-        Debug.Log(levelPath.Count);
+        */
+        Debug.Log(levelDiurnalPath.Count);
         //levelPath.Enqueue(0); Nivel final que añadimos, bossLvl
     }
 
@@ -126,6 +177,7 @@ public class LevelManager : MonoBehaviour
         PlayerStatsScript.instance.ResetStats();
         SceneManager.LoadScene(scene);
         previousScene = getCurrentSceneIndex();
+        CoinCounterScript.coinCounterInstance.updateSCCounter(0);
     }
 
 
