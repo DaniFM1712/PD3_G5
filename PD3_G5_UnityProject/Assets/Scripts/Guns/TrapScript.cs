@@ -57,9 +57,9 @@ public class TrapScript : MonoBehaviour
                 Instantiate(slowPrefab,transform.position,Quaternion.identity);
             }
             if (!PlayerStatsScript.instance.trapTrapsMultipleEnemiesBlessing)
-                other.transform.parent.GetComponent<ParticleController>().playParticles();
                 Destroy(gameObject);
         }
+        other.transform.parent.GetComponent<ParticleController>().playParticles();
     }
 
     public void SetTrapDamage(float newDamage)
