@@ -213,13 +213,12 @@ public class MeleChaserEnemy : ParentEnemyIAScript
 
     void updateAttack()
     {
-        if (!attackInCooldown && !isTrapped)
+        if (!attackInCooldown && !isTrapped && PlayerInMeleeRange())
         {
             attackInCooldown = true;
             enemyAnimator.SetTrigger("Attack");
             //attack();
-            if (!isTrapped)
-                StartCoroutine(CooldownAttack());
+            StartCoroutine(CooldownAttack());
         }
         checkHit();
     }

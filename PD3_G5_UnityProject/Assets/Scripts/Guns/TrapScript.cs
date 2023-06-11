@@ -66,27 +66,4 @@ public class TrapScript : MonoBehaviour
     {
         damage = newDamage;
     }
-
-
-
-
-    /*
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
-        {
-            enemyPart.TakeDamage(damage, null);
-        }
-    }
-    */
-
-    /*
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
-        {
-            enemyPart.TakeDamage(damage, null);
-        }
-    }
-    */
 }
