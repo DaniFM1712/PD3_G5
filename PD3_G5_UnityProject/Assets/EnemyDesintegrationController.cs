@@ -42,13 +42,11 @@ public class EnemyDesintegrationController : MonoBehaviour
 
     public void StartEnemyDesintegration()
     {
-        print("Method desintegrate is called");
         StartCoroutine(DesintegrateEnemy());
     } 
 
     private IEnumerator DesintegrateEnemy()
     {
-        print("Method desintegrate is called");
         //Particles start
         if (VFXGraph != null)
         {

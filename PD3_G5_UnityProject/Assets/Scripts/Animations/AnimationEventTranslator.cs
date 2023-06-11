@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 
 public class AnimationEventTranslator : MonoBehaviour
@@ -10,7 +11,7 @@ public class AnimationEventTranslator : MonoBehaviour
 
     [SerializeField] private EnemyHealthScript IA_Health;
     [SerializeField] private EnemyDesintegrationController IA_Desintegration;
-    
+    [SerializeField] private VisualEffect IA_SoulVE;
     
     //General
 
@@ -19,6 +20,10 @@ public class AnimationEventTranslator : MonoBehaviour
         IA_Health.DestroyObject();
     }
 
+    public void SoulActivation()
+    {
+        IA_SoulVE.Play();
+    }
     public void StartDesintegration()
     {
         IA_Desintegration.StartEnemyDesintegration();
