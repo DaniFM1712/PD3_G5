@@ -61,6 +61,7 @@ Material:
     - _Desintegration_Amount: 0
     - _Desintegration_Width: 0.02
     - _DstBlend: 0
+    - _NoiseScale: 5
     - _Normal_Shader: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -69,6 +70,8 @@ Material:
     - _Shader_Smoothness: 0.5
     - _SrcBlend: 1
     - _Surface: 0
+    - _VertexWindSpeed: 0
+    - _WindStrength: 0
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1
@@ -76,6 +79,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveColor: {r: 8.675366, g: 8.675366, b: 8.675366, a: 1}
+    - _WindDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5477918978308415232
 MonoBehaviour:
