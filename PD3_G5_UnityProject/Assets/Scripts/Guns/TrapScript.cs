@@ -32,15 +32,11 @@ public class TrapScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        ParticleController controller = other.gameObject.GetComponent<ParticleController>();
-        Debug.Log(other.gameObject.GetComponent<EnemyHealthScript>());
         if (other.gameObject.CompareTag("Enemy"))
         {
             TrapActiveEmitter.Play();
@@ -61,10 +57,9 @@ public class TrapScript : MonoBehaviour
                 Instantiate(slowPrefab,transform.position,Quaternion.identity);
             }
             if (!PlayerStatsScript.instance.trapTrapsMultipleEnemiesBlessing)
-                other.gameObject.GetComponent<ParticleController>().playParticles();
+                other.transform.parent.GetComponent<ParticleController>().playParticles();
                 Destroy(gameObject);
         }
-
     }
 
     public void SetTrapDamage(float newDamage)
