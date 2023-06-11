@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class gameModeControllerScript : MonoBehaviour
     [SerializeField] GameObject buttonNoc;
     [SerializeField] GameObject buttonCao;
     private bool canChange = false;
+
+    [Header("FMOD")]
+    public StudioEventEmitter SelectEmitter;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +44,7 @@ public class gameModeControllerScript : MonoBehaviour
         canvasGameMode.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
+        SelectEmitter.Play();
         //SETEAR TEMA DE PORTALES
     }
     

@@ -577,7 +577,7 @@ public class StoreScript : MonoBehaviour
     {
         if (PlayerStatsScript.instance.currentSpecialCoin >= gamemodePrices[1])
         {
-            PlayerStatsScript.instance.nocturnalUnlocked = true;
+            PlayerStatsScript.instance.caoticUnlocked = true;
             gamemodeButtons[1].interactable = false;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-gamemodePrices[1]);
             scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";

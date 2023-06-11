@@ -15718,6 +15718,7 @@ GameObject:
   - component: {fileID: 804541191}
   - component: {fileID: 804541192}
   - component: {fileID: 804541193}
+  - component: {fileID: 804541194}
   m_Layer: 0
   m_Name: gamemodeBoard
   m_TagString: Untagged
@@ -15769,6 +15770,38 @@ MonoBehaviour:
   canvasGameMode: {fileID: 645611690}
   buttonNoc: {fileID: 223110492}
   buttonCao: {fileID: 862186682}
+  SelectEmitter: {fileID: 804541194}
+--- !u!114 &804541194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804541190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -40359404
+      Data2: 1318412182
+      Data3: 2117079449
+      Data4: -519501978
+    Path: "event:/Men\xFA/Select"
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &811455172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24903,6 +24936,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3385449027617743937, guid: 7ed0031eede275949bfaf4a56f48efad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3402964337946666418, guid: 7ed0031eede275949bfaf4a56f48efad,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -24912,6 +24950,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SelectItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783758322473470688, guid: 7ed0031eede275949bfaf4a56f48efad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984238132555329317, guid: 7ed0031eede275949bfaf4a56f48efad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4144523573536927908, guid: 7ed0031eede275949bfaf4a56f48efad,
         type: 3}
@@ -25297,6 +25345,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SelectItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 6785828322665644703, guid: 7ed0031eede275949bfaf4a56f48efad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7021757611882521694, guid: 7ed0031eede275949bfaf4a56f48efad,
         type: 3}
