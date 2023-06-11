@@ -61,7 +61,8 @@ Material:
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 2
-    - _DarkenNoiseOpacity: 0.93
+    - _DarkenEmissionOpacity: 0
+    - _DarkenNoiseOpacity: 0
     - _DarkenNoiseScale: 4.25
     - _DarkenNoiseSpeed: 0.1
     - _DesintegrationScale: 100
@@ -79,6 +80,7 @@ Material:
     - _NoiseOverEmissivePattern: 0.5
     - _NoiseScale: 100
     - _Normal_Shader: 1
+    - _OverAllOpacity: 0
     - _OverEmissionOpacity: 1.12
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -96,7 +98,8 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissiveColour: {r: 1, g: 0.5688094, b: 0.56078434, a: 0}
+    - _EmissiveColour: {r: 4, g: 2.9490197, b: 2.164706, a: 0}
+    - _OverAllColour: {r: 0.7830189, g: 0.2253026, b: 0.2253026, a: 0}
     - _WindDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8944047005860935314
