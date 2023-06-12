@@ -262,7 +262,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
     private void attack()
     {
         
-        if (readyToShoot && shooting && !reloading)
+        if (readyToShoot && shooting && !reloading && !isTrapped)
         {
             bulletsShot = 0;
             if (bulletsLeft > 0)
