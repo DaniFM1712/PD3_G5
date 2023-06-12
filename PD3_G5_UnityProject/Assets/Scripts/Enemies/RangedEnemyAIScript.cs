@@ -270,10 +270,11 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
                 shootingPoint = player.transform.position;
                 agent.isStopped = true;
 
-                float chooseAttack = -1f;//Random.Range(0, 0);
+                float chooseAttack = Random.Range(0f, 1f);
                 //Debug.Log("ss: " + specialShoot);
-                if (specialShoot && chooseAttack >= 0f)
+                if (specialShoot && chooseAttack >= 0.7f)
                 {
+                    print("TREMENDA OSTIA TE VAS A LLEVAR");
                     specialShoot = false;
                     specialShootInCooldown = true;
                     int i = 0;
@@ -282,7 +283,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
                         //Add animator bool
                         enemyAnimator.SetBool("TripleShoot", true);
                         enemyAnimator.SetBool("Chase", false);
-                        SpecialShoot();
+                        //SpecialShoot();
                         i++;
                     }
 
