@@ -33,7 +33,9 @@ public class InventoryManagerScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI dashBlessings;
     [SerializeField] TextMeshProUGUI weaponsBlessings;
     [SerializeField] TextMeshProUGUI grenadeBlessings;
-
+    
+    [Header("SlotsLocked")]
+    [SerializeField] public List<GameObject> lockeds;
 
 
 
