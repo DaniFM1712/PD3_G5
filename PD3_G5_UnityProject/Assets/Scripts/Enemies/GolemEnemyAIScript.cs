@@ -292,7 +292,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
     public void RangedAttack()
     {
-        if (readyToShoot && shooting)
+        if (readyToShoot && shooting && !isTrapped)
         {
             bulletsShot = 0;
             shootingPoint = player.transform.position;
