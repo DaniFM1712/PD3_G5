@@ -32,7 +32,8 @@ public class SlowAoEScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            if(other.gameObject.TryGetComponent(out NavMeshAgent enemyAgent))
+            other.transform.parent.GetComponent<ParticleController>().playParticlesSlow();
+            if (other.gameObject.TryGetComponent(out NavMeshAgent enemyAgent))
             {
                 enemyAgent.speed = 1.5f;
                 enemyList.Add(enemyAgent);
@@ -44,6 +45,7 @@ public class SlowAoEScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            other.transform.parent.GetComponent<ParticleController>().stopParticlesSlow();
             if (other.gameObject.TryGetComponent(out NavMeshAgent enemyAgent))
             {
                 if (enemyList.Contains(enemyAgent))

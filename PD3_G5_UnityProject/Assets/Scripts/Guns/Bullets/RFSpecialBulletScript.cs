@@ -50,7 +50,7 @@ public class RFSpecialBulletScript : MonoBehaviour
             {
                 enemyIA.GetStunned(2f);
                 other.gameObject.transform.parent.gameObject.GetComponent<EnemyHealthScript>().TakeDamage(damage, false);
-                other.transform.parent.GetComponent<ParticleController>().playParticles();
+                other.transform.parent.GetComponent<ParticleController>().playParticlesTrap();
             }
             ReturnToOrigin();
         }

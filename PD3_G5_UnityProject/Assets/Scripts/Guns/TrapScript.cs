@@ -59,7 +59,7 @@ public class TrapScript : MonoBehaviour
             if (!PlayerStatsScript.instance.trapTrapsMultipleEnemiesBlessing)
                 Destroy(gameObject);
         }
-        other.transform.parent.GetComponent<ParticleController>().playParticles();
+        other.transform.parent.GetComponent<ParticleController>().playParticlesTrap();
     }
 
     public void SetTrapDamage(float newDamage)
