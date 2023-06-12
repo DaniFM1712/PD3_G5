@@ -447,7 +447,10 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
         Gizmos.DrawWireSphere(transform.position, CHASE_RANGE);
     }
 
-
+    private void OnDestroy()
+    {
+        Destroy(previewBullet);
+    }
 
     private void OnEnable()
     {
@@ -460,4 +463,5 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
         enemySetted = true;
     }
     
+
 }
