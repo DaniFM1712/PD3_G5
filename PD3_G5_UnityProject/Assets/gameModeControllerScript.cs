@@ -9,6 +9,9 @@ public class gameModeControllerScript : MonoBehaviour
     [SerializeField] GameObject canvasGameMode;
     [SerializeField] GameObject buttonNoc;
     [SerializeField] GameObject buttonCao;
+    [SerializeField] GameObject portalCao;
+    [SerializeField] GameObject portalNoc;
+    [SerializeField] GameObject portalDiu;
     private bool canChange = false;
 
     [Header("FMOD")]
@@ -45,6 +48,24 @@ public class gameModeControllerScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
         SelectEmitter.Play();
+        switch (mode)
+        {
+            case 0:
+                portalDiu.SetActive(true);
+                portalNoc.SetActive(false);
+                portalCao.SetActive(false);
+                break;
+            case 1:
+                portalDiu.SetActive(false);
+                portalNoc.SetActive(true);
+                portalCao.SetActive(false);
+                break;
+            case 2:
+                portalDiu.SetActive(false);
+                portalNoc.SetActive(false);
+                portalCao.SetActive(true);
+                break;
+        }
         //SETEAR TEMA DE PORTALES
     }
     
