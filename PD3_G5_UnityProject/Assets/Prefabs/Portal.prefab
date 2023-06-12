@@ -7384,7 +7384,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3507
+  m_VersionIndex: 3510
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -31342,6 +31342,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2956021029832529107}
     m_Modifications:
+    - target: {fileID: 316800156716404304, guid: ae373f5fec1783e43b0f242a3a8b4ce3,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 316800156716404304, guid: ae373f5fec1783e43b0f242a3a8b4ce3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 29c3329714ceb59418c97bf21dd50030, type: 2}
+    - target: {fileID: 316800156716404304, guid: ae373f5fec1783e43b0f242a3a8b4ce3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 234c7bb12a237114b95e5580c7b6de7c, type: 2}
     - target: {fileID: 1571995312409006134, guid: ae373f5fec1783e43b0f242a3a8b4ce3,
         type: 3}
       propertyPath: m_RootOrder
@@ -31422,6 +31437,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 8916402948644730804, guid: ae373f5fec1783e43b0f242a3a8b4ce3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 29c3329714ceb59418c97bf21dd50030, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae373f5fec1783e43b0f242a3a8b4ce3, type: 3}
 --- !u!4 &7468478967021650232 stripped
