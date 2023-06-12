@@ -1,24 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LorePanelScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] GameObject loreGO;
+    [SerializeField] GameObject loreUIGO;
     [SerializeField] GameObject interactMessageGO;
+    [SerializeField] GameObject scriptureModel;
+    [SerializeField] GameObject pickableModel;
+    [SerializeField] int panelIndex;
+    public bool unlocked;//SOLO PARA TEST
+
     bool canInteract = false;
     void Start()
     {
-        
+        //unlocked = playerstats.instance.lore[panelIndex]
+        if (unlocked) { 
+            scriptureModel.SetActive(true); 
+            pickableModel.SetActive(true);
+            interactMessageGO.GetComponent<TextMeshProUGUI>().text = "Press E to read!";
+         }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canInteract && Input.GetKeyDown(KeyCode.E))
+        if (canInteract && unlocked && Input.GetKeyDown(KeyCode.E))
         {
-            loreGO.SetActive(true);
+            loreUIGO.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
         }
     }
 
@@ -39,5 +53,12 @@ public class LorePanelScript : MonoBehaviour
             interactMessageGO.SetActive(false);
             canInteract = false;
         }
+    }
+
+    public void ClosePanel()
+    {
+        loreUIGO.SetActive(false);
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
