@@ -401,8 +401,13 @@ public class StoreScript : MonoBehaviour
             BuyEmitter.Play();
             if(PlayerStatsScript.instance.commonSlots == 3)
             {
+                InventoryManagerScript.InventoryInstance.lockeds[0].SetActive(true);
                 inventoryButtons[0].interactable = false;
                 PlayerStatsScript.instance.inventroyUpgrades[0] = true;
+            }
+            else
+            {
+                InventoryManagerScript.InventoryInstance.lockeds[1].SetActive(true);
             }
         }
     }
@@ -419,6 +424,7 @@ public class StoreScript : MonoBehaviour
             itemPrice.text = "Cost: ";
             BuyEmitter.Play();
             PlayerStatsScript.instance.inventroyUpgrades[1] = true;
+            InventoryManagerScript.InventoryInstance.lockeds[2].SetActive(true);
         }
     }
     private void BuyLegendarySlot()
@@ -434,6 +440,7 @@ public class StoreScript : MonoBehaviour
             itemPrice.text = "Cost: ";
             BuyEmitter.Play();
             PlayerStatsScript.instance.inventroyUpgrades[2] = true;
+            InventoryManagerScript.InventoryInstance.lockeds[3].SetActive(true);
         }
     }
 
