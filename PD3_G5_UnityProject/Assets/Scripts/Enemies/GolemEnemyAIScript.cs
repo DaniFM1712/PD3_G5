@@ -292,7 +292,7 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
     public void RangedAttack()
     {
-        if (readyToShoot && shooting)
+        if (readyToShoot && shooting && !isTrapped)
         {
             bulletsShot = 0;
             shootingPoint = player.transform.position;
@@ -447,7 +447,10 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
         Gizmos.DrawWireSphere(transform.position, CHASE_RANGE);
     }
 
-
+    private void OnDestroy()
+    {
+        Destroy(previewBullet);
+    }
 
     private void OnEnable()
     {
@@ -460,4 +463,5 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
         enemySetted = true;
     }
     
+
 }
