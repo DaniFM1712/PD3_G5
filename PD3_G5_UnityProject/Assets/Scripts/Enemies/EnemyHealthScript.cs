@@ -18,6 +18,7 @@ public class EnemyHealthScript : MonoBehaviour
     [SerializeField] float scReward = 1;
     [SerializeField] GameObject healthOrbPrefab;
     [SerializeField] int healthOrbPrefabAmount;
+    [SerializeField] int healthOrbPercent = 40;
     private Canvas canvas;
     private GameObject hitMarker;
     [Header("FMOD")]
@@ -128,7 +129,7 @@ public class EnemyHealthScript : MonoBehaviour
             while(healthOrbPrefabAmount > i)
             {
                 int random = Random.Range(0, 100);
-                if(random > 40)
+                if(random > healthOrbPercent)
                 {
                     Instantiate(healthOrbPrefab, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity);
                 }
