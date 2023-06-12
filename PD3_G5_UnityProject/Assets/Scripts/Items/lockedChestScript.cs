@@ -27,6 +27,7 @@ public class lockedChestScript : MonoBehaviour
     {
         if (canTake && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.instance.currentNormalCoin >= openPrice)
         {
+            CoinCounterScript.coinCounterInstance.updateNCCounter(-openPrice);
             consumableItemGO.SetActive(true);
             Destroy(gameObject);
         }
