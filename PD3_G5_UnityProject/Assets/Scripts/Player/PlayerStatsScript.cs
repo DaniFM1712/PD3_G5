@@ -22,6 +22,9 @@ public class PlayerStatsScript : MonoBehaviour
     public List<bool> toolsUpgrades = new List<bool>();
     public List<bool> inventroyUpgrades = new List<bool>();
     public List<bool> statsUpgrades = new List<bool>();
+    public List<bool> gamemodesUpgrades = new List<bool>();
+    public List<bool> loreUnlocked = new List<bool>();
+
 
     //public IEnumerable<bool> permanentUpgrades= Enumerable.Repeat(false, 6);
 
@@ -156,8 +159,8 @@ public class PlayerStatsScript : MonoBehaviour
         //GAMEMODES
     public bool nocturnalUnlocked = false;
     public bool caoticUnlocked = false;
-
-
+    //LORE
+    public bool loreEnabled = false;
     private void Awake()
     {
         if (instance == null)
@@ -176,13 +179,24 @@ public class PlayerStatsScript : MonoBehaviour
         for (int i = 0; i<6;i++)
         {
             toolsUpgrades.Add(false);
-            if (i < 3)
+            if (i < 2)
+            {
+                gamemodesUpgrades.Add(false);
+                inventroyUpgrades.Add(false);
+                statsUpgrades.Add(false);
+                loreUnlocked.Add(false);
+            }
+            else if (i < 3)
             {
                 inventroyUpgrades.Add(false);
                 statsUpgrades.Add(false);
+                loreUnlocked.Add(false);
             }
-            if (i<5)
+            else if (i < 5)
+            {
                 statsUpgrades.Add(false);
+                loreUnlocked.Add(false);
+            }
 
         }
 
