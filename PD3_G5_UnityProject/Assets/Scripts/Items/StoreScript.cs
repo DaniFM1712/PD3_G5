@@ -81,7 +81,32 @@ public class StoreScript : MonoBehaviour
                 }
                 i++;
             }
-
+            i = 0;
+            foreach (bool boolean in PlayerStatsScript.instance.inventroyUpgrades)
+            {
+                if (boolean)
+                {
+                    inventoryButtons[i].interactable = false;
+                }
+                i++;
+            }
+            i = 0;
+            foreach (bool boolean in PlayerStatsScript.instance.gamemodesUpgrades)
+            {
+                if (boolean)
+                {
+                    gamemodeButtons[i].interactable = false;
+                }
+                i++;
+            }
+            foreach (bool boolean in PlayerStatsScript.instance.gamemodesUpgrades)
+            {
+                if (boolean)
+                {
+                    gamemodeButtons[i].interactable = false;
+                }
+                i++;
+            }
             statsButtons[6].interactable = false;
 
             itemDescription.text = "";
