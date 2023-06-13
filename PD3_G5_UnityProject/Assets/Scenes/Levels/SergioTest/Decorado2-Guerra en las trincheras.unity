@@ -1251,6 +1251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1447561114}
   - {fileID: 660334042}
   - {fileID: 102865995}
   - {fileID: 916822547}
@@ -2853,7 +2854,7 @@ Transform:
   - {fileID: 1201833101}
   - {fileID: 1179585290}
   m_Father: {fileID: 42587568}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &103512987
 PrefabInstance:
@@ -19087,7 +19088,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 42587568}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &660334043
 MonoBehaviour:
@@ -26384,7 +26385,7 @@ Transform:
   - {fileID: 329033801}
   - {fileID: 1389033044}
   m_Father: {fileID: 42587568}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &920014266
 PrefabInstance:
@@ -43942,6 +43943,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3035147798467913003, guid: 6fdef8b44e21e7b4a982980e7fe07e3e,
     type: 3}
   m_PrefabInstance: {fileID: 151729869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1447561113
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 42587568}
+    m_Modifications:
+    - target: {fileID: 2736869871194784898, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.4326122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7438906
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.35408506
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.36619285
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -295.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -146.297
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -209.248
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784903, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
+        type: 3}
+      propertyPath: m_Name
+      value: Day_Light_Volume
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7a2f27191d3e54b4ab99eec09c6b160f, type: 3}
+--- !u!4 &1447561114 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2736869871194784898, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1447561113}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1449210396 stripped
 Transform:

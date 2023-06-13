@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2736869871194784903
+--- !u!1 &2046358893758176145
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,94 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2736869871194784898}
-  - component: {fileID: 2736869871194784897}
-  - component: {fileID: 2736869871194784896}
+  - component: {fileID: 8404214084037830083}
+  - component: {fileID: 4190358714137892746}
   m_Layer: 0
-  m_Name: Day_Directional Light
+  m_Name: Global Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2736869871194784898
+--- !u!4 &8404214084037830083
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2736869871194784903}
-  m_LocalRotation: {x: -0.81421787, y: 0.12569316, z: 0.54611367, w: -0.15169163}
-  m_LocalPosition: {x: -59.973373, y: 27.676794, z: -106.604164}
+  m_GameObject: {fileID: 2046358893758176145}
+  m_LocalRotation: {x: -0.5610898, y: 0.6034581, z: 0.5032345, w: -0.2603298}
+  m_LocalPosition: {x: -267.36792, y: 5.1034203, z: -232.45145}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+  m_Father: {fileID: 6780034775803161943}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4190358714137892746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046358893758176145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 305ee2a65aaf08e48b884d0aaaed9826, type: 2}
+--- !u!1 &6780034775803161941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6780034775803161943}
+  - component: {fileID: 6780034775803161942}
+  - component: {fileID: 6780034775803161936}
+  m_Layer: 0
+  m_Name: Night_Light_Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6780034775803161943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6780034775803161941}
+  m_LocalRotation: {x: 0.8033552, y: -0.18331346, z: -0.56250757, w: 0.06783726}
+  m_LocalPosition: {x: -59.973373, y: 27.676794, z: -106.604164}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8404214084037830083}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -353.7, y: -111.08, z: -158.123}
---- !u!108 &2736869871194784897
+  m_LocalEulerAnglesHint: {x: -5.58, y: -111.08, z: -158.123}
+--- !u!108 &6780034775803161942
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2736869871194784903}
+  m_GameObject: {fileID: 6780034775803161941}
   m_Enabled: 1
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9926525, b: 0.8726415, a: 1}
-  m_Intensity: 1.2
+  m_Color: {r: 0.43980953, g: 0.27843142, b: 1, a: 1}
+  m_Intensity: 4.03
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -95,13 +145,13 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &2736869871194784896
+--- !u!114 &6780034775803161936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2736869871194784903}
+  m_GameObject: {fileID: 6780034775803161941}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
