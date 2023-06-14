@@ -32,5 +32,4 @@ public class LoadingScreenScript : MonoBehaviour
         blessings.SetActive(true); 
         Destroy(gameObject);
     }
-
 }

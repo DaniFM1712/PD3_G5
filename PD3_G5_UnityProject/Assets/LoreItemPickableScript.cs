@@ -13,16 +13,29 @@ public class LoreItemPickableScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int randomizer = Random.Range(0, 100);
-        if(randomizer >= percentRan && !PlayerStatsScript.instance.loreEnabled)
+        bool dLevel = loreNum < 2;
+        bool nLevel = loreNum > 1 && loreNum < 4;
+        bool cLevel = loreNum > 3;
+        if ((LevelManager.instance.currentGameMode == 0 && dLevel) || (LevelManager.instance.currentGameMode == 0 && nLevel) || 
+            (LevelManager.instance.currentGameMode == 0 && cLevel))
         {
-            loreMesh.SetActive(true);
-            PlayerStatsScript.instance.loreEnabled = true;
+            int randomizer = Random.Range(0, 100);
+            Debug.Log(randomizer >= percentRan && !PlayerStatsScript.instance.loreEnabled);
+            if (randomizer >= percentRan && !PlayerStatsScript.instance.loreEnabled)
+            {
+                loreMesh.SetActive(true);
+                PlayerStatsScript.instance.loreEnabled = true;
+            }
+            else
+            {
+                Destroy(transform.parent.gameObject);
+            }
         }
         else
         {
-            Destroy(transform.parent.gameObject); 
+            Destroy(transform.parent.gameObject);
         }
+
     }
 
     // Update is called once per frame
