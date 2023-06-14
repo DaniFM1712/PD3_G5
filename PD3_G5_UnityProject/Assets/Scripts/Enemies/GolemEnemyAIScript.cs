@@ -449,6 +449,8 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
     private void OnDestroy()
     {
+        previewBullet.SetActive(false);
+
         Destroy(previewBullet);
     }
 
