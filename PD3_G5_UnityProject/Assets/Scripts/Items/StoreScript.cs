@@ -169,19 +169,19 @@ public class StoreScript : MonoBehaviour
                 switch (itemSelected)
                 {
                     case 1:
-                        itemDescription.text = "Increase Divine Power obtained by 30%.";
+                        itemDescription.text = "Increase Divine Power obtained by 100%.";
                         break;
                     case 2:
-                        itemDescription.text = "Increase Essence obtained by 30%.";
+                        itemDescription.text = "Increase Essence obtained by 25%.";
                         break;
                     case 3:
-                        itemDescription.text = "Increase damage dealt by 20%";
+                        itemDescription.text = "Increase damage dealt by 50%";
                         break;
                     case 4:
-                        itemDescription.text = "Increase base max health by 20%";
+                        itemDescription.text = "Increase base max health by 50%";
                         break;
                     case 5:
-                        itemDescription.text = "Increase firerate by 20%";
+                        itemDescription.text = "Increase firerate by 50%";
                         break;
                     case 6:
                         itemDescription.text = "Unlocks a second life. Once for run, if you die the current level will restart.";
