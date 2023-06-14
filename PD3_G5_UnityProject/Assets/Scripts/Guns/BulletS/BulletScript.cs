@@ -20,7 +20,6 @@ public class BulletScript : MonoBehaviour
     private void Awake()
     {
         timeToDestroy = lifeTime;
-        hitEffect = Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
     }
 
     private void Start()
@@ -29,7 +28,8 @@ public class BulletScript : MonoBehaviour
             //system.Simulate(Time.unscaledTime, false, true, true);
             system.Play();
         }
-            
+        hitEffect = Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
+
     }
 
     // Update is called once per frame
@@ -48,16 +48,19 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        hitEffect.transform.position = transform.position;
-        hitEffect.transform.rotation = transform.rotation;
-        hitEffect.GetComponent<ParticleController>().playParticlesTrap();
         if (other.gameObject.CompareTag("EnergyEnemyShield"))
         {
+            hitEffect.transform.position = transform.position;
+            hitEffect.transform.rotation = transform.rotation;
+            hitEffect.GetComponent<ParticleController>().playParticlesTrap();
             ReturnToOrigin();
         }
 
         else if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Terrain"))
         {
+            hitEffect.transform.position = transform.position;
+            hitEffect.transform.rotation = transform.rotation;
+            hitEffect.GetComponent<ParticleController>().playParticlesTrap();
             bool dead = false;
 
             if (other.gameObject.TryGetComponent<EnemyPartScript>(out EnemyPartScript enemyPart))
