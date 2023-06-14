@@ -1,9 +1,11 @@
 using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.VFX;
 
 public class RangedEnemyAIScript : ParentEnemyIAScript
 {
@@ -53,6 +55,10 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
     enum State { IDLE, CHASE, ATTACK, HIT, DIE }
     private bool enemySetted = false;
 
+    [Header("SPAWN")] 
+    [SerializeField] private Transform SpawnVE;
+    [SerializeField] private Transform ParentModel;
+    
 
 
     [Header("IDLE")]
@@ -84,7 +90,9 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
 
 
     [Header("Animator")] 
-    [SerializeField] private Animator enemyAnimator; 
+    [SerializeField] private Animator enemyAnimator;
+
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -271,19 +279,15 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
                 agent.isStopped = true;
 
                 float chooseAttack = Random.Range(0f, 1f);
-                //Debug.Log("ss: " + specialShoot);
                 if (specialShoot && chooseAttack >= 0.7f)
                 {
-                    print("TREMENDA OSTIA TE VAS A LLEVAR");
                     specialShoot = false;
                     specialShootInCooldown = true;
                     int i = 0;
                     while (i < 3)
                     {
-                        //Add animator bool
                         enemyAnimator.SetBool("TripleShoot", true);
                         enemyAnimator.SetBool("Chase", false);
-                        //SpecialShoot();
                         i++;
                     }
 
@@ -294,7 +298,6 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
                     //add animator bool
                     enemyAnimator.SetTrigger("Shoot");
                     enemyAnimator.SetBool("Chase", false);
-                    //Shoot();
                 }
 
             }
@@ -462,6 +465,7 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
 
     IEnumerator SetEnemySpawn()
     {
+      
         yield return new WaitForSeconds(secondsToSetEnemy);
         enemySetted = true;
     }
