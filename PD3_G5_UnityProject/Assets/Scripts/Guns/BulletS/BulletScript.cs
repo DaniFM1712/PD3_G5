@@ -14,10 +14,13 @@ public class BulletScript : MonoBehaviour
     Vector3 originPosition = new Vector3(0f, 0f, 0f);
 
     [SerializeField] ParticleSystem[] particleSystems;
+    [SerializeField] GameObject hitEffectPrefab;
+    GameObject hitEffect;
 
     private void Awake()
     {
         timeToDestroy = lifeTime;
+        hitEffect = Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
     }
 
     private void Start()
@@ -45,6 +48,9 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        hitEffect.transform.position = transform.position;
+        hitEffect.transform.rotation = transform.rotation;
+        hitEffect.GetComponent<ParticleController>().playParticlesTrap();
         if (other.gameObject.CompareTag("EnergyEnemyShield"))
         {
             ReturnToOrigin();
