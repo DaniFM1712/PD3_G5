@@ -11,6 +11,7 @@ public class GrenadeBulletScript : MonoBehaviour
     float timeToDestroy;
     float areaMultiplyer = 1f;
     Vector3 originPosition = new Vector3(0f, 0f, 0f);
+    public bool big;
 
     [Header("FMOD")]
     public StudioEventEmitter ExplosionEmitter;
@@ -18,6 +19,7 @@ public class GrenadeBulletScript : MonoBehaviour
     private void Awake()
     {
         timeToDestroy = lifeTime;
+        big = false;
     }
 
     // Update is called once per frame
@@ -42,8 +44,14 @@ public class GrenadeBulletScript : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Terrain"))
         {
             ExplosionEmitter.Play();
+            
             GameObject specialEffect = Instantiate(specialEffectPrefab,transform.position, Quaternion.identity);         
             specialEffect.GetComponent<ExplosionScript>().doubleDamage = doubleDamage;
+            if (big)
+                specialEffect.GetComponent<Animator>().SetBool("big",true);
+            else
+                specialEffect.GetComponent<Animator>().SetBool("big", false);
+
             specialEffect.transform.localScale *= areaMultiplyer;
             ReturnToOrigin();
         }   
