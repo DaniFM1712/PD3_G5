@@ -603,6 +603,7 @@ public class StoreScript : MonoBehaviour
             gamemodeButtons[2].interactable = false;
             itemDescription.text = "";
             itemPrice.text = "Cost: ";
+            gamemodeButtons[1].interactable = true;
         }
     }
     private void BuyCaoticMode()
