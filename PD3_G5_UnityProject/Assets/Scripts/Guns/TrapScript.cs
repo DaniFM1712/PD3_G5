@@ -1,4 +1,5 @@
 using FMODUnity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -58,8 +59,16 @@ public class TrapScript : MonoBehaviour
             }
             if (!PlayerStatsScript.instance.trapTrapsMultipleEnemiesBlessing)
                 Destroy(gameObject);
+            try
+            {
+                other.transform.parent.GetComponent<ParticleController>().playParticlesTrap();
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            } 
+
         }
-        other.transform.parent.GetComponent<ParticleController>().playParticlesTrap();
     }
 
     public void SetTrapDamage(float newDamage)

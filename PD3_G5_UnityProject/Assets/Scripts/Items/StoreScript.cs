@@ -128,7 +128,7 @@ public class StoreScript : MonoBehaviour
                 switch (itemSelected)
                 {
                     case 1:
-                        itemDescription.text = "Unlock Dash [LShift]: a short and fast movement towards the direction you're looking.";
+                        itemDescription.text = "Unlock Dash [LShift]: fast movement towards the direction you're looking.";
                         break;
                     case 2:
                         itemDescription.text = "+1 Dash charges.";
@@ -169,10 +169,10 @@ public class StoreScript : MonoBehaviour
                 switch (itemSelected)
                 {
                     case 1:
-                        itemDescription.text = "Increase Divine Power obtanied by 30%.";
+                        itemDescription.text = "Increase Divine Power obtained by 30%.";
                         break;
                     case 2:
-                        itemDescription.text = "Increase Essence obtanied by 30%.";
+                        itemDescription.text = "Increase Essence obtained by 30%.";
                         break;
                     case 3:
                         itemDescription.text = "Increase damage dealt by 20%";
@@ -452,7 +452,7 @@ public class StoreScript : MonoBehaviour
         {
             if (PlayerStatsScript.instance.unlocks[0] < 5) {
                 PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
-                PlayerStatsScript.instance.baseDivinePowerMultiplyer += 0.3f / 5;
+                PlayerStatsScript.instance.baseDivinePowerMultiplyer += 1f / 5;
                 PlayerStatsScript.instance.currentDivinePowerMultiplyer = PlayerStatsScript.instance.baseDivinePowerMultiplyer;
                 BuyEmitter.Play();
 
@@ -477,7 +477,7 @@ public class StoreScript : MonoBehaviour
         {
             if (PlayerStatsScript.instance.unlocks[1] < 5) {
                 PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
-                PlayerStatsScript.instance.baseEssenceMultiplyer += 0.3f/5;
+                PlayerStatsScript.instance.baseEssenceMultiplyer += 0.25f/5;
                 PlayerStatsScript.instance.currentEssenceMultiplyer = PlayerStatsScript.instance.baseEssenceMultiplyer;
                 CoinCounterScript.coinCounterInstance.updateSCCounter(-statsPrices[1]);
                 scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
@@ -502,7 +502,7 @@ public class StoreScript : MonoBehaviour
         {
             if (PlayerStatsScript.instance.unlocks[2] < 5) {
                 PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
-                PlayerStatsScript.instance.baseDamageMultiplyer += 0.2f / 5;
+                PlayerStatsScript.instance.baseDamageMultiplyer += 0.5f / 5;
                 PlayerStatsScript.instance.currentDamageMultiplyer = PlayerStatsScript.instance.baseDamageMultiplyer;
                 CoinCounterScript.coinCounterInstance.updateSCCounter(-statsPrices[2]);
                 scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
@@ -528,7 +528,7 @@ public class StoreScript : MonoBehaviour
             if (PlayerStatsScript.instance.unlocks[3] < 5)
             {
                 PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
-                PlayerStatsScript.instance.baseMaxHealthMultiplyer += 0.2f / 5;
+                PlayerStatsScript.instance.baseMaxHealthMultiplyer += 0.5f / 5;
                 PlayerStatsScript.instance.currentMaxHealthMultiplyer = PlayerStatsScript.instance.baseMaxHealthMultiplyer;
                 PlayerStatsScript.instance.currentHealth = PlayerStatsScript.instance.GetCurrentMaxHealth();
                 CoinCounterScript.coinCounterInstance.updateSCCounter(-statsPrices[3]);
@@ -554,7 +554,7 @@ public class StoreScript : MonoBehaviour
             if (PlayerStatsScript.instance.unlocks[4] < 5)
             {
                 PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
-                PlayerStatsScript.instance.baseFireRateMultiplyer += 0.2f / 5;
+                PlayerStatsScript.instance.baseFireRateMultiplyer += 0.5f / 5;
                 PlayerStatsScript.instance.currentFireRateMultiplyer = PlayerStatsScript.instance.baseFireRateMultiplyer;
                 CoinCounterScript.coinCounterInstance.updateSCCounter(-statsPrices[4]);
                 scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
@@ -631,15 +631,6 @@ public class StoreScript : MonoBehaviour
         currentTab = tab;
     }
 
-
-    private void updateToolsTab()
-    {
-
-    }
-    private void updateInvetoryTab()
-    {
-
-    }
     private void updateStatsTab()
     {
         int index = 0;
