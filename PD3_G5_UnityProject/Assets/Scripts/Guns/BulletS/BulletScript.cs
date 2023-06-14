@@ -13,7 +13,6 @@ public class BulletScript : MonoBehaviour
     float timeToDestroy;
     Vector3 originPosition = new Vector3(0f, 0f, 0f);
 
-    [SerializeField] ParticleSystem[] particleSystems;
     [SerializeField] GameObject hitEffectPrefab;
     GameObject hitEffect;
 
@@ -24,10 +23,6 @@ public class BulletScript : MonoBehaviour
 
     private void Start()
     {
-        foreach (ParticleSystem system in particleSystems) {
-            //system.Simulate(Time.unscaledTime, false, true, true);
-            system.Play();
-        }
         if(hitEffectPrefab != null)
             hitEffect = Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
 
