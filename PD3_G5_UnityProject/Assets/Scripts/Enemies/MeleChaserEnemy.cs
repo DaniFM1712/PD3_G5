@@ -71,6 +71,10 @@ public class MeleChaserEnemy : ParentEnemyIAScript
     override public void Start()
     {
         base.Start();
+        if (LevelManager.instance.getCurrentSceneIndex() > 8)
+        {
+            damage *= 1.5f;
+        }
     }
 
     void Update()

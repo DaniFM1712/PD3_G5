@@ -118,6 +118,12 @@ public class RangedEnemyAIScript : ParentEnemyIAScript
         bulletsLeft = magazineSize;
         readyToShoot = true;
         shooting = false;
+
+        if (LevelManager.instance.getCurrentSceneIndex() > 8)
+        {
+            damage *= 1.5f;
+        }
+
     }
 
     void Update()

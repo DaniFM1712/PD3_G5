@@ -115,6 +115,12 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
         bulletsLeft = 10;
         readyToShoot = true;
         shooting = false;
+
+        if (LevelManager.instance.getCurrentSceneIndex() > 8)
+        {
+            damage *= 1.5f;
+        }
+
     }
 
     void Update()

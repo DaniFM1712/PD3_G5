@@ -40,6 +40,14 @@ public class EnemyHealthScript : MonoBehaviour
         hitMarker = GameObject.Find("CanvasPrefab/HitMarker");
         healthBar.gameObject.transform.SetParent(canvas.transform);
         healthBar.GetComponent<EnemyHealthBarScript>().target = transform; 
+        if(LevelManager.instance.getCurrentSceneIndex() > 8)
+        {
+            ncReward *= 2;
+            scReward *= 2;
+            InitialHealth *= 1.5f;
+            currentHealth = InitialHealth;
+            healthOrbPercent -= 15;
+        }
     }
 
     // Update is called once per frame
