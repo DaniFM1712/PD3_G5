@@ -68,6 +68,6 @@ public class AnimationEventTranslator : MonoBehaviour
 
     public void GolemThrowRock()
     {
-        IA_GO.GetComponent<GolemEnemyAIScript>().Shoot();
+        IA_GO.GetComponent<GolemEnemyAIScript>().RangedAttack();
     }
 }

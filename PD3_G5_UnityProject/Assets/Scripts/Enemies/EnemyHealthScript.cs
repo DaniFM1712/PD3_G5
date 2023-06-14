@@ -59,12 +59,6 @@ public class EnemyHealthScript : MonoBehaviour
             if (hitMarkerTimer > 0)
             {
                 hitMarker.GetComponent<Image>().enabled = true;
-                /*if (HitEmitter.IsPlaying())
-                {
-                    HitEmitter.Stop();
-                }
-                HitEmitter.Play();
-                */
             }
             else if (hitMarkerTimer <= 0)
             {
@@ -85,6 +79,7 @@ public class EnemyHealthScript : MonoBehaviour
     {
         if (currentHealth > 0)
         {
+            HitEmitter.Play();
             hitMarkerActive = true;
             hitMarkerTimer = 0.30f;
 

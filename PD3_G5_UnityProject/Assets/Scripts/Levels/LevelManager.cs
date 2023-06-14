@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,6 +24,9 @@ public class LevelManager : MonoBehaviour
     private List<int> levelCaoticIndex;
     private int previousScene = -1;
     public bool randomPath = true;
+
+    [Header("FMOD")]
+    public StudioEventEmitter moveEmitter;
     public static LevelManager instance { get; private set; }
     //[SerializeField] UnityEvent<float, float> callScene;
 
@@ -48,6 +52,7 @@ public class LevelManager : MonoBehaviour
 
 
     public void LoadLevel() {
+        moveEmitter.Stop();
         switch (currentGameMode)
         {
             case 0:
