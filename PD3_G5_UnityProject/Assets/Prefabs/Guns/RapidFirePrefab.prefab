@@ -74,13 +74,14 @@ MonoBehaviour:
   spread: 0.5
   reloadTime: 1.5
   timeBetweenShots: 0
-  bulletDamage: 5
-  magazineSize: 50
+  bulletDamage: 7
+  magazineSize: 30
   bulletsPerTap: 1
   allowButtonHold: 1
   threeShotBuffDamage: 30
   reloadDamageBuff: 30
   bulletOrigin: {fileID: 7352254666028250572}
+  particles: []
   allowInvoke: 1
   PlayerHasShoot:
     m_PersistentCalls:
@@ -97,6 +98,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  ammoBuffCooldown: 20
   ShootEmitter: {fileID: 284800969665753905}
   ReloadEmitter: {fileID: 2395317908347767234}
 --- !u!114 &6010861365889382181

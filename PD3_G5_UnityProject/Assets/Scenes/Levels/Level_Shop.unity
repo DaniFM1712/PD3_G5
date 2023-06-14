@@ -10419,10 +10419,10 @@ MonoBehaviour:
   rareItemBtn: {fileID: 1799905169}
   commonItemBtn: {fileID: 1003568537}
   healthCost: 20
-  healthValue: 20
-  randomItemCost: 40
-  randomRareCost: 50
-  randomCommonCost: 20
+  healthValue: 30
+  randomItemCost: 70
+  randomRareCost: 100
+  randomCommonCost: 50
   commonItemPool:
   - {fileID: 11400000, guid: b49105190cf890b4cb241c66e35f989a, type: 2}
   - {fileID: 11400000, guid: b0bebd1322bd39b4184f05b0dffebfe6, type: 2}
@@ -37712,6 +37712,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 459996487}
+    - target: {fileID: 2382878517715330554, guid: 4732d584546dc484d998e3b1559bed05,
+        type: 3}
+      propertyPath: m_text
+      value: '+30 HP
+
+
+
+        COST: 20ES'
+      objectReference: {fileID: 0}
     - target: {fileID: 2382878518996029649, guid: 4732d584546dc484d998e3b1559bed05,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -37842,11 +37851,38 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2382878519461188299, guid: 4732d584546dc484d998e3b1559bed05,
+        type: 3}
+      propertyPath: m_text
+      value: 'RANDOM  ITEM
+
+
+
+        COST: 70'
+      objectReference: {fileID: 0}
     - target: {fileID: 2382878519599369532, guid: 4732d584546dc484d998e3b1559bed05,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 459996487}
+    - target: {fileID: 2382878519604089687, guid: 4732d584546dc484d998e3b1559bed05,
+        type: 3}
+      propertyPath: m_text
+      value: 'RANDOM RARE ITEM
+
+
+
+        COST: 100'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2382878519649856500, guid: 4732d584546dc484d998e3b1559bed05,
+        type: 3}
+      propertyPath: m_text
+      value: 'RANDOM COM ITEM
+
+
+
+        COST: 50'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4732d584546dc484d998e3b1559bed05, type: 3}
 --- !u!114 &2382878519344482205 stripped

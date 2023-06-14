@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7f5f3ff05d810459c35dbb87e948ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialHealth: 50
+  InitialHealth: 60
   healthBar: {fileID: 398930893643961126}
   colorGradient:
     serializedVersion: 2
@@ -252,7 +252,7 @@ MonoBehaviour:
   scReward: 2
   healthOrbPrefab: {fileID: 5035788950964770640, guid: 1d9c0bd96c284e0439c616df7a242379,
     type: 3}
-  healthOrbPrefabAmount: 2
+  healthOrbPrefabAmount: 1
   healthOrbPercent: 40
   DeathEmitter: {fileID: 1166356204926614126}
   HitEmitter: {fileID: 8698230166323659603}
@@ -302,7 +302,7 @@ MonoBehaviour:
   spread: 0.2
   reloadTime: 2
   timeBetweenShots: 0
-  bulletDamage: 16
+  bulletDamage: 10
   magazineSize: 10
   bulletsPerTap: 1
   allowButtonHold: 0

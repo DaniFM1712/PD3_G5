@@ -197,7 +197,7 @@ public class PlayerStatsScript : MonoBehaviour
                 statsUpgrades.Add(false);
                 loreUnlocked.Add(false);
             }
-
+            statsUpgrades.Add(false);
         }
 
         //----------MAX--STATS----------//
