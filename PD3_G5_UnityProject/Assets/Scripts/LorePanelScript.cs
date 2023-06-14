@@ -10,6 +10,7 @@ public class LorePanelScript : MonoBehaviour
     [SerializeField] GameObject interactMessageGO;
     [SerializeField] GameObject scriptureModel;
     [SerializeField] GameObject pickableModel;
+    [SerializeField] GameObject canvasLore;
     [SerializeField] int panelIndex;
     public bool unlocked;//SOLO PARA TEST
 
@@ -17,7 +18,7 @@ public class LorePanelScript : MonoBehaviour
     void Start()
     {
         //unlocked = playerstats.instance.lore[panelIndex]
-        if (unlocked) { 
+        if (PlayerStatsScript.instance.loreUnlocked[panelIndex] == true) { 
             scriptureModel.SetActive(true); 
             pickableModel.SetActive(true);
             interactMessageGO.GetComponent<TextMeshProUGUI>().text = "Press E to read!";
@@ -28,7 +29,7 @@ public class LorePanelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canInteract && unlocked && Input.GetKeyDown(KeyCode.E))
+        if (canInteract && PlayerStatsScript.instance.loreUnlocked[panelIndex] == true && Input.GetKeyDown(KeyCode.E))
         {
             loreUIGO.SetActive(true);
             Cursor.lockState = CursorLockMode.None;

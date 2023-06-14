@@ -15,8 +15,8 @@ public class LevelManager : MonoBehaviour
     public Queue <int> levelNocturnalPath;
     public Queue <int> levelCaoticPath;
     public List <int> manualLevelPath;
-    private List <int> diurnalLevels = new List<int> {4,5,6};
-    private List <int> nocturnalLevels = new List<int> {8,9,10};
+    private List <int> diurnalLevels = new List<int> {4,5,6,7,8};
+    private List <int> nocturnalLevels = new List<int> {9};
     private List <int> caoticLevels = new List<int> {6};
     private List<int> levelDiurnalIndex;
     private List<int> levelNocturnalIndex;
@@ -87,6 +87,9 @@ public class LevelManager : MonoBehaviour
                 }
                 break;
         }
+        if(levelCaoticPath.Count == 0 || levelDiurnalPath.Count == 0 || levelNocturnalPath.Count == 0)
+            generateRandomPath();
+
         CoinCounterScript.coinCounterInstance.updateSCCounter(0);
     }
 

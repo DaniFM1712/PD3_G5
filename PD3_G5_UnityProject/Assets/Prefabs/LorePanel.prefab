@@ -973,7 +973,8 @@ MonoBehaviour:
   loreUIGO: {fileID: 6175487220641543288}
   interactMessageGO: {fileID: 8065829759433896102}
   scriptureModel: {fileID: 7500443598870047817}
-  pickableModel: {fileID: 3690251916333093786}
+  pickableModel: {fileID: 8263667521211823745}
+  canvasLore: {fileID: 730033383023910196}
   panelIndex: 0
   unlocked: 0
 --- !u!1 &7321931923238361996
@@ -985,6 +986,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6430013694274951434}
+  - component: {fileID: 8481286482466760748}
   m_Layer: 0
   m_Name: LorePanel
   m_TagString: Untagged
@@ -1012,6 +1014,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8481286482466760748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7321931923238361996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1118754455
+      Data2: 1183409475
+      Data3: -672024898
+      Data4: -1946127139
+    Path: event:/Mapa/Ambiente canto angelical lobby
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7500443598870047817
 GameObject:
   m_ObjectHideFlags: 0
@@ -6083,14 +6116,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8263667521211823745}
-  m_LocalRotation: {x: -0, y: -0.5558409, z: -0, w: 0.8312887}
-  m_LocalPosition: {x: 0.773, y: 0.839, z: 1.856}
+  m_LocalRotation: {x: 0.10170199, y: -0.53760964, z: 0.058512423, w: 0.8349904}
+  m_LocalPosition: {x: 0.779, y: 0.372, z: 1.853}
   m_LocalScale: {x: 0.54921, y: 0.54921, z: 0.1350782}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6430013694274951434}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: -67.537, z: 0}
+  m_LocalEulerAnglesHint: {x: 13.459, y: -65.632, z: -0.686}
 --- !u!33 &8315003066824011181
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6162,7 +6195,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8263667521211823745}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3a9812cc61f2467409bc17d9a4467076, type: 2}
   m_CullingMode: 0
