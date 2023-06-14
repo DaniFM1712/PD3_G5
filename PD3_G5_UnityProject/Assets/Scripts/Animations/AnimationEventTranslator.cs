@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class AnimationEventTranslator : MonoBehaviour
     [SerializeField] private EnemyDesintegrationController IA_Desintegration;
     [SerializeField] private VisualEffect IA_SoulVE;
     
+    public StudioEventEmitter cascabelEmitter;
+
     //General
 
     public void DestroyEnemy()
@@ -41,6 +44,10 @@ public class AnimationEventTranslator : MonoBehaviour
     public void ArlequinShoot()
     {
         IA_GO.GetComponent<RangedEnemyAIScript>().Shoot();
+    }
+    public void ArlequinStep()
+    {
+        cascabelEmitter.Play();
     }
     
 

@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -16,7 +17,8 @@ public class CoinCounterScript : MonoBehaviour
     private int fifties = 0;
     private int accumulatedFifties = 0;
 
-
+    [Header("FMOD")]
+    public StudioEventEmitter coinEmitter;
     private void Awake()
     {
         if (coinCounterInstance == null)
@@ -89,6 +91,7 @@ public class CoinCounterScript : MonoBehaviour
             {
                 LeanTween.moveLocal(ncGO, new Vector3(10, 0, 0), 0.1f).setOnComplete(() =>
                 {
+                    coinEmitter.Play();
                     playerStats.currentNormalCoin++;
                     ncText.text = " " + playerStats.currentNormalCoin.ToString();
                     LeanTween.moveLocal(ncGO, new Vector3(0, 0, 0), 0.2f);

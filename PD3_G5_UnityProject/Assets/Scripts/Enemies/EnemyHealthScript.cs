@@ -23,6 +23,7 @@ public class EnemyHealthScript : MonoBehaviour
     private GameObject hitMarker;
     [Header("FMOD")]
     public StudioEventEmitter DeathEmitter;
+    public StudioEventEmitter HitEmitter;
     private bool hitMarkerActive = false;
 
     private float hitMarkerTimer = 0f;
@@ -50,7 +51,12 @@ public class EnemyHealthScript : MonoBehaviour
             if (hitMarkerTimer > 0)
             {
                 hitMarker.GetComponent<Image>().enabled = true;
-
+                /*if (HitEmitter.IsPlaying())
+                {
+                    HitEmitter.Stop();
+                }
+                HitEmitter.Play();
+                */
             }
             else if (hitMarkerTimer <= 0)
             {

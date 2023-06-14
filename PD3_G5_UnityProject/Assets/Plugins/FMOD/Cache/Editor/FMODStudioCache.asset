@@ -19,15 +19,15 @@ MonoBehaviour:
     Data3: 2045533353
     Data4: -2136414240
   Banks:
-  - {fileID: -2545050744059236134}
+  - {fileID: 8948137236925615918}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 306
---- !u!114 &-8551729615591152435
+  Length: 294
+--- !u!114 &-8609875287402528205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,23 +37,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/Men\xFA/Cancel1"
+  m_Name: event:/Enemigos/Golem/Movimiento1
   m_EditorClassIdentifier: 
-  Path: "event:/Men\xFA/Cancel1"
+  Path: event:/Enemigos/Golem/Movimiento1
   Guid:
-    Data1: -1684769319
-    Data2: 1255504016
-    Data3: -476710264
-    Data4: 58478693
+    Data1: -267328987
+    Data2: 1193662658
+    Data3: -1972580979
+    Data4: 126217563
   Banks:
-  - {fileID: 8921678049521847543}
+  - {fileID: -3556698225701527601}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 645
+  Length: 400
 --- !u!114 &-8544672968151357364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
     Data3: -1072091482
     Data4: 1247727709
   Banks:
-  - {fileID: 5967022634240668179}
+  - {fileID: -7865420018646097984}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -81,7 +81,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 297
---- !u!114 &-8279808240380435997
+--- !u!114 &-8357017639895237360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,24 +90,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/Enemigos/Chill\xF3n Explosivo/Explosi\xF3n3"
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/WeaponCommons.bank
   m_EditorClassIdentifier: 
-  Path: "event:/Enemigos/Chill\xF3n Explosivo/Explosi\xF3n3"
-  Guid:
-    Data1: 2141182584
-    Data2: 1150821866
-    Data3: -1070622555
-    Data4: 1539727541
-  Banks:
-  - {fileID: 4446383851063320458}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1950
+  Path: "C:/ENTREGA FINAL- FMOD + Sonidos_Grupo 102.5/ENTREGA FINAL/\xDAltimaversi\xF3n_102.5/Build/Desktop/WeaponCommons.bank"
+  Name: WeaponCommons
+  StudioPath: bank:/WeaponCommons
+  lastModified: 638223066900900245
+  FileSizes:
+  - Name: Desktop
+    Value: 23584
+  Exists: 1
 --- !u!114 &-7946187319177671652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,14 +120,61 @@ MonoBehaviour:
     Data3: -931077726
     Data4: -1207360057
   Banks:
-  - {fileID: -3436592884118697013}
+  - {fileID: -7290897094772735251}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2789
+  Length: 1900
+--- !u!114 &-7865420018646097984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player.bank
+  m_EditorClassIdentifier: 
+  Path: "C:/ENTREGA FINAL- FMOD + Sonidos_Grupo 102.5/ENTREGA FINAL/\xDAltimaversi\xF3n_102.5/Build/Desktop/Player.bank"
+  Name: Player
+  StudioPath: bank:/Player
+  lastModified: 638223084857034332
+  FileSizes:
+  - Name: Desktop
+    Value: 407264
+  Exists: 1
+--- !u!114 &-7817637314567062028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/prota recibiendo golpe
+  m_EditorClassIdentifier: 
+  Path: event:/Player/prota recibiendo golpe
+  Guid:
+    Data1: -155757400
+    Data2: 1332062408
+    Data3: 207768961
+    Data4: 1725474190
+  Banks:
+  - {fileID: -7865420018646097984}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 400
 --- !u!114 &-7430986301748245747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +194,7 @@ MonoBehaviour:
     Data3: 2105636995
     Data4: 1174300225
   Banks:
-  - {fileID: -2545050744059236134}
+  - {fileID: 8948137236925615918}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -181,7 +221,7 @@ MonoBehaviour:
     Data3: -1731966538
     Data4: 341444427
   Banks:
-  - {fileID: 5967022634240668179}
+  - {fileID: -7865420018646097984}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -189,7 +229,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 613
---- !u!114 &-6981163005067899658
+--- !u!114 &-7290897094772735251
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,17 +239,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Golem.bank
+  m_Name: bank:/Environment.bank
   m_EditorClassIdentifier: 
-  Path: "C:/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Golem.bank"
-  Name: Golem
-  StudioPath: bank:/Golem
-  lastModified: 638213396650000000
+  Path: "C:/ENTREGA FINAL- FMOD + Sonidos_Grupo 102.5/ENTREGA FINAL/\xDAltimaversi\xF3n_102.5/Build/Desktop/Environment.bank"
+  Name: Environment
+  StudioPath: bank:/Environment
+  lastModified: 638223095078128575
   FileSizes:
   - Name: Desktop
-    Value: 160352
+    Value: 2828928
   Exists: 1
---- !u!114 &-6934417585818177713
+--- !u!114 &-7035673297344730094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,24 +258,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/armas GENERAL/Escopeta Purgadora de Demonios/Disparo
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/RapidFire.bank
   m_EditorClassIdentifier: 
-  Path: event:/armas GENERAL/Escopeta Purgadora de Demonios/Disparo
-  Guid:
-    Data1: -1362085486
-    Data2: 1335980349
-    Data3: 1817118391
-    Data4: -1154371165
-  Banks:
-  - {fileID: 5942965043257217388}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 640
+  Path: "C:/ENTREGA FINAL- FMOD + Sonidos_Grupo 102.5/ENTREGA FINAL/\xDAltimaversi\xF3n_102.5/Build/Desktop/RapidFire.bank"
+  Name: RapidFire
+  StudioPath: bank:/RapidFire
+  lastModified: 638223097783946573
+  FileSizes:
+  - Name: Desktop
+    Value: 76512
+  Exists: 1
 --- !u!114 &-6463640985638205932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,14 +288,14 @@ MonoBehaviour:
     Data3: -1380458595
     Data4: -344309974
   Banks:
-  - {fileID: -3436592884118697013}
+  - {fileID: -7290897094772735251}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 4349
+  Length: 3100
 --- !u!114 &-6402220799888125114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,14 +315,88 @@ MonoBehaviour:
     Data3: -51478655
     Data4: 194957957
   Banks:
-  - {fileID: 8921678049521847543}
+  - {fileID: -2193470291004874855}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1958
+  Length: 1100
+--- !u!114 &-6357380952223156650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/ShotGun.bank
+  m_EditorClassIdentifier: 
+  Path: "C:/ENTREGA FINAL- FMOD + Sonidos_Grupo 102.5/ENTREGA FINAL/\xDAltimaversi\xF3n_102.5/Build/Desktop/ShotGun.bank"
+  Name: ShotGun
+  StudioPath: bank:/ShotGun
+  lastModified: 638223066900387223
+  FileSizes:
+  - Name: Desktop
+    Value: 100416
+  Exists: 1
+--- !u!114 &-6325736265376175466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Recarga vida
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Recarga vida
+  Guid:
+    Data1: -80964616
+    Data2: 1091297100
+    Data3: -528957302
+    Data4: -341873532
+  Banks:
+  - {fileID: -7865420018646097984}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2316
+--- !u!114 &-6302335015669329461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemigos/Golem/Ataque Melee
+  m_EditorClassIdentifier: 
+  Path: event:/Enemigos/Golem/Ataque Melee
+  Guid:
+    Data1: -2007376495
+    Data2: 1333458933
+    Data3: 648930967
+    Data4: 1948540391
+  Banks:
+  - {fileID: -3556698225701527601}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2800
 --- !u!114 &-6145734457583137662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +416,7 @@ MonoBehaviour:
     Data3: 606871189
     Data4: 864112701
   Banks:
-  - {fileID: 5967022634240668179}
+  - {fileID: -7865420018646097984}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -317,26 +424,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 45909
---- !u!114 &-6101357849925731832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/WeaponCommons.bank
-  m_EditorClassIdentifier: 
-  Path: "C:/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/WeaponCommons.bank"
-  Name: WeaponCommons
-  StudioPath: bank:/WeaponCommons
-  lastModified: 638213396650000000
-  FileSizes:
-  - Name: Desktop
-    Value: 47072
-  Exists: 1
 --- !u!114 &-5821724143918382559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,7 +443,7 @@ MonoBehaviour:
     Data3: 7000707
     Data4: 293301348
   Banks:
-  - {fileID: 5967022634240668179}
+  - {fileID: -7865420018646097984}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -383,14 +470,68 @@ MonoBehaviour:
     Data3: -478617922
     Data4: 1806807346
   Banks:
-  - {fileID: 5967022634240668179}
+  - {fileID: -7865420018646097984}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 365
+--- !u!114 &-5491393695879329288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Enemigos/Arlequ\xEDn/malo medio herido"
+  m_EditorClassIdentifier: 
+  Path: "event:/Enemigos/Arlequ\xEDn/malo medio herido"
+  Guid:
+    Data1: 1207770112
+    Data2: 1183346300
+    Data3: 2080033665
+    Data4: 766795132
+  Banks:
+  - {fileID: -562682032816584581}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 417
+--- !u!114 &-5282296228340903804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Armas GENERAL/Escopeta Purgadora de Demonios/metralleta
+  m_EditorClassIdentifier: 
+  Path: event:/Armas GENERAL/Escopeta Purgadora de Demonios/metralleta
+  Guid:
+    Data1: 125550931
+    Data2: 1338742543
+    Data3: -667449710
+    Data4: 186954886
+  Banks:
+  - {fileID: -6357380952223156650}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1220
 --- !u!114 &-5132544799735912616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,15 +551,15 @@ MonoBehaviour:
     Data3: -1565525340
     Data4: 417193917
   Banks:
-  - {fileID: 871664692619042840}
+  - {fileID: -562682032816584581}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 168
---- !u!114 &-4969766661789222442
+  Length: 160
+--- !u!114 &-4907375514969576900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -428,23 +569,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/Enemigos/Arlequ\xEDn/Muerte"
+  m_Name: event:/Armas GENERAL/Hit confirm balas
   m_EditorClassIdentifier: 
-  Path: "event:/Enemigos/Arlequ\xEDn/Muerte"
+  Path: event:/Armas GENERAL/Hit confirm balas
   Guid:
-    Data1: 923473836
-    Data2: 1302592409
-    Data3: -1895928952
-    Data4: 110151964
+    Data1: 151177155
+    Data2: 1254567989
+    Data3: -148490060
+    Data4: 1977040437
   Banks:
-  - {fileID: 871664692619042840}
+  - {fileID: -8357017639895237360}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1658
+  Length: 330
 --- !u!114 &-4882627569786561686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,7 +605,7 @@ MonoBehaviour:
     Data3: -1176606309
     Data4: 402521531
   Banks:
-  - {fileID: 5967022634240668179}
+  - {fileID: -7865420018646097984}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -472,7 +613,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 83
---- !u!114 &-4534203815909173002
+--- !u!114 &-4419998740551806507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -482,24 +623,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/Enemigos/Chill\xF3n Explosivo/Explosi\xF3n1"
+  m_Name: event:/Armas GENERAL/Escopeta Purgadora de Demonios/Disparo
   m_EditorClassIdentifier: 
-  Path: "event:/Enemigos/Chill\xF3n Explosivo/Explosi\xF3n1"
+  Path: event:/Armas GENERAL/Escopeta Purgadora de Demonios/Disparo
   Guid:
-    Data1: -50866815
-    Data2: 1195259098
-    Data3: -2139196247
-    Data4: 714608501
+    Data1: -1362085486
+    Data2: 1335980349
+    Data3: 1817118391
+    Data4: -1154371165
   Banks:
-  - {fileID: -6981163005067899658}
+  - {fileID: -6357380952223156650}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2129
---- !u!114 &-3821207445305714413
+  Length: 746
+--- !u!114 &-3775534958218716495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -509,24 +650,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/armas GENERAL/Escopeta Purgadora de Demonios/Disparo concentrado
+  m_Name: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Activada"
   m_EditorClassIdentifier: 
-  Path: event:/armas GENERAL/Escopeta Purgadora de Demonios/Disparo concentrado
+  Path: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Activada"
   Guid:
-    Data1: 1337115597
-    Data2: 1177897357
-    Data3: -1382292302
-    Data4: 584788067
+    Data1: -68698712
+    Data2: 1336558888
+    Data3: 1655196291
+    Data4: -2100261745
   Banks:
-  - {fileID: 5942965043257217388}
+  - {fileID: -7035673297344730094}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 480
---- !u!114 &-3649653852444835900
+  Length: 522
+--- !u!114 &-3556698225701527601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -535,24 +676,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/asd
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Golem.bank
   m_EditorClassIdentifier: 
-  Path: event:/asd
-  Guid:
-    Data1: 1607062314
-    Data2: 1167550320
-    Data3: -1960862814
-    Data4: 240821086
-  Banks:
-  - {fileID: -2307403893506965007}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
+  Path: "C:/ENTREGA FINAL- FMOD + Sonidos_Grupo 102.5/ENTREGA FINAL/\xDAltimaversi\xF3n_102.5/Build/Desktop/Golem.bank"
+  Name: Golem
+  StudioPath: bank:/Golem
+  lastModified: 638223066891258955
+  FileSizes:
+  - Name: Desktop
+    Value: 456000
+  Exists: 1
 --- !u!114 &-3443049571731142727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,35 +706,15 @@ MonoBehaviour:
     Data3: -2054304891
     Data4: -650789680
   Banks:
-  - {fileID: 8921678049521847543}
+  - {fileID: -2193470291004874855}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 528
---- !u!114 &-3436592884118697013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Environment.bank
-  m_EditorClassIdentifier: 
-  Path: "C:/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Environment.bank"
-  Name: Environment
-  StudioPath: bank:/Environment
-  lastModified: 638213396650000000
-  FileSizes:
-  - Name: Desktop
-    Value: 1488128
-  Exists: 1
---- !u!114 &-3359362654289612525
+  Length: 160
+--- !u!114 &-2749235811425182384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -610,16 +724,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/armas GENERAL/Out of ammo1
+  m_Name: event:/Armas GENERAL/Out of ammo1
   m_EditorClassIdentifier: 
-  Path: event:/armas GENERAL/Out of ammo1
+  Path: event:/Armas GENERAL/Out of ammo1
   Guid:
     Data1: 845134067
     Data2: 1134256136
     Data3: 1995114127
     Data4: -502629487
   Banks:
-  - {fileID: -6101357849925731832}
+  - {fileID: -8357017639895237360}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -627,7 +741,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 250
---- !u!114 &-3071338191893494425
+--- !u!114 &-2646135991067456899
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -637,24 +751,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/armas GENERAL/Escopeta Purgadora de Demonios/Recarga
+  m_Name: event:/Enemigos/Golem/Movimiento3
   m_EditorClassIdentifier: 
-  Path: event:/armas GENERAL/Escopeta Purgadora de Demonios/Recarga
+  Path: event:/Enemigos/Golem/Movimiento3
   Guid:
-    Data1: 301302359
-    Data2: 1170358789
-    Data3: 1770502545
-    Data4: 1771821446
+    Data1: 46498586
+    Data2: 1196797394
+    Data3: -55482186
+    Data4: -560148506
   Banks:
-  - {fileID: 5942965043257217388}
+  - {fileID: -3556698225701527601}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1749
---- !u!114 &-3002064249570586673
+  Length: 8500
+--- !u!114 &-2535838100278473173
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -664,24 +778,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Recarga"
+  m_Name: "event:/Men\xFA/Cancel"
   m_EditorClassIdentifier: 
-  Path: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Recarga"
+  Path: "event:/Men\xFA/Cancel"
   Guid:
-    Data1: -1722355880
-    Data2: 1317352538
-    Data3: -871790707
-    Data4: -4896499
+    Data1: -1684769319
+    Data2: 1255504016
+    Data3: -476710264
+    Data4: 58478693
   Banks:
-  - {fileID: 939466417671418856}
+  - {fileID: -2193470291004874855}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2000
---- !u!114 &-2545050744059236134
+  Length: 560
+--- !u!114 &-2193470291004874855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -691,17 +805,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Chillon.bank
+  m_Name: bank:/Menu.bank
   m_EditorClassIdentifier: 
-  Path: "C:/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Chillon.bank"
-  Name: Chillon
-  StudioPath: bank:/Chillon
-  lastModified: 638213396650000000
+  Path: "C:/ENTREGA FINAL- FMOD + Sonidos_Grupo 102.5/ENTREGA FINAL/\xDAltimaversi\xF3n_102.5/Build/Desktop/Menu.bank"
+  Name: Menu
+  StudioPath: bank:/Menu
+  lastModified: 638223066892206444
   FileSizes:
   - Name: Desktop
-    Value: 230624
+    Value: 23936
   Exists: 1
---- !u!114 &-2329328249220859426
+--- !u!114 &-1945276020800962261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -711,70 +825,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/zcxvcxz
+  m_Name: event:/Mapa/Ambiente canto angelical lobby
   m_EditorClassIdentifier: 
-  Path: event:/zcxvcxz
+  Path: event:/Mapa/Ambiente canto angelical lobby
   Guid:
-    Data1: -1385945813
-    Data2: 1248451374
-    Data3: 2025046962
-    Data4: -167021238
+    Data1: 1118754455
+    Data2: 1183409475
+    Data3: -672024898
+    Data4: -1946127139
   Banks:
-  - {fileID: -2307403893506965007}
-  IsStream: 0
+  - {fileID: -7290897094772735251}
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
---- !u!114 &-2307403893506965007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: "C:/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Master.bank"
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638213396650000000
-  FileSizes:
-  - Name: Desktop
-    Value: 4314
-  Exists: 1
---- !u!114 &-2217191360456977044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Disparo"
-  m_EditorClassIdentifier: 
-  Path: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Disparo"
-  Guid:
-    Data1: -692339284
-    Data2: 1157045455
-    Data3: 1690383745
-    Data4: 586270934
-  Banks:
-  - {fileID: 939466417671418856}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 340
+  Length: 195000
 --- !u!114 &-1896517140556576323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,15 +861,15 @@ MonoBehaviour:
     Data3: 243099049
     Data4: 1036655951
   Banks:
-  - {fileID: 5967022634240668179}
+  - {fileID: -7865420018646097984}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 832
---- !u!114 &-1749900860357719190
+  Length: 608
+--- !u!114 &-1486883699815597220
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -812,50 +879,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Activada"
+  m_Name: "event:/Enemigos/Arlequ\xEDn/malo medio muriendo"
   m_EditorClassIdentifier: 
-  Path: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Activada"
+  Path: "event:/Enemigos/Arlequ\xEDn/malo medio muriendo"
   Guid:
-    Data1: -68698712
-    Data2: 1336558888
-    Data3: 1655196291
-    Data4: -2100261745
+    Data1: 111269391
+    Data2: 1219789307
+    Data3: 37360824
+    Data4: 1873674258
   Banks:
-  - {fileID: 939466417671418856}
+  - {fileID: -562682032816584581}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 522
---- !u!114 &-1505979063957588466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/armas GENERAL/Orbe Sagrado/Out of charges
-  m_EditorClassIdentifier: 
-  Path: event:/armas GENERAL/Orbe Sagrado/Out of charges
-  Guid:
-    Data1: 1705520635
-    Data2: 1280966858
-    Data3: 1187373964
-    Data4: 514552591
-  Banks:
-  - {fileID: 4446383851063320458}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 152
+  Length: 2377
 --- !u!114 &-1261931330524741983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,15 +915,15 @@ MonoBehaviour:
     Data3: -1219673952
     Data4: -1568116194
   Banks:
-  - {fileID: -3436592884118697013}
+  - {fileID: -7290897094772735251}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 85885
---- !u!114 &-432162379734176923
+  Length: 9000
+--- !u!114 &-1105012275186571386
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -893,23 +933,70 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/Enemigos/Arlequ\xEDn/Movimiento"
+  m_Name: "event:/Enemigos/Chill\xF3n Explosivo/Grito+Explosi\xF3n"
   m_EditorClassIdentifier: 
-  Path: "event:/Enemigos/Arlequ\xEDn/Movimiento"
+  Path: "event:/Enemigos/Chill\xF3n Explosivo/Grito+Explosi\xF3n"
   Guid:
-    Data1: -1200241422
-    Data2: 1306727720
-    Data3: -535976307
-    Data4: -221218146
+    Data1: 2079546669
+    Data2: 1326662284
+    Data3: -955500663
+    Data4: -1146802920
   Banks:
-  - {fileID: 871664692619042840}
-  IsStream: 1
+  - {fileID: 8948137236925615918}
+  IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 110
+  Length: 1608
+--- !u!114 &-987443722118051569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Enemigos/Golem de fuego/\xC1rea de fuego"
+  m_EditorClassIdentifier: 
+  Path: "event:/Enemigos/Golem de fuego/\xC1rea de fuego"
+  Guid:
+    Data1: 736409751
+    Data2: 1138605406
+    Data3: -1977330542
+    Data4: 871194035
+  Banks:
+  - {fileID: -3556698225701527601}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7476
+--- !u!114 &-562682032816584581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Arlequin.bank
+  m_EditorClassIdentifier: 
+  Path: "C:/ENTREGA FINAL- FMOD + Sonidos_Grupo 102.5/ENTREGA FINAL/\xDAltimaversi\xF3n_102.5/Build/Desktop/Arlequin.bank"
+  Name: Arlequin
+  StudioPath: bank:/Arlequin
+  lastModified: 638223084833236270
+  FileSizes:
+  - Name: Desktop
+    Value: 448448
+  Exists: 1
 --- !u!114 &-8510571034687522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,14 +1016,14 @@ MonoBehaviour:
     Data3: 75184318
     Data4: 445241795
   Banks:
-  - {fileID: -3436592884118697013}
+  - {fileID: -7290897094772735251}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1650
+  Length: 2350
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,22 +1037,20 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 734226662561519838}
-  - {fileID: 871664692619042840}
-  - {fileID: -2545050744059236134}
-  - {fileID: -3436592884118697013}
-  - {fileID: -6981163005067899658}
-  - {fileID: 4446383851063320458}
-  - {fileID: -2307403893506965007}
-  - {fileID: 8921678049521847543}
-  - {fileID: 5967022634240668179}
-  - {fileID: 939466417671418856}
-  - {fileID: 5942965043257217388}
-  - {fileID: -6101357849925731832}
+  - {fileID: 5706653427242283154}
+  - {fileID: -562682032816584581}
+  - {fileID: 8948137236925615918}
+  - {fileID: -7290897094772735251}
+  - {fileID: -3556698225701527601}
+  - {fileID: 8374448860448291086}
+  - {fileID: 2165521022081269888}
+  - {fileID: -2193470291004874855}
+  - {fileID: -7865420018646097984}
+  - {fileID: -7035673297344730094}
+  - {fileID: -6357380952223156650}
+  - {fileID: -8357017639895237360}
   EditorEvents:
   - {fileID: -5132544799735912616}
-  - {fileID: -4969766661789222442}
-  - {fileID: -432162379734176923}
   - {fileID: 7442400866412394902}
   - {fileID: -7430986301748245747}
   - {fileID: 5223580909055840961}
@@ -978,53 +1063,60 @@ MonoBehaviour:
   - {fileID: 6930730064722239912}
   - {fileID: -8510571034687522}
   - {fileID: -6463640985638205932}
-  - {fileID: 1008434442702278509}
-  - {fileID: 2189014740426130727}
-  - {fileID: 9135384835184281317}
   - {fileID: 3937532064943918010}
   - {fileID: -3443049571731142727}
   - {fileID: 1477082449549811775}
   - {fileID: -6402220799888125114}
-  - {fileID: 7986370681176614126}
-  - {fileID: -8551729615591152435}
   - {fileID: -1896517140556576323}
   - {fileID: -7405914615745239140}
   - {fileID: -4882627569786561686}
   - {fileID: -5571223957561550229}
   - {fileID: 7917658136668942870}
-  - {fileID: 7819635492490948106}
   - {fileID: -6145734457583137662}
   - {fileID: -5821724143918382559}
   - {fileID: -8544672968151357364}
-  - {fileID: -8279808240380435997}
   - {fileID: 2819925503499301915}
-  - {fileID: -4534203815909173002}
   - {fileID: 6070430651529086406}
-  - {fileID: 5421453780524510312}
-  - {fileID: 5765506121921391622}
-  - {fileID: 7550589558967637474}
-  - {fileID: 3289449640701863153}
-  - {fileID: -1505979063957588466}
-  - {fileID: -3649653852444835900}
-  - {fileID: 3873219022248954162}
-  - {fileID: -3002064249570586673}
-  - {fileID: 4463461160615895189}
-  - {fileID: -1749900860357719190}
-  - {fileID: -2217191360456977044}
-  - {fileID: -3071338191893494425}
-  - {fileID: -6934417585818177713}
-  - {fileID: -3821207445305714413}
-  - {fileID: 7921933621594874333}
-  - {fileID: -2329328249220859426}
-  - {fileID: 2570728631614620632}
-  - {fileID: 6563468475351681210}
-  - {fileID: -3359362654289612525}
+  - {fileID: 6351404606097795076}
+  - {fileID: -1105012275186571386}
+  - {fileID: 2697094967630362506}
+  - {fileID: -2646135991067456899}
+  - {fileID: -8609875287402528205}
+  - {fileID: 7767540643201826866}
+  - {fileID: 6464582539703673047}
+  - {fileID: -6302335015669329461}
+  - {fileID: -987443722118051569}
+  - {fileID: 714529549683523976}
+  - {fileID: 3822200759732168269}
+  - {fileID: 9029188502201730085}
+  - {fileID: -2535838100278473173}
+  - {fileID: 1273542481622991796}
+  - {fileID: 1230392597666188256}
+  - {fileID: -3775534958218716495}
+  - {fileID: 3781130533923269791}
+  - {fileID: 1578825294039748725}
+  - {fileID: -4419998740551806507}
+  - {fileID: 5201153338900251322}
+  - {fileID: 466194199114655443}
+  - {fileID: -4907375514969576900}
+  - {fileID: -2749235811425182384}
+  - {fileID: -5491393695879329288}
+  - {fileID: -1486883699815597220}
+  - {fileID: 8491000844513089889}
+  - {fileID: 4442187531689312369}
+  - {fileID: 171416075874529851}
+  - {fileID: -1945276020800962261}
+  - {fileID: 2638492811029015823}
+  - {fileID: 4488248460687224576}
+  - {fileID: -7817637314567062028}
+  - {fileID: -5282296228340903804}
+  - {fileID: -6325736265376175466}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -2307403893506965007}
+  - {fileID: 2165521022081269888}
   StringsBanks:
-  - {fileID: 734226662561519838}
-  cacheTime: 638213396650000000
+  - {fileID: 5706653427242283154}
+  cacheTime: 638223097783946573
   cacheVersion: 131603
 --- !u!114 &126879127080487655
 MonoBehaviour:
@@ -1045,14 +1137,41 @@ MonoBehaviour:
     Data3: -1611690590
     Data4: 39841834
   Banks:
-  - {fileID: -3436592884118697013}
+  - {fileID: -7290897094772735251}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 4000
+  Length: 2800
+--- !u!114 &171416075874529851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Enemigos/Arlequ\xEDn/caminata malo medio"
+  m_EditorClassIdentifier: 
+  Path: "event:/Enemigos/Arlequ\xEDn/caminata malo medio"
+  Guid:
+    Data1: -185595176
+    Data2: 1242542978
+    Data3: 1863716539
+    Data4: -2114819151
+  Banks:
+  - {fileID: -562682032816584581}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 270
 --- !u!114 &197020579086467289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1072,75 +1191,15 @@ MonoBehaviour:
     Data3: -1511153503
     Data4: -320359461
   Banks:
-  - {fileID: -3436592884118697013}
+  - {fileID: -7290897094772735251}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 3000
---- !u!114 &734226662561519838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: "C:/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Master.strings.bank"
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638213396650000000
-  FileSizes:
-  - Name: Desktop
-    Value: 3912
-  Exists: 1
---- !u!114 &871664692619042840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Arlequin.bank
-  m_EditorClassIdentifier: 
-  Path: "C:/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Arlequin.bank"
-  Name: Arlequin
-  StudioPath: bank:/Arlequin
-  lastModified: 638213396650000000
-  FileSizes:
-  - Name: Desktop
-    Value: 184032
-  Exists: 1
---- !u!114 &939466417671418856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/RapidFire.bank
-  m_EditorClassIdentifier: 
-  Path: "C:/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/RapidFire.bank"
-  Name: RapidFire
-  StudioPath: bank:/RapidFire
-  lastModified: 638213396650000000
-  FileSizes:
-  - Name: Desktop
-    Value: 86368
-  Exists: 1
---- !u!114 &1008434442702278509
+  Length: 1700
+--- !u!114 &466194199114655443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1150,23 +1209,104 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Enemigos/Golem/Movimiento
+  m_Name: event:/Armas GENERAL/Out of ammo2
   m_EditorClassIdentifier: 
-  Path: event:/Enemigos/Golem/Movimiento
+  Path: event:/Armas GENERAL/Out of ammo2
   Guid:
-    Data1: -267328987
-    Data2: 1193662658
-    Data3: -1972580979
-    Data4: 126217563
+    Data1: -1880840370
+    Data2: 1140635151
+    Data3: -1633472092
+    Data4: 453168894
   Banks:
-  - {fileID: -6981163005067899658}
-  IsStream: 1
+  - {fileID: -8357017639895237360}
+  IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 11469
+  Length: 75
+--- !u!114 &714529549683523976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Armas GENERAL/Orbe Sagrado/Explosi\xF3n"
+  m_EditorClassIdentifier: 
+  Path: "event:/Armas GENERAL/Orbe Sagrado/Explosi\xF3n"
+  Guid:
+    Data1: -505671270
+    Data2: 1331687909
+    Data3: 1423325844
+    Data4: 1153824409
+  Banks:
+  - {fileID: 8374448860448291086}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1266
+--- !u!114 &1230392597666188256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Estasis"
+  m_EditorClassIdentifier: 
+  Path: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Estasis"
+  Guid:
+    Data1: 672072602
+    Data2: 1315053415
+    Data3: 680464310
+    Data4: 1381431788
+  Banks:
+  - {fileID: -7035673297344730094}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 970
+--- !u!114 &1273542481622991796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Recarga"
+  m_EditorClassIdentifier: 
+  Path: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Recarga"
+  Guid:
+    Data1: -1722355880
+    Data2: 1317352538
+    Data3: -871790707
+    Data4: -4896499
+  Banks:
+  - {fileID: -7035673297344730094}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1800
 --- !u!114 &1477082449549811775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1186,7 +1326,7 @@ MonoBehaviour:
     Data3: 2117079449
     Data4: -519501978
   Banks:
-  - {fileID: 8921678049521847543}
+  - {fileID: -2193470291004874855}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1194,7 +1334,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 46
---- !u!114 &2189014740426130727
+--- !u!114 &1578825294039748725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1204,24 +1344,44 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Enemigos/Golem/Ataque1
+  m_Name: event:/Armas GENERAL/Escopeta Purgadora de Demonios/Recarga
   m_EditorClassIdentifier: 
-  Path: event:/Enemigos/Golem/Ataque1
+  Path: event:/Armas GENERAL/Escopeta Purgadora de Demonios/Recarga
   Guid:
-    Data1: 49895739
-    Data2: 1264303542
-    Data3: -785765490
-    Data4: -1282718920
+    Data1: 301302359
+    Data2: 1170358789
+    Data3: 1770502545
+    Data4: 1771821446
   Banks:
-  - {fileID: -6981163005067899658}
+  - {fileID: -6357380952223156650}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1442
---- !u!114 &2570728631614620632
+  Length: 1749
+--- !u!114 &2165521022081269888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: "C:/ENTREGA FINAL- FMOD + Sonidos_Grupo 102.5/ENTREGA FINAL/\xDAltimaversi\xF3n_102.5/Build/Desktop/Master.bank"
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638223084850896970
+  FileSizes:
+  - Name: Desktop
+    Value: 1730
+  Exists: 1
+--- !u!114 &2638492811029015823
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1231,23 +1391,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/armas GENERAL/Out of ammo2
+  m_Name: event:/Mapa/music
   m_EditorClassIdentifier: 
-  Path: event:/armas GENERAL/Out of ammo2
+  Path: event:/Mapa/music
   Guid:
-    Data1: -1880840370
-    Data2: 1140635151
-    Data3: -1633472092
-    Data4: 453168894
+    Data1: 120389102
+    Data2: 1177949916
+    Data3: 696629933
+    Data4: -939038667
   Banks:
-  - {fileID: -6101357849925731832}
+  - {fileID: -7290897094772735251}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 246925
+--- !u!114 &2697094967630362506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Enemigos/Chill\xF3n Explosivo/Explosi\xF3n"
+  m_EditorClassIdentifier: 
+  Path: "event:/Enemigos/Chill\xF3n Explosivo/Explosi\xF3n"
+  Guid:
+    Data1: -50866815
+    Data2: 1195259098
+    Data3: -2139196247
+    Data4: 714608501
+  Banks:
+  - {fileID: 8948137236925615918}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 75
+  Length: 2440
 --- !u!114 &2819925503499301915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1267,15 +1454,15 @@ MonoBehaviour:
     Data3: -634080880
     Data4: -926215451
   Banks:
-  - {fileID: -2545050744059236134}
+  - {fileID: 8948137236925615918}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1668
---- !u!114 &3289449640701863153
+  Length: 1123
+--- !u!114 &3781130533923269791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1285,16 +1472,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/armas GENERAL/Orbe Sagrado/Lanzamiento
+  m_Name: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Disparo"
   m_EditorClassIdentifier: 
-  Path: event:/armas GENERAL/Orbe Sagrado/Lanzamiento
+  Path: "event:/Armas GENERAL/Metralleta de Purificaci\xF3n/Disparo"
+  Guid:
+    Data1: -692339284
+    Data2: 1157045455
+    Data3: 1690383745
+    Data4: 586270934
+  Banks:
+  - {fileID: -7035673297344730094}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 746
+--- !u!114 &3822200759732168269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Armas GENERAL/Orbe Sagrado/Lanzamiento
+  m_EditorClassIdentifier: 
+  Path: event:/Armas GENERAL/Orbe Sagrado/Lanzamiento
   Guid:
     Data1: 1060854446
     Data2: 1080132576
     Data3: 1467716518
     Data4: 100205095
   Banks:
-  - {fileID: 4446383851063320458}
+  - {fileID: 8374448860448291086}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1302,33 +1516,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 730
---- !u!114 &3873219022248954162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ccc
-  m_EditorClassIdentifier: 
-  Path: event:/ccc
-  Guid:
-    Data1: 1746533327
-    Data2: 1337290403
-    Data3: -43220853
-    Data4: 24338572
-  Banks:
-  - {fileID: -2307403893506965007}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &3937532064943918010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1348,35 +1535,15 @@ MonoBehaviour:
     Data3: -351623516
     Data4: 22608975
   Banks:
-  - {fileID: -6981163005067899658}
+  - {fileID: -3556698225701527601}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1530
---- !u!114 &4446383851063320458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Grenade.bank
-  m_EditorClassIdentifier: 
-  Path: "C:/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Grenade.bank"
-  Name: Grenade
-  StudioPath: bank:/Grenade
-  lastModified: 638213396650000000
-  FileSizes:
-  - Name: Desktop
-    Value: 64768
-  Exists: 1
---- !u!114 &4463461160615895189
+  Length: 2200
+--- !u!114 &4442187531689312369
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1386,23 +1553,77 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Estasis"
+  m_Name: "event:/Enemigos/Arlequ\xEDn/muerte"
   m_EditorClassIdentifier: 
-  Path: "event:/armas GENERAL/Metralleta de Purificaci\xF3n/Trampa Estasis"
+  Path: "event:/Enemigos/Arlequ\xEDn/muerte"
   Guid:
-    Data1: 672072602
-    Data2: 1315053415
-    Data3: 680464310
-    Data4: 1381431788
+    Data1: 923473836
+    Data2: 1302592409
+    Data3: -1895928952
+    Data4: 110151964
   Banks:
-  - {fileID: 939466417671418856}
+  - {fileID: -562682032816584581}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 970
+  Length: 750
+--- !u!114 &4488248460687224576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Aa
+  m_EditorClassIdentifier: 
+  Path: event:/Aa
+  Guid:
+    Data1: -1239922947
+    Data2: 1135479445
+    Data3: -1517149051
+    Data4: 1544028474
+  Banks:
+  - {fileID: 2165521022081269888}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5201153338900251322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Armas GENERAL/Escopeta Purgadora de Demonios/Disparo concentrado
+  m_EditorClassIdentifier: 
+  Path: event:/Armas GENERAL/Escopeta Purgadora de Demonios/Disparo concentrado
+  Guid:
+    Data1: 1337115597
+    Data2: 1177897357
+    Data3: -1382292302
+    Data4: 584788067
+  Banks:
+  - {fileID: -6357380952223156650}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1541
 --- !u!114 &5223580909055840961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1422,69 +1643,15 @@ MonoBehaviour:
     Data3: 1532439958
     Data4: 671798987
   Banks:
-  - {fileID: -2545050744059236134}
+  - {fileID: 8948137236925615918}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1046
---- !u!114 &5421453780524510312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Mapa/A
-  m_EditorClassIdentifier: 
-  Path: event:/Mapa/A
-  Guid:
-    Data1: -1716741227
-    Data2: 1274904219
-    Data3: -356630619
-    Data4: 1576976421
-  Banks:
-  - {fileID: -2307403893506965007}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &5765506121921391622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/armas GENERAL/Orbe Sagrado/Explosi\xF3n1"
-  m_EditorClassIdentifier: 
-  Path: "event:/armas GENERAL/Orbe Sagrado/Explosi\xF3n1"
-  Guid:
-    Data1: 783904343
-    Data2: 1214694049
-    Data3: 1889350580
-    Data4: 1713720120
-  Banks:
-  - {fileID: 4446383851063320458}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 844
---- !u!114 &5942965043257217388
+  Length: 850
+--- !u!114 &5706653427242283154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1494,35 +1661,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/ShotGun.bank
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: "C:/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/ShotGun.bank"
-  Name: ShotGun
-  StudioPath: bank:/ShotGun
-  lastModified: 638213396650000000
+  Path: "C:/ENTREGA FINAL- FMOD + Sonidos_Grupo 102.5/ENTREGA FINAL/\xDAltimaversi\xF3n_102.5/Build/Desktop/Master.strings.bank"
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638223084850906653
   FileSizes:
   - Name: Desktop
-    Value: 48864
-  Exists: 1
---- !u!114 &5967022634240668179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Player.bank
-  m_EditorClassIdentifier: 
-  Path: "C:/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Player.bank"
-  Name: Player
-  StudioPath: bank:/Player
-  lastModified: 638213396650000000
-  FileSizes:
-  - Name: Desktop
-    Value: 290368
+    Value: 4270
   Exists: 1
 --- !u!114 &6070430651529086406
 MonoBehaviour:
@@ -1543,7 +1690,7 @@ MonoBehaviour:
     Data3: -425003612
     Data4: 2101852702
   Banks:
-  - {fileID: -6981163005067899658}
+  - {fileID: -3556698225701527601}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1551,7 +1698,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2373
---- !u!114 &6563468475351681210
+--- !u!114 &6351404606097795076
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1561,23 +1708,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/armas GENERAL/Hit confirm balas
+  m_Name: "event:/Enemigos/Arlequ\xEDn Modificaci\xF3n/Escudo l\xE1ser"
   m_EditorClassIdentifier: 
-  Path: event:/armas GENERAL/Hit confirm balas
+  Path: "event:/Enemigos/Arlequ\xEDn Modificaci\xF3n/Escudo l\xE1ser"
   Guid:
-    Data1: 151177155
-    Data2: 1254567989
-    Data3: -148490060
-    Data4: 1977040437
+    Data1: 844670209
+    Data2: 1207557299
+    Data3: 1078634386
+    Data4: -2009885715
   Banks:
-  - {fileID: -6101357849925731832}
+  - {fileID: -562682032816584581}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2355
+  Length: 9431
+--- !u!114 &6464582539703673047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemigos/Golem/Movimiento2
+  m_EditorClassIdentifier: 
+  Path: event:/Enemigos/Golem/Movimiento2
+  Guid:
+    Data1: -785087385
+    Data2: 1115442653
+    Data3: 1351919754
+    Data4: 1385352780
+  Banks:
+  - {fileID: -3556698225701527601}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7150
 --- !u!114 &6930730064722239912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1597,14 +1771,14 @@ MonoBehaviour:
     Data3: -1701125728
     Data4: -1683127971
   Banks:
-  - {fileID: -3436592884118697013}
+  - {fileID: -7290897094772735251}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 5329
+  Length: 4200
 --- !u!114 &7442400866412394902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1624,15 +1798,15 @@ MonoBehaviour:
     Data3: -338903680
     Data4: -390780602
   Banks:
-  - {fileID: -2545050744059236134}
-  IsStream: 1
+  - {fileID: 8948137236925615918}
+  IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 23793
---- !u!114 &7550589558967637474
+  Length: 340
+--- !u!114 &7767540643201826866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1642,23 +1816,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/armas GENERAL/Orbe Sagrado/Explosi\xF3n2"
+  m_Name: event:/Enemigos/Golem/Ataque distancia
   m_EditorClassIdentifier: 
-  Path: "event:/armas GENERAL/Orbe Sagrado/Explosi\xF3n2"
+  Path: event:/Enemigos/Golem/Ataque distancia
   Guid:
-    Data1: -505671270
-    Data2: 1331687909
-    Data3: 1423325844
-    Data4: 1153824409
+    Data1: 49895739
+    Data2: 1264303542
+    Data3: -785765490
+    Data4: -1282718920
   Banks:
-  - {fileID: 4446383851063320458}
+  - {fileID: -3556698225701527601}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1664
+  Length: 1100
 --- !u!114 &7805362946447065244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,41 +1852,14 @@ MonoBehaviour:
     Data3: -104474468
     Data4: -693715647
   Banks:
-  - {fileID: -3436592884118697013}
-  IsStream: 1
+  - {fileID: -7290897094772735251}
+  IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 13800
---- !u!114 &7819635492490948106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Player/Player
-  m_EditorClassIdentifier: 
-  Path: event:/Player/Player
-  Guid:
-    Data1: -799573075
-    Data2: 1230960387
-    Data3: 1126792105
-    Data4: 1294949349
-  Banks:
-  - {fileID: 5967022634240668179}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
+  Length: 4500
 --- !u!114 &7917658136668942870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,7 +1879,7 @@ MonoBehaviour:
     Data3: -570355578
     Data4: -1264038118
   Banks:
-  - {fileID: 5967022634240668179}
+  - {fileID: -7865420018646097984}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1740,61 +1887,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3088
---- !u!114 &7921933621594874333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/vc
-  m_EditorClassIdentifier: 
-  Path: event:/vc
-  Guid:
-    Data1: 1679467723
-    Data2: 1136245343
-    Data3: 1478153869
-    Data4: 243563879
-  Banks:
-  - {fileID: -2307403893506965007}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &7986370681176614126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: "event:/Men\xFA/Cancel2"
-  m_EditorClassIdentifier: 
-  Path: "event:/Men\xFA/Cancel2"
-  Guid:
-    Data1: 183982199
-    Data2: 1130365222
-    Data3: -1133810763
-    Data4: 121346523
-  Banks:
-  - {fileID: 8921678049521847543}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 253
---- !u!114 &8921678049521847543
+--- !u!114 &8374448860448291086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1804,17 +1897,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Menu.bank
+  m_Name: bank:/Grenade.bank
   m_EditorClassIdentifier: 
-  Path: "C:/FMOD-PrimeraVers\xF3n - G102.5/FMOD/Primeraversi\xF3n_102.5/Build/Desktop/Menu.bank"
-  Name: Menu
-  StudioPath: bank:/Menu
-  lastModified: 638213396650000000
+  Path: "C:/ENTREGA FINAL- FMOD + Sonidos_Grupo 102.5/ENTREGA FINAL/\xDAltimaversi\xF3n_102.5/Build/Desktop/Grenade.bank"
+  Name: Grenade
+  StudioPath: bank:/Grenade
+  lastModified: 638223066891579855
   FileSizes:
   - Name: Desktop
-    Value: 26976
+    Value: 23680
   Exists: 1
---- !u!114 &9135384835184281317
+--- !u!114 &8491000844513089889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1824,20 +1917,67 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Enemigos/Golem/Ataque2
+  m_Name: "event:/Enemigos/Arlequ\xEDn/risa malo medio"
   m_EditorClassIdentifier: 
-  Path: event:/Enemigos/Golem/Ataque2
+  Path: "event:/Enemigos/Arlequ\xEDn/risa malo medio"
   Guid:
-    Data1: 463749534
-    Data2: 1082172707
-    Data3: -405098621
-    Data4: 922516265
+    Data1: 1206241896
+    Data2: 1216288110
+    Data3: 1260915352
+    Data4: -124009079
   Banks:
-  - {fileID: -6981163005067899658}
+  - {fileID: -562682032816584581}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1400
+--- !u!114 &8948137236925615918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Chillon.bank
+  m_EditorClassIdentifier: 
+  Path: "C:/ENTREGA FINAL- FMOD + Sonidos_Grupo 102.5/ENTREGA FINAL/\xDAltimaversi\xF3n_102.5/Build/Desktop/Chillon.bank"
+  Name: Chillon
+  StudioPath: bank:/Chillon
+  lastModified: 638223091166167977
+  FileSizes:
+  - Name: Desktop
+    Value: 85504
+  Exists: 1
+--- !u!114 &9029188502201730085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Armas GENERAL/Orbe Sagrado/Out of charges
+  m_EditorClassIdentifier: 
+  Path: event:/Armas GENERAL/Orbe Sagrado/Out of charges
+  Guid:
+    Data1: 1705520635
+    Data2: 1280966858
+    Data3: 1187373964
+    Data4: 514552591
+  Banks:
+  - {fileID: 8374448860448291086}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 399
+  Length: 339

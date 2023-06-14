@@ -6988,6 +6988,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 286048636, guid: b5301dd35a2af1245b35289bf67ebbb0, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Player/prota recibiendo golpe
+      objectReference: {fileID: 0}
+    - target: {fileID: 286048636, guid: b5301dd35a2af1245b35289bf67ebbb0, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -155757400
+      objectReference: {fileID: 0}
+    - target: {fileID: 286048636, guid: b5301dd35a2af1245b35289bf67ebbb0, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1332062408
+      objectReference: {fileID: 0}
+    - target: {fileID: 286048636, guid: b5301dd35a2af1245b35289bf67ebbb0, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 207768961
+      objectReference: {fileID: 0}
+    - target: {fileID: 286048636, guid: b5301dd35a2af1245b35289bf67ebbb0, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1725474190
+      objectReference: {fileID: 0}
     - target: {fileID: 751460657, guid: b5301dd35a2af1245b35289bf67ebbb0, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -10909,7 +10929,7 @@ MonoBehaviour:
       Data2: 1255504016
       Data3: -476710264
       Data4: 58478693
-    Path: "event:/Men\xFA/Cancel1"
+    Path: "event:/Men\xFA/Cancel"
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -11178,7 +11198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PATH_LENGHT: 3
   currentGameMode: 0
-  manualLevelPath: 04000000
+  manualLevelPath: 05000000
   randomPath: 1
 --- !u!4 &461158423
 Transform:
@@ -35050,6 +35070,43 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1738378284}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1747004707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7514546649497779804, guid: 0c390d2c0db69614dba7e8cb4d270d57,
+    type: 3}
+  m_PrefabInstance: {fileID: 7514546648846888282}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1747004712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747004707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2061726652
+      Data2: 1268788836
+      Data3: -1219673952
+      Data4: -1568116194
+    Path: event:/Mapa/Portal pasivo
+  Event: 
+  PlayEvent: 3
+  StopEvent: 4
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1757573438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48155,6 +48212,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b0af6a7e7572a34f95294bdeb2eebb8, type: 3}
+--- !u!1 &8481286482466760747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7321931923238361996, guid: 8b0af6a7e7572a34f95294bdeb2eebb8,
+    type: 3}
+  m_PrefabInstance: {fileID: 8481286482466760746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8481286482466760748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8481286482466760747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1118754455
+      Data2: 1183409475
+      Data3: -672024898
+      Data4: -1946127139
+    Path: event:/Mapa/Ambiente canto angelical lobby
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!23 &8490798605078944002
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -5072,6 +5072,7 @@ GameObject:
   - component: {fileID: 1156617186}
   - component: {fileID: 1156617182}
   - component: {fileID: 1156617184}
+  - component: {fileID: 1994074446868991599}
   m_Layer: 0
   m_Name: GolemEnemy
   m_TagString: Enemy
@@ -5194,7 +5195,9 @@ MonoBehaviour:
   healthOrbPrefab: {fileID: 5035788950964770640, guid: 1d9c0bd96c284e0439c616df7a242379,
     type: 3}
   healthOrbPrefabAmount: 3
+  healthOrbPercent: 40
   DeathEmitter: {fileID: 376068209032824728}
+  HitEmitter: {fileID: 1994074446868991599}
   enemyAnimator: {fileID: 757935326170101189}
 --- !u!65 &794669723146363780
 BoxCollider:
@@ -5274,7 +5277,7 @@ MonoBehaviour:
       Data2: 1195259098
       Data3: -2139196247
       Data4: 714608501
-    Path: "event:/Enemigos/Chill\xF3n Explosivo/Explosi\xF3n1"
+    Path: "event:/Enemigos/Chill\xF3n Explosivo/Explosi\xF3n"
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -5517,6 +5520,37 @@ MonoBehaviour:
   m_Bindings:
   - {fileID: 1156617182}
   m_VisualEffect: {fileID: 1156617185}
+--- !u!114 &1994074446868991599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100608988851071974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 151177155
+      Data2: 1254567989
+      Data3: -148490060
+      Data4: 1977040437
+    Path: event:/Armas GENERAL/Hit confirm balas
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2347920794735321675
 GameObject:
   m_ObjectHideFlags: 0
@@ -26333,6 +26367,7 @@ MonoBehaviour:
   IA_Health: {fileID: 6379223510045939995}
   IA_Desintegration: {fileID: 1156617183}
   IA_SoulVE: {fileID: 3307052095971966829}
+  cascabelEmitter: {fileID: 0}
 --- !u!4 &6784526692379747447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 13af0544c57d657458682e42f0098e3e,

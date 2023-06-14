@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 1556834285}
   - component: {fileID: 1556834282}
   - component: {fileID: 1556834283}
+  - component: {fileID: 8690996345759241098}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -390,7 +391,9 @@ MonoBehaviour:
   healthOrbPrefab: {fileID: 5035788950964770640, guid: 1d9c0bd96c284e0439c616df7a242379,
     type: 3}
   healthOrbPrefabAmount: 1
+  healthOrbPercent: 40
   DeathEmitter: {fileID: 3275561967066558029}
+  HitEmitter: {fileID: 8690996345759241098}
   enemyAnimator: {fileID: 4395374722298847110}
 --- !u!114 &1515236647032608043
 MonoBehaviour:
@@ -671,6 +674,37 @@ MonoBehaviour:
   m_Bindings:
   - {fileID: 1556834282}
   m_VisualEffect: {fileID: 1556834285}
+--- !u!114 &8690996345759241098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515236647032608033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 151177155
+      Data2: 1254567989
+      Data3: -148490060
+      Data4: 1977040437
+    Path: event:/Armas GENERAL/Hit confirm balas
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1665293334332728740
 GameObject:
   m_ObjectHideFlags: 0
@@ -26192,6 +26226,7 @@ MonoBehaviour:
   IA_Health: {fileID: 1515236647032608047}
   IA_Desintegration: {fileID: 2061462163}
   IA_SoulVE: {fileID: 756044268}
+  cascabelEmitter: {fileID: 0}
 --- !u!4 &4086315872178790192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8c3f1f9e6eeb4f6429c819c2c5da1044,

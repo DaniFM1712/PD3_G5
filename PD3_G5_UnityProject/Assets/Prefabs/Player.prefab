@@ -9772,6 +9772,7 @@ GameObject:
   - component: {fileID: 286048637}
   - component: {fileID: 286048638}
   - component: {fileID: 1064765337}
+  - component: {fileID: 4489381429874886878}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -9913,11 +9914,11 @@ MonoBehaviour:
   dashLength: 0.08
   dashSpeed: 60
   dashCooldown: 5
-  currentDashCharges: 0
   speedBuffDuration: 3
   dashEmitter: {fileID: 286048616}
   jumpStartEmitter: {fileID: 286048635}
   jumpEndEmitter: {fileID: 286048634}
+  moveEmitter: {fileID: 4489381429874886878}
 --- !u!114 &588255094290663183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9941,7 +9942,6 @@ MonoBehaviour:
   grenadesPerTap: 1
   grenadeOrigin: {fileID: 6610077119698529702}
   allowInvokeGrenade: 1
-  currentGrenadeCharges: 0
   ThrowEmitter: {fileID: 1064765337}
 --- !u!114 &1267481631374456047
 MonoBehaviour:
@@ -10304,6 +10304,37 @@ MonoBehaviour:
       Data3: 1467716518
       Data4: 100205095
     Path: event:/Armas GENERAL/Orbe Sagrado/Lanzamiento
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &4489381429874886878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688068328114149645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -444211648
+      Data2: 1181323313
+      Data3: -338903680
+      Data4: -390780602
+    Path: "event:/Enemigos/Chill\xF3n/Movimiento"
   Event: 
   PlayEvent: 0
   StopEvent: 0

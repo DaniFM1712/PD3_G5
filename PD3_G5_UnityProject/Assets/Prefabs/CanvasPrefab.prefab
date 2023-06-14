@@ -3712,6 +3712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7233135250196684632}
   - component: {fileID: 8977022679130027936}
+  - component: {fileID: 7943649303824873579}
   m_Layer: 0
   m_Name: Coins
   m_TagString: Untagged
@@ -3752,6 +3753,38 @@ MonoBehaviour:
   scCounter: {fileID: 1325148073101640010}
   ncGO: {fileID: 3742094402929229395}
   scGO: {fileID: 2339983533190866782}
+  coinEmitter: {fileID: 7943649303824873579}
+--- !u!114 &7943649303824873579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7882523147881468722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 651421540
+      Data2: 1302259860
+      Data3: -931077726
+      Data4: -1207360057
+    Path: event:/Mapa/Obtener monedas
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8426243292382874511
 GameObject:
   m_ObjectHideFlags: 0

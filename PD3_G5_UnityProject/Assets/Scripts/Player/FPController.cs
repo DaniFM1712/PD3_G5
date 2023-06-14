@@ -85,6 +85,7 @@ public class FPController : MonoBehaviour
     public StudioEventEmitter dashEmitter;
     public StudioEventEmitter jumpStartEmitter;
     public StudioEventEmitter jumpEndEmitter;
+    public StudioEventEmitter moveEmitter;
 
     private void Awake()
     {
@@ -197,19 +198,33 @@ public class FPController : MonoBehaviour
         if (Input.GetKey(forwardKey))
         {
             direction += forward;
+            if (!moveEmitter.IsPlaying())
+                moveEmitter.Play();
         }
         if (Input.GetKey(leftKey))
         {
             direction -= right;
+            if (!moveEmitter.IsPlaying())
+                moveEmitter.Play();
         }
         if (Input.GetKey(rightKey))
         {
             direction += right;
+            if (!moveEmitter.IsPlaying())
+                moveEmitter.Play();
         }
         if (Input.GetKey(backwardsKey))
         {
             direction -= forward;
+            if (!moveEmitter.IsPlaying())
+                moveEmitter.Play();
         }
+        if((!Input.GetKey(forwardKey) && !Input.GetKey(leftKey) && !Input.GetKey(rightKey) && !Input.GetKey(backwardsKey)) || !onGround)
+        {
+            moveEmitter.Stop();
+        }
+      
+
 
         currSpeed = (walkSpeed + PlayerStatsScript.instance.currentSpeedBonus)*PlayerStatsScript.instance.currentSpeedMultiplyer;
 

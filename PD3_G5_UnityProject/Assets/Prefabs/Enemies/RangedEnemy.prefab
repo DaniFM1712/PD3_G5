@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 1615134643}
   - component: {fileID: 1615134640}
   - component: {fileID: 1615134641}
+  - component: {fileID: 8698230166323659603}
   m_Layer: 0
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -252,7 +253,9 @@ MonoBehaviour:
   healthOrbPrefab: {fileID: 5035788950964770640, guid: 1d9c0bd96c284e0439c616df7a242379,
     type: 3}
   healthOrbPrefabAmount: 2
+  healthOrbPercent: 40
   DeathEmitter: {fileID: 1166356204926614126}
+  HitEmitter: {fileID: 8698230166323659603}
   enemyAnimator: {fileID: 4384095251825866106}
 --- !u!54 &3815749892923093220
 Rigidbody:
@@ -333,11 +336,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1480603300
-      Data2: 1144670439
-      Data3: -1565525340
-      Data4: 417193917
-    Path: "event:/Enemigos/Arlequ\xEDn/Ataque"
+      Data1: 1206241896
+      Data2: 1216288110
+      Data3: 1260915352
+      Data4: -124009079
+    Path: "event:/Enemigos/Arlequ\xEDn/risa malo medio"
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -364,11 +367,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 923473836
-      Data2: 1302592409
-      Data3: -1895928952
-      Data4: 110151964
-    Path: "event:/Enemigos/Arlequ\xEDn/Muerte"
+      Data1: 111269391
+      Data2: 1219789307
+      Data3: 37360824
+      Data4: 1873674258
+    Path: "event:/Enemigos/Arlequ\xEDn/malo medio muriendo"
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -518,6 +521,37 @@ MonoBehaviour:
   m_Bindings:
   - {fileID: 1615134640}
   m_VisualEffect: {fileID: 1615134642}
+--- !u!114 &8698230166323659603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313207473817311360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 151177155
+      Data2: 1254567989
+      Data3: -148490060
+      Data4: 1977040437
+    Path: event:/Armas GENERAL/Hit confirm balas
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1960914751034119990
 GameObject:
   m_ObjectHideFlags: 0
@@ -26241,6 +26275,37 @@ MonoBehaviour:
   desintegrateRate: 0.01
   refreshRate: 0.025
   VFXGraph: {fileID: 1615134642}
+--- !u!114 &7001720223506391462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6087650684523965118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -185595176
+      Data2: 1242542978
+      Data3: 1863716539
+      Data4: -2114819151
+    Path: "event:/Enemigos/Arlequ\xEDn/caminata malo medio"
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &8077700980264058337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26257,6 +26322,7 @@ MonoBehaviour:
   IA_Health: {fileID: 1313207473817311374}
   IA_Desintegration: {fileID: 710883623}
   IA_SoulVE: {fileID: 59992291347352257}
+  cascabelEmitter: {fileID: 7001720223506391462}
 --- !u!137 &6334992322113630115 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -8119798636129077172, guid: eaf15352877560b48904c130956c7c60,
