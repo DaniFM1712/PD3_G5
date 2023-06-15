@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8856386471069053633}
   - component: {fileID: 5568682280960556388}
   - component: {fileID: 7684012113277913518}
-  - component: {fileID: 7222499747552718958}
+  - component: {fileID: 9084660432356691448}
   m_Layer: 0
   m_Name: 209_floor_pavingStone
   m_TagString: Terrain
@@ -85,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7222499747552718958
-MeshCollider:
+--- !u!65 &9084660432356691448
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,7 +95,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 163280005959413171, guid: 1775ca5d746b0ef4ea9dfc70ad8b254b, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 7.293007, y: 6.752747, z: 1.0117784}
+  m_Center: {x: 0.09562206, y: -0.006602764, z: 0.21520483}
