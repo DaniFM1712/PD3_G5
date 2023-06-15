@@ -452,7 +452,7 @@ public class StoreScript : MonoBehaviour
         {
             if (PlayerStatsScript.instance.unlocks[0] < 5) {
                 PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
-                PlayerStatsScript.instance.baseDivinePowerMultiplyer += 1f / 5;
+                PlayerStatsScript.instance.baseDivinePowerMultiplyer += 0.2f;
                 PlayerStatsScript.instance.currentDivinePowerMultiplyer = PlayerStatsScript.instance.baseDivinePowerMultiplyer;
                 BuyEmitter.Play();
 
@@ -477,7 +477,7 @@ public class StoreScript : MonoBehaviour
         {
             if (PlayerStatsScript.instance.unlocks[1] < 5) {
                 PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
-                PlayerStatsScript.instance.baseEssenceMultiplyer += 0.25f/5;
+                PlayerStatsScript.instance.baseEssenceMultiplyer += 0.05f;
                 PlayerStatsScript.instance.currentEssenceMultiplyer = PlayerStatsScript.instance.baseEssenceMultiplyer;
                 CoinCounterScript.coinCounterInstance.updateSCCounter(-statsPrices[1]);
                 scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
@@ -502,7 +502,7 @@ public class StoreScript : MonoBehaviour
         {
             if (PlayerStatsScript.instance.unlocks[2] < 5) {
                 PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
-                PlayerStatsScript.instance.baseDamageMultiplyer += 0.5f / 5;
+                PlayerStatsScript.instance.baseDamageMultiplyer += 0.1f ;
                 PlayerStatsScript.instance.currentDamageMultiplyer = PlayerStatsScript.instance.baseDamageMultiplyer;
                 CoinCounterScript.coinCounterInstance.updateSCCounter(-statsPrices[2]);
                 scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
@@ -528,7 +528,7 @@ public class StoreScript : MonoBehaviour
             if (PlayerStatsScript.instance.unlocks[3] < 5)
             {
                 PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
-                PlayerStatsScript.instance.baseMaxHealthMultiplyer += 0.5f / 5;
+                PlayerStatsScript.instance.baseMaxHealthMultiplyer += 0.1f ;
                 PlayerStatsScript.instance.currentMaxHealthMultiplyer = PlayerStatsScript.instance.baseMaxHealthMultiplyer;
                 PlayerStatsScript.instance.currentHealth = PlayerStatsScript.instance.GetCurrentMaxHealth();
                 CoinCounterScript.coinCounterInstance.updateSCCounter(-statsPrices[3]);
@@ -554,7 +554,7 @@ public class StoreScript : MonoBehaviour
             if (PlayerStatsScript.instance.unlocks[4] < 5)
             {
                 PlayerStatsScript.instance.unlocks[itemSelected - 1]++;
-                PlayerStatsScript.instance.baseFireRateMultiplyer += 0.5f / 5;
+                PlayerStatsScript.instance.baseFireRateMultiplyer -= 0.1f;
                 PlayerStatsScript.instance.currentFireRateMultiplyer = PlayerStatsScript.instance.baseFireRateMultiplyer;
                 CoinCounterScript.coinCounterInstance.updateSCCounter(-statsPrices[4]);
                 scCounter.text = PlayerStatsScript.instance.currentSpecialCoin + "";
