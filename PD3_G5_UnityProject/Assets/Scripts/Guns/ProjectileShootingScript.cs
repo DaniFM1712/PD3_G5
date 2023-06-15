@@ -31,6 +31,7 @@ public class ProjectileShootingScript : MonoBehaviour
     [Header("Spawn Point")]
     private Camera cam;
     private TextMeshProUGUI bulletCounterText;
+    private GameObject bulletCounter;
     [SerializeField] Transform bulletOrigin;
     [SerializeField] ParticleSystem[] particles;
 
@@ -69,6 +70,7 @@ public class ProjectileShootingScript : MonoBehaviour
         baseTimeBetweenShooting = timeBetweenShooting;
         cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         bulletCounterText = GameObject.Find("CanvasPrefab/Bullets/BulletCounter").GetComponent<TextMeshProUGUI>();
+        bulletCounter = bulletCounterText.gameObject.transform.parent.gameObject;
 
         bulletPool = new Queue<GameObject>();
         GameObject bullets = new("Bullets");
@@ -140,8 +142,9 @@ public class ProjectileShootingScript : MonoBehaviour
                     if (particles[i] != null)
                         particles[i].Play();
                 }
-                    
+
                 Shoot();
+
                 if (PlayerStatsScript.instance.threeShotBuff)
                     shotCounter++;
                 else
@@ -155,6 +158,10 @@ public class ProjectileShootingScript : MonoBehaviour
 
     private void Shoot()
     {
+        LeanTween.moveLocal(bulletCounter, new Vector3(10, 0, 0), 0.1f).setOnComplete(() =>
+        {
+            LeanTween.moveLocal(bulletCounter, new Vector3(0, 0, 0), 0.2f);
+        });
         PlayerHasShoot.Invoke(timeBetweenShooting);
         readyToShoot = false;
 
