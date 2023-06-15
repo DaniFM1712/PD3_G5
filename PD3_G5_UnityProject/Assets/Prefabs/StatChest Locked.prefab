@@ -244,7 +244,6 @@ MonoBehaviour:
   consumableItem: {fileID: 4868041599595016249}
   consumableItemGO: {fileID: 4868041599595016248}
   chestAnimator: {fileID: 0}
-  consumableParticles: {fileID: 7336471355715736399}
   OpenChestEmitter: {fileID: 6833456712202367188}
 --- !u!114 &6833456712202367188
 MonoBehaviour:
@@ -474,6 +473,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3904008270588357124}
     m_Modifications:
+    - target: {fileID: 2761147376311177179, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8980126844607102093, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
         type: 3}
       propertyPath: m_RootOrder
@@ -534,6 +538,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConsumableObject
       objectReference: {fileID: 0}
+    - target: {fileID: 8980126844607102095, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b202ad6ee9780b14aa5af4ec54a7bf46, type: 3}
 --- !u!1 &4868041599595016248 stripped
@@ -552,18 +561,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6882d2dd511dc184d997da246b4d51f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7336471355715736399 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6539633548090793976, guid: b202ad6ee9780b14aa5af4ec54a7bf46,
-    type: 3}
-  m_PrefabInstance: {fileID: 4544435230008544439}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4868041599595016248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f9b5716b3bd6d43ac5f6b5eadc0650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8554789511662600185
