@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5005221379691160778}
   - component: {fileID: 8275863245280095087}
   - component: {fileID: 6142121060233994149}
-  - component: {fileID: 4294380755034161082}
+  - component: {fileID: 3133659107873625363}
   m_Layer: 0
   m_Name: 210_floor_slabs
   m_TagString: Terrain
@@ -85,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4294380755034161082
-MeshCollider:
+--- !u!65 &3133659107873625363
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,7 +95,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -507222707876806082, guid: 1f3491e017bef7e45bb496f45578c5b4, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 5.2788177, y: 5.6588607, z: 5.119144}
+  m_Center: {x: 0.008915663, y: 0.114527225, z: 2.295783}
