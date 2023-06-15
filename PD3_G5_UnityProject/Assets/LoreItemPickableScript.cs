@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using FMODUnity;
 
 public class LoreItemPickableScript : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class LoreItemPickableScript : MonoBehaviour
     [SerializeField] GameObject canvas;
     [SerializeField] int percentRan;
     private bool canTake = false;
+    [Header("FMOD")]
+    public StudioEventEmitter TakeEmitter;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +49,7 @@ public class LoreItemPickableScript : MonoBehaviour
         if (Input.GetKey(KeyCode.E) && canTake)
         {
             PlayerStatsScript.instance.loreUnlocked[loreNum] = true;
+            TakeEmitter.Play();
             Destroy(loreMesh);
             Destroy(canvas);
             Destroy(gameObject);

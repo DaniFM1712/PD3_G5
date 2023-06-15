@@ -40,7 +40,6 @@ public class NextLevelScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            
             goNextLevel = true;
             if (exitLevel != null)
                 exitLevelText.enabled = true;

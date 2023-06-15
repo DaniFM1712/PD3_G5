@@ -17,8 +17,8 @@ public class LevelManager : MonoBehaviour
     public Queue <int> levelCaoticPath;
     public List <int> manualLevelPath;
     private List <int> diurnalLevels = new List<int> {4,5,6,7,8};
-    private List <int> nocturnalLevels = new List<int> {9,10};
-    private List <int> caoticLevels = new List<int> {6,1};
+    private List <int> nocturnalLevels = new List<int> {9,9};
+    private List <int> caoticLevels = new List<int> {9,9};
     private List<int> levelDiurnalIndex;
     private List<int> levelNocturnalIndex;
     private List<int> levelCaoticIndex;
@@ -121,11 +121,10 @@ public class LevelManager : MonoBehaviour
 
         //Add Random Store
         int storePos = Random.Range(1, levelDiurnalIndex.Count-1);
-        levelDiurnalIndex.Insert(storePos, 2);
-        levelNocturnalIndex.Insert(storePos, 2);
-        levelCaoticIndex.Insert(storePos, 2);
+        //levelDiurnalIndex.Insert(storePos, 2);
+        //levelNocturnalIndex.Insert(storePos, 2);
+        //levelCaoticIndex.Insert(storePos, 2);
 
-        levelDiurnalIndex.Add(1);
 
         /*
         foreach(int k in levelIndex)

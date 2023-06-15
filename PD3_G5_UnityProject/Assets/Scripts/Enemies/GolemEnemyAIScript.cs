@@ -1,4 +1,5 @@
 using FMODUnity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -402,9 +403,9 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
         Debug.Log("PREVIEW");
         directionWithoutSpread = shootingPoint - bulletOrigin.position;
 
-        xSpread = Random.Range(-spread, +spread);
-        ySpread = Random.Range(-spread, +spread);
-        zSpread = Random.Range(-spread, +spread);
+        xSpread = UnityEngine.Random.Range(-spread, +spread);
+        ySpread = UnityEngine.Random.Range(-spread, +spread);
+        zSpread = UnityEngine.Random.Range(-spread, +spread);
 
 
         directionWithoutSpread += new Vector3(xSpread, ySpread, zSpread);
@@ -456,7 +457,14 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
     private void OnDestroy()
     {
-        previewBullet.SetActive(false);
+        try
+        {
+            previewBullet.SetActive(false);
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);  
+        }
         Destroy(previewBullet);
     }
 
