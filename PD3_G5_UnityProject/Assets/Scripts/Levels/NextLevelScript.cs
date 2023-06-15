@@ -15,6 +15,7 @@ public class NextLevelScript : MonoBehaviour
     public StudioEventEmitter ExitLevelEmitter;
     [Header("Particles")]
     [SerializeField] ParticleSystem particles;
+    [SerializeField] Animator portalAnimator;
     private void Start()
     {
         if(exitLevel != null)
@@ -26,17 +27,27 @@ public class NextLevelScript : MonoBehaviour
     {
         if (goNextLevel && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.instance.currentWeaponIndex != 0 && !stopLoad)
         {
-
-            ExitLevelEmitter.Play();
-            stopLoad = true;
-            LevelManager.instance.LoadLevel();
-            if (exitLevel != null)
-                exitLevelText.enabled = false;
+            //Debug.Log("entro");
+            exitLevelText.enabled = false;
+            portalAnimator.SetBool("exit",true);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.SetActive(false);
+            StartCoroutine(LoadNextLevel());
         }       
     }
 
+    IEnumerator LoadNextLevel()
+    {
+        yield return new WaitForSeconds(2f);
+        ExitLevelEmitter.Play();
+        stopLoad = true;
+        LevelManager.instance.LoadLevel();
+        if (exitLevel != null)
+            exitLevelText.enabled = false;
+    }
 
-    private void OnTriggerEnter(Collider other)
+
+        private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
