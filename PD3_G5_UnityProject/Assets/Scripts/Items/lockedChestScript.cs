@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,10 @@ public class lockedChestScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI costText;
     [SerializeField] TextMeshProUGUI unableText;
     [SerializeField] int openPrice = 20;
+    [SerializeField] Animator chestAnimator;
 
+    [Header("FMOD")]
+    public StudioEventEmitter OpenChestEmitter;
 
 
     private void Start()
@@ -20,6 +24,8 @@ public class lockedChestScript : MonoBehaviour
         Canvas.SetActive(false);
         costText.text = "COST: "+ openPrice;
         unableText.enabled = false;
+        chestAnimator = transform.GetComponentInParent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -29,12 +35,19 @@ public class lockedChestScript : MonoBehaviour
         {
             CoinCounterScript.coinCounterInstance.updateNCCounter(-openPrice);
             consumableItemGO.SetActive(true);
+            startOpenChestAnimation();
             Destroy(gameObject);
         }
         else if (canTake && Input.GetKeyDown(KeyCode.E) && PlayerStatsScript.instance.currentNormalCoin < openPrice)
         {
             unableText.enabled = true;
         }
+    }
+
+    void startOpenChestAnimation()
+    {
+        chestAnimator.SetBool("open", true);
+        OpenChestEmitter.Play();
     }
 
     public void generateRandomReward()
