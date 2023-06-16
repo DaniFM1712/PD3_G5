@@ -8,8 +8,8 @@ public class LoadSceneScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.UnloadSceneAsync(LevelManager.instance.getCurrentSceneIndex());
-        StartCoroutine(LoadSceneAsync(LevelManager.instance.LoadLevel()));
+        //SceneManager.UnloadSceneAsync(LevelManager.instance.getCurrentSceneIndex());
+        //StartCoroutine(LoadSceneAsync(LevelManager.instance.LoadLevel()));
     }
 
     IEnumerator LoadSceneAsync(int sceneIndex)

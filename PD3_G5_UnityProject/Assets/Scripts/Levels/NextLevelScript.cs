@@ -42,8 +42,7 @@ public class NextLevelScript : MonoBehaviour
         yield return new WaitForSeconds(2f);
         ExitLevelEmitter.Play();
         stopLoad = true;
-        SceneManager.LoadScene(13);
-        //LevelManager.instance.LoadLevel();
+        LevelManager.instance.LoadLevel();
         if (exitLevel != null)
             exitLevelText.enabled = false;
     }

@@ -55,9 +55,10 @@ public class LevelManager : MonoBehaviour
    }
 
 
-    public int LoadLevel() {
+    public void LoadLevel() {
         moveEmitter.Stop();
-        //SceneManager.LoadScene(13);
+        SceneManager.UnloadSceneAsync(LevelManager.instance.getCurrentSceneIndex());
+        SceneManager.LoadScene(13);
 
         switch (currentGameMode)
         {
@@ -66,7 +67,8 @@ public class LevelManager : MonoBehaviour
                 {
                     PlayerStatsScript.instance.SaveBlessings();
                     previousScene = getCurrentSceneIndex();
-                    return levelDiurnalPath.Dequeue();
+                    StartCoroutine(LoadSceneAsync(levelDiurnalPath.Dequeue()));
+
                     //SceneManager.LoadScene(levelDiurnalPath.Dequeue());
                 }
                 else
@@ -79,7 +81,7 @@ public class LevelManager : MonoBehaviour
                 {
                     PlayerStatsScript.instance.SaveBlessings();
                     previousScene = getCurrentSceneIndex();
-                    return levelNocturnalPath.Dequeue();
+                    StartCoroutine(LoadSceneAsync(levelNocturnalPath.Dequeue()));
                     //SceneManager.LoadScene(levelNocturnalPath.Dequeue());
                 }
                 else
@@ -92,7 +94,7 @@ public class LevelManager : MonoBehaviour
                 {
                     PlayerStatsScript.instance.SaveBlessings();
                     previousScene = getCurrentSceneIndex();
-                    return levelCaoticPath.Dequeue();
+                    StartCoroutine(LoadSceneAsync(levelCaoticPath.Dequeue()));
                     //SceneManager.LoadScene(levelCaoticPath.Dequeue());
                 }
                 else
@@ -107,7 +109,6 @@ public class LevelManager : MonoBehaviour
         }
 
         CoinCounterScript.coinCounterInstance.updateSCCounter(0);
-        return -1;
     }
 
     public void generateRandomPath()
@@ -194,6 +195,7 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(LoadSceneAsync(getCurrentSceneIndex()));
         //SceneManager.LoadScene(getCurrentSceneIndex());
     }
+
     public void RestartGame(int scene)
     {
         generateRandomPath();
@@ -217,6 +219,7 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator LoadSceneAsync(int sceneIndex)
     {
+        Application.backgroundLoadingPriority = ThreadPriority.Low;
         yield return new WaitForSeconds(1f);
         Debug.Log("LOADING SCENE");
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
