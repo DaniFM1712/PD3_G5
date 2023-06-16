@@ -335,9 +335,9 @@ public class MeleChaserEnemy : ParentEnemyIAScript
         float prevAcceleration = agent.acceleration;
 
         agent.SetDestination(destination);
-        agent.speed = prevSpeed * 10f;
-        agent.angularSpeed = prevAngularSpeed * 10f;
-        agent.acceleration = prevAcceleration * 10f;
+        agent.speed = prevSpeed * 5f;
+        agent.angularSpeed = prevAngularSpeed * 5f;
+        agent.acceleration = prevAcceleration * 5f;
 
         float dist = agent.remainingDistance; 
         
