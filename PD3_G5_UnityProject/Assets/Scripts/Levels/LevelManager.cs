@@ -17,8 +17,8 @@ public class LevelManager : MonoBehaviour
     public Queue <int> levelCaoticPath;
     public List <int> manualLevelPath;
     private List <int> diurnalLevels = new List<int> {4,5,6,7,8};
-    private List <int> nocturnalLevels = new List<int> {9,10,11,12};
-    private List <int> caoticLevels = new List<int> {9,9,9};
+    private List <int> nocturnalLevels = new List<int> {9,10,11,12,14};
+    private List <int> caoticLevels = new List<int> { 4, 5, 6, 7, 8 , 9, 10, 11, 12, 14 };
     private List<int> levelDiurnalIndex;
     private List<int> levelNocturnalIndex;
     private List<int> levelCaoticIndex;

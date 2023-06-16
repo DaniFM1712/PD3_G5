@@ -20,6 +20,7 @@ public class StoreScript : MonoBehaviour
     [SerializeField] GameObject statsButton;
     [SerializeField] GameObject gamemodesButton;
     [SerializeField] GameObject loreButton;
+    [SerializeField] GameObject canvasTake;
 
 
     [Header("WeaponInfo")]
@@ -63,6 +64,7 @@ public class StoreScript : MonoBehaviour
     {
         if (canShop && Input.GetKeyDown(KeyCode.E))
         {
+            canvasTake.SetActive(false);
             int i = 0;
             foreach (bool boolean in PlayerStatsScript.instance.toolsUpgrades)
             {
@@ -653,11 +655,13 @@ public class StoreScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        canvasTake.SetActive(true);
         canShop = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
+        canvasTake.SetActive(false);
         canShop = false;
     }
 
