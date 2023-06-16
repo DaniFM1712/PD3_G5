@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using FMODUnity;
+using UnityEngine.SceneManagement;
 
 public class NextLevelScript : MonoBehaviour
 {
@@ -41,13 +42,14 @@ public class NextLevelScript : MonoBehaviour
         yield return new WaitForSeconds(2f);
         ExitLevelEmitter.Play();
         stopLoad = true;
-        LevelManager.instance.LoadLevel();
+        SceneManager.LoadScene(13);
+        //LevelManager.instance.LoadLevel();
         if (exitLevel != null)
             exitLevelText.enabled = false;
     }
 
 
-        private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {

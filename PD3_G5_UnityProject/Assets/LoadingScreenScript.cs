@@ -7,8 +7,8 @@ public class LoadingScreenScript : MonoBehaviour
     private GameObject blessings;
     // Start is called before the first frame update
     void Start()
-    {
-        if (LevelManager.instance.getCurrentSceneIndex() < 4)
+    {/*
+        if (LevelManager.instance.getCurrentSceneIndex() < 4 || LevelManager.instance.getCurrentSceneIndex() == 13)
         {
             Destroy(gameObject);
         }
@@ -17,7 +17,7 @@ public class LoadingScreenScript : MonoBehaviour
             blessings = GameObject.Find("BlessingTrigger");
             blessings.SetActive(false);
             StartCoroutine(WaitLevelCharge());
-        }
+        }*/
     }
 
     // Update is called once per frame

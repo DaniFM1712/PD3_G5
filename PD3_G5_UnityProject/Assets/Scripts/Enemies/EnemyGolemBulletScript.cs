@@ -38,7 +38,8 @@ public class EnemyGolemBulletScript : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Terrain"))
         {
-            previewBullet.GetComponent<PreviewBulletScript>().HidePreview();
+            if(previewBullet != null)
+                previewBullet.GetComponent<PreviewBulletScript>().HidePreview();
             Vector3 vector3 = transform.position;
 
             if (other.gameObject.TryGetComponent<PlayerHealthScript>(out PlayerHealthScript playerHealth))

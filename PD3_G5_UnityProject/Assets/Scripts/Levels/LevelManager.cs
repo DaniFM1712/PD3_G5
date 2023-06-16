@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
     public List <int> manualLevelPath;
     private List <int> diurnalLevels = new List<int> {4,5,6,7,8};
     private List <int> nocturnalLevels = new List<int> {9,10,11,12};
-    private List <int> caoticLevels = new List<int> {9,9};
+    private List <int> caoticLevels = new List<int> {9,9,9};
     private List<int> levelDiurnalIndex;
     private List<int> levelNocturnalIndex;
     private List<int> levelCaoticIndex;
@@ -57,6 +57,8 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel() {
         moveEmitter.Stop();
+        SceneManager.LoadScene(13);
+
         switch (currentGameMode)
         {
             case 0:
@@ -64,7 +66,8 @@ public class LevelManager : MonoBehaviour
                 {
                     PlayerStatsScript.instance.SaveBlessings();
                     previousScene = getCurrentSceneIndex();
-                    SceneManager.LoadScene(levelDiurnalPath.Dequeue());
+                    StartCoroutine(LoadSceneAsync(levelDiurnalPath.Dequeue()));
+                    //SceneManager.LoadScene(levelDiurnalPath.Dequeue());
                 }
                 else
                 {
@@ -76,7 +79,8 @@ public class LevelManager : MonoBehaviour
                 {
                     PlayerStatsScript.instance.SaveBlessings();
                     previousScene = getCurrentSceneIndex();
-                    SceneManager.LoadScene(levelNocturnalPath.Dequeue());
+                    StartCoroutine(LoadSceneAsync(levelNocturnalPath.Dequeue()));
+                    //SceneManager.LoadScene(levelNocturnalPath.Dequeue());
                 }
                 else
                 {
@@ -88,7 +92,8 @@ public class LevelManager : MonoBehaviour
                 {
                     PlayerStatsScript.instance.SaveBlessings();
                     previousScene = getCurrentSceneIndex();
-                    SceneManager.LoadScene(levelCaoticPath.Dequeue());
+                    StartCoroutine(LoadSceneAsync(levelCaoticPath.Dequeue()));
+                    //SceneManager.LoadScene(levelCaoticPath.Dequeue());
                 }
                 else
                 {
@@ -175,14 +180,18 @@ public class LevelManager : MonoBehaviour
     public void GoToDeathMenu()
     {
         Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(13);
+        StartCoroutine(LoadSceneAsync(3));
+        //SceneManager.LoadScene(3);
     }
 
     public void RestartLevel() {
         previousScene = getCurrentSceneIndex();
         PlayerStatsScript.instance.currentHealth = PlayerStatsScript.instance.GetCurrentMaxHealth();
         HealthUIScript.instance.updateHealth(false);
-        SceneManager.LoadScene(getCurrentSceneIndex());
+        SceneManager.LoadScene(13);
+        StartCoroutine(LoadSceneAsync(getCurrentSceneIndex()));
+        //SceneManager.LoadScene(getCurrentSceneIndex());
     }
     public void RestartGame(int scene)
     {
@@ -190,7 +199,9 @@ public class LevelManager : MonoBehaviour
         CoinCounterScript.coinCounterInstance.resetNCCounter();
         InventoryManagerScript.InventoryInstance.ResetInventory();
         PlayerStatsScript.instance.ResetStats();
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(13);
+        StartCoroutine(LoadSceneAsync(scene));
+        //SceneManager.LoadScene(scene);
         previousScene = getCurrentSceneIndex();
         CoinCounterScript.coinCounterInstance.updateSCCounter(0);
     }
@@ -201,5 +212,17 @@ public class LevelManager : MonoBehaviour
     }
     public int getPreviousSceneIndex() {
         return previousScene;
+    }
+
+    IEnumerator LoadSceneAsync(int sceneIndex)
+    {
+        Debug.Log("LOADING SCENE");
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
+        Debug.Log("DONE LOADING SCENE");
     }
 }
