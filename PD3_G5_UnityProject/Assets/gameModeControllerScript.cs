@@ -12,6 +12,7 @@ public class gameModeControllerScript : MonoBehaviour
     [SerializeField] GameObject portalCao;
     [SerializeField] GameObject portalNoc;
     [SerializeField] GameObject portalDiu;
+    [SerializeField] GameObject canvas;
     private bool canChange = false;
 
     [Header("FMOD")]
@@ -72,10 +73,12 @@ public class gameModeControllerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        canvas.SetActive(true);
         canChange = true;
     }
     private void OnTriggerExit(Collider other)
     {
+        canvas.SetActive(false);
         canChange = false;
     }
 
