@@ -11,8 +11,14 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] GameObject displayOptions;
     [SerializeField] GameObject ControlsOptions;
 
+    [Header("Change Scene Animation")]
+    [SerializeField] float timeToChangeScene = 7.5f;
+    [SerializeField] Animation cameraChangeAnimation;
+    [SerializeField] Animation canvasChangeAnimation;
+
     [Header("FMOD")]
     public StudioEventEmitter SelectEmitter;
+    public StudioEventEmitter MoveAnimationEmitter;
 
     private void Start()
     {
@@ -21,7 +27,7 @@ public class MainMenuScript : MonoBehaviour
     public void onStartGame()
     {
         SelectEmitter.Play();
-        SceneManager.LoadScene(1);
+        StartCoroutine(changeScene());
     }
 
     public void onSettings()
@@ -72,5 +78,12 @@ public class MainMenuScript : MonoBehaviour
 
 
 
-
+    private IEnumerator changeScene()
+    {
+        if (MoveAnimationEmitter!=null) MoveAnimationEmitter.Play();
+        cameraChangeAnimation.Play();
+        canvasChangeAnimation.Play();
+        yield return new WaitForSeconds(timeToChangeScene);
+        SceneManager.LoadScene(1);
+    }
 }
