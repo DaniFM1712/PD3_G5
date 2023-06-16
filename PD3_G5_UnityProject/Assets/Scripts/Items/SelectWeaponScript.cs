@@ -14,6 +14,7 @@ public class SelectWeaponScript : MonoBehaviour
     [SerializeField] GameObject weaponCanvas;
     [SerializeField] GameObject shotgunButton;
     [SerializeField] GameObject ammoCounter;
+    [SerializeField] GameObject canvasTake;
     GameObject player;
 
     private bool canChangeWeapon = false;
@@ -114,11 +115,13 @@ public class SelectWeaponScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        canvasTake.SetActive(true);
         canChangeWeapon = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
+        canvasTake.SetActive(false);
         canChangeWeapon = false;
     }
 
