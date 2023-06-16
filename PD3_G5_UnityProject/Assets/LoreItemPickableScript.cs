@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using FMODUnity;
+using UnityEngine.Timeline;
 
 public class LoreItemPickableScript : MonoBehaviour
 {
     [SerializeField] int loreNum;
     [SerializeField] GameObject loreMesh;
     [SerializeField] GameObject canvas;
+    private GameObject canvasLore;
     [SerializeField] int percentRan;
     private bool canTake = false;
     [Header("FMOD")]
@@ -30,6 +32,9 @@ public class LoreItemPickableScript : MonoBehaviour
             {
                 loreMesh.SetActive(true);
                 PlayerStatsScript.instance.loreEnabled = true;
+                //canvasLore = GameObject.Find("CanvasPrefab/loreAppears");
+                //canvasLore.SetActive(true);
+                //StartCoroutine(DestroyText());
             }
             else
             {
@@ -54,6 +59,11 @@ public class LoreItemPickableScript : MonoBehaviour
             Destroy(canvas);
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator destroyText()
+    {
+        yield return new WaitForSecondsRealtime(5f);
     }
 
     private void OnTriggerEnter(Collider other)
