@@ -137,12 +137,6 @@ public class LevelManager : MonoBehaviour
         levelCaoticIndex.Insert(storePos, 2);
 
 
-        /*
-        foreach(int k in levelIndex)
-        {
-            Debug.Log(k);
-        }
-        */
 
 
 
@@ -150,13 +144,7 @@ public class LevelManager : MonoBehaviour
         levelNocturnalPath = new Queue<int>(levelNocturnalIndex);
         levelCaoticPath = new Queue<int>(levelCaoticIndex);
         
-        /*
-        foreach (int k in levelPath)
-        {
-            Debug.Log("LP: "+k);
-        }
-        */
-        Debug.Log(levelDiurnalPath.Count);
+
         //levelPath.Enqueue(0); Nivel final que añadimos, bossLvl
     }
 
