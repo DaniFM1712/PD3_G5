@@ -44,11 +44,15 @@ public class LevelManager : MonoBehaviour
     {
         PlayerStatsScript.instance.SaveBlessings();
         previousScene = getCurrentSceneIndex();
-        if(randomPath)
+        if (randomPath)
             generateRandomPath();
         else
+        {
             levelDiurnalPath = new Queue<int>(manualLevelPath);
-    }
+            levelNocturnalPath = new Queue<int>(manualLevelPath);
+            levelCaoticPath = new Queue<int>(manualLevelPath);
+        }
+   }
 
 
     public void LoadLevel() {
@@ -103,6 +107,7 @@ public class LevelManager : MonoBehaviour
     public void generateRandomPath()
     {
         levelDiurnalIndex = new List<int>(diurnalLevels);
+        Debug.Log("levelDiurnalIndex" + levelDiurnalIndex.Count);
         levelNocturnalIndex = new List<int>(nocturnalLevels);
         levelCaoticIndex = new List<int>(caoticLevels);
 
