@@ -24,7 +24,11 @@ public class BulletScript : MonoBehaviour
     private void Start()
     {
         if(hitEffectPrefab != null)
+        {
             hitEffect = Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
+            hitEffect.transform.parent = transform;
+        }
+
 
     }
 
