@@ -56,10 +56,9 @@ public class LevelManager : MonoBehaviour
 
 
     public void LoadLevel() {
-        moveEmitter.Stop();
+        //SceneManager.LoadScene(13);
         SceneManager.UnloadSceneAsync(LevelManager.instance.getCurrentSceneIndex());
         SceneManager.LoadScene(13);
-
         switch (currentGameMode)
         {
             case 0:
@@ -68,7 +67,6 @@ public class LevelManager : MonoBehaviour
                     PlayerStatsScript.instance.SaveBlessings();
                     previousScene = getCurrentSceneIndex();
                     StartCoroutine(LoadSceneAsync(levelDiurnalPath.Dequeue()));
-
                     //SceneManager.LoadScene(levelDiurnalPath.Dequeue());
                 }
                 else
@@ -113,6 +111,7 @@ public class LevelManager : MonoBehaviour
 
     public void generateRandomPath()
     {
+        PlayerStatsScript.instance.previousSpecialCoin = PlayerStatsScript.instance.currentSpecialCoin;
         levelDiurnalIndex = new List<int>(diurnalLevels);
         Debug.Log("levelDiurnalIndex" + levelDiurnalIndex.Count);
         levelNocturnalIndex = new List<int>(nocturnalLevels);
@@ -195,7 +194,6 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(LoadSceneAsync(getCurrentSceneIndex()));
         //SceneManager.LoadScene(getCurrentSceneIndex());
     }
-
     public void RestartGame(int scene)
     {
         generateRandomPath();

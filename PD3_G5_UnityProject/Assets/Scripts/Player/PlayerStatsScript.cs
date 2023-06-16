@@ -49,6 +49,7 @@ public class PlayerStatsScript : MonoBehaviour
     public ProjectileShootingScript currentWeapon;
     public int currentNormalCoin;
     public int currentSpecialCoin;
+    public int previousSpecialCoin;
     public int activatedBlessings = 0;
     public bool isReloading = false;
 
@@ -216,6 +217,7 @@ public class PlayerStatsScript : MonoBehaviour
         currentWeaponIndex = 0;
         currentNormalCoin = 0;
         currentSpecialCoin = 0;
+        previousSpecialCoin = 0;
         currentWeapon = null;
 
         //---------BLESSINGS---------//

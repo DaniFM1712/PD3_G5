@@ -131,6 +131,10 @@ public class PlayerHealthScript : MonoBehaviour
         else
         {
             PlayerStatsScript.instance.currentSpecialCoin /= 2;
+            if(PlayerStatsScript.instance.currentSpecialCoin < PlayerStatsScript.instance.previousSpecialCoin)
+            {
+                PlayerStatsScript.instance.currentSpecialCoin = PlayerStatsScript.instance.previousSpecialCoin;
+            }
             LevelManager.instance.GoToDeathMenu();
         }
 

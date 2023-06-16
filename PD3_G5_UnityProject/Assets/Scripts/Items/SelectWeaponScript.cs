@@ -41,6 +41,7 @@ public class SelectWeaponScript : MonoBehaviour
     {
       if(canChangeWeapon && Input.GetKeyDown(KeyCode.E))
         {
+            canvasTake.SetActive(false);
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None; 
             weaponCanvas.SetActive(true);
