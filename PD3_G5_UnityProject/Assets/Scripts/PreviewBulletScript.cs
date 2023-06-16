@@ -45,4 +45,9 @@ public class PreviewBulletScript : MonoBehaviour
         specialEffect.transform.position = originPosition;
         specialEffect.transform.rotation = Quaternion.identity;
     }
+
+    private void OnDestroy()
+    {
+        Destroy(specialEffect);
+    }
 }
