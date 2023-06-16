@@ -10,6 +10,7 @@ public class CooldownScript : MonoBehaviour
     [SerializeField] Image dashCDImage;
     [SerializeField] Image abilityCDImage;
     [SerializeField] Image grenadeCDImage;
+
     GameObject dashCDGO;
     GameObject abilityCDGO;
     GameObject grenadeCDGO;
@@ -34,6 +35,16 @@ public class CooldownScript : MonoBehaviour
         dashCDGO = dashCDImage.transform.parent.gameObject;
         abilityCDGO = abilityCDImage.transform.parent.gameObject;
         grenadeCDGO = grenadeCDImage.transform.parent.gameObject;
+
+        if (!PlayerStatsScript.instance.dashUnlocked)
+        {
+            dashCDImage.GetComponent<Image>().enabled = true;
+        }
+        if (!PlayerStatsScript.instance.grenadeUnlocked)
+        {
+            grenadeCDImage.GetComponent<Image>().enabled = true;
+        }
+
     }
 
     // Update is called once per frame

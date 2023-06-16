@@ -55,9 +55,9 @@ public class LevelManager : MonoBehaviour
    }
 
 
-    public void LoadLevel() {
+    public int LoadLevel() {
         moveEmitter.Stop();
-        SceneManager.LoadScene(13);
+        //SceneManager.LoadScene(13);
 
         switch (currentGameMode)
         {
@@ -66,7 +66,7 @@ public class LevelManager : MonoBehaviour
                 {
                     PlayerStatsScript.instance.SaveBlessings();
                     previousScene = getCurrentSceneIndex();
-                    StartCoroutine(LoadSceneAsync(levelDiurnalPath.Dequeue()));
+                    return levelDiurnalPath.Dequeue();
                     //SceneManager.LoadScene(levelDiurnalPath.Dequeue());
                 }
                 else
@@ -79,7 +79,7 @@ public class LevelManager : MonoBehaviour
                 {
                     PlayerStatsScript.instance.SaveBlessings();
                     previousScene = getCurrentSceneIndex();
-                    StartCoroutine(LoadSceneAsync(levelNocturnalPath.Dequeue()));
+                    return levelNocturnalPath.Dequeue();
                     //SceneManager.LoadScene(levelNocturnalPath.Dequeue());
                 }
                 else
@@ -92,7 +92,7 @@ public class LevelManager : MonoBehaviour
                 {
                     PlayerStatsScript.instance.SaveBlessings();
                     previousScene = getCurrentSceneIndex();
-                    StartCoroutine(LoadSceneAsync(levelCaoticPath.Dequeue()));
+                    return levelCaoticPath.Dequeue();
                     //SceneManager.LoadScene(levelCaoticPath.Dequeue());
                 }
                 else
@@ -107,6 +107,7 @@ public class LevelManager : MonoBehaviour
         }
 
         CoinCounterScript.coinCounterInstance.updateSCCounter(0);
+        return -1;
     }
 
     public void generateRandomPath()
@@ -216,6 +217,7 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator LoadSceneAsync(int sceneIndex)
     {
+        yield return new WaitForSeconds(1f);
         Debug.Log("LOADING SCENE");
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
