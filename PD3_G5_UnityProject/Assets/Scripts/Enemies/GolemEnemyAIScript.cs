@@ -457,14 +457,6 @@ public class GolemEnemyAIScript : ParentEnemyIAScript
 
     private void OnDestroy()
     {
-        try
-        {
-            previewBullet.SetActive(false);
-        }
-        catch (Exception e)
-        {
-            Debug.LogException(e);  
-        }
         Destroy(previewBullet);
     }
 

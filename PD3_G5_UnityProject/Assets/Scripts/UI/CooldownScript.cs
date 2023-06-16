@@ -10,6 +10,9 @@ public class CooldownScript : MonoBehaviour
     [SerializeField] Image dashCDImage;
     [SerializeField] Image abilityCDImage;
     [SerializeField] Image grenadeCDImage;
+    GameObject dashCDGO;
+    GameObject abilityCDGO;
+    GameObject grenadeCDGO;
     float dashCDTime;
     float abilityCDTime;
     float grenadeCDTime;
@@ -28,7 +31,9 @@ public class CooldownScript : MonoBehaviour
         abilityCDImage.enabled = false;
         grenadeCDImage.enabled = false;
 
-
+        dashCDGO = dashCDImage.transform.parent.gameObject;
+        abilityCDGO = abilityCDImage.transform.parent.gameObject;
+        grenadeCDGO = grenadeCDImage.transform.parent.gameObject;
     }
 
     // Update is called once per frame
@@ -45,6 +50,10 @@ public class CooldownScript : MonoBehaviour
                 dashCDTime = dashCooldown;
                 dashCDImage.fillAmount = 1;
                 dashCDImage.enabled = false;
+                LeanTween.moveLocal(dashCDGO, new Vector3(-10, 15, 0), 0.1f).setOnComplete(() =>
+                {
+                    LeanTween.moveLocal(dashCDGO, new Vector3(-10, 0, 0), 0.2f);
+                });
             }
         }
 
@@ -58,6 +67,11 @@ public class CooldownScript : MonoBehaviour
                 abilityCDTime = abilityCooldown;
                 abilityCDImage.fillAmount = 1;
                 abilityCDImage.enabled = false;
+
+                LeanTween.moveLocal(grenadeCDGO, new Vector3(261, 15, 0), 0.1f).setOnComplete(() =>
+                {
+                    LeanTween.moveLocal(grenadeCDGO, new Vector3(261, 0, 0), 0.2f);
+                });
             }
         }
         
@@ -71,6 +85,10 @@ public class CooldownScript : MonoBehaviour
                 grenadeCDTime = abilityCooldown;
                 grenadeCDImage.fillAmount = 1;
                 grenadeCDImage.enabled = false;
+                LeanTween.moveLocal(abilityCDGO, new Vector3(124.9999f, 15, 0), 0.1f).setOnComplete(() =>
+                {
+                    LeanTween.moveLocal(abilityCDGO, new Vector3(124.9999f, 0, 0), 0.2f);
+                });
             }
         }
 
