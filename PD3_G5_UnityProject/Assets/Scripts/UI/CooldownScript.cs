@@ -79,9 +79,9 @@ public class CooldownScript : MonoBehaviour
                 abilityCDImage.fillAmount = 1;
                 abilityCDImage.enabled = false;
 
-                LeanTween.moveLocal(grenadeCDGO, new Vector3(261, 15, 0), 0.1f).setOnComplete(() =>
+                LeanTween.moveLocal(abilityCDGO, new Vector3(261, 15, 0), 0.1f).setOnComplete(() =>
                 {
-                    LeanTween.moveLocal(grenadeCDGO, new Vector3(261, 0, 0), 0.2f);
+                    LeanTween.moveLocal(abilityCDGO, new Vector3(261, 0, 0), 0.2f);
                 });
             }
         }
@@ -96,9 +96,9 @@ public class CooldownScript : MonoBehaviour
                 grenadeCDTime = abilityCooldown;
                 grenadeCDImage.fillAmount = 1;
                 grenadeCDImage.enabled = false;
-                LeanTween.moveLocal(abilityCDGO, new Vector3(124.9999f, 15, 0), 0.1f).setOnComplete(() =>
+                LeanTween.moveLocal(grenadeCDGO, new Vector3(124.9999f, 15, 0), 0.1f).setOnComplete(() =>
                 {
-                    LeanTween.moveLocal(abilityCDGO, new Vector3(124.9999f, 0, 0), 0.2f);
+                    LeanTween.moveLocal(grenadeCDGO, new Vector3(124.9999f, 0, 0), 0.2f);
                 });
             }
         }

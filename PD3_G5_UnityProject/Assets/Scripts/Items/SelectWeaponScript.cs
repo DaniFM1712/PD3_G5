@@ -103,7 +103,6 @@ public class SelectWeaponScript : MonoBehaviour
         SelectEmitter.Play();
     }
 
-
     public void activeShotGunElements()
     {
         Debug.Log("ENTRO AL EVENTO");
