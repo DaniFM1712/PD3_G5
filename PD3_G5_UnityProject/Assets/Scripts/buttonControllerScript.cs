@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class buttonControllerScript : MonoBehaviour
 {
 
-    Button resume;
-    Button settings;
-    Button menu;
+    Button resumeBtn;
+    Button menuBtn;
 
 
     [SerializeField] KeyCode menuKey = KeyCode.Escape;
-    GameObject menuPause;
+    GameObject pauseBG;
+    GameObject pauseUI;
 
     [Header("FMOD")]
     public StudioEventEmitter CancelEmitter;
@@ -24,17 +24,16 @@ public class buttonControllerScript : MonoBehaviour
     void Start()
     {
 
-        resume = GameObject.Find("CanvasPrefab/PauseMenu/ResumeButton").GetComponent<Button>();
-        settings = GameObject.Find("CanvasPrefab/PauseMenu/SettingsButton").GetComponent<Button>();
-        menu = GameObject.Find("CanvasPrefab/PauseMenu/BackToMenuButton").GetComponent<Button>();
-        menuPause = GameObject.Find("CanvasPrefab/PauseMenu");
+        resumeBtn = GameObject.Find("CanvasPrefab/PauseMenu/PauseUI/ResumeButton").GetComponent<Button>();
+        menuBtn = GameObject.Find("CanvasPrefab/PauseMenu/PauseUI/BackToMenuButton").GetComponent<Button>();
+        pauseBG = GameObject.Find("CanvasPrefab/PauseMenu/BackgroundImage");
+        pauseUI = GameObject.Find("CanvasPrefab/PauseMenu/PauseUI");
 
-        resume.onClick.AddListener(delegate () { HideMenuUI(); });
-        settings.onClick.AddListener(delegate () { ShowSettingsUI(); });
-        menu.onClick.AddListener(delegate () { GoToMainMenu(); });
+        resumeBtn.onClick.AddListener(delegate () { HideMenuUI(); });
+        menuBtn.onClick.AddListener(delegate () { GoToMainMenu(); });
 
-
-        menuPause.SetActive(false);
+        Debug.Log("PAUSEBG: "+pauseBG);
+        pauseBG.SetActive(false);
 
     }
 
@@ -47,7 +46,7 @@ public class buttonControllerScript : MonoBehaviour
             {
                 ShowMenuUI();
             }
-            else if (Time.timeScale == 0f && menuPause.activeSelf)
+            else if (Time.timeScale == 0f && pauseBG.activeSelf)
             {
                 HideMenuUI();
             }
@@ -57,23 +56,33 @@ public class buttonControllerScript : MonoBehaviour
 
     public void ShowMenuUI()
     {
-        menuPause.SetActive(true);
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None; 
-        CancelEmitter.Play();
-        SelectEmitter.Play();
+        pauseBG.SetActive(true);
+
+        LeanTween.moveLocal(pauseUI, new Vector3(0f, 0f, 0f), 0.5f).setOnStart(() => {
+            //ShowMenuUI();
+            CancelEmitter.Play();
+            SelectEmitter.Play();
+        }).setOnComplete(() => {
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
+        });
+
+
     }
     public void HideMenuUI()
     {
-        menuPause.SetActive(false);
         Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
-        CancelEmitter.Play();
+        LeanTween.moveLocal(pauseUI, new Vector3(0f, 1050f, 0f), 0.5f).setOnStart(() => {
+            CancelEmitter.Play();
+            Cursor.lockState = CursorLockMode.Locked;
+        }).setOnComplete(() => {
+            pauseBG.SetActive(false);
+        });
     }
 
     public void ShowSettingsUI()
     {
-        menuPause.SetActive(false);
+        pauseBG.SetActive(false);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         SelectEmitter.Play();
