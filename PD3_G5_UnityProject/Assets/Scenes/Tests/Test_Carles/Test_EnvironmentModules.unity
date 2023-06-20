@@ -14003,7 +14003,7 @@ PrefabInstance:
     - target: {fileID: 6780034775803161943, guid: c8692a8dfeba3d943837cb8bfdac058f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6780034775803161943, guid: c8692a8dfeba3d943837cb8bfdac058f,
         type: 3}
@@ -19687,6 +19687,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 729154174}
   - {fileID: 1953674515}
   - {fileID: 464776123}
   m_Father: {fileID: 0}
@@ -23152,6 +23153,86 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7668755542952303229, guid: f5c26706c57517247b62a9f087b1d051,
     type: 3}
   m_PrefabInstance: {fileID: 727660469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &729154173
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 615329306}
+    m_Modifications:
+    - target: {fileID: 2736869871194784898, guid: ebf5a94bf211944499a06c5ec19a2f76,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: ebf5a94bf211944499a06c5ec19a2f76,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: ebf5a94bf211944499a06c5ec19a2f76,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: ebf5a94bf211944499a06c5ec19a2f76,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: ebf5a94bf211944499a06c5ec19a2f76,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.4326154
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: ebf5a94bf211944499a06c5ec19a2f76,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7438914
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: ebf5a94bf211944499a06c5ec19a2f76,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.35408235
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: ebf5a94bf211944499a06c5ec19a2f76,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.36619002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: ebf5a94bf211944499a06c5ec19a2f76,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -295.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: ebf5a94bf211944499a06c5ec19a2f76,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -146.297
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784898, guid: ebf5a94bf211944499a06c5ec19a2f76,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -209.248
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784903, guid: ebf5a94bf211944499a06c5ec19a2f76,
+        type: 3}
+      propertyPath: m_Name
+      value: Desert_Day_Light_Volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784903, guid: ebf5a94bf211944499a06c5ec19a2f76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ebf5a94bf211944499a06c5ec19a2f76, type: 3}
+--- !u!4 &729154174 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2736869871194784898, guid: ebf5a94bf211944499a06c5ec19a2f76,
+    type: 3}
+  m_PrefabInstance: {fileID: 729154173}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &731018452
 PrefabInstance:
@@ -61565,7 +61646,7 @@ PrefabInstance:
     - target: {fileID: 2736869871194784898, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2736869871194784898, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
         type: 3}
@@ -61621,6 +61702,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Day_Light_Volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736869871194784903, guid: 7a2f27191d3e54b4ab99eec09c6b160f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a2f27191d3e54b4ab99eec09c6b160f, type: 3}
