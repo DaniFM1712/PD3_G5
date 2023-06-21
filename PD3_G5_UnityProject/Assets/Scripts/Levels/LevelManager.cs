@@ -72,7 +72,6 @@ public class LevelManager : MonoBehaviour
                     previousScene = getCurrentSceneIndex();
                     StartCoroutine(LoadSceneAsync(levelDiurnalPath.Dequeue()));
                     //SceneManager.LoadScene(levelDiurnalPath.Dequeue());
-                    musicDiurnEmitter.Play();
                 }
                 else
                 {
@@ -85,7 +84,6 @@ public class LevelManager : MonoBehaviour
                     PlayerStatsScript.instance.SaveBlessings();
                     previousScene = getCurrentSceneIndex();
                     StartCoroutine(LoadSceneAsync(levelNocturnalPath.Dequeue()));
-                    musicNocEmitter.Play();
                     //SceneManager.LoadScene(levelNocturnalPath.Dequeue());
                 }
                 else
