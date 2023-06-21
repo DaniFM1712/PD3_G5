@@ -124,9 +124,7 @@ public class FPController : MonoBehaviour
         moved = updateMoveStats();
         inputUpdate();
         checkDash();
-#if (UNITY_EDITOR)
-        updateLockKeyState();
-#endif
+        //updateLockKeyState();
 
         if (PlayerStatsScript.instance.speedBuffAfterKilling)
         {
