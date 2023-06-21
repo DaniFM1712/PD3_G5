@@ -17,6 +17,7 @@ public class NextLevelScript : MonoBehaviour
     [Header("Particles")]
     [SerializeField] ParticleSystem particles;
     [SerializeField] Animator portalAnimator;
+    GameObject player;
     private void Start()
     {
         if(exitLevel != null)
@@ -31,7 +32,7 @@ public class NextLevelScript : MonoBehaviour
             //Debug.Log("entro");
             exitLevelText.enabled = false;
             portalAnimator.SetBool("exit",true);
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<FPController>().MuteSteps();
             player.SetActive(false);
             StartCoroutine(LoadNextLevel());
         }       
@@ -52,6 +53,7 @@ public class NextLevelScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            player = other.gameObject;
             goNextLevel = true;
             if (exitLevel != null)
                 exitLevelText.enabled = true;
@@ -63,7 +65,7 @@ public class NextLevelScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            
+            player = null;
             goNextLevel = false;
             if (exitLevel != null)
                 exitLevelText.enabled = false;

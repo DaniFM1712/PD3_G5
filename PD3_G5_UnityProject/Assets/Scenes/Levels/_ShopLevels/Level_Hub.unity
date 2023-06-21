@@ -10672,6 +10672,7 @@ MonoBehaviour:
   - {fileID: 1347352043}
   - {fileID: 1438567859}
   toolsPrices: 0f00000064000000140000006400000050000000
+  selectWeapon: {fileID: 1835630173}
   inventoryButtons:
   - {fileID: 749883947}
   - {fileID: 1271403364}
@@ -26753,6 +26754,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 99265185896896459, guid: 7ed0031eede275949bfaf4a56f48efad,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 99265185896896459, guid: 7ed0031eede275949bfaf4a56f48efad,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 459996486}
@@ -42130,6 +42136,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 869808051}
     m_Modifications:
     - target: {fileID: 2136781526569148784, guid: 4f2a4564b7d8e5742859da5d246a800b,
+        type: 3}
+      propertyPath: m_text
+      value: Press E to start run!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212632646996663414, guid: 4f2a4564b7d8e5742859da5d246a800b,
         type: 3}
       propertyPath: m_text
       value: Press E to start run!

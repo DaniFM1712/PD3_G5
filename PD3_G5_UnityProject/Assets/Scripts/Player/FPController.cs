@@ -124,7 +124,9 @@ public class FPController : MonoBehaviour
         moved = updateMoveStats();
         inputUpdate();
         checkDash();
+#if (UNITY_EDITOR)
         updateLockKeyState();
+#endif
 
         if (PlayerStatsScript.instance.speedBuffAfterKilling)
         {
@@ -151,6 +153,7 @@ public class FPController : MonoBehaviour
         if (Input.GetKeyDown(mouseLockKey))
             Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked) ? CursorLockMode.None : CursorLockMode.Locked;
     }
+
 
     void rotate()
     {
@@ -194,7 +197,7 @@ public class FPController : MonoBehaviour
     {
         Vector3 forward = getForward();
         Vector3 right = getRight();
-        direction = new Vector3(0, 0, 0);
+        direction = Vector3.zero;
         if (Input.GetKey(forwardKey))
         {
             direction += forward;
@@ -224,11 +227,7 @@ public class FPController : MonoBehaviour
             moveEmitter.Stop();
         }
       
-
-
         currSpeed = (walkSpeed + PlayerStatsScript.instance.currentSpeedBonus)*PlayerStatsScript.instance.currentSpeedMultiplyer;
-
-        
 
         if (direction.magnitude == 0) AnimatorEventConsumerScript.instance.startIdleAnimation();
         else AnimatorEventConsumerScript.instance.startWalkAnimation();
@@ -376,6 +375,10 @@ public class FPController : MonoBehaviour
         }
     }
 
+    public void MuteSteps()
+    {
+        moveEmitter.Stop();
+    }
 
 
 }

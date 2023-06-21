@@ -115,14 +115,21 @@ public class SelectWeaponScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        canvasTake.SetActive(true);
-        canChangeWeapon = true;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            canvasTake.SetActive(true);
+            canChangeWeapon = true;
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        canvasTake.SetActive(false);
-        canChangeWeapon = false;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            canvasTake.SetActive(false);
+            canChangeWeapon = false;
+        }
     }
 
 

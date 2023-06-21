@@ -200,6 +200,7 @@ public class PlayerStatsScript : MonoBehaviour
             }
             statsUpgrades.Add(false);
         }
+        loreUnlocked[0] = true;
 
         //----------MAX--STATS----------//
         currentMaxHealth = baseMaxHealth;

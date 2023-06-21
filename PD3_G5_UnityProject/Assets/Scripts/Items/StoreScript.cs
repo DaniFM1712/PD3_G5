@@ -26,6 +26,7 @@ public class StoreScript : MonoBehaviour
     [Header("WeaponInfo")]
     [SerializeField] List<Button> toolsButtons = new List<Button>();
     [SerializeField] List<int> toolsPrices = new List<int>();
+    [SerializeField] SelectWeaponScript selectWeapon;
 
     [Header("InventoryInfo")]
     [SerializeField] List<Button> inventoryButtons = new List<Button>();
@@ -374,6 +375,7 @@ public class StoreScript : MonoBehaviour
     {
         if (PlayerStatsScript.instance.currentSpecialCoin >= toolsPrices[4])
         {
+            selectWeapon.activeShotGunElements();
             PlayerStatsScript.instance.shotgunUnlocked = true;
             toolsButtons[4].interactable = false;
             CoinCounterScript.coinCounterInstance.updateSCCounter(-toolsPrices[4]);
@@ -655,14 +657,21 @@ public class StoreScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        canvasTake.SetActive(true);
-        canShop = true;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            canvasTake.SetActive(true);
+            canShop = true;
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        canvasTake.SetActive(false);
-        canShop = false;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            canvasTake.SetActive(false);
+            canShop = false;
+        }
     }
 
 }

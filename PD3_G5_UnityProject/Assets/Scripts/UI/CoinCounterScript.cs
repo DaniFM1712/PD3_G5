@@ -42,12 +42,14 @@ public class CoinCounterScript : MonoBehaviour
 
     private void Update()
     {
+#if (UNITY_EDITOR)
         if (Input.GetKeyDown(KeyCode.V))
         {
             updateNCCounter(100);
             updateSCCounter(100);
         }
     }
+#endif
 
     public void updateNCCounter(int amount)
     {
