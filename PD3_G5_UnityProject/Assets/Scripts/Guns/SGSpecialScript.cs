@@ -37,6 +37,7 @@ public class SGSpecialScript : MonoBehaviour
 
     private int totalBullets = 0;
     private bool canDoubleShot = true;
+    [SerializeField] GameObject player;
 
 
 
@@ -97,6 +98,7 @@ public class SGSpecialScript : MonoBehaviour
         {
             specialBulletsShot = 0;
             ShootSpecial();
+            StartCoroutine(player.GetComponent<FPController>().Shake(0.15f, 0.2f)); 
             cooldown.StartAbilityCooldown(specialCooldownTime);
             Debug.Log(totalBullets);
             totalBullets  = 0;

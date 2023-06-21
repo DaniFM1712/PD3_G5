@@ -23,14 +23,7 @@ public class PlayerHealthScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0.2f) || (PlayerStatsScript.instance.currentHealth <= 0))
-        {
-            lowHpEmitter.Stop();
-        }
-        else if (((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) < 0.2f) && ((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0))
-        {
-            lowHpEmitter.Play();
-        }
+        
         currentDashHealTimer = dashHealBlessingTimer;
         healthUI = HealthUIScript.instance;
         if (PlayerStatsScript.instance.highHealthDamageBuff && !PlayerStatsScript.instance.highHealthDamageApplied)
@@ -55,6 +48,16 @@ public class PlayerHealthScript : MonoBehaviour
                 accumulatedHeal = 0;
             }
         }
+
+        /*if (((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0.2f) || (PlayerStatsScript.instance.currentHealth <= 0))
+        {
+            lowHpEmitter.Stop();
+        }
+        else if (((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) < 0.2f) && ((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0))
+        {
+            lowHpEmitter.Play();
+        }*/
+
     }
 
     public void ModifyHealth(float modifier)
@@ -97,8 +100,9 @@ public class PlayerHealthScript : MonoBehaviour
         else 
             healthUI.updateHealth(false);
 
-        if (((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0.2f) || (PlayerStatsScript.instance.currentHealth  <= 0))
+        if (((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) >= 0.2f) || (PlayerStatsScript.instance.currentHealth  <= 0))
         {
+            lifeActive = false;
             lowHpEmitter.Stop();
         }
         else if (((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) < 0.2f) && ((PlayerStatsScript.instance.currentHealth / PlayerStatsScript.instance.GetCurrentMaxHealth()) > 0) && !lifeActive)

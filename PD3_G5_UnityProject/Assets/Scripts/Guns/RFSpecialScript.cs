@@ -33,6 +33,7 @@ public class RFSpecialScript : MonoBehaviour
     CooldownScript cooldown;
     TrapDealsDamageBlessingScript trapDamageIncreasedBlessing;
     public int currentTrapCharges;
+    [SerializeField] GameObject player;
 
     [Header("FMOD")]
     public StudioEventEmitter TrapShootEmitter;
@@ -78,6 +79,7 @@ public class RFSpecialScript : MonoBehaviour
             //START COOLDOWN SS
             TrapShootEmitter.Play();
             ShootSpecial();
+            StartCoroutine(player.GetComponent<FPController>().Shake(0.15f, 0.2f));
             if (currentTrapCharges > 1)
             {
                 currentTrapCharges--;

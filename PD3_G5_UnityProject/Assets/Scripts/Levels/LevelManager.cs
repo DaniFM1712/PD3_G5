@@ -27,6 +27,8 @@ public class LevelManager : MonoBehaviour
 
     [Header("FMOD")]
     public StudioEventEmitter moveEmitter;
+    public StudioEventEmitter musicNocEmitter;
+    public StudioEventEmitter musicDiurnEmitter;
     public static LevelManager instance { get; private set; }
     //[SerializeField] UnityEvent<float, float> callScene;
 
@@ -56,6 +58,8 @@ public class LevelManager : MonoBehaviour
 
 
     public void LoadLevel() {
+        musicDiurnEmitter.Stop();
+        musicNocEmitter.Stop();
         //SceneManager.LoadScene(13);
         SceneManager.UnloadSceneAsync(LevelManager.instance.getCurrentSceneIndex());
         SceneManager.LoadScene(13);
@@ -68,6 +72,7 @@ public class LevelManager : MonoBehaviour
                     previousScene = getCurrentSceneIndex();
                     StartCoroutine(LoadSceneAsync(levelDiurnalPath.Dequeue()));
                     //SceneManager.LoadScene(levelDiurnalPath.Dequeue());
+                    musicDiurnEmitter.Play();
                 }
                 else
                 {
@@ -80,6 +85,7 @@ public class LevelManager : MonoBehaviour
                     PlayerStatsScript.instance.SaveBlessings();
                     previousScene = getCurrentSceneIndex();
                     StartCoroutine(LoadSceneAsync(levelNocturnalPath.Dequeue()));
+                    musicNocEmitter.Play();
                     //SceneManager.LoadScene(levelNocturnalPath.Dequeue());
                 }
                 else
@@ -94,6 +100,9 @@ public class LevelManager : MonoBehaviour
                     previousScene = getCurrentSceneIndex();
                     StartCoroutine(LoadSceneAsync(levelCaoticPath.Dequeue()));
                     //SceneManager.LoadScene(levelCaoticPath.Dequeue());
+
+
+
                 }
                 else
                 {
@@ -168,6 +177,8 @@ public class LevelManager : MonoBehaviour
 
     public void GoToDeathMenu()
     {
+        musicDiurnEmitter.Stop();
+        musicNocEmitter.Stop();
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(13);
         StartCoroutine(LoadSceneAsync(3));
@@ -184,6 +195,8 @@ public class LevelManager : MonoBehaviour
     }
     public void RestartGame(int scene)
     {
+        musicDiurnEmitter.Stop();
+        musicNocEmitter.Stop();
         generateRandomPath();
         CoinCounterScript.coinCounterInstance.resetNCCounter();
         InventoryManagerScript.InventoryInstance.ResetInventory();
@@ -215,5 +228,18 @@ public class LevelManager : MonoBehaviour
             yield return null;
         }
         Debug.Log("DONE LOADING SCENE");
+        if (LevelManager.instance.getCurrentSceneIndex() == 1 )
+        {
+        }
+        else if(LevelManager.instance.getCurrentSceneIndex() > 8)
+        {
+            musicNocEmitter.Play();
+        } 
+        else {
+            musicDiurnEmitter.Play();
+        }
     }
+
+
+
 }

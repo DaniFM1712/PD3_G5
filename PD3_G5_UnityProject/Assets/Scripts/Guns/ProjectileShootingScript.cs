@@ -49,7 +49,7 @@ public class ProjectileShootingScript : MonoBehaviour
     Queue<GameObject> bulletPool;
 
     [SerializeField] private UnityEvent<float> PlayerHasShoot;
-    private GameObject player;
+    [SerializeField] GameObject player;
     private int shotCounter = 0;
     private bool reloadBuff = false;
     [SerializeField] float ammoBuffCooldown = 20f;
@@ -67,7 +67,7 @@ public class ProjectileShootingScript : MonoBehaviour
     {
         ammoBuffTimer = ammoBuffCooldown;
         //animatorConsumer = GameObject.Find("AnimatorConsumerPrefab").GetComponent<AnimatorEventConsumerScript>();
-        player = transform.parent.parent.parent.gameObject;
+        //player = transform.parent.parent.parent.gameObject;
         baseTimeBetweenShooting = timeBetweenShooting;
         //cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         bulletCounterText = GameObject.Find("CanvasPrefab/Bullets/BulletCounter").GetComponent<TextMeshProUGUI>();
@@ -144,12 +144,20 @@ public class ProjectileShootingScript : MonoBehaviour
                 }
 
                 Shoot();
-                StartCoroutine(player.GetComponent<FPController>().Shake(0.15f, 0.4f));
+                AnimatorEventConsumerScript.instance.startShootAnimation();
+                if(PlayerStatsScript.instance.currentWeaponIndex == 1)
+                {
+                    StartCoroutine(player.GetComponent<FPController>().Shake(0.15f, 0.1f));
+                }
+
+                else if(PlayerStatsScript.instance.currentWeaponIndex == 2)
+                {
+                    StartCoroutine(player.GetComponent<FPController>().Shake(0.15f, 0.4f));
+                }
                 if (PlayerStatsScript.instance.threeShotBuff)
                     shotCounter++;
                 else
                     shotCounter = 0;
-                AnimatorEventConsumerScript.instance.startShootAnimation();
             }
             else
                 Reload();
