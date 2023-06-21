@@ -26,6 +26,10 @@ public class Consumable : MonoBehaviour
     [Header("Particles")]
     [SerializeField] ChangeConsumableParticles consumableParticles;
 
+    [Header("Colours")]
+    [SerializeField] Color32 commonColour;
+    [SerializeField] Color32 rareColour;
+    [SerializeField] Color32 legendaryColour;
 
     // Start is called before the first frame update
 
@@ -61,15 +65,15 @@ public class Consumable : MonoBehaviour
             switch (_consumableAsset.rarity)
             {
                 case ConsumableAsset.Rarity.Common:
-                    backgroundUI.GetComponent<Image>().color = new Color32(0, 164, 255, 255);
+                    backgroundUI.GetComponent<Image>().color = commonColour; // new Color32(0, 164, 255, 255);
                     break;
 
                 case ConsumableAsset.Rarity.Rare:
-                    backgroundUI.GetComponent<Image>().color = new Color32(138, 43, 226, 255);
+                    backgroundUI.GetComponent<Image>().color = rareColour; // new Color32(138, 43, 226, 255);
                     break;
 
                 case ConsumableAsset.Rarity.Legendary:
-                    backgroundUI.GetComponent<Image>().color = new Color32(255, 182, 0, 255);
+                    backgroundUI.GetComponent<Image>().color = legendaryColour; // new Color32(255, 182, 0, 255);
                     break;
 
             }
