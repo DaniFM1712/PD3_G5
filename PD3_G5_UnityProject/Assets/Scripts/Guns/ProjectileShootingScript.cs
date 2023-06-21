@@ -29,7 +29,7 @@ public class ProjectileShootingScript : MonoBehaviour
     [SerializeField] float reloadDamageBuff = 30f;
 
     [Header("Spawn Point")]
-    private Camera cam;
+    [SerializeField] private Camera cam;
     private TextMeshProUGUI bulletCounterText;
     private GameObject bulletCounter;
     [SerializeField] Transform bulletOrigin;
@@ -67,8 +67,9 @@ public class ProjectileShootingScript : MonoBehaviour
     {
         ammoBuffTimer = ammoBuffCooldown;
         //animatorConsumer = GameObject.Find("AnimatorConsumerPrefab").GetComponent<AnimatorEventConsumerScript>();
+        player = transform.parent.parent.parent.gameObject;
         baseTimeBetweenShooting = timeBetweenShooting;
-        cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
+        //cam = GameObject.Find("Player/PitchController/Main Camera").GetComponent<Camera>();
         bulletCounterText = GameObject.Find("CanvasPrefab/Bullets/BulletCounter").GetComponent<TextMeshProUGUI>();
         bulletCounter = bulletCounterText.gameObject.transform.parent.gameObject;
 
@@ -94,7 +95,6 @@ public class ProjectileShootingScript : MonoBehaviour
             bulletCounterText.text = "0 / 0" ;
         }
 
-        player = transform.parent.parent.parent.gameObject;
     }
 
     // Update is called once per frame
@@ -144,7 +144,7 @@ public class ProjectileShootingScript : MonoBehaviour
                 }
 
                 Shoot();
-
+                StartCoroutine(player.GetComponent<FPController>().Shake(0.15f, 0.4f));
                 if (PlayerStatsScript.instance.threeShotBuff)
                     shotCounter++;
                 else

@@ -90,7 +90,9 @@ public class PlayerHealthScript : MonoBehaviour
         {
             recibirDañoEmitter.Play();
             healthUI.updateHealth(true);
-            StartCoroutine(Shake(0.15f, 0.4f));
+            StartCoroutine(GetComponent<FPController>().Shake(0.15f, 0.4f)) ;
+            
+            //StartCoroutine(Shake(0.15f, 0.4f));
         }
         else 
             healthUI.updateHealth(false);

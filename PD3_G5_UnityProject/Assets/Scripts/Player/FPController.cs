@@ -378,5 +378,23 @@ public class FPController : MonoBehaviour
         moveEmitter.Stop();
     }
 
+    public IEnumerator Shake(float duration, float magnitude)
+    {
+        Vector3 orignalPosition = pitchController.transform.localPosition;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float random = UnityEngine.Random.Range(-0.5f, 0.5f);
+            float x = (pitchController.transform.localPosition.x + random) * magnitude;
+            float y = orignalPosition.y;
+            float z = orignalPosition.z;
+
+            pitchController.transform.localPosition = new Vector3(x, y, z);
+            elapsed += Time.deltaTime;
+            yield return 0;
+        }
+        pitchController.transform.localPosition = orignalPosition;
+    }
 
 }
