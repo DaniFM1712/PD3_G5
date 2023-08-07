@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "modANGELsoul_Chill\xF3n_DES_MAT 1"
+  m_Shader: {fileID: -6465566751694194690, guid: 2b7bfd24cd24ab24da5f4ece4557a507,
+    type: 3}
+  m_ValidKeywords:
+  - _ALPHATEST_ON
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2450
+  stringTagMap:
+    RenderType: TransparentCutout
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 56f3297ecdfe14e4ca264da0a1bab162, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emission:
+        m_Texture: {fileID: 2800000, guid: da096a4656b1cca4586c355890ec149f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissiveMap:
+        m_Texture: {fileID: 2800000, guid: 283896452ee14cf48a43b0ce197e974f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Metallic:
+        m_Texture: {fileID: 2800000, guid: ad7b4dadca59c9f4891d3286beaa44d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: ad7b4dadca59c9f4891d3286beaa44d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaClip: 1
+    - _Blend: 0
+    - _CastShadows: 1
+    - _Cull: 2
+    - _DarkenEmissionOpacity: 3
+    - _DarkenNoiseOpacity: 0.93
+    - _DarkenNoiseScale: 4.25
+    - _DarkenNoiseSpeed: 0.1
+    - _DesintegrationScale: 100
+    - _Desintegration_Amount: 0
+    - _Desintegration_Width: 0.102
+    - _DstBlend: 0
+    - _Emissive2ndVoronoiCellDensity: 1
+    - _Emissive2ndVoronoiSpeed: 0.02
+    - _EmissiveMapScale: 2
+    - _EmissiveMapSpeed: 0.05
+    - _EmissiveNoiseScale: 100
+    - _EmissiveNoiseSpeed: 0.01
+    - _EmissiveVoronoiCellDensity: 4
+    - _EmissiveVoronoiSpeed: 2
+    - _NoiseOverEmissivePattern: 0.5
+    - _NoiseScale: 100
+    - _Normal_Shader: 1
+    - _OverAllOpacity: 0
+    - _OverEmissionOpacity: 2.06
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _Shader_Metallic: 0.35
+    - _Shader_Smoothness: 0.5
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _VertexWindSpeed: 0.1
+    - _WindStrength: 0.04
+    - _WorkflowMode: 1
+    - _ZTest: 4
+    - _ZWrite: 1
+    - _ZWriteControl: 0
+    m_Colors:
+    - _BaseColor: {r: 1, g: 0.775792, b: 0.4198113, a: 1}
+    - _DissolveColor: {r: 0.9433962, g: 0.7204751, b: 0.53844786, a: 1}
+    - _EmissiveColour: {r: 0.9622642, g: 0.7755052, b: 0.5310609, a: 0}
+    - _OverAllColour: {r: 0.9056604, g: 0.73637676, b: 0.48273405, a: 0}
+    - _WindDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!114 &8944047005860935314
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
